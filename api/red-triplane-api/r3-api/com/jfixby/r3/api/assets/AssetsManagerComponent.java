@@ -27,12 +27,12 @@ public interface AssetsManagerComponent {
 	<T extends Asset> void registerAssetContainer(AssetID asset_id,
 			AssetContainer<T> container);
 
-	void autoResolveAsset(AssetID dependency);
+	boolean autoResolveAsset(AssetID dependency);
 
 	void autoResolveAssets(Collection<AssetID> dependencies);
 
 	void printAllLoadedAssets();
 
-	void autoResolveAsset(AssetID asset_id, PACKAGE_PRIORITY priority);
+	boolean autoResolveAsset(AssetID asset_id, PACKAGE_PRIORITY priority);
 
 }

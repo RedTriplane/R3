@@ -61,8 +61,8 @@ public class AssetsManager {
 		invoke().releaseAllAssets(consumer);
 	}
 
-	public static void autoResolveAsset(AssetID dependency) {
-		invoke().autoResolveAsset(dependency);
+	public static boolean autoResolveAsset(AssetID dependency) {
+		return invoke().autoResolveAsset(dependency);
 	}
 
 	public static void autoResolveAssets(Collection<AssetID> dependencies) {
@@ -73,9 +73,9 @@ public class AssetsManager {
 		invoke().printAllLoadedAssets();
 	}
 
-	public static void autoResolveAsset(AssetID asset_id,
+	public static boolean autoResolveAsset(AssetID asset_id,
 			PACKAGE_PRIORITY priority) {
-		invoke().autoResolveAsset(asset_id, priority);
+		return invoke().autoResolveAsset(asset_id, priority);
 	}
 
 }
