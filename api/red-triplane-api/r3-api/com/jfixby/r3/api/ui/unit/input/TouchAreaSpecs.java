@@ -19,8 +19,8 @@ public interface TouchAreaSpecs {
 
 	public double getHeight();
 
-	public void setID(AssetID id);
+//	public void setID(AssetID id);
 
-	public AssetID getID();
+//	public AssetID getID();
 
 }

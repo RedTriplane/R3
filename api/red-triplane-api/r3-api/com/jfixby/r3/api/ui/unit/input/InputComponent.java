@@ -7,7 +7,7 @@ public interface InputComponent {
 
 	public String getName();
 
-	public AssetID getID();
+//	public AssetID getID();
 
 	public U_OnMouseInputEventListener getInputListener();
 

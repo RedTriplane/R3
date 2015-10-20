@@ -11,8 +11,10 @@ public interface ButtonSpecs {
 
 	public Collection<TouchAreaSpecs> listTouchAreas();
 
-	AssetID getID();
+	void setName(String button_name);
 
-	void setID(AssetID id);
+	// AssetID getID();
+
+	// void setID(AssetID id);
 
 }
