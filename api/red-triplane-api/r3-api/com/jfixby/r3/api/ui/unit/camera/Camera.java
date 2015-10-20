@@ -66,4 +66,7 @@ public interface Camera {
 
 	public void setPositionY(double camera_y);
 
+	public double getPositionX();
+	public double getPositionY();
+
 }
