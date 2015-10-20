@@ -6,7 +6,7 @@ import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_VERTICAL;
 import com.jfixby.cmns.api.math.Angle;
 
 public interface Camera {
-	
+
 	public static final float ABSOLUTE_DARKNESS = 1f;
 	public static final float ABSOLUTE_CLEAR = 0f;
 
@@ -61,5 +61,9 @@ public interface Camera {
 	public void setApertureOpacity(double d);
 
 	public double getApertureOpacity();
+
+	public void setPositionX(double camera_x);
+
+	public void setPositionY(double camera_y);
 
 }
