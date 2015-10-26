@@ -47,8 +47,4 @@ public class Scene2D {
 		return invoke().spawnScene(components_factory, name);
 	}
 
-	// public static void onUIStart() {
-	//
-	// }
-
 }
