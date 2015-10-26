@@ -16,7 +16,7 @@ public interface Scene extends CanvasComponent {
 
 	public Collection<Animation> listAnimations();
 
-	public Mapping<String, InputComponent> listInputComponents();
+	public Mapping<AssetID, InputComponent> listInputComponents();
 
 	Camera getCamera();
 

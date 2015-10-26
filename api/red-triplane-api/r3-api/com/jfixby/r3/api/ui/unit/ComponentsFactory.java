@@ -2,12 +2,13 @@ package com.jfixby.r3.api.ui.unit;
 
 import com.jfixby.r3.api.assets.AssetsConsumer;
 import com.jfixby.r3.api.ui.unit.animation.AnimationFactory;
+import com.jfixby.r3.api.ui.unit.geometry.GeometryComponentsFactory;
 import com.jfixby.r3.api.ui.unit.input.UserInputFactory;
 import com.jfixby.r3.api.ui.unit.layer.CameraComponentsFactory;
-import com.jfixby.r3.api.ui.unit.layer.GeometryComponentsFactory;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.layer.PhysicsFactory;
-import com.jfixby.r3.api.ui.unit.layer.RasterComponentsFactory;
+import com.jfixby.r3.api.ui.unit.raster.RasterComponentsFactory;
+import com.jfixby.r3.api.ui.unit.txt.TextFactory;
 
 public interface ComponentsFactory extends AssetsConsumer {
 
@@ -24,5 +25,7 @@ public interface ComponentsFactory extends AssetsConsumer {
 	UserInputFactory getUserInputDepartment();
 
 	PhysicsFactory getPhysicsDepartment();
+
+	TextFactory getTextDepartment();
 
 }

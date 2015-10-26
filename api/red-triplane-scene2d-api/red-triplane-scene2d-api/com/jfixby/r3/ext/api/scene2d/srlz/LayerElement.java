@@ -11,6 +11,7 @@ public class LayerElement {
 	public boolean is_hidden = false;
 	public boolean is_child_scene = false;
 	public boolean is_user_input = false;
+	public boolean is_text = false;
 
 	public boolean debug_mode = false;
 
@@ -19,6 +20,7 @@ public class LayerElement {
 	public String animation_id;
 	public String event_id;
 	public String input_id;
+	public String textbar_id;
 
 	public double opacity = 1;
 	public double position_x;
@@ -37,5 +39,7 @@ public class LayerElement {
 	public ChildSceneSettings child_scene_settings = null;
 	public InputSettings input_settings = null;
 	public CameraSettings camera_settings = null;
+	public TextSettings text_settings = null;
+	
 
 }
