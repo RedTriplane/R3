@@ -1,5 +1,7 @@
 package com.jfixby.r3.api.ui.unit.txt;
 
+import com.jfixby.r3.api.ui.unit.raster.CharRaster;
+
 public interface TextFactory {
 
 	TextBarSpecs newTextBarSpecs();
@@ -8,6 +10,8 @@ public interface TextFactory {
 
 	FontSize newFontSize();
 
-	FontName newFontName(String font_name_string);
+	
+
+	CharRaster newCharTile(CharSettings char_settings);
 
 }

@@ -2,7 +2,7 @@ package com.jfixby.r3.ext.api.font;
 
 public class CharRasterInfo {
 
-	public String string_value;
+	public String character;
 	public String raster_id;
 
 	public float font_size;
