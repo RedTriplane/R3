@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.text;
 
-public interface Chars {
+public interface CharSequence {
 
 	int size();
 
