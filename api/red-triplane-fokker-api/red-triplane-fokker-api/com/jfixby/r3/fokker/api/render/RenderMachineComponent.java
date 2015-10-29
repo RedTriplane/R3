@@ -50,8 +50,7 @@ public interface RenderMachineComponent {
 
 	void drawCircle(Color color, double center_x, double center_y, double radius);
 
-	void drawString(String string_value, RasterizedFont font,
-			CanvasPosition position);
+	void drawString(String string_value, RasterizedFont font, Rectangle shape);
 
 	// void drawShapesRenderable(FokkerShapesRenderable self_renderable);
 

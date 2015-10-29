@@ -92,8 +92,8 @@ public class RenderMachine {
 	}
 
 	public static void drawString(String string_value, RasterizedFont font,
-			CanvasPosition position) {
-		invoke().drawString(string_value, font, position);
+			Rectangle shape) {
+		invoke().drawString(string_value, font, shape);
 	}
 
 }
