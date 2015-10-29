@@ -10,8 +10,10 @@ public interface TextFactory {
 
 	FontSize newFontSize();
 
-	
-
 	CharRaster newCharTile(CharSettings char_settings);
+
+	RasterizedStringSpecs newRasterStringSpecs();
+
+	RasterizedString newRasterString(RasterizedStringSpecs specs);
 
 }

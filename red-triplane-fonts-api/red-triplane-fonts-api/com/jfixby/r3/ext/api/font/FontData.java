@@ -13,6 +13,8 @@ public class FontData implements Asset {
 
 	public String id;
 
+	public String original_font_file_name;
+
 	@Override
 	public AssetID getAssetID() {
 		return Names.newAssetID(id);

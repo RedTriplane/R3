@@ -3,8 +3,10 @@ package com.jfixby.r3.fokker.api.render;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.color.Color;
 import com.jfixby.cmns.api.floatn.FixedFloat2;
+import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
+import com.jfixby.r3.api.ui.unit.txt.RasterizedFont;
 
 public interface RenderMachineComponent {
 
@@ -47,6 +49,9 @@ public interface RenderMachineComponent {
 			AssetID spriteAssetID, double opacity);
 
 	void drawCircle(Color color, double center_x, double center_y, double radius);
+
+	void drawString(String string_value, RasterizedFont font,
+			CanvasPosition position);
 
 	// void drawShapesRenderable(FokkerShapesRenderable self_renderable);
 
