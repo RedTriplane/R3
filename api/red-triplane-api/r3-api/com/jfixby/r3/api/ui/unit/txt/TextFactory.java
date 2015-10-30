@@ -20,4 +20,8 @@ public interface TextFactory {
 
 	RasterizedString newRasterString(RasterizedStringSpecs specs);
 
+	RasterizedFont newFont(RasterizedFontSpecs specs);
+
+	RasterizedFontSpecs newFontSpecs();
+
 }
