@@ -4,4 +4,6 @@ public interface TextTranslationsList {
 
 	TextTranslation getLast();
 
+	void print();
+
 }
