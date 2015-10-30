@@ -1,0 +1,59 @@
+package org.box2d.r3.gdx.beditor;
+
+import com.jfixby.cmns.api.collections.Collection;
+import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Set;
+import com.jfixby.cmns.api.floatn.Float2;
+import com.jfixby.cmns.api.geometry.Geometry;
+import com.jfixby.r3.api.physics.PolyBodyChain;
+
+public class RedPolyBodyChain  {
+
+	final Set<Float2> vertices = JUtils.newSet();
+
+	
+	public Collection<Float2> listVerices() {
+		return vertices;
+	}
+
+	
+	public void addVertex(double x, double y) {
+		vertices.add(Geometry.newFloat2(x, y));
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((vertices == null) ? 0 : vertices.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RedPolyBodyChain other = (RedPolyBodyChain) obj;
+		if (vertices == null) {
+			if (other.vertices != null)
+				return false;
+		} else if (!equalvericces(other.vertices))
+			return false;
+		return true;
+	}
+
+	private boolean equalvericces(Set<Float2> vertices2) {
+		return Geometry.equalFloat2Collections(vertices, vertices2);
+	}
+
+	
+	public void addVertex(Float2 position) {
+		this.addVertex(position.getX(), position.getY());
+	}
+
+}

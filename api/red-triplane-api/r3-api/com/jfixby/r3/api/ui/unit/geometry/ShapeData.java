@@ -5,6 +5,6 @@ import com.jfixby.r3.api.physics.PolyBodySpecs;
 
 public interface ShapeData extends Asset {
 
-	public PolyBodySpecs getShapeSpecs();
+	
 
 }
