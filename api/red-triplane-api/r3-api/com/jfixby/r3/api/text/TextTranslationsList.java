@@ -6,4 +6,6 @@ public interface TextTranslationsList {
 
 	void print();
 
+	TextTranslation getByLocalization(String locale_name);
+
 }
