@@ -92,7 +92,7 @@ public class RenderMachine {
 	}
 
 	public static void drawString(String string_value, RasterizedFont font,
-			Rectangle shape) {
+			CanvasPosition shape) {
 		invoke().drawString(string_value, font, shape);
 	}
 
