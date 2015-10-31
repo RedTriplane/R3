@@ -12,4 +12,8 @@ public interface RasterizedFontSpecs {
 
 	void setFontSize(float size);
 
+	String getRequiredCharacters();
+
+	void setRequiredCharacters(String chars);
+
 }

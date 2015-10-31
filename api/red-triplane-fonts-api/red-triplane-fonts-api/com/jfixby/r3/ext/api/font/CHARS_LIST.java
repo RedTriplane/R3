@@ -2,7 +2,7 @@ package com.jfixby.r3.ext.api.font;
 
 public class CHARS_LIST {
 
-	public static String cyrillic = UNICODE_STRING(0x0400, 0x04FF);
+	public static String cyrillic = UNICODE_STRING(0x0000, 0x04FF);
 
 	static private String UNICODE_STRING(int a, int b) {
 		String result = "";

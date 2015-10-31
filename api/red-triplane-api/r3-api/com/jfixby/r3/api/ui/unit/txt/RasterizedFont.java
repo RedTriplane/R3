@@ -6,4 +6,6 @@ public interface RasterizedFont {
 
 	AssetID getName();
 
+	void dispose();
+
 }

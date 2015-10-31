@@ -1,5 +1,6 @@
 package com.jfixby.r3.api.ui.unit.txt;
 
+import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.math.Angle;
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
 
@@ -16,5 +17,9 @@ public interface RasterizedString extends VisibleComponent {
 	public void setRotation(double rotation);
 
 	public Angle getRotation();
+
+	void dispose();
+
+	void setPosition(CanvasPosition position);
 
 }

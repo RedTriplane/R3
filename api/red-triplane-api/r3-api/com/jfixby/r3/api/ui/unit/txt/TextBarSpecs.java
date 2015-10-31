@@ -4,24 +4,34 @@ import com.jfixby.cmns.api.assets.AssetID;
 
 public interface TextBarSpecs {
 
-	String getName();
+	// String getName();
+	//
+	// AssetID getID();
+	//
+	// void setID(AssetID id);
+	//
+	// void setName(String name);
 
-	AssetID getID();
+	// TextBarMargin getMargin();
 
-	void setID(AssetID id);
+	// TextBarHeight getHeight();
+	//
+	// TextBarWidth getWidth();
+	//
+	// FontSettings getFontSettings();
+	//
+	// TextSettings getTextSettings();
 
-	void setName(String name);
+	void setFont(AssetID font_id);
 
-	TextBarMargin getMargin();
+	AssetID getFont();
 
-	TextBarHeight getHeight();
+	void setFontSize(float font_size);
 
-	TextBarWidth getWidth();
+	float getFontSize();
 
-	FontSettings getFontSettings();
+	String getText();
 
-	TextSettings getTextSettings();
-
-	
+	void setText(String text_string);
 
 }
