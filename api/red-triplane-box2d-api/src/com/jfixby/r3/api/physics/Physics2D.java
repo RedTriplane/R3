@@ -49,4 +49,8 @@ public class Physics2D {
 		return invoke().newPolyBodySpecs();
 	}
 
+	public static PhysicsFactory getPhysicsDepartment() {
+		return null;
+	}
+
 }

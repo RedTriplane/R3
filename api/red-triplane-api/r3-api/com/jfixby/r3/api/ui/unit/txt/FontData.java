@@ -1,8 +1,6 @@
 package com.jfixby.r3.api.ui.unit.txt;
 
 import com.jfixby.r3.api.assets.Asset;
-import com.jfixby.r3.api.text.CharSequence;
-import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 
 public interface FontData extends Asset {
 

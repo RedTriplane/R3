@@ -6,13 +6,10 @@ import com.jfixby.r3.api.ui.unit.geometry.GeometryComponentsFactory;
 import com.jfixby.r3.api.ui.unit.input.UserInputFactory;
 import com.jfixby.r3.api.ui.unit.layer.CameraComponentsFactory;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
-import com.jfixby.r3.api.ui.unit.layer.PhysicsFactory;
 import com.jfixby.r3.api.ui.unit.raster.RasterComponentsFactory;
 import com.jfixby.r3.api.ui.unit.txt.TextFactory;
 
 public interface ComponentsFactory extends AssetsConsumer {
-
-	
 
 	Layer newLayer();
 
@@ -25,8 +22,6 @@ public interface ComponentsFactory extends AssetsConsumer {
 	AnimationFactory getAnimationDepartment();
 
 	UserInputFactory getUserInputDepartment();
-
-	PhysicsFactory getPhysicsDepartment();
 
 	TextFactory getTextDepartment();
 
