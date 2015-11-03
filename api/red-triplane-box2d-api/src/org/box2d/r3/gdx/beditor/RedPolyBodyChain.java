@@ -5,7 +5,6 @@ import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.Geometry;
-import com.jfixby.r3.api.physics.PolyBodyChain;
 
 public class RedPolyBodyChain  {
 
