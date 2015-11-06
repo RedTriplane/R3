@@ -10,4 +10,6 @@ public interface RasterizedFont {
 
 	StringBounds getStringBounds(String string_value);
 
+	float getSize();
+
 }

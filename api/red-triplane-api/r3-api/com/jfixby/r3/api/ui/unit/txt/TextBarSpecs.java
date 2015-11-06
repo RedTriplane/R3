@@ -25,4 +25,8 @@ public interface TextBarSpecs {
 
 	void setBackgroundRaster(Raster bg_asset_id);
 
+	void setFontScale(float font_scale);
+
+	float getFontScale();
+
 }

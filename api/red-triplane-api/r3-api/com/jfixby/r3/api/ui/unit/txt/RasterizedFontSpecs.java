@@ -21,4 +21,8 @@ public interface RasterizedFontSpecs {
 
 	public Color getColor();
 
+	void setFontScale(float font_scale);
+
+	float getFontScale();
+
 }
