@@ -22,4 +22,10 @@ public interface RasterizedString extends VisibleComponent {
 
 	void setPosition(CanvasPosition position);
 
+	void setDebugRenderFlag(boolean b);
+
+	boolean getDebugRenderFlag();
+
+	StringBounds getStringBounds();
+
 }

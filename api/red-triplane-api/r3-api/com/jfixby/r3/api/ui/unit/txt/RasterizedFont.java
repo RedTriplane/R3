@@ -8,4 +8,6 @@ public interface RasterizedFont {
 
 	void dispose();
 
+	StringBounds getStringBounds(String string_value);
+
 }

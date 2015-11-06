@@ -1,6 +1,7 @@
 package com.jfixby.r3.api.ui.unit.txt;
 
 import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.r3.api.ui.unit.raster.Raster;
 
 public interface TextBarSpecs {
 
@@ -19,5 +20,9 @@ public interface TextBarSpecs {
 	public void setPadding(float padding);
 
 	public float getPadding();
+
+	Raster getBackgroundRaster();
+
+	void setBackgroundRaster(Raster bg_asset_id);
 
 }
