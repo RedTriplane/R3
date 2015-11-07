@@ -2,6 +2,7 @@ package com.jfixby.r3.api.ui.unit.txt;
 
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.color.Color;
+import com.jfixby.r3.api.text.StringValue;
 
 public interface RasterizedFontSpecs {
 
@@ -13,9 +14,9 @@ public interface RasterizedFontSpecs {
 
 	void setFontSize(float size);
 
-	String getRequiredCharacters();
+	StringValue getRequiredCharacters();
 
-	void setRequiredCharacters(String chars);
+	void setRequiredCharacters(StringValue chars);
 
 	void setColor(Color font_color);
 

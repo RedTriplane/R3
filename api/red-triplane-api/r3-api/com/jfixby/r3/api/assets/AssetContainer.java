@@ -8,4 +8,6 @@ public interface AssetContainer<T> {
 
 	void printAll();
 
+	void checkAll();
+
 }
