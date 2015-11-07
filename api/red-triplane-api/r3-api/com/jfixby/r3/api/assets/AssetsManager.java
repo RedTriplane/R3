@@ -9,11 +9,9 @@ import com.jfixby.r3.api.resources.manager.PackageReader;
 
 public class AssetsManager {
 
-	static private ComponentInstaller<AssetsManagerComponent> componentInstaller = new ComponentInstaller<AssetsManagerComponent>(
-			"AssetsManager");
+	static private ComponentInstaller<AssetsManagerComponent> componentInstaller = new ComponentInstaller<AssetsManagerComponent>("AssetsManager");
 
-	public static final void installComponent(
-			AssetsManagerComponent component_to_install) {
+	public static final void installComponent(AssetsManagerComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
 	}
 
@@ -25,8 +23,7 @@ public class AssetsManager {
 		return componentInstaller.getComponent();
 	}
 
-	public static Collection<PackageReader> findPackageReaders(
-			PackageFormat format) {
+	public static Collection<PackageReader> findPackageReaders(PackageFormat format) {
 		return invoke().findPackageReaders(format);
 	}
 
@@ -42,18 +39,15 @@ public class AssetsManager {
 		invoke().printInstalledPackageReaders();
 	}
 
-	public static <T extends Asset> void registerAsset(AssetID asset_id,
-			AssetContainer<T> container) {
+	public static <T extends Asset> void registerAsset(AssetID asset_id, AssetContainer<T> container) {
 		invoke().registerAssetContainer(asset_id, container);
 	}
 
-	public static <T extends Asset> AssetHandler<T> obtainAsset(
-			AssetID asset_id, AssetsConsumer consumer) {
+	public static <T extends Asset> AssetHandler<T> obtainAsset(AssetID asset_id, AssetsConsumer consumer) {
 		return invoke().obtainAsset(asset_id, consumer);
 	}
 
-	public static <T extends Asset> void releaseAsset(AssetHandler<T> handler,
-			AssetsConsumer consumer) {
+	public static <T extends Asset> void releaseAsset(AssetHandler<T> handler, AssetsConsumer consumer) {
 		invoke().releaseAsset(handler, consumer);
 	}
 
@@ -73,9 +67,12 @@ public class AssetsManager {
 		invoke().printAllLoadedAssets();
 	}
 
-	public static boolean autoResolveAsset(AssetID asset_id,
-			PACKAGE_PRIORITY priority) {
+	public static boolean autoResolveAsset(AssetID asset_id, PACKAGE_PRIORITY priority) {
 		return invoke().autoResolveAsset(asset_id, priority);
+	}
+
+	public static void checkAll() {
+		invoke().checkAll();
 	}
 
 }

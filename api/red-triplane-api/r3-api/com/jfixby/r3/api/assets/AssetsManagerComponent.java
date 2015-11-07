@@ -35,4 +35,6 @@ public interface AssetsManagerComponent {
 
 	boolean autoResolveAsset(AssetID asset_id, PACKAGE_PRIORITY priority);
 
+	void checkAll();
+
 }
