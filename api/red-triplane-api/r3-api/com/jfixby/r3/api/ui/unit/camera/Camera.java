@@ -38,15 +38,13 @@ public interface Camera {
 
 	public CameraProjection getCameraProjection();
 
-	void setOriginRelative(ORIGIN_RELATIVE_HORIZONTAL orX,
-			ORIGIN_RELATIVE_VERTICAL orY);
+	void setOriginRelative(ORIGIN_RELATIVE_HORIZONTAL orX, ORIGIN_RELATIVE_VERTICAL orY);
 
 	void setOriginRelativeX(ORIGIN_RELATIVE_HORIZONTAL orX);
 
 	void setOriginRelativeY(ORIGIN_RELATIVE_VERTICAL orY);
 
-	void setOriginRelative(double ORIGIN_POSITION_HORIZONTAL,
-			double ORIGIN_POSITION_VERTICAL);
+	void setOriginRelative(double ORIGIN_POSITION_HORIZONTAL, double ORIGIN_POSITION_VERTICAL);
 
 	void setOriginRelativeX(double ORIGIN_POSITION_HORIZONTAL);
 
@@ -67,6 +65,7 @@ public interface Camera {
 	public void setPositionY(double camera_y);
 
 	public double getPositionX();
+
 	public double getPositionY();
 
 }

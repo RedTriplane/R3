@@ -35,8 +35,7 @@ public interface ProjectableComponent extends CanvasComponent {
 
 	void setOriginAbsoluteY(double origin_y);
 
-	void setOriginRelative(double ORIGIN_RELATIVE_HORIZONTAL,
-			double ORIGIN_RELATIVE_VERTICAL);
+	void setOriginRelative(double ORIGIN_RELATIVE_HORIZONTAL, double ORIGIN_RELATIVE_VERTICAL);
 
 	void setOriginRelativeX(double ORIGIN_RELATIVE_HORIZONTAL);
 
