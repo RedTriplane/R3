@@ -6,6 +6,6 @@ public interface UnitManager {
 
 	ComponentsFactory getComponentsFactory();
 
-	UnitTools getTools();
+	UnitToolkit getToolkit();
 
 }
