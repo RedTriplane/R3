@@ -3,7 +3,7 @@ package com.jfixby.r3.fokker.api;
 import com.jfixby.cmns.api.input.Key;
 import com.jfixby.cmns.api.input.MouseButton;
 
-public interface RawInputEvent {
+public interface InputEvent {
 
 	boolean isMouseEvent();
 

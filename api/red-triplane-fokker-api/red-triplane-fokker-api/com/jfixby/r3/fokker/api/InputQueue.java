@@ -6,6 +6,6 @@ public interface InputQueue {
 
 	int size();
 
-	Iterator<RawInputEvent> getIterator();
+	Iterator<InputEvent> getIterator();
 
 }
