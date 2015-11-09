@@ -1,13 +1,13 @@
-package com.jfixby.red.engine.core.unit.input;
+package com.jfixby.r3.fokker.input;
 
 import com.jfixby.cmns.api.input.Key;
 
-public final class RedKeyCode implements Key {
+public final class FokkerKeyCode implements Key {
 	final String name;
 
-	RedKeyCode(String name, RedKeyboard keys) {
+	FokkerKeyCode(String name, FokkerKeyboard keys) {
 		this.name = name;
-		final RedKeysList list = (RedKeysList) keys.KEYS_LIST;
+		final FokkerKeysList list = (FokkerKeysList) keys.KEYS_LIST;
 		list.add(this);
 	}
 

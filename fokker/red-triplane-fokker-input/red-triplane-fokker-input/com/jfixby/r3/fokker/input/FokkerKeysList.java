@@ -1,11 +1,11 @@
-package com.jfixby.red.engine.core.unit.input;
+package com.jfixby.r3.fokker.input;
 
 import java.util.Vector;
 
 import com.jfixby.cmns.api.input.Key;
 import com.jfixby.cmns.api.input.KeysList;
 
-public class RedKeysList implements KeysList {
+public class FokkerKeysList implements KeysList {
 
 	final private Vector<Key> list = new Vector<Key>();
 

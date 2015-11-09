@@ -1,11 +1,11 @@
-package com.jfixby.red.engine.core.unit.input;
+package com.jfixby.r3.fokker.input;
 
 import com.jfixby.cmns.api.input.UserInputComponent;
 
-public class RedInput implements UserInputComponent {
+public class FokkerInput implements UserInputComponent {
 
-	final RedKeyboard keyboard = new RedKeyboard();
-	final RedMouseButtons mouse = new RedMouseButtons();
+	final FokkerKeyboard keyboard = new FokkerKeyboard();
+	final FokkerMouseButtons mouse = new FokkerMouseButtons();
 
 	@Override
 	public com.jfixby.cmns.api.input.Keyboard Keyboard() {

@@ -1,12 +1,12 @@
-package com.jfixby.red.engine.core.unit.input;
+package com.jfixby.r3.fokker.input;
 
 import com.jfixby.cmns.api.input.MouseButton;
 
-public final class MouseButtonImpl implements MouseButton {
+public final class FokkerMouseButton implements MouseButton {
 
 	final String name;
 
-	MouseButtonImpl(String name) {
+	FokkerMouseButton(String name) {
 		this.name = name;
 
 	}

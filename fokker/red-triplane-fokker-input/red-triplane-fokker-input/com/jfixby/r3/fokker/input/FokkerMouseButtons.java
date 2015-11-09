@@ -1,15 +1,15 @@
-package com.jfixby.red.engine.core.unit.input;
+package com.jfixby.r3.fokker.input;
 
 import com.jfixby.cmns.api.input.MouseButton;
 import com.jfixby.cmns.api.input.MouseButtons;
 
-public class RedMouseButtons implements MouseButtons {
+public class FokkerMouseButtons implements MouseButtons {
 
-	final MouseButton LEFT = new MouseButtonImpl("LEFT");
+	final MouseButton LEFT = new FokkerMouseButton("LEFT");
 
-	final MouseButton RIGHT = new MouseButtonImpl("RIGHT");
+	final MouseButton RIGHT = new FokkerMouseButton("RIGHT");
 
-	final MouseButton MIDDLE = new MouseButtonImpl("MIDDLE");
+	final MouseButton MIDDLE = new FokkerMouseButton("MIDDLE");
 
 	@Override
 	public MouseButton LEFT() {
