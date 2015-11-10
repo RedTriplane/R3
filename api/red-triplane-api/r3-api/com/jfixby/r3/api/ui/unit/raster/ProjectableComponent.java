@@ -11,7 +11,7 @@ public interface ProjectableComponent extends CanvasComponent {
 
 	Rectangle shape();
 
-	// /---double getWidth();
+	double getWidth();
 
 	double getHeight();
 

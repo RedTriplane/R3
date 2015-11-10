@@ -21,4 +21,6 @@ public interface Raster extends ProjectableComponent {
 
 	public ComponentsFactory getComponentsFactory();
 
+
+
 }
