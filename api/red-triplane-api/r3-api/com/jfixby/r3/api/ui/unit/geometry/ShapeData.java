@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.ui.unit.geometry;
 
-import com.jfixby.r3.api.assets.Asset;
+import com.jfixby.rana.api.asset.Asset;
 
 public interface ShapeData extends Asset {
 

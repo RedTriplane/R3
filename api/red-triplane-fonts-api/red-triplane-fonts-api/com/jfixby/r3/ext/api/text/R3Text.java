@@ -1,7 +1,7 @@
 package com.jfixby.r3.ext.api.text;
 
 import com.jfixby.cmns.api.components.ComponentInstaller;
-import com.jfixby.r3.api.resources.manager.PackageReader;
+import com.jfixby.rana.api.pkg.PackageReader;
 
 public class R3Text {
 
