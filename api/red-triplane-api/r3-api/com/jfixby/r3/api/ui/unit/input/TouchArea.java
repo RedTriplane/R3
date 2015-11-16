@@ -7,4 +7,8 @@ public interface TouchArea extends Component, InputComponent {
 
 	public Rectangle shape();
 
+	public void setDebugRenderFlag(boolean b);
+
+	public boolean gerDebugRenderFlag();
+
 }
