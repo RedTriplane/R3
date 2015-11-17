@@ -9,12 +9,11 @@ import com.jfixby.r3.api.ui.unit.animation.Animation;
 import com.jfixby.r3.api.ui.unit.camera.Camera;
 import com.jfixby.r3.api.ui.unit.input.InputComponent;
 import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
+import com.jfixby.r3.api.ui.unit.raster.Raster;
 
 public interface Scene extends CanvasComponent {
 
 	void print();
-
-	public Collection<Animation> listAnimations();
 
 	public Mapping<AssetID, InputComponent> listInputComponents();
 
@@ -35,5 +34,9 @@ public interface Scene extends CanvasComponent {
 	public ComponentsFactory getComponentsFactory();
 
 	public AssetID getAssetID();
+
+	public Collection<Animation> listAnimations();
+
+	public Collection<Raster> listRaster();
 
 }
