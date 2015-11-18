@@ -2,9 +2,10 @@ package com.jfixby.r3.api.ui.unit.geometry;
 
 import com.jfixby.cmns.api.color.Color;
 import com.jfixby.cmns.api.geometry.Rectangle;
+import com.jfixby.r3.api.ui.unit.CanvasPositionable;
 import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
 
-public interface RectangleComponent extends CanvasComponent {
+public interface RectangleComponent extends CanvasComponent, CanvasPositionable {
 
 	void setBorderColor(Color border_color);
 

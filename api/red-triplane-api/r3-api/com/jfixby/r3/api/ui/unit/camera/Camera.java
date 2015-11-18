@@ -1,6 +1,7 @@
 package com.jfixby.r3.api.ui.unit.camera;
 
 import com.jfixby.cmns.api.floatn.FixedFloat2;
+import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_HORIZONTAL;
 import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_VERTICAL;
 import com.jfixby.cmns.api.math.Angle;
@@ -12,7 +13,7 @@ public interface Camera {
 
 	public void setSize(double width, double height);
 
-	public FixedFloat2 getPosition();
+	public CanvasPosition getPosition();
 
 	public void setPosition(FixedFloat2 newPostition);
 

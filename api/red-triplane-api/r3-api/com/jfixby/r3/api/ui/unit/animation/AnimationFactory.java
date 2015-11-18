@@ -9,7 +9,7 @@ public interface AnimationFactory {
 
 	// --------------------------------
 
-	PositionAnchor newAnchor(long time_stamp);
+	PositionAnchor newAnchor(int time_stamp);
 
 	PositionsSequenceSpecs newPositionsSequence();
 

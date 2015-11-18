@@ -1,6 +1,5 @@
 package com.jfixby.r3.api.ui.unit.input;
 
-import com.jfixby.r3.api.ui.unit.user.U_OnMouseInputEventListener;
 
 public interface InputComponent {
 

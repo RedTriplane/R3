@@ -1,6 +1,5 @@
-package com.jfixby.r3.api.ui.unit.user;
+package com.jfixby.r3.api.ui.unit.camera;
 
-import com.jfixby.r3.api.ui.unit.camera.ScreenDimentions;
 import com.jfixby.r3.api.ui.unit.layer.Component;
 
 public interface ScreenChangeListener extends Component {

@@ -1,7 +1,7 @@
 package com.jfixby.r3.api.ui.unit.animation;
 
 import com.jfixby.cmns.api.collections.List;
-import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
+import com.jfixby.r3.api.ui.unit.CanvasPositionable;
 
 public interface PositionsSequenceSpecs extends AnimationSpecs {
 
@@ -10,8 +10,12 @@ public interface PositionsSequenceSpecs extends AnimationSpecs {
 	//
 	List<PositionAnchor> listAnchors();
 
-	void setComponent(CanvasComponent frame);
+	void setComponent(CanvasPositionable frame);
 
-	CanvasComponent getComponent();
+	CanvasPositionable getComponent();
+
+	boolean componentRequiresAttachment();
+
+	void setComponentRequiresAttachment(boolean flag);
 
 }

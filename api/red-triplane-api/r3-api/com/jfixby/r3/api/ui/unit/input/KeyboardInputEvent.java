@@ -1,4 +1,4 @@
-package com.jfixby.r3.api.ui.unit.user;
+package com.jfixby.r3.api.ui.unit.input;
 
 public interface KeyboardInputEvent {
 
