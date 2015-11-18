@@ -12,14 +12,14 @@ public class Anchor {
 				+ ", position_y=" + position_y + "]";
 	}
 
-	public long time() {
+	public int time() {
 		if (time == null) {
 			return 0;
 		}
 		if ("".equals(time)) {
 			return 0;
 		}
-		return Long.parseLong(time);
+		return (int) Long.parseLong(time);
 	}
 
 }
