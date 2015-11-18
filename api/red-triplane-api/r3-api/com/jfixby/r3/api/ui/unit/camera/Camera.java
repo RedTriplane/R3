@@ -68,4 +68,8 @@ public interface Camera {
 
 	public double getPositionY();
 
+	public void setDebugName(String camera_name);
+
+	public String getDebugName();
+
 }
