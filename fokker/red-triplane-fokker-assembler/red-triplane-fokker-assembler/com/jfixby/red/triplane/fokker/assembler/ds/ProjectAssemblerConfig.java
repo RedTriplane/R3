@@ -3,6 +3,7 @@ package com.jfixby.red.triplane.fokker.assembler.ds;
 import java.util.Vector;
 
 import com.jfixby.cmns.api.collections.List;
+import com.jfixby.cmns.api.debug.Debug;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.util.JUtils;
 
@@ -17,8 +18,8 @@ public class ProjectAssemblerConfig {
 	private final Vector<String> sources = new Vector<String>();
 
 	public ProjectAssemblerConfig(String project_name) {
-		JUtils.checkNull("project_name", project_name);
-		JUtils.checkEmpty("project_name", project_name);
+		Debug.checkNull("project_name", project_name);
+		Debug.checkEmpty("project_name", project_name);
 		this.project_name = project_name;
 	}
 
@@ -27,8 +28,8 @@ public class ProjectAssemblerConfig {
 	}
 
 	public void addSourceFolder(String folder) {
-		JUtils.checkNull("folder", folder);
-		JUtils.checkEmpty("folder", folder);
+		Debug.checkNull("folder", folder);
+		Debug.checkEmpty("folder", folder);
 		sources.add(folder);
 	}
 
