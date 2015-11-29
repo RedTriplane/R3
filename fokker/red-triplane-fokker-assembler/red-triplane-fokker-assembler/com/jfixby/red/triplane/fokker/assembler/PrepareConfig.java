@@ -3,6 +3,7 @@ package com.jfixby.red.triplane.fokker.assembler;
 import com.jfixby.cmns.api.filesystem.File;
 import com.jfixby.cmns.api.filesystem.LocalFileSystem;
 import com.jfixby.cmns.api.json.Json;
+import com.jfixby.cmns.desktop.DesktopAssembler;
 import com.jfixby.red.triplane.fokker.assembler.ds.AssemblerConfig;
 import com.jfixby.red.triplane.fokker.assembler.ds.ProjectAssemblerConfig;
 import com.jfixby.red.triplane.fokker.assembler.ds.ProjectAssemblerContainer;
@@ -10,7 +11,7 @@ import com.jfixby.red.triplane.fokker.assembler.ds.ProjectAssemblerContainer;
 public class PrepareConfig {
 
 	public static void main(String[] args) throws Exception {
-		Setup.setup();
+		DesktopAssembler.setup();
 
 		AssemblerConfig assembler_config = new AssemblerConfig();
 
