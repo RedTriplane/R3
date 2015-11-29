@@ -23,7 +23,7 @@ public class PrepareConfig {
 				.getAbsolutePath());
 
 		assembler_config
-				.setAssetsInput("D:\\[DATA]\\[RED-ASSETS]\\gdx-assets-packed");
+				.setAssetsInput("D:\\[DEV]\\[GIT-2]\\TintoAssets\\tinto-assets");
 
 		{
 			addProject("jfixby-commons-api", assembler_config.core);
