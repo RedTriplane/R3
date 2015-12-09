@@ -1,14 +1,14 @@
 package org.box2d.r3.gdx.beditor;
 
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.Geometry;
 
 public class RedPolyBodyChain  {
 
-	final Set<Float2> vertices = JUtils.newSet();
+	final Set<Float2> vertices = Collections.newSet();
 
 	
 	public Collection<Float2> listVerices() {

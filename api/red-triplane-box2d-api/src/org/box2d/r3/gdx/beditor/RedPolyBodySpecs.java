@@ -1,15 +1,15 @@
 package org.box2d.r3.gdx.beditor;
 
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.log.L;
 
 public class RedPolyBodySpecs  {
 
-	final Set<RedPolyBodyCircle> circles = JUtils.newSet();
-	final Set<RedPolyBodyChain> chains = JUtils.newSet();
+	final Set<RedPolyBodyCircle> circles = Collections.newSet();
+	final Set<RedPolyBodyChain> chains = Collections.newSet();
 
 	public void setup(RedPolyBodySpecs specs) {
 

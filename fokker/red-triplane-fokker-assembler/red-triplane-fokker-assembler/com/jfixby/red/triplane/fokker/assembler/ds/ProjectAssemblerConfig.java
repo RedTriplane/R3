@@ -2,7 +2,7 @@ package com.jfixby.red.triplane.fokker.assembler.ds;
 
 import java.util.Vector;
 
-import com.jfixby.cmns.api.collections.JUtils;
+import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.debug.Debug;
 import com.jfixby.cmns.api.log.L;
@@ -43,7 +43,7 @@ public class ProjectAssemblerConfig {
 	}
 
 	public List<String> listSourceFolders() {
-		return JUtils.newList(sources);
+		return Collections.newList(sources);
 	}
 
 	public String getName() {
