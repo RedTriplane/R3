@@ -1,8 +1,8 @@
 package com.jfixby.r3.fokker.api.render;
 
+import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.color.Color;
-import com.jfixby.cmns.api.components.ComponentInstaller;
 import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Rectangle;

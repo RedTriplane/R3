@@ -2,10 +2,10 @@ package com.jfixby.red.triplane.fokker.assembler.ds;
 
 import java.util.Vector;
 
+import com.jfixby.cmns.api.collections.JUtils;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.debug.Debug;
 import com.jfixby.cmns.api.log.L;
-import com.jfixby.cmns.api.util.JUtils;
 
 public class ProjectAssemblerConfig {
 

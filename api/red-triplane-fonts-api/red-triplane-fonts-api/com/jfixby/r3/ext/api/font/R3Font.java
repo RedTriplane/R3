@@ -1,6 +1,6 @@
 package com.jfixby.r3.ext.api.font;
 
-import com.jfixby.cmns.api.components.ComponentInstaller;
+import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.rana.api.pkg.PackageReader;
 
 public class R3Font {

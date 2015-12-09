@@ -1,7 +1,7 @@
 package com.jfixby.r3.fokker.api.assets;
 
+import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.cmns.api.assets.AssetID;
-import com.jfixby.cmns.api.components.ComponentInstaller;
 
 public class FokkerRasterDataRegister {
 

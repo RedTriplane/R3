@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.physics;
 
-import com.jfixby.cmns.api.components.ComponentInstaller;
+import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.r3.api.unit.components.physics.PhysicsCore;
 import com.jfixby.r3.api.unit.components.physics.PhysicsCoreSpecs;
 import com.jfixby.r3.api.unit.components.physics.body.BoxBody;
