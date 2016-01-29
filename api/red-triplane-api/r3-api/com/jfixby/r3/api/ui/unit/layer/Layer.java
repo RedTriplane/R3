@@ -33,8 +33,8 @@ public interface Layer extends VisibleComponent {
 
 	Collection<Component> listChildren();
 
-	public Collection<Layer> listChildLayers();
+	public ComponentsList<Layer> listChildLayers();
 
-	public Collection<VisibleComponent> listVisibleComponents();
+	public ComponentsList<VisibleComponent> listVisibleComponents();
 
 }

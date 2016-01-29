@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.ui.unit.layer;
 
-public interface VisibleComponent extends Component {
+public interface VisibleComponent extends NamedElement  {
 	// DrawableComponent + Layers
 	public void hide();
 
@@ -8,9 +8,7 @@ public interface VisibleComponent extends Component {
 
 	public boolean isVisible();
 
-	public void setName(String name);
-
-	public String getName();
+	
 
 	void setVisible(boolean b);
 
