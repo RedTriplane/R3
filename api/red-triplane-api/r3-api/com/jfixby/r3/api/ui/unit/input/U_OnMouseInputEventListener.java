@@ -10,25 +10,25 @@ public interface U_OnMouseInputEventListener extends Component {
 		@Override
 		public boolean onMouseMoved(MouseMovedEvent event) {
 			L.d(event);
-			return false;
+			return true;
 		}
 
 		@Override
 		public boolean onTouchDown(TouchDownEvent event) {
 			L.d(event);
-			return false;
+			return true;
 		}
 
 		@Override
 		public boolean onTouchUp(TouchUpEvent event) {
 			L.d(event);
-			return false;
+			return true;
 		}
 
 		@Override
 		public boolean onTouchDragged(TouchDraggedEvent event) {
 			L.d(event);
-			return false;
+			return true;
 		}
 
 	};
