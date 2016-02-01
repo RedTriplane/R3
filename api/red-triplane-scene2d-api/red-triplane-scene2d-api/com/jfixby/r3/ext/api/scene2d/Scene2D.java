@@ -1,9 +1,7 @@
 package com.jfixby.r3.ext.api.scene2d;
 
 import com.jfixby.cmns.api.ComponentInstaller;
-import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
-import com.jfixby.r3.ext.api.scene2d.srlz.SceneStructure;
 import com.jfixby.rana.api.pkg.PackageReader;
 
 public class Scene2D {
