@@ -4,6 +4,7 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Mapping;
 import com.jfixby.cmns.api.color.Color;
+import com.jfixby.r3.api.locale.LocalizedComponent;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.animation.Animation;
 import com.jfixby.r3.api.ui.unit.camera.Camera;
@@ -39,6 +40,8 @@ public interface Scene extends CanvasComponent {
 	public Collection<Animation> listAnimations();
 
 	public Collection<Raster> listRaster();
+
+	public Collection<LocalizedComponent> listLocalizedComponents();
 
 	Layer getRoot();
 

@@ -10,6 +10,10 @@ public interface Scene2DSpawningConfig {
 
 	String getDefaultLocaleName();
 
-	double getDebugOpacity();
+	void setDefaultLocaleName(String locale_name);
+
+	float getDebugOpacity();
+	
+	void setDebugOpacity(float debug_opacity);
 
 }
