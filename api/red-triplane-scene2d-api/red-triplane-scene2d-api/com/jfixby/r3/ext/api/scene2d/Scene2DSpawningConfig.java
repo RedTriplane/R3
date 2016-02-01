@@ -8,4 +8,8 @@ public interface Scene2DSpawningConfig {
 
 	AssetID getStructureID();
 
+	String getDefaultLocaleName();
+
+	double getDebugOpacity();
+
 }

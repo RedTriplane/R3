@@ -33,18 +33,18 @@ public class Scene2D {
 		return invoke().spawnScene(components_factory, config);
 	}
 
-	public static Scene spawnScene(ComponentsFactory components_factory,
-			SceneStructure structure) {
-		return invoke().spawnScene(components_factory, structure);
-	}
+//	public static Scene spawnScene(ComponentsFactory components_factory,
+//			SceneStructure structure) {
+//		return invoke().spawnScene(components_factory, structure);
+//	}
 
 	public static PackageReader getPackageReader() {
 		return invoke().getPackageReader();
 	}
 
-	public static Scene spawnScene(ComponentsFactory components_factory,
-			AssetID name) {
-		return invoke().spawnScene(components_factory, name);
-	}
+//	public static Scene spawnScene(ComponentsFactory components_factory,
+//			AssetID name) {
+//		return invoke().spawnScene(components_factory, name);
+//	}
 
 }
