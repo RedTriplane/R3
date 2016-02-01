@@ -1,7 +1,7 @@
 package com.jfixby.r3.api.ui.unit.txt;
 
 import com.jfixby.cmns.api.assets.AssetID;
-import com.jfixby.r3.api.text.StringValue;
+import com.jfixby.r3.api.text.Text;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 
 public interface TextBarSpecs {
@@ -14,9 +14,9 @@ public interface TextBarSpecs {
 
 	float getFontSize();
 
-	StringValue getText();
+	Text getText();
 
-	void setText(StringValue text_string);
+	void setText(Text text);
 
 	public void setPadding(float padding);
 
@@ -29,5 +29,9 @@ public interface TextBarSpecs {
 	void setFontScale(float font_scale);
 
 	float getFontScale();
+
+	void setLocaleName(String locale_name);
+
+	public String getLocaleName();
 
 }

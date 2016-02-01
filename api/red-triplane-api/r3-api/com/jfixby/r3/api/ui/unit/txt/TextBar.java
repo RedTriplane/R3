@@ -1,10 +1,11 @@
 package com.jfixby.r3.api.ui.unit.txt;
 
 import com.jfixby.cmns.api.math.Angle;
+import com.jfixby.r3.api.locale.LocalizedComponent;
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
 
-public interface TextBar extends VisibleComponent {
-	
+public interface TextBar extends VisibleComponent, LocalizedComponent {
+
 	void setPositionXY(double canvas_x, double canvas_y);
 
 	public double getPositionX();
@@ -17,8 +18,8 @@ public interface TextBar extends VisibleComponent {
 
 	public Angle getRotation();
 
-	
-	
-	
+	void setLocaleName(String locale_name);
+
+	String getLocaleName();
 
 }
