@@ -14,8 +14,7 @@ public class RenderMachine {
 	static private ComponentInstaller<RenderMachineComponent> componentInstaller = new ComponentInstaller<RenderMachineComponent>(
 			"RenderMachine");
 
-	public static final void installComponent(
-			RenderMachineComponent component_to_install) {
+	public static final void installComponent(RenderMachineComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
 	}
 
@@ -59,8 +58,7 @@ public class RenderMachine {
 		invoke().drawLine(color, a, b);
 	}
 
-	public static void drawTriangle(Color color, FixedFloat2 a, FixedFloat2 b,
-			FixedFloat2 c) {
+	public static void drawTriangle(Color color, FixedFloat2 a, FixedFloat2 b, FixedFloat2 c) {
 		invoke().drawTriangle(color, a, b, c);
 	}
 
@@ -76,23 +74,19 @@ public class RenderMachine {
 		invoke().setProjection(projection);
 	}
 
-	public static void drawRaster(AssetID spriteAssetID, Rectangle shape,
-			double opacity) {
+	public static void drawRaster(AssetID spriteAssetID, Rectangle shape, double opacity) {
 		invoke().drawRaster(spriteAssetID, shape, opacity);
 	}
 
-	public static void drawAperture(double ax, double ay, double bx, double by,
-			AssetID spriteAssetID, double opacity) {
+	public static void drawAperture(double ax, double ay, double bx, double by, AssetID spriteAssetID, double opacity) {
 		invoke().drawAperture(ax, ay, bx, by, spriteAssetID, opacity);
 	}
 
-	public static void drawCircle(Color color, double center_x,
-			double center_y, double radius) {
+	public static void drawCircle(Color color, double center_x, double center_y, double radius) {
 		invoke().drawCircle(color, center_x, center_y, radius);
 	}
 
-	public static void drawString(String string_value, RasterizedFont font,
-			CanvasPosition position) {
+	public static void drawString(String string_value, RasterizedFont font, CanvasPosition position) {
 		invoke().drawString(string_value, font, position);
 	}
 
