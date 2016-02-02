@@ -5,7 +5,7 @@ import com.jfixby.cmns.api.color.Color;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 
 public interface Raster extends ProjectableComponent {
-	public AssetID getAssetId();
+	public AssetID getAssetID();
 
 	public void setOpacity(double alpha);
 
