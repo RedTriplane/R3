@@ -45,12 +45,14 @@ public interface RenderMachineComponent {
 
 	void endMode(RENDER_MACHINE_STATE mode);
 
-	void drawAperture(double ax, double ay, double bx, double by,
-			AssetID spriteAssetID, double opacity);
+	void drawAperture(double ax, double ay, double bx, double by, AssetID spriteAssetID, double opacity);
 
 	void drawCircle(Color color, double center_x, double center_y, double radius);
 
 	void drawString(String string_value, RasterizedFont font, CanvasPosition position);
+
+//	void drawRaster(AssetID spriteAssetID, FixedFloat2 vertexA, FixedFloat2 vertexB, FixedFloat2 vertexC,
+//			FixedFloat2 vertexD, double opacity);
 
 	// void drawShapesRenderable(FokkerShapesRenderable self_renderable);
 
