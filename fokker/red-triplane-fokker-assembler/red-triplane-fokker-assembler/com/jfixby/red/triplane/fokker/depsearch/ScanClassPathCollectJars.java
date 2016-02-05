@@ -58,8 +58,8 @@ public class ScanClassPathCollectJars {
 			String src_path = getSrcPath(element);
 			if (src_path != null) {
 				L.d("src_path", src_path);
-				File src = LocalFileSystem.newFile(jar_path);
-				LocalFileSystem.copyFileToFolder(src, jar_child_folder);
+				File src = LocalFileSystem.newFile(src_path);
+				LocalFileSystem.copyFileToFolder(src, jar_child_folder.child("src"));
 			}
 		}
 
