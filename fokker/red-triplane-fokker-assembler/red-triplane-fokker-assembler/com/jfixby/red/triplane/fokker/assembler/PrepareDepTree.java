@@ -1,20 +1,27 @@
 package com.jfixby.red.triplane.fokker.assembler;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
-import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
+import com.jfixby.cmns.api.sys.Sys;
 import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.cmns.desktop.DesktopAssembler;
 import com.jfixby.tool.eclipse.dep.EclipseProjectDependencies;
+import com.jfixby.tool.eclipse.dep.EclipseWorkSpaceSettings;
 
 public class PrepareDepTree {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, URISyntaxException {
 
 		DesktopAssembler.setup();
+
+		File workspace_folder = LocalFileSystem.newFile("D:\\[DEV]\\[CODE]\\[WS-19]");
+
+		EclipseWorkSpaceSettings workspace_settings = EclipseWorkSpaceSettings.readWorkspaceSettings(workspace_folder);
+		Sys.exit();
 
 		File desktop_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-desktop");
 		File android_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-android");
@@ -29,12 +36,10 @@ public class PrepareDepTree {
 		EclipseProjectDependencies ios = getDependencies(ios_project_folder);
 		EclipseProjectDependencies gwt = getDependencies(gwt_project_folder);
 
-		List<String> projectsA = desktop.getProjectsList();
-		List<String> projectsB = gwt.getProjectsList();
-
-		Set<String> intersection = JUtils.intersectLists(projectsA, projectsB);
-
-		intersection.print("common-projects");
+		Set<String> intersection = JUtils.intersectCollection(desktop.getProjectsList(), gwt.getProjectsList());
+		intersection = JUtils.intersectCollection(intersection, android.getProjectsList());
+		intersection = JUtils.intersectCollection(intersection, ios.getProjectsList());
+		intersection.print("desktop & gwt & android & ios : common projetcs");
 
 	}
 
