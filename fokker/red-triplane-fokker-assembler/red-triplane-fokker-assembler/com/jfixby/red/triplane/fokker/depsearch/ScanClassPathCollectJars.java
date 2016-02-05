@@ -10,7 +10,7 @@ import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.cmns.desktop.DesktopAssembler;
 
-public class ScanClassPath {
+public class ScanClassPathCollectJars {
 
 	public static void main(String[] args) throws IOException {
 		DesktopAssembler.setup();
