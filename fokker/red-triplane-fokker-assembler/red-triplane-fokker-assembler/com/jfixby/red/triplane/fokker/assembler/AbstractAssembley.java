@@ -1,5 +1,7 @@
 package com.jfixby.red.triplane.fokker.assembler;
 
+import java.io.IOException;
+
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
@@ -26,7 +28,13 @@ public abstract class AbstractAssembley {
 				this.transactions.add(transact);
 			}
 		}
+	}
 
+	public void executeCodeTransfer(TransactionsInfo transaction_info) throws IOException {
+		for (int i = 0; i < this.transactions.size(); i++) {
+			Transaction transaction = transactions.getElementAt(i);
+			transaction.execute(transaction_info);
+		}
 	}
 
 	public void printTransactions(String tag) {

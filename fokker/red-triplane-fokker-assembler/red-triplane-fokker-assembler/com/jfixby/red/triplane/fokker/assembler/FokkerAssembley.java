@@ -1,12 +1,16 @@
 package com.jfixby.red.triplane.fokker.assembler;
 
 import java.io.IOException;
+import java.util.Vector;
 
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.file.File;
+import com.jfixby.cmns.api.file.LocalFileSystem;
+import com.jfixby.cmns.api.json.Json;
+import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.tool.eclipse.dep.EclipseProjectDependencies;
 import com.jfixby.tool.eclipse.dep.EclipseProjectInfo;
@@ -87,7 +91,9 @@ public class FokkerAssembley {
 			EclipseProjectInfo begin_dependencies, List<EclipseProjectInfo> core_complete_dependency_list) {
 		List<EclipseProjectInfo> result = buildCompleteList(workspace_settings,
 				begin_dependencies.getDependencies().getProjectsList());
+
 		result.removeAll(core_complete_dependency_list);
+		result.add(begin_dependencies);
 		// result.print("desktop_complete_dependency_list");
 		return result;
 	}
@@ -123,6 +129,31 @@ public class FokkerAssembley {
 		this.gwt_assembley.printTransactions("gwt");
 		this.ios_assembley.printTransactions("iOS");
 
+	}
+
+	public void deletePreviousTransactionsIfPresent() throws IOException {
+		TransactionsInfo previous_transaction = TransactionsInfo.loadLast();
+		if (previous_transaction != null) {
+			Vector<ExecutedTransaction> executed_transactions = previous_transaction.listTransactions();
+			for (int k = 0; k < executed_transactions.size(); k++) {
+				ExecutedTransaction exec = executed_transactions.get(k);
+				String native_folder_path = exec.getAbsolutePathString();
+				File source_folder = LocalFileSystem.newFile(native_folder_path);
+				boolean success = source_folder.delete();
+				L.d("deleting", source_folder + " " + success);
+
+			}
+		}
+	}
+
+	public void executeCodeTransfer() throws IOException {
+		TransactionsInfo transaction = new TransactionsInfo();
+		this.core_assembley.executeCodeTransfer(transaction);
+		this.desktop_assembley.executeCodeTransfer(transaction);
+		this.android_assembley.executeCodeTransfer(transaction);
+		this.gwt_assembley.executeCodeTransfer(transaction);
+		this.ios_assembley.executeCodeTransfer(transaction);
+		TransactionsInfo.save(transaction);
 	}
 
 }
