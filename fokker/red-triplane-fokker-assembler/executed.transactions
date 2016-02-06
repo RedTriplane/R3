@@ -1,0 +1,463 @@
+{
+"transacions": [
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.box2d-api.box2d-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.gdx-jfixby-cmns.gdx-jfixby-cmns"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jbox2d-double.jbox2d-double"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jbox2d-double.org.jbox2d.double"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-api.jfixby-commons-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-red.jfixby-commons-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cv-api.jfixby-cv-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-fields-api.jfixby-util-fields-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-fields-red.jfixby-util-fields-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-iso-api.jfixby-util-iso-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-iso-red.jfixby-util-iso-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-maze-api.jfixby-util-maze-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-maze-red.jfixby-util-maze-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-p18-api.r3-api-ext-patch18"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-p18-red.jfixby-util-patch18-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-pizza-api.jfixby-util-pizza-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-pizza-red.jfixby-util-pizza-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-api.jfixby-utils-terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-p18-api.jfixby-util-p18terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-p18-red.jfixby-util-p18terrain-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-red.jfixby-utils-terrain-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-asset"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-pkg"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-resource-file"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-asset-red.rana-asset-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-asset-red.rana-resource-file"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-api.ext"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-api.r3-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-box2d-api.src"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-box2d-red.src"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-api.red-triplane-fokker-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-backend.red-triplane-fokker-backend"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fokker-core"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fokker-gdx"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fokker-gdx-box2d"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fokker-gdx-tools"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fonts-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-tests"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-ui"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fonts-api.red-triplane-fonts-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-pizza-api.red-triplane-pizza-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-pizza-red.red-triplane-pizza-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-scene2d-api.red-triplane-scene2d-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-scene2d-red.red-triplane-scene2d-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.tinto-api.tinto-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.tinto-game.tinto-game"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.tinto-run-fokker.tinto-run-fokker"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.tinto-ui.tinto-ui"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-api.jfixby-commons-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.box2d-api.box2d-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-red.jfixby-commons-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-iso-api.jfixby-util-iso-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-maze-api.jfixby-util-maze-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-p18-api.r3-api-ext-patch18"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-api.jfixby-utils-terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-p18-api.jfixby-util-p18terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-pizza-api.jfixby-util-pizza-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-asset"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-pkg"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-resource-file"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-api.ext"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-api.r3-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.gdx-jfixby-cmns.gdx-jfixby-cmns"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-box2d-api.src"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jbox2d-double.jbox2d-double"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jbox2d-double.org.jbox2d.double"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-tool-texture-slicer-api.jfixby-tools-texture-slicer-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-api.red-triplane-fokker-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fonts-api.red-triplane-fonts-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-pizza-api.red-triplane-pizza-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-scene2d-api.red-triplane-scene2d-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.tinto-api.tinto-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-asset-red.rana-asset-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-asset-red.rana-resource-file"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-backend.red-triplane-fokker-backend"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fokker-core"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fokker-gdx"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fokker-gdx-box2d"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fokker-gdx-tools"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-fonts-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-tests"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-core.red-triplane-ui"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-scene2d-red.red-triplane-scene2d-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.tinto-game.tinto-game"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.tinto-ui.tinto-ui"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cv-api.jfixby-cv-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-wdgs.jfixby-wdgs"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-api.jfixby-commons-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-p18-api.r3-api-ext-patch18"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-api.jfixby-utils-terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-iso-api.jfixby-util-iso-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-p18-api.jfixby-util-p18terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-asset"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-pkg"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-resource-file"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-api.ext"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-api.r3-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.box2d-api.box2d-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-red.jfixby-commons-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-pizza-api.jfixby-util-pizza-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.gdx-jfixby-cmns.gdx-jfixby-cmns"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jbox2d-double.jbox2d-double"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jbox2d-double.org.jbox2d.double"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-tool-texture-slicer-api.jfixby-tools-texture-slicer-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-box2d-api.src"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fokker-api.red-triplane-fokker-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-fonts-api.red-triplane-fonts-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-scene2d-api.red-triplane-scene2d-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.tinto-api.tinto-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cv-api.jfixby-cv-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-wdgs.jfixby-wdgs"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-pizza-api.red-triplane-pizza-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-api.jfixby-commons-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-p18-api.r3-api-ext-patch18"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-api.jfixby-utils-terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-asset"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-pkg"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-resource-file"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-iso-api.jfixby-util-iso-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-p18-api.jfixby-util-p18terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.box2d-api.box2d-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-red.jfixby-commons-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-api.ext"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.red-triplane-api.r3-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-pizza-api.jfixby-util-pizza-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-api.jfixby-commons-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-p18-api.r3-api-ext-patch18"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-api.jfixby-utils-terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-asset"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-pkg"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.rana-api.rana-api-resource-file"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-iso-api.jfixby-util-iso-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-p18-api.jfixby-util-p18terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-api.jfixby-commons-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-p18-api.r3-api-ext-patch18"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-util-terrain-api.jfixby-utils-terrain-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\core\\R3.jfixby-cmns-api.jfixby-commons-api"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\desktop\\R3.jfixby-cmns-red-desktop.jfixby-cmns-desktop"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\desktop\\R3.jfixby-cv-red.jfixby-cv-red"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\desktop\\R3.red-triplane-fokker-backend-desktop.red-triplane-fokker-desktop"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\desktop\\R3.tinto-assets-cfg.src"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\desktop\\R3.tinto-run-fokker-desktop.tinto-run-desktop"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\android\\R3.red-triplane-fokker-backend-android.red-triplane-fokker-backend-android"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\android\\R3.tinto-run-fokker-android.tinto-run-fokker-android"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\html\\R3.red-triplane-fokker-backend-gwt.red-triplane-fokker-backend-gwt"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\html\\R3.tinto-run-fokker-gwt.tinto-run-gwt"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\ios\\R3.red-triplane-fokker-backend-ios.red-triplane-fokker-backend-ios"
+	},
+	{
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\ios\\R3.tinto-run-fokker-ios.tinto-run-ios"
+	}
+]
+}

@@ -1,2 +1,4 @@
 /bin/
 /jars/
+/executed.transactions
+/BUILD.java
