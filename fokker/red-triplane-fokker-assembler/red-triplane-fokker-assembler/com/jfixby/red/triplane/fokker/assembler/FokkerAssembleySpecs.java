@@ -35,22 +35,6 @@ public class FokkerAssembleySpecs {
 
 	}
 
-	public DesktopProjectSettings getDesktopProject() {
-		return desktop;
-	}
-
-	public AndroidProjectSettings getAndroidProject() {
-		return android;
-	}
-
-	public iOSProjectSettings getiOSProject() {
-		return ios;
-	}
-
-	public GwtProjectSettings getGWTProject() {
-		return gwt;
-	}
-
 	public void setWorkSpaceFolder(File workspace_folder) {
 		this.workspace_folder = workspace_folder;
 	}
@@ -73,5 +57,9 @@ public class FokkerAssembleySpecs {
 
 	public AndroidProjectSettings getAndroidProjectSettings() {
 		return this.android;
+	}
+
+	public File getGradlePath() {
+		return this.gradle_path;
 	}
 }

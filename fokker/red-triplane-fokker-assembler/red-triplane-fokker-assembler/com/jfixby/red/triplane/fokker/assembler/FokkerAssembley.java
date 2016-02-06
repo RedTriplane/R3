@@ -27,6 +27,8 @@ public class FokkerAssembley {
 		iOSProjectSettings ios = specs.getiOSProjectSettings();
 		AndroidProjectSettings android = specs.getAndroidProjectSettings();
 
+		File gradle_path = specs.getGradlePath();
+
 		File workspace_folder = specs.getWorkSpaceFolder();
 		EclipseWorkSpaceSettings workspace_settings = EclipseWorkSpaceSettings.readWorkspaceSettings(workspace_folder);
 
@@ -49,32 +51,34 @@ public class FokkerAssembley {
 		List<EclipseProjectInfo> core_complete_dependency_list = buildCompleteList(workspace_settings,
 				core_project_names);
 		// core_complete_dependency_list.print("core complete_dependency_list");
-		core_assembley = new CoreAssembley(this, core_complete_dependency_list);
+		core_assembley = new CoreAssembley(this, core_complete_dependency_list, gradle_path.child("core"));
 		{
 			List<EclipseProjectInfo> desktop_complete_dependency_list = buildAdditionalDependenciesList(
 					workspace_settings, desktop.getEclipseProjectInfo(), core_complete_dependency_list);
 			// desktop_complete_dependency_list.print("desktop_complete_dependency_list");
-			desktop_assembley = new DesktopAssembley(this, desktop_complete_dependency_list);
+			desktop_assembley = new DesktopAssembley(this, desktop_complete_dependency_list,
+					gradle_path.child("desktop"));
 		}
 		{
 			List<EclipseProjectInfo> android_complete_dependency_list = buildAdditionalDependenciesList(
 					workspace_settings, android.getEclipseProjectInfo(), core_complete_dependency_list);
 			// android_complete_dependency_list.print("android_complete_dependency_list");
-			android_assembley = new AndroidAssembley(this, android_complete_dependency_list);
+			android_assembley = new AndroidAssembley(this, android_complete_dependency_list,
+					gradle_path.child("android"));
 
 		}
 		{
 			List<EclipseProjectInfo> ios_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
 					ios.getEclipseProjectInfo(), core_complete_dependency_list);
 			// ios_complete_dependency_list.print("ios_complete_dependency_list");
-			ios_assembley = new iOSAssembley(this, ios_complete_dependency_list);
+			ios_assembley = new iOSAssembley(this, ios_complete_dependency_list, gradle_path.child("ios"));
 
 		}
 		{
 			List<EclipseProjectInfo> gwt_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
 					gwt.getEclipseProjectInfo(), core_complete_dependency_list);
 			// gwt_complete_dependency_list.print("gwt_complete_dependency_list");
-			gwt_assembley = new GWTAssembley(this, gwt_complete_dependency_list);
+			gwt_assembley = new GWTAssembley(this, gwt_complete_dependency_list, gradle_path.child("html"));
 
 		}
 	}
