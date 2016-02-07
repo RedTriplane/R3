@@ -34,6 +34,7 @@ public class Transaction {
 		exec.failed = true;
 		exec.native_folder_path = output_folder.toJavaFile().getAbsolutePath();
 		transaction_info.transactions.add(exec);
+		exec.index = transaction_info.transactions.indexOf(exec);
 		project_info.getProjectPath();
 		input_folder.getFileSystem().copyFolderContentsToFolder(input_folder, output_folder);
 		L.d("transaction executed", this);

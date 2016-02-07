@@ -5,11 +5,9 @@ import java.util.Vector;
 
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Collections;
-import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
-import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.tool.eclipse.dep.EclipseProjectDependencies;
@@ -49,21 +47,22 @@ public class FokkerAssembley {
 				android.getEclipseProjectInfo().getDependencies().getProjectsList());
 		core_project_names = JUtils.intersectCollection(core_project_names,
 				ios.getEclipseProjectInfo().getDependencies().getProjectsList());
-		core_project_names.print("desktop & gwt & android & ios : common projetcs");
+		// core_project_names.print("desktop & gwt & android & ios : common
+		// projetcs");
 
-		List<EclipseProjectInfo> core_complete_dependency_list = buildCompleteList(workspace_settings,
+		Set<EclipseProjectInfo> core_complete_dependency_list = buildCompleteList(workspace_settings,
 				core_project_names);
-		core_complete_dependency_list.print("core complete_dependency_list");
+		// core_complete_dependency_list.print("core complete_dependency_list");
 		core_assembley = new CoreAssembley(this, core_complete_dependency_list, gradle_path.child("core"));
 		{
-			List<EclipseProjectInfo> desktop_complete_dependency_list = buildAdditionalDependenciesList(
+			Set<EclipseProjectInfo> desktop_complete_dependency_list = buildAdditionalDependenciesList(
 					workspace_settings, desktop.getEclipseProjectInfo(), core_complete_dependency_list);
 			// desktop_complete_dependency_list.print("desktop_complete_dependency_list");
 			desktop_assembley = new DesktopAssembley(this, desktop_complete_dependency_list,
 					gradle_path.child("desktop"));
 		}
 		{
-			List<EclipseProjectInfo> android_complete_dependency_list = buildAdditionalDependenciesList(
+			Set<EclipseProjectInfo> android_complete_dependency_list = buildAdditionalDependenciesList(
 					workspace_settings, android.getEclipseProjectInfo(), core_complete_dependency_list);
 			// android_complete_dependency_list.print("android_complete_dependency_list");
 			android_assembley = new AndroidAssembley(this, android_complete_dependency_list,
@@ -71,14 +70,14 @@ public class FokkerAssembley {
 
 		}
 		{
-			List<EclipseProjectInfo> ios_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
+			Set<EclipseProjectInfo> ios_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
 					ios.getEclipseProjectInfo(), core_complete_dependency_list);
 			// ios_complete_dependency_list.print("ios_complete_dependency_list");
 			ios_assembley = new iOSAssembley(this, ios_complete_dependency_list, gradle_path.child("ios"));
 
 		}
 		{
-			List<EclipseProjectInfo> gwt_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
+			Set<EclipseProjectInfo> gwt_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
 					gwt.getEclipseProjectInfo(), core_complete_dependency_list);
 			// gwt_complete_dependency_list.print("gwt_complete_dependency_list");
 			gwt_assembley = new GWTAssembley(this, gwt_complete_dependency_list, gradle_path.child("html"));
@@ -86,22 +85,22 @@ public class FokkerAssembley {
 		}
 	}
 
-	private static List<EclipseProjectInfo> buildAdditionalDependenciesList(EclipseWorkSpaceSettings workspace_settings,
-			EclipseProjectInfo begin_dependencies, List<EclipseProjectInfo> core_complete_dependency_list) {
-		List<EclipseProjectInfo> result = buildCompleteList(workspace_settings,
+	private static Set<EclipseProjectInfo> buildAdditionalDependenciesList(EclipseWorkSpaceSettings workspace_settings,
+			EclipseProjectInfo begin_dependencies, Collection<EclipseProjectInfo> core_complete_dependency_list) {
+		Set<EclipseProjectInfo> result = buildCompleteList(workspace_settings,
 				begin_dependencies.getDependencies().getProjectsList());
 
 		result.removeAll(core_complete_dependency_list);
-		// result.add(begin_dependencies);
+		result.add(begin_dependencies);
 		// result.print("desktop_complete_dependency_list");
 		return result;
 	}
 
-	private static List<EclipseProjectInfo> buildCompleteList(EclipseWorkSpaceSettings workspace_settings,
+	private static Set<EclipseProjectInfo> buildCompleteList(EclipseWorkSpaceSettings workspace_settings,
 			Collection<String> begin_set) {
 
 		Set<String> processing = Collections.newSet();
-		List<EclipseProjectInfo> processed_projects = Collections.newList();
+		Set<EclipseProjectInfo> processed_projects = Collections.newSet();
 		Set<String> unprocessed_projects = Collections.newSet();
 		unprocessed_projects.addAll(begin_set);
 
@@ -112,11 +111,11 @@ public class FokkerAssembley {
 				String core_project_name = processing.getElementAt(i);
 				EclipseProjectInfo info = workspace_settings.getProjectInfo(core_project_name);
 				processed_projects.add(info);
-				L.d("info", info);
+				// L.d("info", info);
 
 				EclipseProjectDependencies project_dependencies = info.getDependencies();
 				Collection<String> projects = project_dependencies.getProjectsList();
-				projects.print("expand");
+				// projects.print("expand");
 				unprocessed_projects.addAll(projects);
 			}
 			processing.clear();

@@ -6,16 +6,19 @@ import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.file.File;
+import com.jfixby.cmns.api.log.L;
 import com.jfixby.tool.eclipse.dep.EclipseProjectInfo;
 
 public abstract class AbstractAssembley {
 	private FokkerAssembley master;
-	private List<EclipseProjectInfo> dependencies;
+	private Collection<EclipseProjectInfo> dependencies;
+	private List<EclipseProjectInfo> api = Collections.newList();;
+	private List<EclipseProjectInfo> impl = Collections.newList();;
 	private List<Transaction> transactions = Collections.newList();
 	private File gradle_project_path;
 	private String project_name;
 
-	public AbstractAssembley(FokkerAssembley fokkerAssembley, List<EclipseProjectInfo> dependency_list,
+	public AbstractAssembley(FokkerAssembley fokkerAssembley, Collection<EclipseProjectInfo> dependency_list,
 			File gradle_project_path) {
 		this.master = fokkerAssembley;
 		this.gradle_project_path = gradle_project_path;
@@ -24,6 +27,11 @@ public abstract class AbstractAssembley {
 		project_name = gradle_project_path.getName();
 		for (int i = 0; i < this.dependencies.size(); i++) {
 			EclipseProjectInfo dep = this.dependencies.getElementAt(i);
+			if (dep.getProjectName().contains("api")) {
+				api.add(dep);
+			} else {
+				impl.add(dep);
+			}
 			Collection<String> sources = dep.getDependencies().getSourceFoldersList();
 			for (int k = 0; k < sources.size(); k++) {
 				String source_folder = sources.getElementAt(k);
@@ -34,11 +42,12 @@ public abstract class AbstractAssembley {
 	}
 
 	public void printDependencies() {
-		List<EclipseProjectInfo> dependency_list = this.getDependencies();
-		dependency_list.print("project: " + project_name);
+		L.d("Dependencies " + project_name);
+		api.print("api");
+		impl.print("code");
 	}
 
-	private List<EclipseProjectInfo> getDependencies() {
+	private Collection<EclipseProjectInfo> getDependencies() {
 		return dependencies;
 	}
 
