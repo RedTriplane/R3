@@ -14,7 +14,7 @@ public abstract class AbstractAssembley {
 	private Collection<EclipseProjectInfo> dependencies;
 	private List<EclipseProjectInfo> api = Collections.newList();;
 	private List<EclipseProjectInfo> impl = Collections.newList();;
-	private List<Transaction> transactions = Collections.newList();
+	protected List<Transaction> transactions = Collections.newList();
 	private File gradle_project_path;
 	private String project_name;
 
@@ -63,7 +63,7 @@ public abstract class AbstractAssembley {
 
 	private static final String SOURCE_FOLDERS_PREFIX = "sourceSets.main.java.srcDirs = ";
 
-	private void updateGradleBuildConfig(List<String> gradle_links) throws IOException {
+	public void updateGradleBuildConfig(List<String> gradle_links) throws IOException {
 		File build_gradle = gradle_project_path.child("build.gradle");
 		String N = "\n";
 		String data = build_gradle.readToString();

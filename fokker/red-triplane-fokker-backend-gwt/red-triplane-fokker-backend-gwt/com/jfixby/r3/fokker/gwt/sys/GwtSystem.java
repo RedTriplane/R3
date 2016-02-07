@@ -7,10 +7,7 @@ import com.jfixby.red.sys.RedSystem;
 
 public class GwtSystem extends RedSystem implements SystemComponent {
 
-	@Override
-	public TimeStream SystemTime() {
-		return null;
-	}
+
 
 	@Override
 	public void exit() {

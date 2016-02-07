@@ -45,4 +45,12 @@ public class Transaction {
 		return transaction_name;
 	}
 
+	public File getOutputFolder() {
+		return this.output_folder;
+	}
+
+	public File getInputFolder() {
+		return this.input_folder;
+	}
+
 }
