@@ -49,12 +49,11 @@ public class FokkerAssembley {
 				android.getEclipseProjectInfo().getDependencies().getProjectsList());
 		core_project_names = JUtils.intersectCollection(core_project_names,
 				ios.getEclipseProjectInfo().getDependencies().getProjectsList());
-		// core_project_names.print("desktop & gwt & android & ios : common
-		// projetcs");
+		core_project_names.print("desktop & gwt & android & ios : common projetcs");
 
 		List<EclipseProjectInfo> core_complete_dependency_list = buildCompleteList(workspace_settings,
 				core_project_names);
-		// core_complete_dependency_list.print("core complete_dependency_list");
+		core_complete_dependency_list.print("core complete_dependency_list");
 		core_assembley = new CoreAssembley(this, core_complete_dependency_list, gradle_path.child("core"));
 		{
 			List<EclipseProjectInfo> desktop_complete_dependency_list = buildAdditionalDependenciesList(
@@ -93,7 +92,7 @@ public class FokkerAssembley {
 				begin_dependencies.getDependencies().getProjectsList());
 
 		result.removeAll(core_complete_dependency_list);
-		result.add(begin_dependencies);
+		// result.add(begin_dependencies);
 		// result.print("desktop_complete_dependency_list");
 		return result;
 	}
@@ -113,8 +112,11 @@ public class FokkerAssembley {
 				String core_project_name = processing.getElementAt(i);
 				EclipseProjectInfo info = workspace_settings.getProjectInfo(core_project_name);
 				processed_projects.add(info);
+				L.d("info", info);
+
 				EclipseProjectDependencies project_dependencies = info.getDependencies();
 				Collection<String> projects = project_dependencies.getProjectsList();
+				projects.print("expand");
 				unprocessed_projects.addAll(projects);
 			}
 			processing.clear();
@@ -154,6 +156,14 @@ public class FokkerAssembley {
 		this.gwt_assembley.executeCodeTransfer(transaction);
 		this.ios_assembley.executeCodeTransfer(transaction);
 		TransactionsInfo.save(transaction);
+	}
+
+	public void printDependencies() {
+		this.core_assembley.printDependencies();
+		this.desktop_assembley.printDependencies();
+		this.android_assembley.printDependencies();
+		this.gwt_assembley.printDependencies();
+		this.ios_assembley.printDependencies();
 	}
 
 }

@@ -33,7 +33,7 @@ public class Transaction {
 		ExecutedTransaction exec = new ExecutedTransaction();
 		exec.failed = true;
 		exec.native_folder_path = output_folder.toJavaFile().getAbsolutePath();
-		transaction_info.transacions.add(exec);
+		transaction_info.transactions.add(exec);
 		project_info.getProjectPath();
 		input_folder.getFileSystem().copyFolderContentsToFolder(input_folder, output_folder);
 		L.d("transaction executed", this);

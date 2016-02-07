@@ -22,10 +22,10 @@ public class TransactionsInfo {
 	}
 
 	public Vector<ExecutedTransaction> listTransactions() {
-		return transacions;
+		return transactions;
 	}
 
-	public Vector<ExecutedTransaction> transacions = new Vector<ExecutedTransaction>();
+	public Vector<ExecutedTransaction> transactions = new Vector<ExecutedTransaction>();
 
 	public static void save(TransactionsInfo transaction) throws IOException {
 		String data = Json.serializeToString(transaction);

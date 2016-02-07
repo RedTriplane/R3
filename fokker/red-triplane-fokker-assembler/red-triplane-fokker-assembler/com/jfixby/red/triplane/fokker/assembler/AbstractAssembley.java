@@ -13,12 +13,15 @@ public abstract class AbstractAssembley {
 	private List<EclipseProjectInfo> dependencies;
 	private List<Transaction> transactions = Collections.newList();
 	private File gradle_project_path;
+	private String project_name;
 
 	public AbstractAssembley(FokkerAssembley fokkerAssembley, List<EclipseProjectInfo> dependency_list,
 			File gradle_project_path) {
 		this.master = fokkerAssembley;
 		this.gradle_project_path = gradle_project_path;
 		this.dependencies = dependency_list;
+
+		project_name = gradle_project_path.getName();
 		for (int i = 0; i < this.dependencies.size(); i++) {
 			EclipseProjectInfo dep = this.dependencies.getElementAt(i);
 			Collection<String> sources = dep.getDependencies().getSourceFoldersList();
@@ -28,6 +31,15 @@ public abstract class AbstractAssembley {
 				this.transactions.add(transact);
 			}
 		}
+	}
+
+	public void printDependencies() {
+		List<EclipseProjectInfo> dependency_list = this.getDependencies();
+		dependency_list.print("project: " + project_name);
+	}
+
+	private List<EclipseProjectInfo> getDependencies() {
+		return dependencies;
 	}
 
 	public void executeCodeTransfer(TransactionsInfo transaction_info) throws IOException {
