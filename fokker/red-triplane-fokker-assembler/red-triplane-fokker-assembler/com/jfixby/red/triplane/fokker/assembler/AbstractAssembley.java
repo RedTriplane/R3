@@ -52,10 +52,42 @@ public abstract class AbstractAssembley {
 	}
 
 	public void executeCodeTransfer(TransactionsInfo transaction_info) throws IOException {
+		List<String> gradle_links = Collections.newList();
 		for (int i = 0; i < this.transactions.size(); i++) {
 			Transaction transaction = transactions.getElementAt(i);
 			transaction.execute(transaction_info);
+			gradle_links.add(transaction.getName());
 		}
+		updateGradleBuildConfig(gradle_links);
+	}
+
+	private static final String SOURCE_FOLDERS_PREFIX = "sourceSets.main.java.srcDirs = ";
+
+	private void updateGradleBuildConfig(List<String> gradle_links) throws IOException {
+		File build_gradle = gradle_project_path.child("build.gradle");
+		String N = "\n";
+		String data = build_gradle.readToString();
+		File build_gradle_old = gradle_project_path.child("build.gradle.old");
+		build_gradle_old.writeString(data);
+		List<String> lines = Collections.newList(data.split(N));
+		String build_gradle_output_string = "";
+		for (int i = 0; i < lines.size(); i++) {
+			String line_i = lines.getElementAt(i);
+			if (line_i.startsWith(SOURCE_FOLDERS_PREFIX)) {
+				line_i = formGradleConfigLine(gradle_links);
+			}
+			build_gradle_output_string = build_gradle_output_string + line_i + N;
+		}
+		build_gradle.writeString(build_gradle_output_string);
+	}
+
+	private static String formGradleConfigLine(List<String> folder_names) {
+		String line = SOURCE_FOLDERS_PREFIX + "[ \"src/\"";
+		for (int i = 0; i < folder_names.size(); i++) {
+			line = line + ", \"" + folder_names.getElementAt(i) + "/\"";
+		}
+		line = line + " ]";
+		return line;
 	}
 
 	public void printTransactions(String tag) {

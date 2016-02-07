@@ -154,6 +154,7 @@ public class FokkerAssembley {
 		this.android_assembley.executeCodeTransfer(transaction);
 		this.gwt_assembley.executeCodeTransfer(transaction);
 		this.ios_assembley.executeCodeTransfer(transaction);
+		
 		TransactionsInfo.save(transaction);
 	}
 

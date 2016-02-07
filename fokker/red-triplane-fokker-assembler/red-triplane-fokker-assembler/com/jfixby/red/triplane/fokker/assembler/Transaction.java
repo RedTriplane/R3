@@ -41,4 +41,8 @@ public class Transaction {
 		exec.failed = false;
 	}
 
+	public String getName() {
+		return transaction_name;
+	}
+
 }
