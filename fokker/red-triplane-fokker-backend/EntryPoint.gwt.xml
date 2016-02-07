@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<source path="com/jfixby" />
+	<source path="org/box2d/r3" />
+	<source path="com/red/triplane" />
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.red.triplane.scene2d.tiling.TilesComositionStructure" />
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.red.triplane.scene2d.tiling.TileCompositionsContainer" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.redtriplane.fokker.fs.GdxAssetsFileSystemIndex" />
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.redtriplane.fokker.fs.GdxAssetsFileSystemIndexEntry" />
+	<extend-configuration-property name="gdx.reflect.include"
+		value="java.util.Vector" />
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.red.triplane.resources.fsbased.pub.PackageDescriptor" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.red.triplane.scene2d.tiling.TilesComositionStructure" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.red.triplane.scene2d.tiling.TileInfo" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.red.triplane.scene2d.tiling.TileCompositionsContainer" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.StructuresContainer" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.SceneStructure" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.LayerElement" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.AnimationSettings" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.Anchor" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.CameraSettings" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.ChildSceneSettings" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.InputSettings" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.ActionSettings" />
+
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.ActionsGroup" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.api.scene2d.Action" />
+
+	<extend-configuration-property name="gdx.reflect.include"
+		value="com.jfixby.redtriplane.fokker.fs.AssetsInfo" />
+
+
+
+
+
+</module>
