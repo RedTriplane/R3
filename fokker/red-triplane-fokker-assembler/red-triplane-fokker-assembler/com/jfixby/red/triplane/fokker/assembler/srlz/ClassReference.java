@@ -48,4 +48,8 @@ public class ClassReference {
 
 	}
 
+	public String getClassName() {
+		return full_class_name;
+	}
+
 }

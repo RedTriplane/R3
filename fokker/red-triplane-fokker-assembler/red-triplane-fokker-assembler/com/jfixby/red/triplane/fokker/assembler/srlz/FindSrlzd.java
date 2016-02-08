@@ -1,6 +1,8 @@
 package com.jfixby.red.triplane.fokker.assembler.srlz;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.net.URISyntaxException;
 
 import com.jfixby.cmns.adopted.gdx.json.GdxJson;
@@ -10,6 +12,7 @@ import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.json.Json;
+import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.desktop.DesktopAssembler;
 import com.jfixby.red.triplane.fokker.assembler.AndroidProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.DesktopProjectSettings;
@@ -18,7 +21,7 @@ import com.jfixby.red.triplane.fokker.assembler.iOSProjectSettings;
 
 public class FindSrlzd {
 
-	public static void main(String[] args) throws IOException, URISyntaxException {
+	public static void main(String[] args) throws IOException, URISyntaxException, ClassNotFoundException {
 
 		DesktopAssembler.setup();
 		Json.installComponent(new GdxJson());
@@ -76,6 +79,17 @@ public class FindSrlzd {
 			String class_name = data.substring(begin, end);
 			ClassReference ref = new ClassReference(class_name, H);
 			classes.add(ref);
+		}
+		for (ClassReference class_ref : classes) {
+			String string_name = class_ref.getClassName();
+			Class<?> clazz = Class.forName(string_name);
+			L.d("class", clazz);
+
+			List<Field> fields = Collections.newList(clazz.getDeclaredFields());
+			;
+//			fields.print("fields");
+			Collections.filter(fields, field -> !Modifier.isStatic(field.getModifiers())).print("fields");
+			;
 		}
 
 		// classes.print("serializable classes");
