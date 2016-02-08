@@ -145,20 +145,16 @@
 		"index": 35
 	},
 	{
-		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\html\\R3.red-triplane-fokker-backend-gwt.red-triplane-fokker-backend-gwt",
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\html\\src",
 		"index": 36
 	},
 	{
-		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\html\\R3.tinto-run-fokker-gwt.tinto-run-gwt",
+		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\ios\\R3.red-triplane-fokker-backend-ios.red-triplane-fokker-backend-ios",
 		"index": 37
 	},
 	{
-		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\ios\\R3.red-triplane-fokker-backend-ios.red-triplane-fokker-backend-ios",
-		"index": 38
-	},
-	{
 		"native_folder_path": "D:\\[DEV]\\[CODE]\\[GDX]\\tinto\\ios\\R3.tinto-run-fokker-ios.tinto-run-ios",
-		"index": 39
+		"index": 38
 	}
 ]
 }

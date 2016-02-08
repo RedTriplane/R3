@@ -26,15 +26,16 @@ public class GWTAssembley extends AbstractAssembley {
 		for (int i = 0; i < this.transactions.size(); i++) {
 			Transaction transaction = transactions.getElementAt(i);
 			File output_folder = transaction.getOutputFolder();
+			File src = output_folder.parent().child("src");
 			if (i == 0) {
-				File src = output_folder.parent().child("src");
+				
 				exec.index = transaction_info.transactions.indexOf(exec);
 				exec.native_folder_path = src.toJavaFile().getAbsolutePath();
 				src.clearFolder();
 			}
 
 			File input_folder = transaction.getInputFolder();
-			input_folder.getFileSystem().copyFolderContentsToFolder(input_folder, output_folder);
+			input_folder.getFileSystem().copyFolderContentsToFolder(input_folder, src);
 			L.d("transaction executed", this);
 		}
 		exec.failed = false;
