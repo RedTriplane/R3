@@ -11,7 +11,7 @@ public class AnimationSettings {
 
 	public boolean is_looped = false;
 	public boolean autostart = false;
-	public Vector<Anchor> anchors = null;
+	public Vector<Anchor> anchors = new Vector<Anchor>();
 	public String single_frame_time = MAX + "";
 
 	public long single_frame_time() {
