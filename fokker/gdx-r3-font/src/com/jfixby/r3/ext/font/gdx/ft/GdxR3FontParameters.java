@@ -1,4 +1,4 @@
-package com.r3.font.core;
+package com.jfixby.r3.ext.font.gdx.ft;
 
 import com.jfixby.cmns.api.color.Color;
 import com.jfixby.r3.ext.api.font.FontParameters;

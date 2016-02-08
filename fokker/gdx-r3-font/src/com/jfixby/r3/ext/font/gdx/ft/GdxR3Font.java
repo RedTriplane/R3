@@ -1,9 +1,9 @@
-package com.r3.font.core;
+package com.jfixby.r3.ext.font.gdx.ft;
 
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.r3.ext.api.font.FontGenerator;
 import com.jfixby.r3.ext.api.font.R3FontComponent;
-import com.jfixby.r3.ext.font.red.FontPackageLoader;
+import com.jfixby.r3.ext.font.gdx.FontPackageLoader;
 import com.jfixby.rana.api.pkg.PackageReader;
 
 public class GdxR3Font implements R3FontComponent {

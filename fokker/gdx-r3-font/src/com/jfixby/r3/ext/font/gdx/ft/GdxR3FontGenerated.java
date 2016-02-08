@@ -1,4 +1,4 @@
-package com.r3.font.core;
+package com.jfixby.r3.ext.font.gdx.ft;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
