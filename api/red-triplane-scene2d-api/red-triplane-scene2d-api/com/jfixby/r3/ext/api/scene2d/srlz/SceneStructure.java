@@ -8,7 +8,7 @@ public class SceneStructure implements Asset {
 
 	public String structure_name;
 
-	public final LayerElement root = new LayerElement();
+	public LayerElement root = new LayerElement();
 
 	@Override
 	public AssetID getAssetID() {

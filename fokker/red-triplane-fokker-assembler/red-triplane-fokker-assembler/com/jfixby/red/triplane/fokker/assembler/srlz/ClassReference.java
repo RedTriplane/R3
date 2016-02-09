@@ -52,4 +52,8 @@ public class ClassReference {
 		return full_class_name;
 	}
 
+	public JavaFileHandler getHandler() {
+		return this.javaFileHandler;
+	}
+
 }

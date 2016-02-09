@@ -8,6 +8,8 @@ import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Set;
 import com.jfixby.cmns.api.file.ChildrenList;
 import com.jfixby.cmns.api.file.File;
+import com.jfixby.cmns.api.log.L;
+import com.jfixby.cmns.api.sys.Sys;
 import com.jfixby.red.triplane.fokker.assembler.AndroidProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.DesktopProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
@@ -35,15 +37,22 @@ public class SrlzSearcher {
 
 		Set<String> projects = Collections.newSet();
 		projects.addAll(desktop.getEclipseProjectInfo().getDependencies().getProjectsList());
-		projects.addAll(ios.getEclipseProjectInfo().getDependencies().getProjectsList());
+		projects.add(desktop.getEclipseProjectInfo().getProjectName());
+		
+//		projects.addAll(ios.getEclipseProjectInfo().getDependencies().getProjectsList());
+//		projects.add(ios.getEclipseProjectInfo().getProjectName());
+		
 		projects.addAll(gwt.getEclipseProjectInfo().getDependencies().getProjectsList());
+		projects.add(gwt.getEclipseProjectInfo().getProjectName());
+		
 		projects.addAll(android.getEclipseProjectInfo().getDependencies().getProjectsList());
+		projects.add(android.getEclipseProjectInfo().getProjectName());
 
 		// projects.print("projects");
 
 		Set<EclipseProjectInfo> complete_dependency_list = buildCompleteList(workspace_settings, projects);
 
-//		complete_dependency_list.print("all");
+		// complete_dependency_list.print("all");
 
 		for (int i = 0; i < complete_dependency_list.size(); i++) {
 			EclipseProjectInfo project = complete_dependency_list.getElementAt(i);
@@ -61,7 +70,8 @@ public class SrlzSearcher {
 			File sources = sources_list.getElementAt(i);
 			indexJavaFiles(sources);
 		}
-		// java_files_list.print(".java");
+//		java_files_list.print(".java");
+//		Sys.exit();
 	}
 
 	private void indexJavaFiles(File sources) throws IOException {
@@ -80,10 +90,11 @@ public class SrlzSearcher {
 		}
 	}
 
-	
-
 	private static Set<EclipseProjectInfo> buildCompleteList(EclipseWorkSpaceSettings workspace_settings,
 			Collection<String> begin_set) {
+
+//		begin_set.print("begin_set");
+//		Sys.exit();
 
 		Set<String> processing = Collections.newSet();
 		Set<EclipseProjectInfo> processed_projects = Collections.newSet();

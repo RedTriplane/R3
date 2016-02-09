@@ -19,7 +19,7 @@ public class GWTAssembley extends AbstractAssembley {
 	public void executeCodeTransfer(TransactionsInfo transaction_info) throws IOException {
 		List<String> gradle_links = Collections.newList();
 		gradle_links.add("src");
-		
+
 		ExecutedTransaction exec = new ExecutedTransaction();
 		transaction_info.transactions.add(exec);
 		exec.failed = true;
@@ -28,13 +28,20 @@ public class GWTAssembley extends AbstractAssembley {
 			File output_folder = transaction.getOutputFolder();
 			File src = output_folder.parent().child("src");
 			if (i == 0) {
-				
 				exec.index = transaction_info.transactions.indexOf(exec);
 				exec.native_folder_path = src.toJavaFile().getAbsolutePath();
 				src.clearFolder();
 			}
 
 			File input_folder = transaction.getInputFolder();
+			if (input_folder.getName().equals("assets")) {
+				continue;
+			}
+
+			if (input_folder.getName().equals("tinto-run-gwt-desktop")) {
+				continue;
+			}
+			// L.d(input_folder);
 			input_folder.getFileSystem().copyFolderContentsToFolder(input_folder, src);
 			L.d("transaction executed", this);
 		}

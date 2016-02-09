@@ -200,7 +200,7 @@ public class GwtList<T> implements List<T> {
 			T e = legacy.remove(0);
 			tmp.add(e);
 		}
-		tmp.sort();
+		tmp.sort(comparator);
 		for (T e : tmp) {
 			legacy.add(e);
 		}
