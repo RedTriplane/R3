@@ -59,7 +59,7 @@ public class GdxR3FontGenerated implements BitmapFont {
 		this.color = params.getColor();
 		this.reScale = params.getReScaleValue();
 		this.scale = params.getScaleValue();
-		
+
 		this.cache = new GdxR3FontCache(this);
 
 		ToGdxFileAdaptor gdx_font_file = new ToGdxFileAdaptor(file);
@@ -95,10 +95,9 @@ public class GdxR3FontGenerated implements BitmapFont {
 	public void dispose() {
 	}
 
-	
 	int MAX = 128;
 	private Color color;
-	
+
 	private Texture texture;
 
 	public float getReScaleValue() {
@@ -109,48 +108,32 @@ public class GdxR3FontGenerated implements BitmapFont {
 		return this.scale;
 	}
 
+	final Float2 tmpA = Geometry.newFloat2();
+	final Float2 tmpB = Geometry.newFloat2();
+	final Float2 tmpC = Geometry.newFloat2();
+	final Float2 tmpD = Geometry.newFloat2();
+
 	@Override
 	public void renderBitmapFont(BitmapFontRenderer bitmapFontRenderer, CanvasPosition position, String string_value,
 			CameraProjection projection) {
-		com.badlogic.gdx.graphics.g2d.BitmapFont gdx_bitmap_font = getGdxBitmapFont();
-		BitmapFontCache gdx_font_cache = gdx_bitmap_font.getCache();
-		float rescale = getReScaleValue();
-		float scale = getScaleValue();
+		final com.badlogic.gdx.graphics.g2d.BitmapFont gdx_bitmap_font = getGdxBitmapFont();
+		final BitmapFontCache gdx_font_cache = gdx_bitmap_font.getCache();
+		final float rescale = getReScaleValue();
+		final float scale = getScaleValue();
 
 		gdx_font_cache.clear();
 		gdx_font_cache.addText(string_value, 0, 0);
 		final Array<TextureRegion> regions = gdx_bitmap_font.getRegions();
 
-		int n = regions.size;
+		final int n = regions.size;
 		for (int region = 0; region < n; region++) {
 			final int spriteSize = gdx_font_cache.getVertexCount(region);
 			if (spriteSize > 0) { // ignore if this texture has no glyphs
 
-				final Float2 tmpA = Geometry.newFloat2();
-				final Float2 tmpB = Geometry.newFloat2();
-				final Float2 tmpC = Geometry.newFloat2();
-				final Float2 tmpD = Geometry.newFloat2();
-
-				// tmpA.setXY(0, 0);
-				// tmpB.setXY(1, 0);
-				// tmpC.setXY(1, 1);
-				// tmpD.setXY(0, 1);
-				//
-				// raster_shape.toAbsolute(tmpA);
-				// raster_shape.toAbsolute(tmpB);
-				// raster_shape.toAbsolute(tmpC);
-				// raster_shape.toAbsolute(tmpD);
-
-				// GdxRender.rasterDraw(regions.get(j).getTexture(),
-				// pageVertices[j], 0, idx[j]);
 				final Texture texture = regions.get(region).getTexture();
 				final float[] spriteVertices = gdx_font_cache.getVertices(region);
 
-				// List<Float> all = JUtils.newList(spriteVertices);
-				// all.print("all");
-				// Sys.exit();
-
-				int number_of_sprites = spriteVertices.length / SPRITE_SIZE;
+				final int number_of_sprites = spriteVertices.length / SPRITE_SIZE;
 				for (int k = 0; k < number_of_sprites; k++) {
 					tmpA.setX(spriteVertices[spriteVertex(k, A_x)]);
 					tmpA.setY(spriteVertices[spriteVertex(k, A_y)]);
