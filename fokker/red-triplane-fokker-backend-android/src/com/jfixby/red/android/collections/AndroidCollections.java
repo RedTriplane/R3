@@ -1,7 +1,6 @@
 package com.jfixby.red.android.collections;
 
 import java.util.Iterator;
-import java.util.Objects;
 
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.CollectionFilter;
@@ -161,13 +160,29 @@ public class AndroidCollections implements CollectionsComponent {
 		for (int i = 0; i < with.size(); i++) {
 			Object a = with.getElementAt(i);
 			Object b = list.getElementAt(i);
-			if (!Objects.equals(a, b)) {
+			if (!equals(a, b)) {
 				// L.d("false", a + " != " + b);
 				return false;
 			}
 		}
 		return true;
 
+	}
+
+	static final private boolean equals(Object a, Object b) {
+		if (a == b) {
+			return true;
+		}
+		if (a == null) {
+			if (b != null) {
+				return false;
+			}
+			return true;
+		}
+		if (a != null) {
+			return a.equals(b);
+		}
+		return false;
 	}
 
 	@SuppressWarnings("unchecked")

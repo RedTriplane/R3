@@ -18,7 +18,8 @@ public class PackGdxFileSystem {
 			Json.installComponent(new GdxJson());
 		}
 
-		File assets_folder = LocalFileSystem.newFile("D:\\[DATA]\\[RED-ASSETS]\\Art-Private\\tinto-assets");
+		File assets_folder = LocalFileSystem.newFile("D:\\[DATA]\\[RED-ASSETS]\\Art-Private\\tinto-assets")
+				.child("content");
 
 		String gradle_path_string = "D:\\[DEV]\\[CODE]\\[GDX]\\tinto";
 		File gradle_path = LocalFileSystem.newFile(gradle_path_string);

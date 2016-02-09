@@ -3,8 +3,9 @@ package com.jfixby.red.android.collections;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.Vector;
 
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Array;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.EditableCollection;
@@ -195,16 +196,15 @@ public class AndroidList<T> implements List<T> {
 
 	@Override
 	public void sort(Comparator<T> comparator) {
-		// Vector<T> tmp = new Vector<T>();
-		// while (legacy.size() > 0) {
-		// T e = legacy.remove(0);
-		// tmp.add(e);
-		// }
-		// tmp.sort(comparator);
-		// for (T e : tmp) {
-		// legacy.add(e);
-		// }
-		legacy.sort(comparator);
+		Array<T> tmp = new Array<T>();
+		while (legacy.size() > 0) {
+			T e = legacy.remove(0);
+			tmp.add(e);
+		}
+		tmp.sort(comparator);
+		for (T e : tmp) {
+			legacy.add(e);
+		}
 	}
 
 	@Override
