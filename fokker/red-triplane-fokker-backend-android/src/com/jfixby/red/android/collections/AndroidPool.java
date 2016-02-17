@@ -1,16 +1,15 @@
 package com.jfixby.red.android.collections;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.Collections;
-import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Pool;
 import com.jfixby.cmns.api.collections.PoolElementsSpawner;
 
 public class AndroidPool<T> implements Pool<T> {
 
-	final private List<T> legacy = Collections.newList();
+	final private ArrayList<T> legacy = new ArrayList<T>();
 
 	private PoolElementsSpawner<T> spawner;
 
@@ -27,7 +26,7 @@ public class AndroidPool<T> implements Pool<T> {
 			T instance = spawner.spawnNewInstance();
 			return instance;
 		} else {
-			T last = legacy.removeLast();
+			T last = legacy.remove(legacy.size() - 1);
 			return last;
 		}
 	}
@@ -40,11 +39,11 @@ public class AndroidPool<T> implements Pool<T> {
 
 	@Override
 	public void freeAll(Collection<T> collection) {
-		Iterator<T> iterator = collection.iterator();
-		while (iterator.hasNext()) {
-			T t = iterator.next();
+		for (int i = 0; i < collection.size(); i++) {
+			T t = collection.getElementAt(i);
 			this.free(t);
 		}
 	}
+
 
 }

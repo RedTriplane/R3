@@ -6,4 +6,6 @@ public interface EngineState {
 
 	InputQueue getInputQueue();
 
+	boolean isBroken();
+
 }
