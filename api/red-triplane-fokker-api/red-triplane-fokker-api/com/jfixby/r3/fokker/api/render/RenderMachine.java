@@ -71,7 +71,7 @@ public class RenderMachine {
 		invoke().init();
 	}
 
-	public static void setProjection(CameraProjection projection) {
+	public static void setProjection( final CameraProjection projection) {
 		invoke().setProjection(projection);
 	}
 

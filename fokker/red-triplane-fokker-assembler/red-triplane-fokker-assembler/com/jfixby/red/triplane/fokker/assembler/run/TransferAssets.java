@@ -7,7 +7,7 @@ import com.jfixby.cmns.adopted.gdx.json.GdxJson;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.json.Json;
-import com.jfixby.cmns.desktop.DesktopAssembler;
+import com.jfixby.red.desktop.DesktopAssembler;
 import com.jfixby.red.triplane.fokker.assembler.AndroidProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.DesktopProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.FokkerAssembley;

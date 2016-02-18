@@ -11,7 +11,7 @@ import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.cmns.api.util.path.AbsolutePath;
 import com.jfixby.cmns.api.util.path.RelativePath;
-import com.jfixby.cmns.desktop.DesktopAssembler;
+import com.jfixby.red.desktop.DesktopAssembler;
 import com.jfixby.red.triplane.fokker.assembler.ds.AssemblerConfig;
 import com.jfixby.red.triplane.fokker.assembler.ds.BuildInfo;
 import com.jfixby.red.triplane.fokker.assembler.ds.ProjectAssemblerConfig;

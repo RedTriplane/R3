@@ -28,7 +28,7 @@ public interface RenderMachineComponent {
 
 	void init();
 
-	void setProjection(CameraProjection projection);
+	void setProjection( final CameraProjection projection);
 
 	// void drawEllipse(Color color, double positionX, double positionY,
 	// double width, double height, double rotation, boolean filled);
