@@ -4,7 +4,6 @@ import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.color.Color;
 import com.jfixby.cmns.api.floatn.FixedFloat2;
-import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
@@ -71,7 +70,7 @@ public class RenderMachine {
 		invoke().init();
 	}
 
-	public static void setProjection( final CameraProjection projection) {
+	public static void setProjection(final CameraProjection projection) {
 		invoke().setProjection(projection);
 	}
 
@@ -91,9 +90,8 @@ public class RenderMachine {
 		invoke().drawString(string_value, font, position);
 	}
 
-//	public static void drawRaster(AssetID spriteAssetID, FixedFloat2 vertexA, FixedFloat2 vertexB, FixedFloat2 vertexC,
-//			FixedFloat2 vertexD, double opacity) {
-//		invoke().drawRaster(spriteAssetID, vertexA, vertexB, vertexC, vertexD, opacity);
-//	}
+	public static void drawShader() {
+		invoke().drawShader();
+	}
 
 }

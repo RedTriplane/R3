@@ -28,7 +28,7 @@ public interface RenderMachineComponent {
 
 	void init();
 
-	void setProjection( final CameraProjection projection);
+	void setProjection(final CameraProjection projection);
 
 	// void drawEllipse(Color color, double positionX, double positionY,
 	// double width, double height, double rotation, boolean filled);
@@ -51,13 +51,6 @@ public interface RenderMachineComponent {
 
 	void drawString(String string_value, RasterizedFont font, CanvasPosition position);
 
-//	void drawRaster(AssetID spriteAssetID, FixedFloat2 vertexA, FixedFloat2 vertexB, FixedFloat2 vertexC,
-//			FixedFloat2 vertexD, double opacity);
-
-	// void drawShapesRenderable(FokkerShapesRenderable self_renderable);
-
-	// RasterInfo watchRaster(AssetID spriteAssetID);
-
-	// AssetID RASTER_IS_MISING();
+	void drawShader();
 
 }
