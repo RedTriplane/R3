@@ -15,6 +15,7 @@ public class StandardPackageFormats {
 	public static final class RedTriplane {
 		public static final String TiledRaster = "RedTriplane.TiledRaster";
 		public static final String Shader = "RedTriplane.Shader";
+		public static final String Text = "RedTriplane.Text";
 	}
 
 	public static final class Box2DEditor {
