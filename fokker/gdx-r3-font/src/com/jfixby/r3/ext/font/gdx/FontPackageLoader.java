@@ -2,7 +2,6 @@ package com.jfixby.r3.ext.font.gdx;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.adopted.gdx.fs.ToGdxFileAdaptor;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
 import com.jfixby.cmns.api.collections.Collection;
@@ -47,7 +46,8 @@ public class FontPackageLoader implements PackageReader, AssetContainer {
 		return acceptablePackageFormats;
 	}
 
-	public void doReadPackage(PackageReaderListener reader_listener, File package_root_file, PackageHandler handler) throws IOException {
+	public void doReadPackage(PackageReaderListener reader_listener, File package_root_file, PackageHandler handler)
+			throws IOException {
 
 		resolveDependencies(handler, reader_listener);
 
@@ -56,7 +56,7 @@ public class FontPackageLoader implements PackageReader, AssetContainer {
 			content = package_root_file.readToString();
 
 			// L.d("reading package_root_file", package_root_file);
-			// L.d("                         content", content);
+			// L.d(" content", content);
 			FontPackage container = Json.deserializeFromString(FontPackage.class, content);
 			for (RedFontData structure : container.fonts) {
 				AssetID asset_id = Names.newAssetID(structure.id);
@@ -64,8 +64,10 @@ public class FontPackageLoader implements PackageReader, AssetContainer {
 				String original_font_file_name = structure.original_font_file_name;
 
 				File original_font_file = package_root_file.parent().child(original_font_file_name);
-//				ToGdxFileAdaptor original_font_file_adaptor = new ToGdxFileAdaptor(original_font_file);
-				FontDataRegistrationEntry entry = new FontDataRegistrationEntry(asset_id, structure, original_font_file);
+				// ToGdxFileAdaptor original_font_file_adaptor = new
+				// ToGdxFileAdaptor(original_font_file);
+				FontDataRegistrationEntry entry = new FontDataRegistrationEntry(asset_id, structure,
+						original_font_file);
 
 				structures_register.put(asset_id, entry);
 				AssetsManager.registerAsset(asset_id, this);
