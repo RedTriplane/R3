@@ -8,6 +8,4 @@ public interface ShaderSpecs {
 
 	ShaderAsset getShaderAsset();
 
-
-
 }
