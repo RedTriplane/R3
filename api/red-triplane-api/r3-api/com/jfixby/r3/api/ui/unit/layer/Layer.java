@@ -3,6 +3,7 @@ package com.jfixby.r3.api.ui.unit.layer;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.camera.Camera;
+import com.jfixby.r3.api.ui.unit.shader.Shader;
 
 public interface Layer extends VisibleComponent {
 	public void closeInputValve();
@@ -14,6 +15,10 @@ public interface Layer extends VisibleComponent {
 	void setCamera(Camera camera);
 
 	Camera getCamera();
+
+	void setShader(Shader shader);
+
+	Shader getShader();
 
 	public void attachComponent(Component attachment);
 

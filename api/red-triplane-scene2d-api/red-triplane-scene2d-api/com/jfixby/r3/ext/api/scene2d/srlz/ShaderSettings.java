@@ -6,5 +6,7 @@ public class ShaderSettings {
 
 	public Vector<ShaderParameter> params = new Vector<ShaderParameter>();
 	public String shader_asset_id;
+	public String shader_name;
+	public boolean is_hidden = false;
 
 }

@@ -114,8 +114,8 @@ public class GdxR3FontGenerated implements BitmapFont {
 	final Float2 tmpD = Geometry.newFloat2();
 
 	@Override
-	public void renderBitmapFont(BitmapFontRenderer bitmapFontRenderer, CanvasPosition position, String string_value,
-			CameraProjection projection) {
+	public void renderBitmapFont(final BitmapFontRenderer bitmapFontRenderer, final CanvasPosition position,
+			final String string_value, final CameraProjection projection) {
 		final com.badlogic.gdx.graphics.g2d.BitmapFont gdx_bitmap_font = getGdxBitmapFont();
 		final BitmapFontCache gdx_font_cache = gdx_bitmap_font.getCache();
 		final float rescale = getReScaleValue();

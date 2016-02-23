@@ -51,6 +51,6 @@ public interface RenderMachineComponent {
 
 	void drawString(String string_value, RasterizedFont font, CanvasPosition position);
 
-	void drawShader();
+	void setShader(final FokkerShader shader_handler);
 
 }

@@ -74,6 +74,10 @@ public class RenderMachine {
 		invoke().setProjection(projection);
 	}
 
+	public static void setShader(final FokkerShader shader_handler) {
+		invoke().setShader(shader_handler);
+	}
+
 	public static void drawRaster(AssetID spriteAssetID, Rectangle shape, double opacity) {
 		invoke().drawRaster(spriteAssetID, shape, opacity);
 	}
@@ -88,10 +92,6 @@ public class RenderMachine {
 
 	public static void drawString(String string_value, RasterizedFont font, CanvasPosition position) {
 		invoke().drawString(string_value, font, position);
-	}
-
-	public static void drawShader() {
-		invoke().drawShader();
 	}
 
 }

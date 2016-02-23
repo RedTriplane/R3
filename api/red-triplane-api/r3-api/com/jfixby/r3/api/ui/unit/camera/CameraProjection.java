@@ -4,7 +4,7 @@ import com.jfixby.cmns.api.floatn.Float2;
 
 public interface CameraProjection {
 
-	void projectCanvasPointToScreenPoint(Float2 temp);
+	void projectCanvasPointToScreenPoint(final Float2 temp);
 
 //	void scaleCanvasVectorToScreenVector(Point temp);
 
