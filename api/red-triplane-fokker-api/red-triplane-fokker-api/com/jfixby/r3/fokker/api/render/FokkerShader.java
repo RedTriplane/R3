@@ -4,4 +4,5 @@ public interface FokkerShader {
 
 	Object getGdxShaderProgram();
 
+	
 }
