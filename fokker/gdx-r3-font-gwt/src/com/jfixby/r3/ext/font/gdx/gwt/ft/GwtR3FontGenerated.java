@@ -11,6 +11,7 @@ import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Geometry;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
+import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.txt.StringBounds;
 import com.jfixby.r3.ext.api.font.BitmapFont;
 import com.jfixby.r3.ext.api.font.BitmapFontRenderer;
@@ -84,10 +85,6 @@ public class GwtR3FontGenerated implements BitmapFont {
 		return this.scale;
 	}
 
-	@Override
-	public void renderBitmapFont(BitmapFontRenderer bitmapFontRenderer, CanvasPosition position, String string_value,
-			CameraProjection projection) {
-	}
 
 	final GDXTextureContainer container = new GDXTextureContainer() {
 		@Override
@@ -100,5 +97,12 @@ public class GwtR3FontGenerated implements BitmapFont {
 		RedStringBounds result = new RedStringBounds();
 		return result;
 	}
+
+	@Override
+	public void renderBitmapFont(BitmapFontRenderer bitmapFontRenderer, CanvasPosition position, String string_value,
+			CameraProjection projection, BLEND_MODE mode) {
+	}
+	
+	
 
 }

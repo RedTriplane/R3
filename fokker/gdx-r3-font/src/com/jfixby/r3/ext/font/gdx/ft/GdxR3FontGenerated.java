@@ -14,6 +14,7 @@ import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Geometry;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
+import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.txt.StringBounds;
 import com.jfixby.r3.ext.api.font.BitmapFont;
 import com.jfixby.r3.ext.api.font.BitmapFontRenderer;
@@ -115,7 +116,7 @@ public class GdxR3FontGenerated implements BitmapFont {
 
 	@Override
 	public void renderBitmapFont(final BitmapFontRenderer bitmapFontRenderer, final CanvasPosition position,
-			final String string_value, final CameraProjection projection) {
+			final String string_value, final CameraProjection projection, final BLEND_MODE mode) {
 		final com.badlogic.gdx.graphics.g2d.BitmapFont gdx_bitmap_font = getGdxBitmapFont();
 		final BitmapFontCache gdx_font_cache = gdx_bitmap_font.getCache();
 		final float rescale = getReScaleValue();
@@ -172,7 +173,7 @@ public class GdxR3FontGenerated implements BitmapFont {
 					spriteVertices[spriteVertex(k, B_y)] = bitmapFontRenderer.round(tmpB.getY());
 				}
 				this.texture = texture;
-				bitmapFontRenderer.rasterDraw(container, spriteVertices, 0, spriteSize);
+				bitmapFontRenderer.rasterDraw(container, spriteVertices, 0, spriteSize, mode);
 				this.texture = null;
 				return;
 			}

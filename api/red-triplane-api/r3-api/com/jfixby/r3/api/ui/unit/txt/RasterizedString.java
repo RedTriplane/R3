@@ -3,8 +3,9 @@ package com.jfixby.r3.api.ui.unit.txt;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.math.Angle;
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
+import com.jfixby.r3.api.ui.unit.raster.BlendableComponent;
 
-public interface RasterizedString extends VisibleComponent {
+public interface RasterizedString extends VisibleComponent, BlendableComponent {
 
 	void setPositionXY(double canvas_x, double canvas_y);
 

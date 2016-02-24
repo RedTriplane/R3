@@ -1,5 +1,8 @@
 package com.jfixby.r3.api.ui.unit.shader;
 
+import com.jfixby.cmns.api.collections.Mapping;
+import com.jfixby.r3.api.shader.ShaderParameter;
+
 public interface Shader {
 
 	public void hide();
@@ -14,8 +17,10 @@ public interface Shader {
 
 	void setVisible(boolean b);
 
-	void setParameter(String name, String value);
+	void setFloatParameterValue(String name, double value);
 
-	public String getParameter(String name);
+	public double getFloatParameterValue(String name);
+
+	Mapping<String, ShaderParameter> listParameters();
 
 }

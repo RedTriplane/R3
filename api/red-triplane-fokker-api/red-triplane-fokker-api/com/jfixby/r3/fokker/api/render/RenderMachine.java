@@ -7,6 +7,7 @@ import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
+import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.txt.RasterizedFont;
 
 public class RenderMachine {
@@ -38,15 +39,15 @@ public class RenderMachine {
 		invoke().clearScreen();
 	}
 
-	public static void beginDrawComponent(FokkerDrawable fokkerDrawable) {
+	public static void beginDrawComponent(final FokkerDrawable fokkerDrawable) {
 		invoke().beginDrawComponent(fokkerDrawable);
 	}
 
-	public static void beginMode(RENDER_MACHINE_STATE mode) {
+	public static void beginMode(final RENDER_MACHINE_STATE mode) {
 		invoke().beginMode(mode);
 	}
 
-	public static void endMode(RENDER_MACHINE_STATE mode) {
+	public static void endMode(final RENDER_MACHINE_STATE mode) {
 		invoke().endMode(mode);
 	}
 
@@ -54,15 +55,15 @@ public class RenderMachine {
 	// invoke().setOffset(offset);
 	// }
 
-	public static void drawLine(Color color, FixedFloat2 a, FixedFloat2 b) {
+	public static void drawLine(final Color color, final FixedFloat2 a, final FixedFloat2 b) {
 		invoke().drawLine(color, a, b);
 	}
 
-	public static void drawTriangle(Color color, FixedFloat2 a, FixedFloat2 b, FixedFloat2 c) {
+	public static void drawTriangle(final Color color, final FixedFloat2 a, final FixedFloat2 b, final FixedFloat2 c) {
 		invoke().drawTriangle(color, a, b, c);
 	}
 
-	public static void endDrawComponent(FokkerDrawable fokkerDrawable) {
+	public static void endDrawComponent(final FokkerDrawable fokkerDrawable) {
 		invoke().endDrawComponent(fokkerDrawable);
 	}
 
@@ -78,20 +79,24 @@ public class RenderMachine {
 		invoke().setShader(shader_handler);
 	}
 
-	public static void drawRaster(AssetID spriteAssetID, Rectangle shape, double opacity) {
-		invoke().drawRaster(spriteAssetID, shape, opacity);
+	public static void drawRaster(final AssetID spriteAssetID, final Rectangle shape, final double opacity,
+			final BLEND_MODE mode) {
+		invoke().drawRaster(spriteAssetID, shape, opacity, mode);
 	}
 
-	public static void drawAperture(double ax, double ay, double bx, double by, AssetID spriteAssetID, double opacity) {
+	public static void drawAperture(final double ax, final double ay, final double bx, final double by,
+			final AssetID spriteAssetID, final double opacity) {
 		invoke().drawAperture(ax, ay, bx, by, spriteAssetID, opacity);
 	}
 
-	public static void drawCircle(Color color, double center_x, double center_y, double radius) {
+	public static void drawCircle(final Color color, final double center_x, final double center_y,
+			final double radius) {
 		invoke().drawCircle(color, center_x, center_y, radius);
 	}
 
-	public static void drawString(String string_value, RasterizedFont font, CanvasPosition position) {
-		invoke().drawString(string_value, font, position);
+	public static void drawString(final String string_value, final RasterizedFont font, final CanvasPosition position,
+			final BLEND_MODE mode) {
+		invoke().drawString(string_value, font, position, mode);
 	}
 
 }

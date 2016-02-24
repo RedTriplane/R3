@@ -1,15 +1,15 @@
 package com.jfixby.r3.api.shader;
 
-public class ShaderParameter {
+public class ShaderParameterInfo {
 	public String name;
 	public String type;
 
-	public ShaderParameter(String name, String type) {
+	public ShaderParameterInfo(String name, String type) {
 		this.name = name;
 		this.type = type;
 	}
 
-	public ShaderParameter() {
+	public ShaderParameterInfo() {
 	}
 
 }

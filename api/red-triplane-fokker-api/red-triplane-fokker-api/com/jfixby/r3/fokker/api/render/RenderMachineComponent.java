@@ -6,6 +6,7 @@ import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
+import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.txt.RasterizedFont;
 
 public interface RenderMachineComponent {
@@ -39,7 +40,7 @@ public interface RenderMachineComponent {
 	// void drawDisk(Color color, double positionX, double positionY, double
 	// radius);
 
-	void drawRaster(AssetID spriteAssetID, Rectangle shape, double opacity);
+	void drawRaster(AssetID spriteAssetID, Rectangle shape, double opacity, BLEND_MODE mode);
 
 	void beginMode(RENDER_MACHINE_STATE mode);
 
@@ -49,7 +50,7 @@ public interface RenderMachineComponent {
 
 	void drawCircle(Color color, double center_x, double center_y, double radius);
 
-	void drawString(String string_value, RasterizedFont font, CanvasPosition position);
+	void drawString(String string_value, RasterizedFont font, CanvasPosition position, final BLEND_MODE mode);
 
 	void setShader(final FokkerShader shader_handler);
 
