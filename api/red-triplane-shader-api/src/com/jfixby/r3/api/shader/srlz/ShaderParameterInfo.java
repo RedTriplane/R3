@@ -1,4 +1,4 @@
-package com.jfixby.r3.api.shader;
+package com.jfixby.r3.api.shader.srlz;
 
 public class ShaderParameterInfo {
 	public String name;

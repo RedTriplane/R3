@@ -40,6 +40,6 @@ public class LayerElement {
 	public InputSettings input_settings = null;
 	public CameraSettings camera_settings = null;
 	public TextSettings text_settings = null;
-	public ShaderSettings shader_settings = null;
+//	public ShaderSettings shader_settings = null;
 
 }

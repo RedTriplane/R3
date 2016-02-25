@@ -42,9 +42,9 @@ public interface RenderMachineComponent {
 
 	void drawRaster(AssetID spriteAssetID, Rectangle shape, double opacity, BLEND_MODE mode);
 
-	void beginMode(RENDER_MACHINE_STATE mode);
+	void beginMode(RENDER_MODE mode);
 
-	void endMode(RENDER_MACHINE_STATE mode);
+	void endMode(RENDER_MODE mode);
 
 	void drawAperture(double ax, double ay, double bx, double by, AssetID spriteAssetID, double opacity);
 
@@ -52,6 +52,10 @@ public interface RenderMachineComponent {
 
 	void drawString(String string_value, RasterizedFont font, CanvasPosition position, final BLEND_MODE mode);
 
-	void setShader(final FokkerShader shader_handler);
+	void beginBlendMode(final BLEND_MODE blend_mode);
+
+	void endBlendMode(final BLEND_MODE blend_mode);
+
+	// void setShader(final FokkerShader shader_handler);
 
 }

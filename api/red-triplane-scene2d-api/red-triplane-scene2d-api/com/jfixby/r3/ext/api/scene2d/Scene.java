@@ -12,7 +12,6 @@ import com.jfixby.r3.api.ui.unit.input.InputComponent;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
-import com.jfixby.r3.api.ui.unit.shader.Shader;
 
 public interface Scene extends CanvasComponent {
 
@@ -42,7 +41,7 @@ public interface Scene extends CanvasComponent {
 
 	public Collection<Raster> listRaster();
 
-	public Collection<Shader> listShaders();
+	// public Collection<Shader> listShaders();
 
 	public Collection<LocalizedComponent> listLocalizedComponents();
 

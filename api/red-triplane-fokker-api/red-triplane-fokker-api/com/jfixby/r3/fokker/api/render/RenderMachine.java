@@ -27,33 +27,55 @@ public class RenderMachine {
 		return componentInstaller.getComponent();
 	}
 
+	public static void init() {
+		invoke().init();
+	}
+	// -------------------------------------
+
 	public static void beginFrame() {
 		invoke().beginFrame();
-	}
-
-	public static void endFrame() {
-		invoke().endFrame();
 	}
 
 	public static void clearScreen() {
 		invoke().clearScreen();
 	}
 
+	public static void setProjection(final CameraProjection projection) {
+		invoke().setProjection(projection);
+	}
+
+	public static void beginBlendMode(final BLEND_MODE blend_mode) {
+		invoke().beginBlendMode(blend_mode);
+	}
+
+	public static void endBlendMode(final BLEND_MODE blend_mode) {
+		invoke().endBlendMode(blend_mode);
+	}
+
 	public static void beginDrawComponent(final FokkerDrawable fokkerDrawable) {
 		invoke().beginDrawComponent(fokkerDrawable);
 	}
 
-	public static void beginMode(final RENDER_MACHINE_STATE mode) {
+	public static void beginMode(final RENDER_MODE mode) {
 		invoke().beginMode(mode);
 	}
 
-	public static void endMode(final RENDER_MACHINE_STATE mode) {
+	public static void endMode(final RENDER_MODE mode) {
 		invoke().endMode(mode);
 	}
 
-	// public static void setOffset(Dot offset) {
-	// invoke().setOffset(offset);
-	// }
+	public static void endDrawComponent(final FokkerDrawable fokkerDrawable) {
+		invoke().endDrawComponent(fokkerDrawable);
+	}
+
+	public static void drawAperture(final double ax, final double ay, final double bx, final double by,
+			final AssetID spriteAssetID, final double opacity) {
+		invoke().drawAperture(ax, ay, bx, by, spriteAssetID, opacity);
+	}
+
+	public static void endFrame() {
+		invoke().endFrame();
+	}
 
 	public static void drawLine(final Color color, final FixedFloat2 a, final FixedFloat2 b) {
 		invoke().drawLine(color, a, b);
@@ -63,30 +85,13 @@ public class RenderMachine {
 		invoke().drawTriangle(color, a, b, c);
 	}
 
-	public static void endDrawComponent(final FokkerDrawable fokkerDrawable) {
-		invoke().endDrawComponent(fokkerDrawable);
-	}
-
-	public static void init() {
-		invoke().init();
-	}
-
-	public static void setProjection(final CameraProjection projection) {
-		invoke().setProjection(projection);
-	}
-
-	public static void setShader(final FokkerShader shader_handler) {
-		invoke().setShader(shader_handler);
-	}
+	// public static void setShader(final FokkerShader shader_handler) {
+	// invoke().setShader(shader_handler);
+	// }
 
 	public static void drawRaster(final AssetID spriteAssetID, final Rectangle shape, final double opacity,
 			final BLEND_MODE mode) {
 		invoke().drawRaster(spriteAssetID, shape, opacity, mode);
-	}
-
-	public static void drawAperture(final double ax, final double ay, final double bx, final double by,
-			final AssetID spriteAssetID, final double opacity) {
-		invoke().drawAperture(ax, ay, bx, by, spriteAssetID, opacity);
 	}
 
 	public static void drawCircle(final Color color, final double center_x, final double center_y,

@@ -1,4 +1,4 @@
-package com.jfixby.r3.api.ui.unit.shader;
+package com.jfixby.r3.api.shader;
 
 import com.jfixby.r3.api.shader.ShaderAsset;
 
