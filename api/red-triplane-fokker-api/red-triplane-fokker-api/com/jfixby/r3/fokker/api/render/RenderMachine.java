@@ -44,24 +44,24 @@ public class RenderMachine {
 		invoke().setProjection(projection);
 	}
 
-	public static void beginBlendMode(final BLEND_MODE blend_mode) {
-		invoke().beginBlendMode(blend_mode);
+	public static void beginRasterMode(final BLEND_MODE blend_mode) {
+		invoke().beginRasterMode(blend_mode);
 	}
 
-	public static void endBlendMode(final BLEND_MODE blend_mode) {
-		invoke().endBlendMode(blend_mode);
+	public static void endRasterMode(final BLEND_MODE blend_mode) {
+		invoke().endRasterMode(blend_mode);
 	}
 
 	public static void beginDrawComponent(final FokkerDrawable fokkerDrawable) {
 		invoke().beginDrawComponent(fokkerDrawable);
 	}
 
-	public static void beginMode(final RENDER_MODE mode) {
-		invoke().beginMode(mode);
+	public static void beginShapesMode() {
+		invoke().beginShapesMode();
 	}
 
-	public static void endMode(final RENDER_MODE mode) {
-		invoke().endMode(mode);
+	public static void endShapesMode() {
+		invoke().endShapesMode();
 	}
 
 	public static void endDrawComponent(final FokkerDrawable fokkerDrawable) {
