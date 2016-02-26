@@ -21,6 +21,7 @@ public class LayerElement {
 	public String event_id;
 	public String input_id;
 	public String textbar_id;
+	public RASTER_BLEND_MODE blend_mode = RASTER_BLEND_MODE.NORMAL;
 
 	public double opacity = 1;
 	public double position_x;
@@ -40,6 +41,6 @@ public class LayerElement {
 	public InputSettings input_settings = null;
 	public CameraSettings camera_settings = null;
 	public TextSettings text_settings = null;
-//	public ShaderSettings shader_settings = null;
+	// public ShaderSettings shader_settings = null;
 
 }
