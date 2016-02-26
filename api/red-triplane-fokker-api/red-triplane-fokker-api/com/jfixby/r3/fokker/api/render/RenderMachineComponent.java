@@ -52,7 +52,7 @@ public interface RenderMachineComponent {
 
 	void drawString(String string_value, RasterizedFont font, CanvasPosition position, final BLEND_MODE mode);
 
-	void beginRasterMode(final BLEND_MODE blend_mode);
+	void beginRasterMode(final BLEND_MODE blend_mode, double opacity);
 
 	void endRasterMode(final BLEND_MODE blend_mode);
 

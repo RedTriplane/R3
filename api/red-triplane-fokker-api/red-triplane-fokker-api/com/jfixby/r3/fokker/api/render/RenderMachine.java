@@ -44,8 +44,8 @@ public class RenderMachine {
 		invoke().setProjection(projection);
 	}
 
-	public static void beginRasterMode(final BLEND_MODE blend_mode) {
-		invoke().beginRasterMode(blend_mode);
+	public static void beginRasterMode(final BLEND_MODE blend_mode, double opacity) {
+		invoke().beginRasterMode(blend_mode, opacity);
 	}
 
 	public static void endRasterMode(final BLEND_MODE blend_mode) {
