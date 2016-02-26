@@ -10,6 +10,7 @@ public interface BitmapFontRenderer {
 
 	float round(double x);
 
-	void rasterDraw(TextureContainer texture, float[] spriteVertices, int i, int spriteSize, final BLEND_MODE mode);
+	void rasterDraw(TextureContainer texture, float[] spriteVertices, int i, int spriteSize, final BLEND_MODE mode,
+			Object blend_texture);
 
 }

@@ -41,8 +41,8 @@ public class Screen {
 		return invoke().newScreenDimentionsChecker();
 	}
 
-	public static ScreenDimentions getScreenDimentions() {
-		return invoke().getScreenDimentions();
+	public static ScreenDimentions getScreenDimensions() {
+		return invoke().getScreenDimensions();
 	}
 
 }

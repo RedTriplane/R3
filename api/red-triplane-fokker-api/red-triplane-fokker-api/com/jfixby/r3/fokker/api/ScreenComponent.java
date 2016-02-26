@@ -14,6 +14,6 @@ public interface ScreenComponent {
 
 	ScreenDimentionsChecker newScreenDimentionsChecker();
 
-	ScreenDimentions getScreenDimentions();
+	ScreenDimentions getScreenDimensions();
 
 }

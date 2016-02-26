@@ -11,6 +11,6 @@ public interface BitmapFont {
 	void dispose();
 
 	void renderBitmapFont(BitmapFontRenderer bitmapFontRenderer, CanvasPosition position, String string_value,
-			CameraProjection projection, final BLEND_MODE mode);
+			CameraProjection projection, final BLEND_MODE mode, final Object blend_texture);
 
 }

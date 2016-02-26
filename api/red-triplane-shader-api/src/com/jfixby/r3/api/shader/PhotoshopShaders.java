@@ -4,4 +4,8 @@ public interface PhotoshopShaders {
 
 	Shader TEST();
 
+	Shader NORMAL();
+
+	Shader MULTIPLY();
+
 }

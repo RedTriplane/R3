@@ -10,6 +10,12 @@ public interface Shader {
 
 	Mapping<String, ShaderParameter> listParameters();
 
+	void setIntParameterValue(String parameter_name, long value);
+
+	long getIntParameterValue(String parameter_name);
+
 	
+
+	void setupValues();
 
 }
