@@ -21,23 +21,9 @@ import com.jfixby.r3.ext.api.font.FontCache;
 import com.jfixby.r3.ext.api.font.FontParameters;
 import com.jfixby.red.engine.core.unit.text.RedStringBounds;
 import com.jfixby.redtriplane.fokker.render.raster.GDXTextureContainer;
+import com.jfixby.redtriplane.fokker.render.raster.SpritesRenderer;
 
 public class GdxR3FontGenerated implements BitmapFont {
-	final static private int spriteVertex(int sprite_number, int vertice_name) {
-		return vertice_name + sprite_number * SPRITE_SIZE;
-	}
-
-	static final int VERTEX_SIZE = 2 + 1 + 2;
-	static final int SPRITE_SIZE = 4 * VERTEX_SIZE;
-
-	final static int A_x = 0;
-	final static int A_y = 1;
-	final static int B_x = 15;
-	final static int B_y = 16;
-	final static int C_x = 10;
-	final static int C_y = 11;
-	final static int D_x = 5;
-	final static int D_y = 6;
 
 	com.badlogic.gdx.graphics.g2d.BitmapFont gdx_bitmap_font;
 	private File file;
@@ -133,46 +119,35 @@ public class GdxR3FontGenerated implements BitmapFont {
 				final Texture texture = regions.get(region).getTexture();
 				final float[] spriteVertices = gdx_font_cache.getVertices(region);
 
-				final int number_of_sprites = spriteVertices.length / SPRITE_SIZE;
+				final int number_of_sprites = spriteVertices.length / SpritesRenderer.SPRITE_SIZE;
 				for (int k = 0; k < number_of_sprites; k++) {
-					tmpA.setX(spriteVertices[spriteVertex(k, A_x)]);
-					tmpA.setY(spriteVertices[spriteVertex(k, A_y)]);
+					tmpA.setX(spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.A_x)]);
+					tmpA.setY(spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.A_y)]);
 
-					tmpB.setX(spriteVertices[spriteVertex(k, B_x)]);
-					tmpB.setY(spriteVertices[spriteVertex(k, B_y)]);
+					tmpB.setX(spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.B_x)]);
+					tmpB.setY(spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.B_y)]);
 
-					tmpC.setX(spriteVertices[spriteVertex(k, C_x)]);
-					tmpC.setY(spriteVertices[spriteVertex(k, C_y)]);
+					tmpC.setX(spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.C_x)]);
+					tmpC.setY(spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.C_y)]);
 
-					tmpD.setX(spriteVertices[spriteVertex(k, D_x)]);
-					tmpD.setY(spriteVertices[spriteVertex(k, D_y)]);
+					tmpD.setX(spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.D_x)]);
+					tmpD.setY(spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.D_y)]);
 
 					//
-
-					bitmapFontRenderer.offset(tmpA, position, rescale, scale);
-					bitmapFontRenderer.offset(tmpB, position, rescale, scale);
-					bitmapFontRenderer.offset(tmpC, position, rescale, scale);
-					bitmapFontRenderer.offset(tmpD, position, rescale, scale);
-
-					projection.projectCanvasPointToScreenPoint(tmpA);
-					projection.projectCanvasPointToScreenPoint(tmpB);
-					projection.projectCanvasPointToScreenPoint(tmpC);
-					projection.projectCanvasPointToScreenPoint(tmpD);
-
-					spriteVertices[spriteVertex(k, A_x)] = bitmapFontRenderer.round(tmpA.getX());//
-					spriteVertices[spriteVertex(k, A_y)] = bitmapFontRenderer.round(tmpA.getY());
-
-					spriteVertices[spriteVertex(k, D_x)] = bitmapFontRenderer.round(tmpD.getX());
-					spriteVertices[spriteVertex(k, D_y)] = bitmapFontRenderer.round(tmpD.getY());
-
-					spriteVertices[spriteVertex(k, C_x)] = bitmapFontRenderer.round(tmpC.getX());
-					spriteVertices[spriteVertex(k, C_y)] = bitmapFontRenderer.round(tmpC.getY());
-
-					spriteVertices[spriteVertex(k, B_x)] = bitmapFontRenderer.round(tmpB.getX());
-					spriteVertices[spriteVertex(k, B_y)] = bitmapFontRenderer.round(tmpB.getY());
+					// SpritesRenderer.offset(tmpA, position, rescale, scale);
+					SpritesRenderer.offset(tmpA, position, rescale, scale);
+					SpritesRenderer.offset(tmpB, position, rescale, scale);
+					SpritesRenderer.offset(tmpC, position, rescale, scale);
+					SpritesRenderer.offset(tmpD, position, rescale, scale);
+					// SpritesRenderer.setAlpha(k, opacity, spriteVertices);
+					SpritesRenderer.setupVertices(k, projection, true, spriteVertices, tmpA, tmpB, tmpC, tmpD, opacity);
 				}
 				this.texture = texture;
 				bitmapFontRenderer.rasterDraw(container, spriteVertices, 0, spriteSize, blend);
+				for (int k = 0; k < number_of_sprites; k++) {
+					// SpritesRenderer.setAlpha(k, 1, spriteVertices);
+				}
+
 				this.texture = null;
 				return;
 			}
@@ -204,16 +179,20 @@ public class GdxR3FontGenerated implements BitmapFont {
 			final int spriteSize = gdx_font_cache.getVertexCount(region);
 			if (spriteSize > 0) {
 				final float[] spriteVertices = gdx_font_cache.getVertices(region);
-				int number_of_sprites = spriteVertices.length / SPRITE_SIZE;
+				int number_of_sprites = spriteVertices.length / SpritesRenderer.SPRITE_SIZE;
 				for (int k = 0; k < number_of_sprites; k++) {
-					result.addVertex(reScale * scale * spriteVertices[spriteVertex(k, A_x)],
-							reScale * scale * spriteVertices[spriteVertex(k, A_y)]);
-					result.addVertex(reScale * scale * spriteVertices[spriteVertex(k, B_x)],
-							reScale * scale * spriteVertices[spriteVertex(k, B_y)]);
-					result.addVertex(reScale * scale * spriteVertices[spriteVertex(k, C_x)],
-							reScale * scale * spriteVertices[spriteVertex(k, C_y)]);
-					result.addVertex(reScale * scale * spriteVertices[spriteVertex(k, D_x)],
-							reScale * scale * spriteVertices[spriteVertex(k, D_y)]);
+					result.addVertex(
+							reScale * scale * spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.A_x)],
+							reScale * scale * spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.A_y)]);
+					result.addVertex(
+							reScale * scale * spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.B_x)],
+							reScale * scale * spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.B_y)]);
+					result.addVertex(
+							reScale * scale * spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.C_x)],
+							reScale * scale * spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.C_y)]);
+					result.addVertex(
+							reScale * scale * spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.D_x)],
+							reScale * scale * spriteVertices[SpritesRenderer.spriteVertex(k, SpritesRenderer.D_y)]);
 				}
 			}
 		}
