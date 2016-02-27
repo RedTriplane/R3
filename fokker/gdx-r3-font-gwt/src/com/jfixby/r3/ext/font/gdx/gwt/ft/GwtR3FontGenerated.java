@@ -100,7 +100,7 @@ public class GwtR3FontGenerated implements BitmapFont {
 
 	@Override
 	public void renderBitmapFont(BitmapFontRenderer bitmapFontRenderer, CanvasPosition position, String string_value,
-			CameraProjection projection, BLEND_MODE mode, Object blend_texture) {
+			CameraProjection projection,  Object blend_texture, double opacity) {
 	}
 
 	

@@ -40,17 +40,17 @@ public interface RenderMachineComponent {
 	// void drawDisk(Color color, double positionX, double positionY, double
 	// radius);
 
-	void drawRaster(AssetID spriteAssetID, Rectangle shape, double opacity, BLEND_MODE mode);
+	void drawRaster(AssetID spriteAssetID, Rectangle shape);
 
 	void beginShapesMode();
 
 	void endShapesMode();
 
-	void drawAperture(double ax, double ay, double bx, double by, AssetID spriteAssetID, double opacity);
+	void drawAperture(double ax, double ay, double bx, double by, AssetID spriteAssetID);
 
 	void drawCircle(Color color, double center_x, double center_y, double radius);
 
-	void drawString(String string_value, RasterizedFont font, CanvasPosition position, final BLEND_MODE mode);
+	void drawString(String string_value, RasterizedFont font, CanvasPosition position);
 
 	void beginRasterMode(final BLEND_MODE blend_mode, double opacity);
 

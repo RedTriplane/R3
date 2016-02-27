@@ -69,8 +69,8 @@ public class RenderMachine {
 	}
 
 	public static void drawAperture(final double ax, final double ay, final double bx, final double by,
-			final AssetID spriteAssetID, final double opacity) {
-		invoke().drawAperture(ax, ay, bx, by, spriteAssetID, opacity);
+			final AssetID spriteAssetID) {
+		invoke().drawAperture(ax, ay, bx, by, spriteAssetID);
 	}
 
 	public static void endFrame() {
@@ -89,9 +89,8 @@ public class RenderMachine {
 	// invoke().setShader(shader_handler);
 	// }
 
-	public static void drawRaster(final AssetID spriteAssetID, final Rectangle shape, final double opacity,
-			final BLEND_MODE mode) {
-		invoke().drawRaster(spriteAssetID, shape, opacity, mode);
+	public static void drawRaster(final AssetID spriteAssetID, final Rectangle shape) {
+		invoke().drawRaster(spriteAssetID, shape);
 	}
 
 	public static void drawCircle(final Color color, final double center_x, final double center_y,
@@ -99,9 +98,8 @@ public class RenderMachine {
 		invoke().drawCircle(color, center_x, center_y, radius);
 	}
 
-	public static void drawString(final String string_value, final RasterizedFont font, final CanvasPosition position,
-			final BLEND_MODE mode) {
-		invoke().drawString(string_value, font, position, mode);
+	public static void drawString(final String string_value, final RasterizedFont font, final CanvasPosition position) {
+		invoke().drawString(string_value, font, position);
 	}
 
 }

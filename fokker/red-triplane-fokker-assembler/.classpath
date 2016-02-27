@@ -131,7 +131,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/tinto-run-fokker-ios"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/tinto-ui"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/wifi-reconnect"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-1.9.1.jar"/>
+	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-1.9.1.jar" sourcepath="/libs/gdx/1.9.1/ios/src/gdx-1.9.1-sources.jar"/>
 	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-backend-robovm-1.9.1.jar"/>
 	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-box2d-1.9.1.jar"/>
 	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-box2d-platform-1.9.1-natives-ios.jar"/>
