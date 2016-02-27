@@ -8,4 +8,6 @@ public interface PhotoshopShaders {
 
 	Shader MULTIPLY();
 
+	Shader GRAYSCALE();
+
 }
