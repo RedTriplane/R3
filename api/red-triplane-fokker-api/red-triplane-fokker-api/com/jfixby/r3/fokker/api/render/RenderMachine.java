@@ -12,6 +12,8 @@ import com.jfixby.r3.api.ui.unit.txt.RasterizedFont;
 
 public class RenderMachine {
 
+	public static final String PRIMARY_BUFFER_TYPE = "FokkerRenderMachine.PRIMARY_BUFFER_TYPE";
+
 	static private ComponentInstaller<RenderMachineComponent> componentInstaller = new ComponentInstaller<RenderMachineComponent>(
 			"RenderMachine");
 

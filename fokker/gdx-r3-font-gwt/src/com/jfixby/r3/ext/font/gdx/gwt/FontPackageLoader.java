@@ -2,7 +2,6 @@ package com.jfixby.r3.ext.font.gdx.gwt;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.adopted.gdx.fs.ToGdxFileAdaptor;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
 import com.jfixby.cmns.api.collections.Collection;

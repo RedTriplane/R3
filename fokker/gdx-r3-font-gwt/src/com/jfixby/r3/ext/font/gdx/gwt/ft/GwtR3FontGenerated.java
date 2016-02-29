@@ -1,17 +1,11 @@
 package com.jfixby.r3.ext.font.gdx.gwt.ft;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFontCache;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.utils.Array;
 import com.jfixby.cmns.adopted.gdx.fs.ToGdxFileAdaptor;
 import com.jfixby.cmns.api.color.Color;
 import com.jfixby.cmns.api.file.File;
-import com.jfixby.cmns.api.floatn.Float2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
-import com.jfixby.cmns.api.geometry.Geometry;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
-import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.txt.StringBounds;
 import com.jfixby.r3.ext.api.font.BitmapFont;
 import com.jfixby.r3.ext.api.font.BitmapFontRenderer;
