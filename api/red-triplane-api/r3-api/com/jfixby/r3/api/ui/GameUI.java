@@ -1,7 +1,9 @@
-package com.jfixby.r3.api.game;
+package com.jfixby.r3.api.ui;
 
 import com.jfixby.cmns.api.ComponentInstaller;
-import com.jfixby.r3.api.ui.UILoaderListener;
+import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.collections.Collection;
+import com.jfixby.r3.api.game.LoadTask;
 
 public class GameUI {
 
@@ -20,8 +22,8 @@ public class GameUI {
 		return componentInstaller.getComponent();
 	}
 
-	public static void showLoadingScreen() {
-		invoke().showLoadingScreen();
+	public static void showLoadingScreen(AssetID loader_unit_id) {
+		invoke().showLoadingScreen(loader_unit_id);
 	}
 
 	public static LoadTask prepareLoadGameUITask() {
@@ -36,8 +38,8 @@ public class GameUI {
 		invoke().pushFadeOut(period);
 	}
 
-	public static void switchToGameUI() {
-		invoke().switchToGameUI();
+	public static void switchToGameUI(AssetID game_ui_unit_id) {
+		invoke().switchToGameUI(game_ui_unit_id);
 	}
 
 	public static void pushFadeIn(long period) {
@@ -54,6 +56,14 @@ public class GameUI {
 
 	public static void showShaderTestScene() {
 		invoke().showShaderTestScene();
+	}
+
+	public static void pushLoadAssetsTask(Collection<AssetID> newList, UILoaderListener loader_listener) {
+		invoke().pushLoadAssetsTask(newList, loader_listener);
+	}
+
+	public static AnimationsMachine newAnimationsMachine() {
+		return invoke().newAnimationsMachine();
 	}
 
 }
