@@ -16,10 +16,6 @@ public interface GameUIComponent {
 
 	void allowUserInput();
 
-	void showTextTestScene();
-
-	void showShaderTestScene();
-
 	void pushLoadAssetsTask(Collection<AssetID> newList, UILoaderListener loader_listener);
 
 	void switchToGameUI(AssetID game_ui_unit_id);

@@ -50,14 +50,6 @@ public class GameUI {
 		invoke().allowUserInput();
 	}
 
-	public static void showTextTestScene() {
-		invoke().showTextTestScene();
-	}
-
-	public static void showShaderTestScene() {
-		invoke().showShaderTestScene();
-	}
-
 	public static void pushLoadAssetsTask(Collection<AssetID> newList, UILoaderListener loader_listener) {
 		invoke().pushLoadAssetsTask(newList, loader_listener);
 	}
