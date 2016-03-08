@@ -5,9 +5,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-desktop"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/gdx-jfixby-cmns"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-eclipse"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/alcovegames-fire-shader"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/apache-jfixby-cmns"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-game"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-run-fokker"/>
@@ -15,12 +13,15 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-ui"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bin"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/box2d-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/gdx-jfixby-cmns"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-nightly"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-r3-font"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-r3-font-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-double"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-float"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-android"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-desktop-test"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-log-mq"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-rmi-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-rmi-client"/>
@@ -37,6 +38,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-lambda-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-rmi-file-server"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-box2d-packer"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-eclipse"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-gradle-depsearch"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-red"/>
@@ -112,71 +114,18 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-desktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-ios"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fonts-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-pizza-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-pizza-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-scene2d-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-scene2d-red"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-shader-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sc-map-unpacker"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/star-craft"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-assets"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-assets-cfg"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-assets-packer"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-game"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-run-fokker"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-run-fokker-android"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-run-fokker-desktop"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-run-fokker-gwt"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-run-fokker-ios"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tinto-ui"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/wifi-reconnect"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-1.9.1.jar" sourcepath="/libs/gdx/1.9.1/ios/src/gdx-1.9.1-sources.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-backend-robovm-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-box2d-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-box2d-platform-1.9.1-natives-ios.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-freetype-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-freetype-platform-1.9.1-natives-ios.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/gdx-platform-1.9.1-natives-ios.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/robovm-cocoatouch-1.12.0.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/robovm-objc-1.12.0.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/ios/robovm-rt-1.12.0.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/android/gdx-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/android/gdx-backend-android-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/android/gdx-box2d-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/android/gdx-freetype-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/core/gdx-1.9.1.jar" sourcepath="/libs/gdx/1.9.1/core/src/gdx-1.9.1-sources.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/core/gdx-box2d-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/core/gdx-freetype-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/gdx-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/gdx-backend-lwjgl-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/gdx-box2d-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/gdx-box2d-platform-1.9.1-natives-desktop.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/gdx-freetype-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/gdx-freetype-platform-1.9.1-natives-desktop.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/gdx-platform-1.9.1-natives-desktop.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/jinput-2.0.5.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/jinput-platform-2.0.5-natives-linux.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/jinput-platform-2.0.5-natives-osx.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/jinput-platform-2.0.5-natives-windows.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/jlayer-1.0.1-gdx.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/jorbis-0.0.17.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/jutils-1.0.0.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/lwjgl_util-2.9.2.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/lwjgl-2.9.2.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/lwjgl-platform-2.9.2-natives-linux.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/lwjgl-platform-2.9.2-natives-osx.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/desktop/lwjgl-platform-2.9.2-natives-windows.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gdx-1.9.1-sources.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gdx-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gdx-backend-gwt-1.9.1-sources.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gdx-backend-gwt-1.9.1.jar" sourcepath="/libs/gdx/1.9.1/html/gdx-backend-gwt-1.9.1-sources.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gdx-box2d-1.9.1-sources.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gdx-box2d-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gdx-box2d-gwt-1.9.1-sources.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gdx-freetype-1.9.1.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gwt-codeserver-2.6.0.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gwt-servlet-2.6.0.jar"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/html/gwt-user-2.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
