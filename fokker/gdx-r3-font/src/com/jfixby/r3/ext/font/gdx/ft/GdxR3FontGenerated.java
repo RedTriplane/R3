@@ -55,8 +55,8 @@ public class GdxR3FontGenerated implements BitmapFont {
 		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
 		parameter.size = params.getSize();
 		parameter.flip = true;
-		parameter.magFilter = TextureFilter.Nearest;
-		parameter.minFilter = TextureFilter.Nearest;
+		parameter.magFilter = TextureFilter.Linear;
+		parameter.minFilter = TextureFilter.Linear;
 		parameter.color = toGDXColor(color);
 		parameter.shadowColor = toGDXColor(color);
 		parameter.borderColor = toGDXColor(color);
