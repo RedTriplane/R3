@@ -29,7 +29,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-rmi-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-example"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-data-science-ssgen"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-deepforger"/>
@@ -127,5 +126,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/star-craft"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/wifi-reconnect"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api-desktop"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
