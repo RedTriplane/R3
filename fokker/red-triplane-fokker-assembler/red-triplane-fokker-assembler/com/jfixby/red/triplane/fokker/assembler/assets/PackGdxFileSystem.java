@@ -8,7 +8,7 @@ import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.red.desktop.DesktopAssembler;
 import com.jfixby.redtriplane.fokker.fs.AssetsInfo;
-import com.jfixby.redtriplane.fokker.fs.GdxAssetsFileSystemIndex;
+import com.jfixby.redtriplane.fokker.fs.GdxAssetsFileSystemPacker;
 
 public class PackGdxFileSystem {
 
@@ -31,7 +31,7 @@ public class PackGdxFileSystem {
 
 		AssetsInfo info = getCurrent();
 
-		GdxAssetsFileSystemIndex.index(assets_folder, output_folder);
+		GdxAssetsFileSystemPacker.index(assets_folder, output_folder);
 
 		String data = Json.serializeToString(info);
 		output_folder.child(AssetsInfo.FILE_NAME).writeString(data);

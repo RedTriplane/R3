@@ -1,14 +1,14 @@
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-public class ShaderParameter {
+public class ShaderParameterValue {
 
-	public ShaderParameter(String name, String value, ShaderParameterType type) {
+	public ShaderParameterValue(String name, String value, ShaderParameterType type) {
 		this.name = name;
 		this.value = value;
 		this.type = type;
 	}
 
-	public ShaderParameter() {
+	public ShaderParameterValue() {
 	}
 
 	public String name;

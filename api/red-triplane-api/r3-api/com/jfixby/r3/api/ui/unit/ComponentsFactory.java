@@ -6,25 +6,26 @@ import com.jfixby.r3.api.ui.unit.input.UserInputFactory;
 import com.jfixby.r3.api.ui.unit.layer.CameraComponentsFactory;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.raster.RasterComponentsFactory;
+import com.jfixby.r3.api.ui.unit.shader.ShaderFactory;
 import com.jfixby.r3.api.ui.unit.txt.TextFactory;
 import com.jfixby.rana.api.asset.AssetsConsumer;
 
 public interface ComponentsFactory extends AssetsConsumer {
 
-	Layer newLayer();
+    Layer newLayer();
 
-	CameraComponentsFactory getCameraDepartment();
+    CameraComponentsFactory getCameraDepartment();
 
-	GeometryComponentsFactory getGeometryDepartment();
+    GeometryComponentsFactory getGeometryDepartment();
 
-	RasterComponentsFactory getRasterDepartment();
+    RasterComponentsFactory getRasterDepartment();
 
-	AnimationFactory getAnimationDepartment();
+    AnimationFactory getAnimationDepartment();
 
-	UserInputFactory getUserInputDepartment();
+    UserInputFactory getUserInputDepartment();
 
-	TextFactory getTextDepartment();
+    TextFactory getTextDepartment();
 
-	// ShaderFactory getShadersDepartment();
+    ShaderFactory getShadersDepartment();
 
 }
