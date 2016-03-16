@@ -26,8 +26,12 @@ public class GameUI {
 		invoke().showLoadingScreen(loader_unit_id);
 	}
 
-	public static LoadTask prepareLoadGameUITask() {
-		return invoke().prepareLoadGameUITask();
+	public static LoadTask prepareLoadGameUITask(Collection<AssetID> asetsToLoad) {
+		return invoke().prepareLoadGameUITask(asetsToLoad);
+	}
+	
+	public static LoadTask prepareLoadGameUITask(AssetID... asetsToLoad) {
+		return invoke().prepareLoadGameUITask(asetsToLoad);
 	}
 
 	public static void pushTaskToLoader(LoadTask task, UILoaderListener ui_loader_listener) {

@@ -6,22 +6,24 @@ import com.jfixby.r3.api.game.LoadTask;
 
 public interface GameUIComponent {
 
-	LoadTask prepareLoadGameUITask();
+    LoadTask prepareLoadGameUITask(Collection<AssetID> asetsToLoad);
 
-	void pushTaskToLoader(LoadTask task, UILoaderListener ui_loader_listener);
+    LoadTask prepareLoadGameUITask(AssetID... asetsToLoad);
 
-	void pushFadeOut(long period);
+    void pushTaskToLoader(LoadTask task, UILoaderListener ui_loader_listener);
 
-	void pushFadeIn(long period);
+    void pushFadeOut(long period);
 
-	void allowUserInput();
+    void pushFadeIn(long period);
 
-	void pushLoadAssetsTask(Collection<AssetID> newList, UILoaderListener loader_listener);
+    void allowUserInput();
 
-	void switchToGameUI(AssetID game_ui_unit_id);
+    void pushLoadAssetsTask(Collection<AssetID> newList, UILoaderListener loader_listener);
 
-	void showLoadingScreen(AssetID loader_unit_id);
+    void switchToGameUI(AssetID game_ui_unit_id);
 
-	AnimationsMachine newAnimationsMachine();
+    void showLoadingScreen(AssetID loader_unit_id);
+
+    AnimationsMachine newAnimationsMachine();
 
 }

@@ -14,7 +14,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/bin"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/box2d-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-jfixby-cmns"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/gdx-nightly"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-r3-font"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-r3-font-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-double"/>
