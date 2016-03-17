@@ -4,6 +4,8 @@ import com.jfixby.cmns.api.floatn.FixedFloat2;
 
 public interface TouchUpEvent {
 
-	FixedFloat2 getCanvasPosition();
+    FixedFloat2 getCanvasPosition();
+
+    int getPointerNumber();
 
 }

@@ -4,8 +4,8 @@ import com.jfixby.cmns.api.time.TimeStream;
 
 public interface UnitClocks {
 
-	TimeStream getRenderClock();
+//	TimeStream getRenderClock();
 
-	TimeStream getUnitClock();
+//	TimeStream getUnitClock();
 
 }

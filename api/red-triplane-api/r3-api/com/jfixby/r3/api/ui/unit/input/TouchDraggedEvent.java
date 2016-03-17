@@ -6,4 +6,6 @@ public interface TouchDraggedEvent {
 
 	FixedFloat2 getCanvasPosition();
 
+	int getPointerNumber();
+
 }

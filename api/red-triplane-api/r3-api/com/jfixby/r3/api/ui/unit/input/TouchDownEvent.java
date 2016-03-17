@@ -6,4 +6,6 @@ public interface TouchDownEvent {
 
 	FixedFloat2 getCanvasPosition();
 
+	int getPointerNumber();
+
 }
