@@ -22,7 +22,7 @@ public class LayerElement {
     public String input_id;
     public String textbar_id;
     public String shader_id;
-    public RASTER_BLEND_MODE blend_mode = RASTER_BLEND_MODE.NORMAL;
+    public RASTER_BLEND_MODE blend_mode = null;
 
     public double opacity = 1;
     public double position_x;
