@@ -6,24 +6,32 @@ import com.jfixby.r3.api.text.StringValue;
 
 public interface RasterizedFontSpecs {
 
-	void setFontName(AssetID font_id);
+    void setFontName(AssetID font_id);
 
-	AssetID getFontName();
+    AssetID getFontName();
 
-	float getFontSize();
+    float getFontSize();
 
-	void setFontSize(float size);
+    void setFontSize(float size);
 
-	StringValue getRequiredCharacters();
+    StringValue getRequiredCharacters();
 
-	void setRequiredCharacters(StringValue chars);
+    void setRequiredCharacters(StringValue chars);
 
-	void setColor(Color font_color);
+    void setColor(Color font_color);
 
-	public Color getColor();
+    public Color getColor();
 
-	void setFontScale(float font_scale);
+    void setFontScale(float font_scale);
 
-	float getFontScale();
+    float getFontScale();
+
+    void setBorderSize(int border);
+
+    void setborderColor(Color border_color);
+
+    Color getBorderColor();
+
+    int getBorderSize();
 
 }

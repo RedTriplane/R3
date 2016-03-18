@@ -4,6 +4,6 @@ import com.jfixby.rana.api.asset.Asset;
 
 public interface Text extends Asset {
 
-	TextTranslationsList listTranslations();
+    TextTranslationsList listTranslations();
 
 }

@@ -4,16 +4,20 @@ import com.jfixby.cmns.api.assets.AssetID;
 
 public interface Scene2DSpawningConfig {
 
-	void setStructureID(AssetID asset_id);
+    void setStructureID(AssetID asset_id);
 
-	AssetID getStructureID();
+    AssetID getStructureID();
 
-	String getDefaultLocaleName();
+    String getDefaultLocaleName();
 
-	void setDefaultLocaleName(String locale_name);
+    void setDefaultLocaleName(String locale_name);
 
-	float getDebugOpacity();
-	
-	void setDebugOpacity(float debug_opacity);
+    float getDebugOpacity();
+
+    void setDebugOpacity(float debug_opacity);
+
+    boolean renderDebugInfo();
+
+    void setRenderDebugInfo(boolean b);
 
 }

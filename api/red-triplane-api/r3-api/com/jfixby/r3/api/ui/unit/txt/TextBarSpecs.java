@@ -7,36 +7,38 @@ import com.jfixby.r3.api.ui.unit.raster.Raster;
 
 public interface TextBarSpecs {
 
-	void setFont(AssetID font_id);
+    void setFont(AssetID font_id);
 
-	AssetID getFont();
+    AssetID getFont();
 
-	void setFontSize(float font_size);
+    void setFontSize(float font_size);
 
-	float getFontSize();
+    float getFontSize();
 
-	Text getText();
+    Text getText();
 
-	void setText(Text text);
+    void setText(Text text);
 
-	public void setPadding(float padding);
+    public void setPadding(float padding);
 
-	public float getPadding();
+    public float getPadding();
 
-	Raster getBackgroundRaster();
+    Raster getBackgroundRaster();
 
-	void setBackgroundRaster(Raster bg_asset_id);
+    void setBackgroundRaster(Raster bg_asset_id);
 
-	void setFontScale(float font_scale);
+    void setFontScale(float font_scale);
 
-	float getFontScale();
+    float getFontScale();
 
-	void setLocaleName(String locale_name);
+    void setLocaleName(String locale_name);
 
-	public String getLocaleName();
+    public String getLocaleName();
 
-	void setFontColor(Color color);
+    void setFontColor(Color color);
 
-	Color getFontColor();
+    Color getFontColor();
+
+    
 
 }

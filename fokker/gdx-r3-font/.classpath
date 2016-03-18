@@ -9,6 +9,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx"/>
-	<classpathentry kind="lib" path="/libs/gdx/1.9.1/core/gdx-freetype-1.9.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/gdx-freetype"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
