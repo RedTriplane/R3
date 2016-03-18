@@ -112,4 +112,8 @@ public class RenderMachine {
 	invoke().endShaderMode(fokkerShader);
     }
 
+    public static void applyShader() {
+	invoke().applyShader();
+    }
+
 }

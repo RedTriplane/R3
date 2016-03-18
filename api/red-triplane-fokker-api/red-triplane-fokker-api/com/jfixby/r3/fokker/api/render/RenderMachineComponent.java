@@ -60,6 +60,8 @@ public interface RenderMachineComponent {
 
     void endShaderMode(FokkerShader fokkerShader);
 
+    void applyShader();
+
     // void setShader(final FokkerShader shader_handler);
 
 }
