@@ -1,5 +1,6 @@
 package com.jfixby.r3.api.shader;
 
+import com.jfixby.r3.api.ui.unit.shader.ShaderSpecs;
 import com.jfixby.rana.api.pkg.PackageReader;
 
 public interface R3ShaderComponent {

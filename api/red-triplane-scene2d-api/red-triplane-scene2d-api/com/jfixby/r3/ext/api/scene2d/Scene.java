@@ -12,39 +12,40 @@ import com.jfixby.r3.api.ui.unit.input.InputComponent;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
+import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
 
 public interface Scene extends CanvasComponent {
 
-	void print();
+    void print();
 
-	public Mapping<AssetID, InputComponent> listInputComponents();
+    public Mapping<AssetID, InputComponent> listInputComponents();
 
-	Camera getCamera();
+    Camera getCamera();
 
-	public void setOpacity(double alpha);
+    public void setOpacity(double alpha);
 
-	public double getOpacity();
+    public double getOpacity();
 
-	void setDebugRenderFlag(boolean b);
+    void setDebugRenderFlag(boolean b);
 
-	boolean getDebugRenderFlag();
+    boolean getDebugRenderFlag();
 
-	public void setDebugColor(Color debug_render_color);
+    public void setDebugColor(Color debug_render_color);
 
-	public Color getDebugColor();
+    public Color getDebugColor();
 
-	public ComponentsFactory getComponentsFactory();
+    public ComponentsFactory getComponentsFactory();
 
-	public AssetID getAssetID();
+    public AssetID getAssetID();
 
-	public Collection<Animation> listAnimations();
+    public Collection<Animation> listAnimations();
 
-	public Collection<Raster> listRaster();
+    public Collection<Raster> listRaster();
 
-	// public Collection<Shader> listShaders();
+    public Collection<ShaderComponent> listShaders();
 
-	public Collection<LocalizedComponent> listLocalizedComponents();
+    public Collection<LocalizedComponent> listLocalizedComponents();
 
-	Layer getRoot();
+    Layer getRoot();
 
 }
