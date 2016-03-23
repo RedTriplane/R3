@@ -6,27 +6,29 @@ import com.jfixby.rana.api.pkg.PackageReader;
 
 public class R3Font {
 
-	static private ComponentInstaller<R3FontComponent> componentInstaller = new ComponentInstaller<R3FontComponent>(
-			"R3Font");
+    public static final String RenderRasterStrings = "RenderRasterStrings";
 
-	public static final void installComponent(R3FontComponent component_to_install) {
-		componentInstaller.installComponent(component_to_install);
-	}
+    static private ComponentInstaller<R3FontComponent> componentInstaller = new ComponentInstaller<R3FontComponent>(
+	    "R3Font");
 
-	public static final R3FontComponent invoke() {
-		return componentInstaller.invokeComponent();
-	}
+    public static final void installComponent(R3FontComponent component_to_install) {
+	componentInstaller.installComponent(component_to_install);
+    }
 
-	public static final R3FontComponent component() {
-		return componentInstaller.getComponent();
-	}
+    public static final R3FontComponent invoke() {
+	return componentInstaller.invokeComponent();
+    }
 
-	public static PackageReader getPackageReader() {
-		return invoke().getPackageReader();
-	}
+    public static final R3FontComponent component() {
+	return componentInstaller.getComponent();
+    }
 
-	public static FontGenerator newFontGenerator(File gdx_font_file) {
-		return invoke().newFontGenerator(gdx_font_file);
-	}
+    public static PackageReader getPackageReader() {
+	return invoke().getPackageReader();
+    }
+
+    public static FontGenerator newFontGenerator(File gdx_font_file) {
+	return invoke().newFontGenerator(gdx_font_file);
+    }
 
 }
