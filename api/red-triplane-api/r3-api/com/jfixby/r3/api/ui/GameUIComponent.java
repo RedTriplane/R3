@@ -22,7 +22,7 @@ public interface GameUIComponent {
 
     void switchToGameUI(AssetID game_ui_unit_id);
 
-    void showLoadingScreen(AssetID loader_unit_id);
+    void showLoadingScreen(AssetID loader_unit_id, boolean fadedOut);
 
     AnimationsMachine newAnimationsMachine();
 

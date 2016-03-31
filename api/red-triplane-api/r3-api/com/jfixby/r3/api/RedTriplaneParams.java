@@ -8,5 +8,6 @@ public class RedTriplaneParams {
     public static final String DefaultFont = "DefaultFont";
     public static final String CLEAR_SCREEN_COLOR_ARGB = "CLEAR_SCREEN_COLOR_ARGB";
     public static final String ASSET_INFO_TAG = "ASSET_INFO_TAG";
+    public static final String DEFAULT_LOGO_FADE_TIME = "DEFAULT_LOGO_FADE_TIME";
 
 }
