@@ -10,6 +10,8 @@ import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Map;
 import com.jfixby.cmns.api.debug.Debug;
 import com.jfixby.cmns.api.file.File;
+import com.jfixby.cmns.api.io.IO;
+import com.jfixby.cmns.api.java.ByteArray;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.r3.api.ui.unit.txt.FontData;
@@ -50,7 +52,6 @@ public class FontPackageLoader implements PackageReader, AssetContainer {
 	    throws IOException {
 
 	resolveDependencies(handler, reader_listener);
-
 	String content;
 	try {
 	    content = package_root_file.readToString();
@@ -73,7 +74,7 @@ public class FontPackageLoader implements PackageReader, AssetContainer {
 
 	} catch (IOException e) {
 	    // e.printStackTrace();
-	    throw new IOException("" + e);
+	    throw new IOException(package_root_file + "  " + e);
 	}
 
     }

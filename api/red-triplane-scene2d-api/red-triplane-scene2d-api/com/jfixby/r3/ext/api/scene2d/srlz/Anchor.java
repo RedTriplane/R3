@@ -1,7 +1,11 @@
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-public class Anchor {
+public class Anchor implements java.io.Serializable{
 
+	/**
+     * 
+     */
+    private static final long serialVersionUID = 1704791898617585894L;
 	public String time;
 	public double position_x;
 	public double position_y;

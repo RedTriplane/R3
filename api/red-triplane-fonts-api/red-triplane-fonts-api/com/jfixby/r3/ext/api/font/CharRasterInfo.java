@@ -1,6 +1,6 @@
 package com.jfixby.r3.ext.api.font;
 
-public class CharRasterInfo {
+public class CharRasterInfo  implements java.io.Serializable{
 
 	public String character;
 	public String raster_id;

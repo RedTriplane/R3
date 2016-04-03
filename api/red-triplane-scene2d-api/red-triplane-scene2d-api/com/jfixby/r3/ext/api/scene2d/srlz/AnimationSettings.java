@@ -2,7 +2,12 @@ package com.jfixby.r3.ext.api.scene2d.srlz;
 
 import java.util.Vector;
 
-public class AnimationSettings {
+public class AnimationSettings implements java.io.Serializable{
+
+	/**
+     * 
+     */
+    private static final long serialVersionUID = 8024873716493729478L;
 
 	public static final long MAX = 1000 * 60 * 60 * 24 * 365 * 365;
 

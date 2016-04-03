@@ -9,6 +9,7 @@ public class StandardPackageFormats {
 	public static final String Atlas = "libGDX.Atlas";
 	public static final String Atlas_ETC1Compressed = "libGDX.Atlas.ETC1Compressed";
 	public static final String Texture = "libGDX.Texture";
+	public static final String Font = "libGDX.Font.Otf";
 	public static final String Atlas_GWT = "libGDX.Atlas.Gwt";
 	public static final String Texture_GWT = "libGDX.Texture.Gwt";
     }

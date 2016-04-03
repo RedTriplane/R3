@@ -6,7 +6,7 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
 import com.jfixby.rana.api.asset.Asset;
 
-public class RedFontData implements Asset {
+public class RedFontData implements Asset,java.io.Serializable {
 	public String font_name;
 
 	public Vector<TileSet> tile_sets = new Vector<TileSet>();

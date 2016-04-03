@@ -2,7 +2,7 @@ package com.jfixby.r3.ext.api.scene2d.srlz;
 
 import java.util.Vector;
 
-public class LayerElement {
+public class LayerElement implements java.io.Serializable{
 
     public boolean is_raster = false;
     public boolean is_sublayer = false;

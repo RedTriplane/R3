@@ -1,6 +1,6 @@
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-public class InputSettings {
+public class InputSettings implements java.io.Serializable{
 	public boolean is_button;
 
 	public LayerElement touch_area = null;

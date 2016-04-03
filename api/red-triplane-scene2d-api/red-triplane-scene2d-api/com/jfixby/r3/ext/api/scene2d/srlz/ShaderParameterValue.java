@@ -1,6 +1,6 @@
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-public class ShaderParameterValue {
+public class ShaderParameterValue implements java.io.Serializable{
 
 	public ShaderParameterValue(String name, String value, ShaderParameterType type) {
 		this.name = name;

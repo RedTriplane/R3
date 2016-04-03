@@ -1,6 +1,6 @@
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-public class CameraSettings {
+public class CameraSettings implements java.io.Serializable{
 
 	public double position_x;
 	public double position_y;

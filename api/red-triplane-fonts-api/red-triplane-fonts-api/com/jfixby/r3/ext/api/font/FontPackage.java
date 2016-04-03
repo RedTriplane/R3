@@ -4,14 +4,14 @@ import java.util.Vector;
 
 import com.jfixby.cmns.api.assets.AssetID;
 
-public class FontPackage {
-	public static final String FONT_PACKAGE_FILE_EXTENSION = "r3-font";
-	public static final String FONT_PACKAGE_FORMAT = "RedTriplane.Font";
+public class FontPackage implements java.io.Serializable {
+    public static final String FONT_PACKAGE_FILE_EXTENSION = "r3-font";
+    public static final String FONT_PACKAGE_FORMAT = "RedTriplane.Font";
 
-	public Vector<RedFontData> fonts = new Vector<RedFontData>();
+    public Vector<RedFontData> fonts = new Vector<RedFontData>();
 
-	public static AssetID charRasterName(AssetID font_name, char char_value) {
-		return font_name.child("raster").child("char-" + (int) char_value);
-	}
+    public static AssetID charRasterName(AssetID font_name, char char_value) {
+	return font_name.child("raster").child("char-" + (int) char_value);
+    }
 
 }

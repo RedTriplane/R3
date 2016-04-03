@@ -1,6 +1,6 @@
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-public class ChildSceneSettings {
+public class ChildSceneSettings implements java.io.Serializable{
 
 	public double frame_position_x;
 	public double frame_position_y;

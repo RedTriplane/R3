@@ -4,15 +4,20 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
 import com.jfixby.rana.api.asset.Asset;
 
-public class SceneStructure implements Asset {
+public class SceneStructure implements Asset, java.io.Serializable {
 
-	public String structure_name;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -927468651743679015L;
 
-	public LayerElement root = new LayerElement();
+    public String structure_name;
 
-	@Override
-	public AssetID getAssetID() {
-		return Names.newAssetID(structure_name);
-	}
+    public LayerElement root = new LayerElement();
+
+    @Override
+    public AssetID getAssetID() {
+	return Names.newAssetID(structure_name);
+    }
 
 }
