@@ -100,7 +100,7 @@ public class PrepareConfig {
 
 		assembler_config.print();
 
-		String config_string = Json.serializeToString(assembler_config);
+		String config_string = Json.serializeToString(assembler_config).toString();
 
 		String java_path = "fokker-assembler.config";
 		File mp = LocalFileSystem.newFile(java_path);

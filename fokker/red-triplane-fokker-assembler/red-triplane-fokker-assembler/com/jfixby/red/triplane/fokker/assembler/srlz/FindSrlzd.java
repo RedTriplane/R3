@@ -7,7 +7,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URISyntaxException;
 
-import com.jfixby.cmns.adopted.gdx.json.GdxJson;
+import com.jfixby.cmns.adopted.gdx.json.RedJson;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.CollectionFilter;
 import com.jfixby.cmns.api.collections.Collections;
@@ -29,7 +29,7 @@ public class FindSrlzd {
 	public static void main(String[] args) throws IOException, URISyntaxException {
 
 		DesktopAssembler.setup();
-		Json.installComponent(new GdxJson());
+		Json.installComponent(new RedJson());
 
 		File workspace_folder = LocalFileSystem.newFile("D:\\[DEV]\\[CODE]\\[WS-19]");
 

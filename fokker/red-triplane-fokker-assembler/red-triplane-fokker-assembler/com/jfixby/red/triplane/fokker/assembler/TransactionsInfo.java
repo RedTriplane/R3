@@ -28,7 +28,7 @@ public class TransactionsInfo {
 	public Vector<ExecutedTransaction> transactions = new Vector<ExecutedTransaction>();
 
 	public static void save(TransactionsInfo transaction) throws IOException {
-		String data = Json.serializeToString(transaction);
+		String data = Json.serializeToString(transaction).toString();
 		File file = LocalFileSystem.ApplicationHome().child(TRANSACTIONS_RECORD_FILE);
 		file.writeString(data);
 	}

@@ -116,7 +116,7 @@ public class AssembleFokker {
 	private static void writeBuildInfo(BuildInfo info, File build_file) throws IOException {
 		AbsolutePath<FileSystem> build_info_file_path = LocalFileSystem.ApplicationHome().child(BUILD_INFO_FILE).getAbsoluteFilePath();
 		File file = LocalFileSystem.newFile(build_info_file_path);
-		String data = Json.serializeToString(info);
+		String data = Json.serializeToString(info).toString();
 		file.writeBytes(data.getBytes());
 
 		String template = LocalFileSystem.readFileToString(LocalFileSystem.ApplicationHome().child("BUILD.java").getAbsoluteFilePath());
