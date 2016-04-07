@@ -7,5 +7,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx"/>
+	<classpathentry kind="lib" path="libs/android-4.4.jar"/>
+	<classpathentry kind="lib" path="libs/support-v4-19.0.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api-android"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
