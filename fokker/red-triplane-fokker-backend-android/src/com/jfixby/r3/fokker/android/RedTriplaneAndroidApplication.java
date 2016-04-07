@@ -2,10 +2,10 @@
 package com.jfixby.r3.fokker.android;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.backends.android.AndroidApplication;
-import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.jfixby.android.api.AndroidComponent;
 import com.jfixby.cmns.api.log.L;
+import com.jfixby.r3.fokker.android.gdx.AndroidApplication;
+import com.jfixby.r3.fokker.android.gdx.AndroidApplicationConfiguration;
 
 import android.app.ActivityManager;
 import android.content.pm.ActivityInfo;

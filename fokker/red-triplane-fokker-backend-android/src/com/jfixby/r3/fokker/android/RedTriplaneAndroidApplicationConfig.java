@@ -2,7 +2,7 @@
 package com.jfixby.r3.fokker.android;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.jfixby.r3.fokker.android.gdx.AndroidApplicationConfiguration;
 
 public class RedTriplaneAndroidApplicationConfig {
 
