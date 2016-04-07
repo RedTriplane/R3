@@ -43,7 +43,6 @@ import com.badlogic.gdx.graphics.TextureArray;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.GLVersion;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.math.WindowedMean;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.SnapshotArray;
 
@@ -80,12 +79,12 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 	String extensions;
 
 	protected long lastFrameTime = System.nanoTime();
-	protected float deltaTimeFloat = 0;
+// protected float deltaTimeFloat = 0;
 	protected long frameStart = System.nanoTime();
 	protected long frameId = -1;
 	protected int frames = 0;
 	protected int fps;
-	protected WindowedMean mean = new WindowedMean(5);
+// protected WindowedMean mean = new WindowedMean(5);
 
 	volatile boolean created = false;
 	volatile boolean running = false;
@@ -296,7 +295,7 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 		Display display = app.getWindowManager().getDefaultDisplay();
 		this.width = display.getWidth();
 		this.height = display.getHeight();
-		this.mean = new WindowedMean(5);
+// this.mean = new WindowedMean(5);
 		this.lastFrameTime = System.nanoTime();
 
 		gl.glViewport(0, 0, this.width, this.height);
@@ -333,21 +332,21 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 		return defValue;
 	}
 
-	Object synch = new Object();
+	final Object lock = new Object();
 
 	private long systemNanoTime;
 
 	private long timeDeltaLong;
 
 	void resume () {
-		synchronized (synch) {
+		synchronized (lock) {
 			running = true;
 			resume = true;
 		}
 	}
 
 	void pause () {
-		synchronized (synch) {
+		synchronized (lock) {
 			if (!running) return;
 			running = false;
 			pause = true;
@@ -359,7 +358,7 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 					// deadlock and killing process. This can easily be triggered by opening the
 					// Recent Apps list and then double-tapping the Recent Apps button with
 					// ~500ms between taps.
-					synch.wait(4000);
+					lock.wait(4000);
 					if (pause) {
 						// pause will never go false if onDrawFrame is never called by the GLThread
 						// when entering this method, we MUST enforce continuous rendering
@@ -374,13 +373,13 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 	}
 
 	void destroy () {
-		synchronized (synch) {
+		synchronized (lock) {
 			running = false;
 			destroy = true;
 
 			while (destroy) {
 				try {
-					synch.wait();
+					lock.wait();
 				} catch (InterruptedException ex) {
 					Gdx.app.log(LOG_TAG, "waiting for destroy synchronization failed!");
 				}
@@ -397,14 +396,14 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 	public final void onDrawFrame (final javax.microedition.khronos.opengles.GL10 gl) {
 		this.systemNanoTime = System.nanoTime();
 		this.timeDeltaLong = this.systemNanoTime - this.lastFrameTime;
-		this.deltaTimeFloat = this.timeDeltaLong / 1000000000.0f;
+// this.deltaTimeFloat = this.timeDeltaLong / 1000000000.0f;
 		this.lastFrameTime = this.systemNanoTime;
 
 		// After pause deltaTime can have somewhat huge value that destabilizes the mean, so let's cut it off
 		if (!this.resume) {
-			this.mean.addValue(deltaTimeFloat);
+// this.mean.addValue(deltaTimeFloat);
 		} else {
-			this.deltaTimeFloat = 0;
+			this.timeDeltaLong = 0L;
 		}
 
 		this.lrunning_onDrawFrame = false;
@@ -412,7 +411,7 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 		this.ldestroy_onDrawFrame = false;
 		this.lresume_onDrawFrame = false;
 
-		synchronized (this.synch) {
+		synchronized (this.lock) {
 			this.lrunning_onDrawFrame = this.running;
 			this.lpause_onDrawFrame = this.pause;
 			this.ldestroy_onDrawFrame = this.destroy;
@@ -424,12 +423,12 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 
 			if (this.pause) {
 				this.pause = false;
-				this.synch.notifyAll();
+				this.lock.notifyAll();
 			}
 
 			if (this.destroy) {
 				this.destroy = false;
-				this.synch.notifyAll();
+				this.lock.notifyAll();
 			}
 		}
 
@@ -505,12 +504,13 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 	/** {@inheritDoc} */
 	@Override
 	public float getDeltaTime () {
-		return mean.getMean() == 0 ? deltaTimeFloat : mean.getMean();
+// return mean.getMean() == 0 ? deltaTimeFloat : mean.getMean();
+		return this.timeDeltaLong / 1000000000.0f;
 	}
 
 	@Override
 	public float getRawDeltaTime () {
-		return deltaTimeFloat;
+		return this.timeDeltaLong / 1000000000.0f;
 	}
 
 	/** {@inheritDoc} */
@@ -670,7 +670,7 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 			int renderMode = this.isContinuous ? GLSurfaceView.RENDERMODE_CONTINUOUSLY : GLSurfaceView.RENDERMODE_WHEN_DIRTY;
 			if (view instanceof GLSurfaceViewAPI18) ((GLSurfaceViewAPI18)view).setRenderMode(renderMode);
 			if (view instanceof GLSurfaceView) ((GLSurfaceView)view).setRenderMode(renderMode);
-			mean.clear();
+// mean.clear();
 		}
 	}
 
