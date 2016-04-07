@@ -23,12 +23,13 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
 
 import com.badlogic.gdx.Application;
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.LifecycleListener;
 import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20;
 import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20API18;
-import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceViewAPI18;
+import com.badlogic.gdx.backends.android.surfaceview.RedGLSurfaceViewAPI18;
 import com.badlogic.gdx.backends.android.surfaceview.GdxEglConfigChooser;
 import com.badlogic.gdx.backends.android.surfaceview.ResolutionStrategy;
 import com.badlogic.gdx.graphics.Cubemap;
@@ -156,14 +157,14 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 
 	public void onPauseGLSurfaceView () {
 		if (view != null) {
-			if (view instanceof GLSurfaceViewAPI18) ((GLSurfaceViewAPI18)view).onPause();
+			if (view instanceof RedGLSurfaceViewAPI18) ((RedGLSurfaceViewAPI18)view).onPause();
 			if (view instanceof GLSurfaceView) ((GLSurfaceView)view).onPause();
 		}
 	}
 
 	public void onResumeGLSurfaceView () {
 		if (view != null) {
-			if (view instanceof GLSurfaceViewAPI18) ((GLSurfaceViewAPI18)view).onResume();
+			if (view instanceof RedGLSurfaceViewAPI18) ((RedGLSurfaceViewAPI18)view).onResume();
 			if (view instanceof GLSurfaceView) ((GLSurfaceView)view).onResume();
 		}
 	}
@@ -392,16 +393,22 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 	boolean ldestroy_onDrawFrame = false;
 	boolean lresume_onDrawFrame = false;
 
+	int i_onDrawFrame_A;
+	int i_onDrawFrame_B;
+	int i_onDrawFrame_C;
+	int i_onDrawFrame_D;
+
+	private ApplicationListener appListener;
+
 	@Override
 	public final void onDrawFrame (final javax.microedition.khronos.opengles.GL10 gl) {
+		this.appListener = this.app.getApplicationListener();
 		this.systemNanoTime = System.nanoTime();
 		this.timeDeltaLong = this.systemNanoTime - this.lastFrameTime;
-// this.deltaTimeFloat = this.timeDeltaLong / 1000000000.0f;
 		this.lastFrameTime = this.systemNanoTime;
 
 		// After pause deltaTime can have somewhat huge value that destabilizes the mean, so let's cut it off
 		if (!this.resume) {
-// this.mean.addValue(deltaTimeFloat);
 		} else {
 			this.timeDeltaLong = 0L;
 		}
@@ -436,12 +443,12 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 			final SnapshotArray<LifecycleListener> lifecycleListeners = app.getLifecycleListeners();
 			synchronized (lifecycleListeners) {
 				final LifecycleListener[] listeners = lifecycleListeners.begin();
-				for (int i = 0, n = lifecycleListeners.size; i < n; ++i) {
-					listeners[i].resume();
+				for (this.i_onDrawFrame_A = 0; this.i_onDrawFrame_A < lifecycleListeners.size; this.i_onDrawFrame_A++) {
+					listeners[i_onDrawFrame_A].resume();
 				}
 				lifecycleListeners.end();
 			}
-			this.app.getApplicationListener().resume();
+			this.appListener.resume();
 			Gdx.app.log(LOG_TAG, "resumed");
 		}
 
@@ -452,27 +459,27 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 				this.app.getRunnables().clear();
 			}
 
-			for (int i = 0; i < this.app.getExecutedRunnables().size; i++) {
+			for (this.i_onDrawFrame_B = 0; this.i_onDrawFrame_B < this.app.getExecutedRunnables().size; this.i_onDrawFrame_B++) {
 				try {
-					this.app.getExecutedRunnables().get(i).run();
+					this.app.getExecutedRunnables().get(this.i_onDrawFrame_B).run();
 				} catch (Throwable t) {
 					t.printStackTrace();
 				}
 			}
 			this.app.getInput().processEvents();
 			this.frameId++;
-			this.app.getApplicationListener().render();
+			this.appListener.render();
 		}
 
 		if (this.lpause_onDrawFrame) {
 			final SnapshotArray<LifecycleListener> lifecycleListeners = this.app.getLifecycleListeners();
 			synchronized (lifecycleListeners) {
 				final LifecycleListener[] listeners = lifecycleListeners.begin();
-				for (int i = 0, n = lifecycleListeners.size; i < n; ++i) {
-					listeners[i].pause();
+				for (this.i_onDrawFrame_C = 0; this.i_onDrawFrame_C < lifecycleListeners.size; this.i_onDrawFrame_C++) {
+					listeners[this.i_onDrawFrame_C].pause();
 				}
 			}
-			this.app.getApplicationListener().pause();
+			this.appListener.pause();
 			Gdx.app.log(LOG_TAG, "paused");
 		}
 
@@ -480,11 +487,11 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 			final SnapshotArray<LifecycleListener> lifecycleListeners = this.app.getLifecycleListeners();
 			synchronized (lifecycleListeners) {
 				final LifecycleListener[] listeners = lifecycleListeners.begin();
-				for (int i = 0, n = lifecycleListeners.size; i < n; ++i) {
-					listeners[i].dispose();
+				for (this.i_onDrawFrame_D = 0; this.i_onDrawFrame_D < lifecycleListeners.size; this.i_onDrawFrame_D++) {
+					listeners[this.i_onDrawFrame_D].dispose();
 				}
 			}
-			this.app.getApplicationListener().dispose();
+			this.appListener.dispose();
 			Gdx.app.log(LOG_TAG, "destroyed");
 		}
 
@@ -668,7 +675,7 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 			// ignore setContinuousRendering(false) while pausing
 			this.isContinuous = enforceContinuousRendering || isContinuous;
 			int renderMode = this.isContinuous ? GLSurfaceView.RENDERMODE_CONTINUOUSLY : GLSurfaceView.RENDERMODE_WHEN_DIRTY;
-			if (view instanceof GLSurfaceViewAPI18) ((GLSurfaceViewAPI18)view).setRenderMode(renderMode);
+			if (view instanceof RedGLSurfaceViewAPI18) ((RedGLSurfaceViewAPI18)view).setRenderMode(renderMode);
 			if (view instanceof GLSurfaceView) ((GLSurfaceView)view).setRenderMode(renderMode);
 // mean.clear();
 		}
@@ -682,7 +689,7 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 	@Override
 	public void requestRendering () {
 		if (view != null) {
-			if (view instanceof GLSurfaceViewAPI18) ((GLSurfaceViewAPI18)view).requestRender();
+			if (view instanceof RedGLSurfaceViewAPI18) ((RedGLSurfaceViewAPI18)view).requestRender();
 			if (view instanceof GLSurfaceView) ((GLSurfaceView)view).requestRender();
 		}
 	}

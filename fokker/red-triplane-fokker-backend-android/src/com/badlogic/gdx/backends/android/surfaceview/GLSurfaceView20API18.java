@@ -41,7 +41,7 @@ import android.view.inputmethod.InputConnection;
  * <p/>
  * - The class must select the surface's format, then choose an EGLConfig that matches it exactly (with regards to
  * red/green/blue/alpha channels bit depths). Failure to do so would result in an EGL_BAD_MATCH error. */
-public class GLSurfaceView20API18 extends GLSurfaceViewAPI18 {
+public class GLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 	static String TAG = "GL2JNIView";
 	private static final boolean DEBUG = false;
 
@@ -129,7 +129,7 @@ public class GLSurfaceView20API18 extends GLSurfaceViewAPI18 {
 		/* Set the renderer responsible for frame rendering */
 	}
 
-	static class ContextFactory implements GLSurfaceViewAPI18.EGLContextFactory {
+	static class ContextFactory implements RedGLSurfaceViewAPI18.EGLContextFactory {
 		private static int EGL_CONTEXT_CLIENT_VERSION = 0x3098;
 
 		public EGLContext createContext (EGL10 egl, EGLDisplay display, EGLConfig eglConfig) {

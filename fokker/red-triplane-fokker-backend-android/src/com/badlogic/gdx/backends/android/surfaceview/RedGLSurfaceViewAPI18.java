@@ -172,7 +172,7 @@ import android.view.SurfaceView;
  *
  */
 @SuppressWarnings("synthetic-access")
-public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Callback {
+public class RedGLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Callback {
     private final static String TAG = "GLSurfaceViewAPI18";
     private final static boolean LOG_ATTACH_DETACH = false;
     private final static boolean LOG_THREADS = false;
@@ -221,7 +221,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
      * Standard View constructor. In order to render something, you
      * must call {@link #setRenderer} to register a renderer.
      */
-    public GLSurfaceViewAPI18(Context context) {
+    public RedGLSurfaceViewAPI18(Context context) {
         super(context);
         init();
     }
@@ -230,7 +230,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
      * Standard View constructor. In order to render something, you
      * must call {@link #setRenderer} to register a renderer.
      */
-    public GLSurfaceViewAPI18(Context context, AttributeSet attrs) {
+    public RedGLSurfaceViewAPI18(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
@@ -767,7 +767,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
      * An interface for customizing the eglCreateContext and eglDestroyContext calls.
      * <p>
      * This interface must be implemented by clients wishing to call
-     * {@link GLSurfaceViewAPI18#setEGLContextFactory(EGLContextFactory)}
+     * {@link RedGLSurfaceViewAPI18#setEGLContextFactory(EGLContextFactory)}
      */
     public interface EGLContextFactory {
         EGLContext createContext(EGL10 egl, EGLDisplay display, EGLConfig eglConfig);
@@ -801,7 +801,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
      * An interface for customizing the eglCreateWindowSurface and eglDestroySurface calls.
      * <p>
      * This interface must be implemented by clients wishing to call
-     * {@link GLSurfaceViewAPI18#setEGLWindowSurfaceFactory(EGLWindowSurfaceFactory)}
+     * {@link RedGLSurfaceViewAPI18#setEGLWindowSurfaceFactory(EGLWindowSurfaceFactory)}
      */
     public interface EGLWindowSurfaceFactory {
         /**
@@ -996,7 +996,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
      */
 
     private static class EglHelper {
-        public EglHelper(WeakReference<GLSurfaceViewAPI18> glSurfaceViewWeakRef) {
+        public EglHelper(WeakReference<RedGLSurfaceViewAPI18> glSurfaceViewWeakRef) {
             mGLSurfaceViewWeakRef = glSurfaceViewWeakRef;
         }
 
@@ -1028,7 +1028,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
             if(!mEgl.eglInitialize(mEglDisplay, version)) {
                 throw new RuntimeException("eglInitialize failed");
             }
-            GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+            RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
             if (view == null) {
                 mEglConfig = null;
                 mEglContext = null;
@@ -1084,7 +1084,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
             /*
              * Create an EGL surface we can render into.
              */
-            GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+            RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
             if (view != null) {
                 mEglSurface = view.mEGLWindowSurfaceFactory.createWindowSurface(mEgl,
                         mEglDisplay, mEglConfig, view.getHolder());
@@ -1122,7 +1122,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
         GL createGL() {
 
             GL gl = mEglContext.getGL();
-            GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+            RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
             if (view != null) {
                 if (view.mGLWrapper != null) {
                     gl = view.mGLWrapper.wrap(gl);
@@ -1166,7 +1166,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
                 mEgl.eglMakeCurrent(mEglDisplay, EGL10.EGL_NO_SURFACE,
                         EGL10.EGL_NO_SURFACE,
                         EGL10.EGL_NO_CONTEXT);
-                GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+                RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
                 if (view != null) {
                     view.mEGLWindowSurfaceFactory.destroySurface(mEgl, mEglDisplay, mEglSurface);
                 }
@@ -1179,7 +1179,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
                 Log.w("EglHelper", "finish() tid=" + Thread.currentThread().getId());
             }
             if (mEglContext != null) {
-                GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+                RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
                 if (view != null) {
                     view.mEGLContextFactory.destroyContext(mEgl, mEglDisplay, mEglContext);
                 }
@@ -1250,7 +1250,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
             return function + " failed: " + getErrorString(error);
         }
 
-        private WeakReference<GLSurfaceViewAPI18> mGLSurfaceViewWeakRef;
+        private WeakReference<RedGLSurfaceViewAPI18> mGLSurfaceViewWeakRef;
         EGL10 mEgl;
         EGLDisplay mEglDisplay;
         EGLSurface mEglSurface;
@@ -1269,7 +1269,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
      *
      */
     static class GLThread extends Thread {
-        GLThread(WeakReference<GLSurfaceViewAPI18> glSurfaceViewWeakRef) {
+        GLThread(WeakReference<RedGLSurfaceViewAPI18> glSurfaceViewWeakRef) {
             super();
             mWidth = 0;
             mHeight = 0;
@@ -1385,7 +1385,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
 
                             // When pausing, optionally release the EGL Context:
                             if (pausing && mHaveEglContext) {
-                                GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+                                RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
                                 boolean preserveEglContextOnPause = view == null ?
                                         false : view.mPreserveEGLContextOnPause;
                                 if (!preserveEglContextOnPause || sGLThreadManager.shouldReleaseEGLContextWhenPausing()) {
@@ -1545,7 +1545,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
                         if (LOG_RENDERER) {
                             Log.w("GLThread", "onSurfaceCreated");
                         }
-                        GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+                        RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
                         if (view != null) {
                             view.mRenderer.onSurfaceCreated(gl, mEglHelper.mEglConfig);
                         }
@@ -1556,7 +1556,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
                         if (LOG_RENDERER) {
                             Log.w("GLThread", "onSurfaceChanged(" + w + ", " + h + ")");
                         }
-                        GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+                        RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
                         if (view != null) {
                             view.mRenderer.onSurfaceChanged(gl, w, h);
                         }
@@ -1567,7 +1567,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
                         Log.w("GLThread", "onDrawFrame tid=" + getId());
                     }
                     {
-                        GLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
+                        RedGLSurfaceViewAPI18 view = mGLSurfaceViewWeakRef.get();
                         if (view != null) {
                             view.mRenderer.onDrawFrame(gl);
                         }
@@ -1813,7 +1813,7 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
          * called. This weak reference allows the GLSurfaceView to be garbage collected while
          * the GLThread is still alive.
          */
-        private WeakReference<GLSurfaceViewAPI18> mGLSurfaceViewWeakRef;
+        private WeakReference<RedGLSurfaceViewAPI18> mGLSurfaceViewWeakRef;
 
     }
 
@@ -1977,8 +1977,8 @@ public class GLSurfaceViewAPI18 extends SurfaceView implements SurfaceHolder.Cal
 
     private static final GLThreadManager sGLThreadManager = new GLThreadManager();
 
-    private final WeakReference<GLSurfaceViewAPI18> mThisWeakRef =
-            new WeakReference<GLSurfaceViewAPI18>(this);
+    private final WeakReference<RedGLSurfaceViewAPI18> mThisWeakRef =
+            new WeakReference<RedGLSurfaceViewAPI18>(this);
     private GLThread mGLThread;
     private Renderer mRenderer;
     private boolean mDetached;
