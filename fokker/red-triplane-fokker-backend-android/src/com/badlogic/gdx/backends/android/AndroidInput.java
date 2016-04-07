@@ -337,7 +337,7 @@ public class AndroidInput implements Input, OnKeyListener, OnTouchListener {
 		}
 	}
 
-	void processEvents () {
+	public void processEvents () {
 		synchronized (this) {
 			justTouched = false;
 			if (keyJustPressed) {
@@ -573,12 +573,12 @@ public class AndroidInput implements Input, OnKeyListener, OnTouchListener {
 			public void run () {
 				InputMethodManager manager = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
 				if (visible) {
-					View view = ((AndroidGraphics)app.getGraphics()).getView();
+					View view = ((RedAndroidGraphics)app.getGraphics()).getView();
 					view.setFocusable(true);
 					view.setFocusableInTouchMode(true);
-					manager.showSoftInput(((AndroidGraphics)app.getGraphics()).getView(), 0);
+					manager.showSoftInput(((RedAndroidGraphics)app.getGraphics()).getView(), 0);
 				} else {
-					manager.hideSoftInputFromWindow(((AndroidGraphics)app.getGraphics()).getView().getWindowToken(), 0);
+					manager.hideSoftInputFromWindow(((RedAndroidGraphics)app.getGraphics()).getView().getWindowToken(), 0);
 				}
 			}
 		});

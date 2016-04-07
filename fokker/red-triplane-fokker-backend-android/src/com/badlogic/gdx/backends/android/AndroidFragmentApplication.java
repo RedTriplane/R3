@@ -53,7 +53,7 @@ public class AndroidFragmentApplication extends Fragment implements AndroidAppli
 		GdxNativesLoader.load();
 	}
 
-	protected AndroidGraphics graphics;
+	protected RedAndroidGraphics graphics;
 	protected AndroidInput input;
 	protected AndroidAudio audio;
 	protected AndroidFiles files;
@@ -157,7 +157,7 @@ public class AndroidFragmentApplication extends Fragment implements AndroidAppli
 		if (this.getVersion() < MINIMUM_SDK) {
 			throw new GdxRuntimeException("LibGDX requires Android API Level " + MINIMUM_SDK + " or later.");
 		}
-		graphics = new AndroidGraphics(this, config, config.resolutionStrategy == null ? new FillResolutionStrategy()
+		graphics = new RedAndroidGraphics(this, config, config.resolutionStrategy == null ? new FillResolutionStrategy()
 			: config.resolutionStrategy);
 		input = AndroidInputFactory.newAndroidInput(this, getActivity(), graphics.view, config);
 		audio = new AndroidAudio(getActivity(), config);
@@ -209,10 +209,10 @@ public class AndroidFragmentApplication extends Fragment implements AndroidAppli
 	@Override
 	public void onPause () {
 		boolean isContinuous = graphics.isContinuousRendering();
-		boolean isContinuousEnforced = AndroidGraphics.enforceContinuousRendering;
+		boolean isContinuousEnforced = RedAndroidGraphics.enforceContinuousRendering;
 
 		// from here we don't want non continuous rendering
-		AndroidGraphics.enforceContinuousRendering = true;
+		RedAndroidGraphics.enforceContinuousRendering = true;
 		graphics.setContinuousRendering(true);
 		// calls to setContinuousRendering(false) from other thread (ex: GLThread)
 		// will be ignored at this point...
@@ -227,7 +227,7 @@ public class AndroidFragmentApplication extends Fragment implements AndroidAppli
 			graphics.destroy();
 		}
 
-		AndroidGraphics.enforceContinuousRendering = isContinuousEnforced;
+		RedAndroidGraphics.enforceContinuousRendering = isContinuousEnforced;
 		graphics.setContinuousRendering(isContinuous);
 
 		graphics.onPauseGLSurfaceView();

@@ -63,7 +63,7 @@ public class AndroidDaydream extends DreamService implements AndroidApplicationB
 		GdxNativesLoader.load();
 	}
 
-	protected AndroidGraphics graphics;
+	protected RedAndroidGraphics graphics;
 	protected AndroidInput input;
 	protected AndroidAudio audio;
 	protected AndroidFiles files;
@@ -120,7 +120,7 @@ public class AndroidDaydream extends DreamService implements AndroidApplicationB
 	}
 
 	private void init (ApplicationListener listener, AndroidApplicationConfiguration config, boolean isForView) {
-		graphics = new AndroidGraphics(this, config, config.resolutionStrategy == null ? new FillResolutionStrategy()
+		graphics = new RedAndroidGraphics(this, config, config.resolutionStrategy == null ? new FillResolutionStrategy()
 			: config.resolutionStrategy);
 		input = AndroidInputFactory.newAndroidInput(this, this, graphics.view, config);
 		audio = new AndroidAudio(this, config);

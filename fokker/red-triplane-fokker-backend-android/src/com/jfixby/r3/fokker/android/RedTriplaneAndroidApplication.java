@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker.android.unitsspawner;
+package com.jfixby.r3.fokker.android;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.android.AndroidApplication;
