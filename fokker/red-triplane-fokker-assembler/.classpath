@@ -108,7 +108,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-android"/>
+	
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-desktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-ios"/>
