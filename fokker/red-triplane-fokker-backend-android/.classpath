@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="red-triplane-fokker-backend-android"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api-android"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
@@ -7,5 +8,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-backend-android"/>
+	<classpathentry kind="lib" path="/gdx-backend-android/libs/android-4.4.jar"/>
+	<classpathentry kind="lib" path="/gdx-backend-android/libs/support-v4-19.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
