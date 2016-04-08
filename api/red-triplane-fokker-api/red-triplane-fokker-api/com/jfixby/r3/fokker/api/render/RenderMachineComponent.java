@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.fokker.api.render;
 
 import com.jfixby.cmns.api.assets.AssetID;
@@ -11,57 +12,57 @@ import com.jfixby.r3.api.ui.unit.txt.RasterizedFont;
 
 public interface RenderMachineComponent {
 
-    void beginFrame();
+	void beginFrame ();
 
-    void endFrame();
+	void endFrame ();
 
-    void clearScreen();
+	void clearScreen ();
 
-    void beginDrawComponent(FokkerDrawable fokkerDrawable);
+	void beginDrawComponent (FokkerDrawable fokkerDrawable);
 
-    // void setOffset(Dot offset);
+	// void setOffset(Dot offset);
 
-    void drawLine(Color color, FixedFloat2 a, FixedFloat2 b);
+	void drawLine (Color color, FixedFloat2 a, FixedFloat2 b);
 
-    void drawTriangle(Color color, FixedFloat2 a, FixedFloat2 b, FixedFloat2 c);
+	void drawTriangle (Color color, FixedFloat2 a, FixedFloat2 b, FixedFloat2 c);
 
-    void endDrawComponent(FokkerDrawable fokkerDrawable);
+	void endDrawComponent (FokkerDrawable fokkerDrawable);
 
-    void init();
+	void init ();
 
-    void setProjection(final CameraProjection projection);
+	void setProjection (final CameraProjection projection);
 
-    // void drawEllipse(Color color, double positionX, double positionY,
-    // double width, double height, double rotation, boolean filled);
-    //
-    // void drawCircle(Color color, double positionX, double positionY,
-    // double radius);
+	// void drawEllipse(Color color, double positionX, double positionY,
+	// double width, double height, double rotation, boolean filled);
+	//
+	// void drawCircle(Color color, double positionX, double positionY,
+	// double radius);
 
-    // void drawDisk(Color color, double positionX, double positionY, double
-    // radius);
+	// void drawDisk(Color color, double positionX, double positionY, double
+	// radius);
 
-    void drawRaster(AssetID spriteAssetID, Rectangle shape);
+	void drawRaster (AssetID spriteAssetID, Rectangle shape);
 
-    void beginShapesMode();
+	void beginShapesMode ();
 
-    void endShapesMode();
+	void endShapesMode ();
 
-    void drawAperture(double ax, double ay, double bx, double by, AssetID spriteAssetID);
+	void drawAperture (double ax, double ay, double bx, double by, AssetID spriteAssetID);
 
-    void drawCircle(Color color, double center_x, double center_y, double radius);
+	void drawCircle (Color color, double center_x, double center_y, double radius);
 
-    void drawString(String string_value, RasterizedFont font, CanvasPosition position);
+	void drawString (String string_value, RasterizedFont font, CanvasPosition position);
 
-    void beginRasterMode(final BLEND_MODE blend_mode, double opacity);
+	void beginRasterMode (final BLEND_MODE blend_mode, double opacity);
 
-    void endRasterMode(final BLEND_MODE blend_mode);
+	void endRasterMode (final BLEND_MODE blend_mode);
 
-    void beginShaderMode(FokkerShader fokkerShader);
+	void beginShaderMode (FokkerShader fokkerShader);
 
-    void endShaderMode(FokkerShader fokkerShader);
+	void endShaderMode (FokkerShader fokkerShader);
 
-    void applyShader();
+	void applyShader ();
 
-    // void setShader(final FokkerShader shader_handler);
+	// void setShader(final FokkerShader shader_handler);
 
 }
