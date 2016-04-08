@@ -144,8 +144,6 @@ public class RedAndroidApplication extends Activity implements AndroidApplicatio
 			throw new GdxRuntimeException("LibGDX requires Android API Level " + MINIMUM_SDK + " or later.");
 		}
 
-		System.out.println("RED_ANDROID_APPLICATION_START");
-
 		graphics = new RedAndroidGraphics(this, config,
 			config.resolutionStrategy == null ? new FillResolutionStrategy() : config.resolutionStrategy);
 		input = AndroidInputFactory.newAndroidInput(this, this, graphics.view, config);

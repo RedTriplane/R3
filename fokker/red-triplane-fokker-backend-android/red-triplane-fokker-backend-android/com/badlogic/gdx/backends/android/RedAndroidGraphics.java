@@ -27,17 +27,10 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.LifecycleListener;
-import com.badlogic.gdx.backends.android.AndroidApplicationBase;
-import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.badlogic.gdx.backends.android.AndroidFragmentApplication;
-import com.badlogic.gdx.backends.android.AndroidGL20;
-import com.badlogic.gdx.backends.android.AndroidGL30;
-import com.badlogic.gdx.backends.android.RedAndroidApplication;
-import com.badlogic.gdx.backends.android.RedAndroidGraphics;
+import com.badlogic.gdx.backends.android.surfaceview.GdxEglConfigChooser;
 import com.badlogic.gdx.backends.android.surfaceview.RedGLSurfaceView20;
 import com.badlogic.gdx.backends.android.surfaceview.RedGLSurfaceView20API18;
 import com.badlogic.gdx.backends.android.surfaceview.RedGLSurfaceViewAPI18;
-import com.badlogic.gdx.backends.android.surfaceview.GdxEglConfigChooser;
 import com.badlogic.gdx.backends.android.surfaceview.ResolutionStrategy;
 import com.badlogic.gdx.graphics.Cubemap;
 import com.badlogic.gdx.graphics.Cursor;
@@ -125,7 +118,6 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 			view.setFocusable(true);
 			view.setFocusableInTouchMode(true);
 		}
-		System.out.println("RedAndroidGraphics_START");
 	}
 
 	protected void preserveEGLContextOnPause () {
