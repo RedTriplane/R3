@@ -2,8 +2,8 @@
 package com.jfixby.red.triplane.fokker.android;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.jfixby.android.api.AndroidComponent;
 import com.jfixby.cmns.api.log.L;
 
@@ -11,7 +11,7 @@ import android.app.ActivityManager;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
-public abstract class RedTriplaneAndroidApplication extends AndroidApplication implements AndroidComponent {
+public abstract class RedTriplaneAndroidApplication extends RedAndroidApplication implements AndroidComponent {
 
 	private ApplicationListener gdxListener;
 	private AndroidApplicationConfiguration androidConfig;
