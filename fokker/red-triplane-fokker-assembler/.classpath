@@ -14,8 +14,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/bin"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/box2d-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-gdx"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/gdx-r3-font"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/gdx-r3-font-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-double"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-float"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-android"/>
@@ -108,7 +106,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend"/>
-	
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-desktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-ios"/>
