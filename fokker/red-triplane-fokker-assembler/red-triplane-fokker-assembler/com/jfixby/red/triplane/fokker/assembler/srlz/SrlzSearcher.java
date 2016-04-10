@@ -73,7 +73,7 @@ public class SrlzSearcher {
 	}
 
 	private void indexJavaFiles(File sources) throws IOException {
-		if (sources.extensionIs(".java")) {
+		if (sources.extensionIs("java")) {
 			JavaFileHandler handler = new JavaFileHandler(sources);
 			this.java_files_list.add(handler);
 		} else if (sources.isFolder()) {

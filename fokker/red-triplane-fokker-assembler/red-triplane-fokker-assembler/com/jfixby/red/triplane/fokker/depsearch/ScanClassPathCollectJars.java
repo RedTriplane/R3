@@ -21,7 +21,7 @@ public class ScanClassPathCollectJars {
 		File jars = LocalFileSystem.ApplicationHome().child("jars");
 		jars.clearFolder();
 		FileFilter filter = file -> file.isFolder();
-		ChildrenList folders = gradle_path.listChildren().filter(filter);
+		ChildrenList folders = gradle_path.listChildren().filterFiles(filter);
 		File core = folders.findChild("core");
 		List<String> core_jars = collectJars(core, jars, Collections.newList());
 		core_jars.print("core_jars");
