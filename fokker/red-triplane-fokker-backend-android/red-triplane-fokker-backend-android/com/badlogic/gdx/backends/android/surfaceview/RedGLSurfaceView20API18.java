@@ -1,11 +1,11 @@
 /*
  * Copyright (C) 2009 The Android Open Source Project
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the
  * License. You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
  * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
@@ -17,6 +17,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
+
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.PixelFormat;
@@ -29,9 +30,11 @@ import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
-/** <b>This class is a slightly modified copy of GLSurfaceView20 which extends GLSurfaceViewAPI18 instead of the classic GLSurfaceView. 
- * Especially it is intended to be used on Android 2.x if you need proper support for onAttachedToWindow and onDetachedFromWindow methods.<b>
- * <p>It demonstrates how to perform OpenGL ES 2.0 rendering into a GL Surface. Note the following important details:
+/** <b>This class is a slightly modified copy of GLSurfaceView20 which extends GLSurfaceViewAPI18 instead of the classic
+ * GLSurfaceView. Especially it is intended to be used on Android 2.x if you need proper support for onAttachedToWindow and
+ * onDetachedFromWindow methods.<b>
+ * <p>
+ * It demonstrates how to perform OpenGL ES 2.0 rendering into a GL Surface. Note the following important details:
  * <p/>
  * - The class must use a custom context factory to enable 2.0 rendering. See ContextFactory class definition below.
  * <p/>
@@ -47,44 +50,46 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 
 	final ResolutionStrategy resolutionStrategy;
 
-	public RedGLSurfaceView20API18 (Context context, ResolutionStrategy resolutionStrategy) {
+	public RedGLSurfaceView20API18 (final Context context, final ResolutionStrategy resolutionStrategy) {
 		super(context);
 		this.resolutionStrategy = resolutionStrategy;
-		init(false, 16, 0);
+		this.init(false, 16, 0);
 	}
 
-	public RedGLSurfaceView20API18 (Context context, boolean translucent, int depth, int stencil, ResolutionStrategy resolutionStrategy) {
+	public RedGLSurfaceView20API18 (final Context context, final boolean translucent, final int depth, final int stencil,
+		final ResolutionStrategy resolutionStrategy) {
 		super(context);
 		this.resolutionStrategy = resolutionStrategy;
-		init(translucent, depth, stencil);
+		this.init(translucent, depth, stencil);
 
 	}
 
 	@Override
-	protected void onMeasure (int widthMeasureSpec, int heightMeasureSpec) {
-		ResolutionStrategy.MeasuredDimension measures = resolutionStrategy.calcMeasures(widthMeasureSpec, heightMeasureSpec);
-		setMeasuredDimension(measures.width, measures.height);
+	protected void onMeasure (final int widthMeasureSpec, final int heightMeasureSpec) {
+		final ResolutionStrategy.MeasuredDimension measures = this.resolutionStrategy.calcMeasures(widthMeasureSpec,
+			heightMeasureSpec);
+		this.setMeasuredDimension(measures.width, measures.height);
 	}
 
 	@Override
-	public InputConnection onCreateInputConnection (EditorInfo outAttrs) {
+	public InputConnection onCreateInputConnection (final EditorInfo outAttrs) {
 
 		// add this line, the IME can show the selectable words when use chinese input method editor.
 		if (outAttrs != null) {
 			outAttrs.imeOptions = outAttrs.imeOptions | EditorInfo.IME_FLAG_NO_EXTRACT_UI;
 		}
-		
-		BaseInputConnection connection = new BaseInputConnection(this, false) {
+
+		final BaseInputConnection connection = new BaseInputConnection(this, false) {
 			@Override
-			public boolean deleteSurroundingText (int beforeLength, int afterLength) {
-				int sdkVersion = android.os.Build.VERSION.SDK_INT;
+			public boolean deleteSurroundingText (final int beforeLength, final int afterLength) {
+				final int sdkVersion = android.os.Build.VERSION.SDK_INT;
 				if (sdkVersion >= 16) {
 					/*
 					 * In Jelly Bean, they don't send key events for delete. Instead, they send beforeLength = 1, afterLength = 0. So,
 					 * we'll just simulate what it used to do.
 					 */
 					if (beforeLength == 1 && afterLength == 0) {
-						sendDownUpKeyEventForBackwardCompatibility(KeyEvent.KEYCODE_DEL);
+						this.sendDownUpKeyEventForBackwardCompatibility(KeyEvent.KEYCODE_DEL);
 						return true;
 					}
 				}
@@ -103,7 +108,7 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 		return connection;
 	}
 
-	private void init (boolean translucent, int depth, int stencil) {
+	private void init (final boolean translucent, final int depth, final int stencil) {
 
 		/*
 		 * By default, GLSurfaceView() creates a RGB_565 opaque surface. If we want a translucent one, we should change the
@@ -117,14 +122,14 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 		/*
 		 * Setup the context factory for 2.0 rendering. See ContextFactory class definition below
 		 */
-		setEGLContextFactory(new ContextFactory());
+		this.setEGLContextFactory(new ContextFactory());
 
 		/*
 		 * We need to choose an EGLConfig that matches the format of our surface exactly. This is going to be done in our custom
 		 * config chooser. See ConfigChooser class definition below.
 		 */
-		setEGLConfigChooser(translucent ? new ConfigChooser(8, 8, 8, 8, depth, stencil) : new ConfigChooser(5, 6, 5, 0, depth,
-			stencil));
+		this.setEGLConfigChooser(
+			translucent ? new ConfigChooser(8, 8, 8, 8, depth, stencil) : new ConfigChooser(5, 6, 5, 0, depth, stencil));
 
 		/* Set the renderer responsible for frame rendering */
 	}
@@ -132,21 +137,23 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 	static class ContextFactory implements RedGLSurfaceViewAPI18.EGLContextFactory {
 		private static int EGL_CONTEXT_CLIENT_VERSION = 0x3098;
 
-		public EGLContext createContext (EGL10 egl, EGLDisplay display, EGLConfig eglConfig) {
+		@Override
+		public EGLContext createContext (final EGL10 egl, final EGLDisplay display, final EGLConfig eglConfig) {
 			Log.w(TAG, "creating OpenGL ES 2.0 context");
 			checkEglError("Before eglCreateContext", egl);
-			int[] attrib_list = {EGL_CONTEXT_CLIENT_VERSION, 2, EGL10.EGL_NONE};
-			EGLContext context = egl.eglCreateContext(display, eglConfig, EGL10.EGL_NO_CONTEXT, attrib_list);
+			final int[] attrib_list = {EGL_CONTEXT_CLIENT_VERSION, 2, EGL10.EGL_NONE};
+			final EGLContext context = egl.eglCreateContext(display, eglConfig, EGL10.EGL_NO_CONTEXT, attrib_list);
 			checkEglError("After eglCreateContext", egl);
 			return context;
 		}
 
-		public void destroyContext (EGL10 egl, EGLDisplay display, EGLContext context) {
+		@Override
+		public void destroyContext (final EGL10 egl, final EGLDisplay display, final EGLContext context) {
 			egl.eglDestroyContext(display, context);
 		}
 	}
 
-	static void checkEglError (String prompt, EGL10 egl) {
+	static void checkEglError (final String prompt, final EGL10 egl) {
 		int error;
 		while ((error = egl.eglGetError()) != EGL10.EGL_SUCCESS) {
 			Log.e(TAG, String.format("%s: EGL error: 0x%x", prompt, error));
@@ -155,13 +162,13 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 
 	private static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
 
-		public ConfigChooser (int r, int g, int b, int a, int depth, int stencil) {
-			mRedSize = r;
-			mGreenSize = g;
-			mBlueSize = b;
-			mAlphaSize = a;
-			mDepthSize = depth;
-			mStencilSize = stencil;
+		public ConfigChooser (final int r, final int g, final int b, final int a, final int depth, final int stencil) {
+			this.mRedSize = r;
+			this.mGreenSize = g;
+			this.mBlueSize = b;
+			this.mAlphaSize = a;
+			this.mDepthSize = depth;
+			this.mStencilSize = stencil;
 		}
 
 		/*
@@ -172,15 +179,16 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 		private static int[] s_configAttribs2 = {EGL10.EGL_RED_SIZE, 4, EGL10.EGL_GREEN_SIZE, 4, EGL10.EGL_BLUE_SIZE, 4,
 			EGL10.EGL_RENDERABLE_TYPE, EGL_OPENGL_ES2_BIT, EGL10.EGL_NONE};
 
-		public EGLConfig chooseConfig (EGL10 egl, EGLDisplay display) {
+		@Override
+		public EGLConfig chooseConfig (final EGL10 egl, final EGLDisplay display) {
 
 			/*
 			 * Get the number of minimally matching EGL configurations
 			 */
-			int[] num_config = new int[1];
+			final int[] num_config = new int[1];
 			egl.eglChooseConfig(display, s_configAttribs2, null, 0, num_config);
 
-			int numConfigs = num_config[0];
+			final int numConfigs = num_config[0];
 
 			if (numConfigs <= 0) {
 				throw new IllegalArgumentException("No configs match configSpec");
@@ -189,60 +197,64 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 			/*
 			 * Allocate then read the array of minimally matching EGL configs
 			 */
-			EGLConfig[] configs = new EGLConfig[numConfigs];
+			final EGLConfig[] configs = new EGLConfig[numConfigs];
 			egl.eglChooseConfig(display, s_configAttribs2, configs, numConfigs, num_config);
 
 			if (DEBUG) {
-				printConfigs(egl, display, configs);
+				this.printConfigs(egl, display, configs);
 			}
 			/*
 			 * Now return the "best" one
 			 */
-			return chooseConfig(egl, display, configs);
+			return this.chooseConfig(egl, display, configs);
 		}
 
-		public EGLConfig chooseConfig (EGL10 egl, EGLDisplay display, EGLConfig[] configs) {
-			for (EGLConfig config : configs) {
-				int d = findConfigAttrib(egl, display, config, EGL10.EGL_DEPTH_SIZE, 0);
-				int s = findConfigAttrib(egl, display, config, EGL10.EGL_STENCIL_SIZE, 0);
+		public EGLConfig chooseConfig (final EGL10 egl, final EGLDisplay display, final EGLConfig[] configs) {
+			for (final EGLConfig config : configs) {
+				final int d = this.findConfigAttrib(egl, display, config, EGL10.EGL_DEPTH_SIZE, 0);
+				final int s = this.findConfigAttrib(egl, display, config, EGL10.EGL_STENCIL_SIZE, 0);
 
 				// We need at least mDepthSize and mStencilSize bits
-				if (d < mDepthSize || s < mStencilSize) continue;
+				if (d < this.mDepthSize || s < this.mStencilSize) {
+					continue;
+				}
 
 				// We want an *exact* match for red/green/blue/alpha
-				int r = findConfigAttrib(egl, display, config, EGL10.EGL_RED_SIZE, 0);
-				int g = findConfigAttrib(egl, display, config, EGL10.EGL_GREEN_SIZE, 0);
-				int b = findConfigAttrib(egl, display, config, EGL10.EGL_BLUE_SIZE, 0);
-				int a = findConfigAttrib(egl, display, config, EGL10.EGL_ALPHA_SIZE, 0);
+				final int r = this.findConfigAttrib(egl, display, config, EGL10.EGL_RED_SIZE, 0);
+				final int g = this.findConfigAttrib(egl, display, config, EGL10.EGL_GREEN_SIZE, 0);
+				final int b = this.findConfigAttrib(egl, display, config, EGL10.EGL_BLUE_SIZE, 0);
+				final int a = this.findConfigAttrib(egl, display, config, EGL10.EGL_ALPHA_SIZE, 0);
 
-				if (r == mRedSize && g == mGreenSize && b == mBlueSize && a == mAlphaSize) return config;
+				if (r == this.mRedSize && g == this.mGreenSize && b == this.mBlueSize && a == this.mAlphaSize) {
+					return config;
+				}
 			}
 			return null;
 		}
 
-		private int findConfigAttrib (EGL10 egl, EGLDisplay display, EGLConfig config, int attribute, int defaultValue) {
+		private int findConfigAttrib (final EGL10 egl, final EGLDisplay display, final EGLConfig config, final int attribute,
+			final int defaultValue) {
 
-			if (egl.eglGetConfigAttrib(display, config, attribute, mValue)) {
-				return mValue[0];
+			if (egl.eglGetConfigAttrib(display, config, attribute, this.mValue)) {
+				return this.mValue[0];
 			}
 			return defaultValue;
 		}
 
-		private void printConfigs (EGL10 egl, EGLDisplay display, EGLConfig[] configs) {
-			int numConfigs = configs.length;
+		private void printConfigs (final EGL10 egl, final EGLDisplay display, final EGLConfig[] configs) {
+			final int numConfigs = configs.length;
 			Log.w(TAG, String.format("%d configurations", numConfigs));
 			for (int i = 0; i < numConfigs; i++) {
 				Log.w(TAG, String.format("Configuration %d:\n", i));
-				printConfig(egl, display, configs[i]);
+				this.printConfig(egl, display, configs[i]);
 			}
 		}
 
-		private void printConfig (EGL10 egl, EGLDisplay display, EGLConfig config) {
-			int[] attributes = {EGL10.EGL_BUFFER_SIZE, EGL10.EGL_ALPHA_SIZE, EGL10.EGL_BLUE_SIZE, EGL10.EGL_GREEN_SIZE,
+		private void printConfig (final EGL10 egl, final EGLDisplay display, final EGLConfig config) {
+			final int[] attributes = {EGL10.EGL_BUFFER_SIZE, EGL10.EGL_ALPHA_SIZE, EGL10.EGL_BLUE_SIZE, EGL10.EGL_GREEN_SIZE,
 				EGL10.EGL_RED_SIZE, EGL10.EGL_DEPTH_SIZE, EGL10.EGL_STENCIL_SIZE, EGL10.EGL_CONFIG_CAVEAT, EGL10.EGL_CONFIG_ID,
 				EGL10.EGL_LEVEL, EGL10.EGL_MAX_PBUFFER_HEIGHT, EGL10.EGL_MAX_PBUFFER_PIXELS, EGL10.EGL_MAX_PBUFFER_WIDTH,
-				EGL10.EGL_NATIVE_RENDERABLE, EGL10.EGL_NATIVE_VISUAL_ID, EGL10.EGL_NATIVE_VISUAL_TYPE,
-				0x3030, // EGL10.EGL_PRESERVED_RESOURCES,
+				EGL10.EGL_NATIVE_RENDERABLE, EGL10.EGL_NATIVE_VISUAL_ID, EGL10.EGL_NATIVE_VISUAL_TYPE, 0x3030, // EGL10.EGL_PRESERVED_RESOURCES,
 				EGL10.EGL_SAMPLES, EGL10.EGL_SAMPLE_BUFFERS, EGL10.EGL_SURFACE_TYPE, EGL10.EGL_TRANSPARENT_TYPE,
 				EGL10.EGL_TRANSPARENT_RED_VALUE, EGL10.EGL_TRANSPARENT_GREEN_VALUE, EGL10.EGL_TRANSPARENT_BLUE_VALUE, 0x3039, // EGL10.EGL_BIND_TO_TEXTURE_RGB,
 				0x303A, // EGL10.EGL_BIND_TO_TEXTURE_RGBA,
@@ -250,23 +262,24 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 				0x303C, // EGL10.EGL_MAX_SWAP_INTERVAL,
 				EGL10.EGL_LUMINANCE_SIZE, EGL10.EGL_ALPHA_MASK_SIZE, EGL10.EGL_COLOR_BUFFER_TYPE, EGL10.EGL_RENDERABLE_TYPE, 0x3042 // EGL10.EGL_CONFORMANT
 			};
-			String[] names = {"EGL_BUFFER_SIZE", "EGL_ALPHA_SIZE", "EGL_BLUE_SIZE", "EGL_GREEN_SIZE", "EGL_RED_SIZE",
+			final String[] names = {"EGL_BUFFER_SIZE", "EGL_ALPHA_SIZE", "EGL_BLUE_SIZE", "EGL_GREEN_SIZE", "EGL_RED_SIZE",
 				"EGL_DEPTH_SIZE", "EGL_STENCIL_SIZE", "EGL_CONFIG_CAVEAT", "EGL_CONFIG_ID", "EGL_LEVEL", "EGL_MAX_PBUFFER_HEIGHT",
 				"EGL_MAX_PBUFFER_PIXELS", "EGL_MAX_PBUFFER_WIDTH", "EGL_NATIVE_RENDERABLE", "EGL_NATIVE_VISUAL_ID",
 				"EGL_NATIVE_VISUAL_TYPE", "EGL_PRESERVED_RESOURCES", "EGL_SAMPLES", "EGL_SAMPLE_BUFFERS", "EGL_SURFACE_TYPE",
 				"EGL_TRANSPARENT_TYPE", "EGL_TRANSPARENT_RED_VALUE", "EGL_TRANSPARENT_GREEN_VALUE", "EGL_TRANSPARENT_BLUE_VALUE",
 				"EGL_BIND_TO_TEXTURE_RGB", "EGL_BIND_TO_TEXTURE_RGBA", "EGL_MIN_SWAP_INTERVAL", "EGL_MAX_SWAP_INTERVAL",
 				"EGL_LUMINANCE_SIZE", "EGL_ALPHA_MASK_SIZE", "EGL_COLOR_BUFFER_TYPE", "EGL_RENDERABLE_TYPE", "EGL_CONFORMANT"};
-			int[] value = new int[1];
+			final int[] value = new int[1];
 			for (int i = 0; i < attributes.length; i++) {
-				int attribute = attributes[i];
-				String name = names[i];
+				final int attribute = attributes[i];
+				final String name = names[i];
 				if (egl.eglGetConfigAttrib(display, config, attribute, value)) {
 					Log.w(TAG, String.format("  %s: %d\n", name, value[0]));
 				} else {
-					// Log.w(TAG, String.format("  %s: failed\n", name));
-					while (egl.eglGetError() != EGL10.EGL_SUCCESS)
+					// Log.w(TAG, String.format(" %s: failed\n", name));
+					while (egl.eglGetError() != EGL10.EGL_SUCCESS) {
 						;
+					}
 				}
 			}
 		}
@@ -278,6 +291,6 @@ public class RedGLSurfaceView20API18 extends RedGLSurfaceViewAPI18 {
 		protected int mAlphaSize;
 		protected int mDepthSize;
 		protected int mStencilSize;
-		private int[] mValue = new int[1];
+		private final int[] mValue = new int[1];
 	}
 }

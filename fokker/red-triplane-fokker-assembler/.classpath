@@ -44,7 +44,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-psd-unpacker-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-psd-unpacker-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-lambda"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-packer-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-packer-gdx"/>
@@ -93,8 +93,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/picfight-vkbot-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rebecca-tool-texture-bleed"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rebecca-tool-texture-bleed-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-from-activemq-adaptor"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-http-processor"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-http-processor-api"/>
