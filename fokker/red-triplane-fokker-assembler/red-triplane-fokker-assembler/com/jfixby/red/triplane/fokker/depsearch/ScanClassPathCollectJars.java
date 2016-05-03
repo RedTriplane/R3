@@ -10,12 +10,12 @@ import com.jfixby.cmns.api.file.FileFilter;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.util.JUtils;
-import com.jfixby.red.desktop.DesktopAssembler;
+import com.jfixby.red.desktop.DesktopSetup;
 
 public class ScanClassPathCollectJars {
 
 	public static void main(String[] args) throws IOException {
-		DesktopAssembler.setup();
+		DesktopSetup.deploy();
 		String gradle_path_string = "D:\\[DEV]\\[CODE]\\[GDX]\\tinto";
 		File gradle_path = LocalFileSystem.newFile(gradle_path_string);
 		File jars = LocalFileSystem.ApplicationHome().child("jars");

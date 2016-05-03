@@ -18,7 +18,7 @@ import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.sys.Sys;
-import com.jfixby.red.desktop.DesktopAssembler;
+import com.jfixby.red.desktop.DesktopSetup;
 import com.jfixby.red.triplane.fokker.assembler.AndroidProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.DesktopProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
@@ -28,7 +28,7 @@ public class FindSrlzd {
 
 	public static void main(String[] args) throws IOException, URISyntaxException {
 
-		DesktopAssembler.setup();
+		DesktopSetup.deploy();
 		Json.installComponent(new RedJson());
 
 		File workspace_folder = LocalFileSystem.newFile("D:\\[DEV]\\[CODE]\\[WS-19]");

@@ -1,9 +1,10 @@
+
 package com.jfixby.r3.api.text;
 
 public interface TextTranslation {
 
-    public String getLocaleName();
+	public String getLocaleName ();
 
-    public StringValue getChars();
+	public String getChars ();
 
 }

@@ -1,15 +1,14 @@
-package com.jfixby.r3.api.ui.unit.txt;
 
-import com.jfixby.r3.api.text.StringValue;
+package com.jfixby.r3.api.ui.unit.txt;
 
 public interface RasterizedStringSpecs {
 
-	void setString(StringValue value);
+	void setString (String value);
 
-	StringValue getString();
+	String getString ();
 
-	void setFont(RasterizedFont font);
+	void setFont (RasterizedFont font);
 
-	RasterizedFont getFont();
+	RasterizedFont getFont ();
 
 }
