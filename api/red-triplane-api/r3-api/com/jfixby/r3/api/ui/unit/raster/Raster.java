@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.api.ui.unit.raster;
 
 import com.jfixby.cmns.api.assets.AssetID;
@@ -5,20 +6,26 @@ import com.jfixby.cmns.api.color.Color;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 
 public interface Raster extends ProjectableComponent, BlendableComponent {
-	public AssetID getAssetID();
+	public AssetID getAssetID ();
 
-	public void setOpacity(double alpha);
+	@Override
+	public void setOpacity (double alpha);
 
-	public double getOpacity();
+	@Override
+	public double getOpacity ();
 
-	void setDebugRenderFlag(boolean b);
+	@Override
+	void setDebugRenderFlag (boolean b);
 
-	boolean getDebugRenderFlag();
+	@Override
+	boolean getDebugRenderFlag ();
 
-	public void setDebugColor(Color debug_render_color);
+	@Override
+	public void setDebugColor (Color debug_render_color);
 
-	public Color getDebugColor();
+	@Override
+	public Color getDebugColor ();
 
-	public ComponentsFactory getComponentsFactory();
+	public ComponentsFactory getComponentsFactory ();
 
 }

@@ -3,9 +3,9 @@ package com.jfixby.r3.api.ui.unit.input;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.r3.api.ui.unit.layer.Component;
 
-public interface U_OnMouseInputEventListener extends Component {
+public interface MouseEventListener extends Component {
 
-	public static final U_OnMouseInputEventListener DEBUG = new U_OnMouseInputEventListener() {
+	public static final MouseEventListener DEBUG = new MouseEventListener() {
 
 		@Override
 		public boolean onMouseMoved(MouseMovedEvent event) {

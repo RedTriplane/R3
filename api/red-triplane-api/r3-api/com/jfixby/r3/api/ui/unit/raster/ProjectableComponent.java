@@ -1,54 +1,52 @@
+
 package com.jfixby.r3.api.ui.unit.raster;
 
 import com.jfixby.cmns.api.color.Color;
+import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_HORIZONTAL;
 import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_VERTICAL;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.cmns.api.geometry.RectangleCorner;
 
 public interface ProjectableComponent extends CanvasComponent {
-	public void setDebugColor(Color debug_render_color);
+	@Override
+	public void setDebugColor (Color debug_render_color);
 
-	Rectangle shape();
+	Rectangle shape ();
 
-	double getWidth();
+	double getWidth ();
 
-	double getHeight();
+	double getHeight ();
 
-	void setSize(double width, double height);
+	void setSize (double width, double height);
 
-	void setWidth(double width);
+	void setWidth (double width);
 
-	void setHeight(double height);
+	void setHeight (double height);
 
-	void setOrigin(ORIGIN_RELATIVE_HORIZONTAL orX, ORIGIN_RELATIVE_VERTICAL orY);
+	void setOriginRelative (ORIGIN_RELATIVE_HORIZONTAL orX, ORIGIN_RELATIVE_VERTICAL orY);
 
-	void setOriginX(ORIGIN_RELATIVE_HORIZONTAL orX);
+	void setOriginRelativeX (ORIGIN_RELATIVE_HORIZONTAL orX);
 
-	void setOriginY(ORIGIN_RELATIVE_VERTICAL orY);
+	void setOriginRelativeY (ORIGIN_RELATIVE_VERTICAL orY);
 
 	// public void setOriginAbsolute(double origin_x, double origin_y);
 
-	void setOriginAbsolute(double origin_x, double origin_y);
+	void setOriginRelative (double ORIGIN_RELATIVE_HORIZONTAL, double ORIGIN_RELATIVE_VERTICAL);
 
-	void setOriginAbsoluteX(double origin_x);
+	void setOriginRelativeX (double ORIGIN_RELATIVE_HORIZONTAL);
 
-	void setOriginAbsoluteY(double origin_y);
+	void setOriginRelativeY (double ORIGIN_RELATIVE_VERTICAL);
 
-	void setOriginRelative(double ORIGIN_RELATIVE_HORIZONTAL, double ORIGIN_RELATIVE_VERTICAL);
+	public Rectangle setupShape (Rectangle other);
 
-	void setOriginRelativeX(double ORIGIN_RELATIVE_HORIZONTAL);
+	RectangleCorner getTopLeftCorner ();
 
-	void setOriginRelativeY(double ORIGIN_RELATIVE_VERTICAL);
+	RectangleCorner getTopRightCorner ();
 
-	public Rectangle setupShape(Rectangle other);
+	RectangleCorner getBottomLeftCorner ();
 
-	RectangleCorner getTopLeftCorner();
+	RectangleCorner getBottomRightCorner ();
 
-	RectangleCorner getTopRightCorner();
-
-	RectangleCorner getBottomLeftCorner();
-
-	RectangleCorner getBottomRightCorner();
-
+	CanvasPosition getPosition ();
 }

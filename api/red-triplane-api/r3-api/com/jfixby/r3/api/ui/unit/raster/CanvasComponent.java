@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.api.ui.unit.raster;
 
 import com.jfixby.cmns.api.color.Color;
@@ -8,44 +9,46 @@ import com.jfixby.r3.api.ui.unit.layer.DrawableComponent;
 
 public interface CanvasComponent extends DrawableComponent {
 
-	public Angle getRotation();
+	public Angle getRotation ();
 
-	public void setRotation(Angle rotation);
+	public void setRotation (Angle rotation);
 
-	public void setRotation(double rotation);
+	public void setRotation (double rotation);
 
-	public void setPositionXY(double x, double y);
+	public void setPositionXY (double x, double y);
 
-	public void setPositionXY(FixedFloat2 position_xy);
+	public void setPositionXY (FixedFloat2 position_xy);
 
-	public void setPositionX(double x);
+	public void setPositionX (double x);
 
-	public void setPositionY(double y);
+	public void setPositionY (double y);
 
-	public double getPositionX();
+	public double getPositionX ();
 
-	public double getPositionY();
+	public double getPositionY ();
 
 	// public CanvasPosition getPosition();
 
-	public void setPosition(CanvasPosition position);
+	public void setPosition (CanvasPosition position);
 
-	void setOriginAbsolute(double origin_x, double origin_y);
+	void setOriginAbsolute (double origin_x, double origin_y);
 
-	void setOriginAbsoluteX(double origin_x);
+	public void setOriginAbsolute (CanvasPosition position);
 
-	void setOriginAbsoluteY(double origin_y);
+	void setOriginAbsoluteX (double origin_x);
 
-	public void setOpacity(double alpha);
+	void setOriginAbsoluteY (double origin_y);
 
-	public double getOpacity();
+	public void setOpacity (double alpha);
 
-	void setDebugRenderFlag(boolean b);
+	public double getOpacity ();
 
-	boolean getDebugRenderFlag();
+	void setDebugRenderFlag (boolean b);
 
-	public void setDebugColor(Color debug_render_color);
+	boolean getDebugRenderFlag ();
 
-	public Color getDebugColor();
+	public void setDebugColor (Color debug_render_color);
+
+	public Color getDebugColor ();
 
 }

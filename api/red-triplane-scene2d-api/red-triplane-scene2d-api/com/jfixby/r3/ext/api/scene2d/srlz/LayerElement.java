@@ -5,6 +5,10 @@ import java.util.Vector;
 
 public class LayerElement implements java.io.Serializable {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 4233761597492511259L;
 	public boolean is_raster = false;
 	public boolean is_sublayer = false;
 	public boolean is_animation = false;

@@ -6,7 +6,7 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.game.LoadTask;
 
-public class GameUI {
+public class UI {
 
 	static private ComponentInstaller<GameUIComponent> componentInstaller = new ComponentInstaller<GameUIComponent>("GameUI");
 
@@ -42,7 +42,7 @@ public class GameUI {
 		invoke().pushFadeOut(period);
 	}
 
-	public static void switchToGameUI (final AssetID game_ui_unit_id) {
+	public static void loadUnit (final AssetID game_ui_unit_id) {
 		invoke().switchToGameUI(game_ui_unit_id);
 	}
 

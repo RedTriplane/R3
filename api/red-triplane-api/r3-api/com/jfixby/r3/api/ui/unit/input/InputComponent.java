@@ -7,8 +7,8 @@ public interface InputComponent {
 
 //	public AssetID getID();
 
-	public U_OnMouseInputEventListener getInputListener();
+	public MouseEventListener getInputListener();
 
-	public void setInputListener(U_OnMouseInputEventListener listener);
+	public void setInputListener(MouseEventListener listener);
 
 }
