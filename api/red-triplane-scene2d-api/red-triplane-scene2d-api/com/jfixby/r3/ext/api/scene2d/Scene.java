@@ -4,6 +4,7 @@ package com.jfixby.r3.ext.api.scene2d;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Mapping;
+import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.r3.api.locale.LocalizedComponent;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.animation.Animation;
@@ -37,5 +38,7 @@ public interface Scene extends CanvasComponent {
 	Layer getRoot ();
 
 	Collection<Layer> findLayer (String layerName);
+
+	FixedFloat2 getOriginalDimentions ();
 
 }

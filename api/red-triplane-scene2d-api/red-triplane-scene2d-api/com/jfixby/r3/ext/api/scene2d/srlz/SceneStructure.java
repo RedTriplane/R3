@@ -8,13 +8,17 @@ import com.jfixby.rana.api.asset.Asset;
 public class SceneStructure implements Asset, java.io.Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -927468651743679015L;
 
 	public String structure_name;
 
 	public LayerElement root = new LayerElement();
+
+	public double original_width;
+
+	public double original_height;
 
 	@Override
 	public AssetID getAssetID () {

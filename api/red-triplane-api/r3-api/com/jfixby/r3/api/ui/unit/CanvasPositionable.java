@@ -1,11 +1,15 @@
+
 package com.jfixby.r3.api.ui.unit;
 
+import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 
 public interface CanvasPositionable {
 
-	void setPosition(CanvasPosition position);
+	void setPosition (CanvasPosition position);
 
-	void setPositionXY(double position_x, double position_y);
+	void setPosition (FixedFloat2 position);
+
+	void setPosition (double position_x, double position_y);
 
 }

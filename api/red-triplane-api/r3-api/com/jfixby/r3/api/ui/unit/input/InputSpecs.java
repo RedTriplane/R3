@@ -2,21 +2,19 @@
 package com.jfixby.r3.api.ui.unit.input;
 
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
+import com.jfixby.r3.api.ui.unit.raster.Raster;
 
 public interface InputSpecs {
 	String getName ();
 
 	void setName (String button_name);
 
-	TouchAreaSpecs newTouchAreaSpecs ();
-
-	void addTouchArea (TouchAreaSpecs touch_area_spec);
+	void addTouchArea (TouchAreaSpecs touch_area);
 
 	public Collection<TouchAreaSpecs> listTouchAreas ();
 
-	void addOption (VisibleComponent raster);
+	void addOption (Raster raster);
 
-	Collection<VisibleComponent> listOptions ();
+	Collection<Raster> listOptions ();
 
 }

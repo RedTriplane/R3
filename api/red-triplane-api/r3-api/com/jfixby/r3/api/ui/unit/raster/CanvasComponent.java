@@ -15,9 +15,9 @@ public interface CanvasComponent extends DrawableComponent {
 
 	public void setRotation (double rotation);
 
-	public void setPositionXY (double x, double y);
+	public void setPosition (double x, double y);
 
-	public void setPositionXY (FixedFloat2 position_xy);
+	public void setPosition (FixedFloat2 position_xy);
 
 	public void setPositionX (double x);
 

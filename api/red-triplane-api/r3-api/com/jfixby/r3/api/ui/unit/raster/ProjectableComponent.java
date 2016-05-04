@@ -1,7 +1,6 @@
 
 package com.jfixby.r3.api.ui.unit.raster;
 
-import com.jfixby.cmns.api.color.Color;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_HORIZONTAL;
 import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_VERTICAL;
@@ -9,8 +8,6 @@ import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.cmns.api.geometry.RectangleCorner;
 
 public interface ProjectableComponent extends CanvasComponent {
-	@Override
-	public void setDebugColor (Color debug_render_color);
 
 	Rectangle shape ();
 
