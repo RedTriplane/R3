@@ -1,9 +1,16 @@
 
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-import java.util.Vector;
-
 public class LayerElement implements java.io.Serializable {
+
+	public String uid;
+
+	LayerElement () {
+	}
+
+	LayerElement (final String id) {
+		this.uid = id;
+	}
 
 	/**
 	 *
@@ -42,7 +49,7 @@ public class LayerElement implements java.io.Serializable {
 	public double width;
 	public double height;
 
-	public Vector<LayerElement> children = new Vector<LayerElement>();
+	public LayerChildren children = new LayerChildren();
 	public AnimationSettings animation_settings = null;
 	public ChildSceneSettings child_scene_settings = null;
 	public InputSettings input_settings = null;

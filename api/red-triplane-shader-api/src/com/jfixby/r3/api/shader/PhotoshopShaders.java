@@ -1,13 +1,16 @@
+
 package com.jfixby.r3.api.shader;
 
 public interface PhotoshopShaders {
 
-	Shader TEST();
+	Shader TEST ();
 
-	Shader NORMAL();
+	Shader NORMAL ();
 
-	Shader MULTIPLY();
+	Shader MULTIPLY ();
 
-	Shader GRAYSCALE();
+	Shader GRAYSCALE ();
+
+	Shader GDX_DEFAULT ();
 
 }

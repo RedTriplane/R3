@@ -4,6 +4,7 @@ package com.jfixby.red.triplane.fokker.android;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
+import com.badlogic.gdx.backends.android.RedAndroidGraphics;
 import com.jfixby.android.api.AndroidComponent;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
 
@@ -20,22 +21,32 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 	public static int orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 
 	static boolean deployed = false;
+	public static boolean useCamera = false;
 
 	@Override
 	protected void onCreate (final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.d("", "onCreate()");
 		this.setRequestedOrientation(orientation);
+		boolean deploying = false;
 		synchronized (this) {
 			if (deployed) {
 				return;
 			}
-			deployed = true;
+			deploying = true;
+
 			final RedTriplaneAndroidApplicationConfig config = this.doGdxDeploy(this);
 			this.gdxListener = config.getGdxListener();
 			this.androidConfig = config.getAndroidApplicationConfig();
+			if (useCamera) {
+				this.cameraSetup.prepareCamera();
+			}
+			deployed = true;
 		}
 		this.initialize(this.gdxListener, this.androidConfig);
+		if (useCamera && deploying) {
+			this.cameraSetup.activateCamera();
+		}
 	}
 
 	public abstract RedTriplaneAndroidApplicationConfig doGdxDeploy (RedTriplaneAndroidApplication redTriplaneAndroidApplication);
@@ -106,6 +117,14 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 	protected void onStop () {
 		super.onStop();
 		Log.d("", "onStop()");
+	}
+
+	public void post (final Runnable r) {
+		this.handler.post(r);
+	}
+
+	public RedAndroidGraphics graphics () {
+		return this.graphics;
 	}
 
 }

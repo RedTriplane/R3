@@ -14,7 +14,7 @@ public class SceneStructure implements Asset, java.io.Serializable {
 
 	public String structure_name;
 
-	public LayerElement root = new LayerElement();
+	public LayerElement root = null;
 
 	public double original_width;
 

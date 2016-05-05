@@ -5,7 +5,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-desktop"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/alcovegames-fire-shader"/>
+	
 	<classpathentry combineaccessrules="false" kind="src" path="/apache-jfixby-cmns"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-game"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-run-fokker"/>
