@@ -24,4 +24,8 @@ public interface CustomInput extends VisibleComponent, InputComponent {
 
 	void setPositionY (double y);
 
+	double getPositionX ();
+
+	double getPositionY ();
+
 }

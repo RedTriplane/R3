@@ -1,9 +1,10 @@
 
 package com.jfixby.r3.api.ui.unit.input;
 
+import com.jfixby.r3.api.ui.unit.layer.NamedElement;
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
 
-public interface Button extends VisibleComponent, InputComponent {
+public interface Button extends VisibleComponent, InputComponent, NamedElement {
 
 	void setDebugRenderFlag (boolean b);
 
