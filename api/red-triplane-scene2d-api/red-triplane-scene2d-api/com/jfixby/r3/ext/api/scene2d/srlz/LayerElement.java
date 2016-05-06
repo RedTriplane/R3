@@ -32,7 +32,6 @@ public class LayerElement implements java.io.Serializable {
 	public String raster_id;
 	public String animation_id;
 	public String event_id;
-	public String input_id;
 	public String textbar_id;
 	public String shader_id;
 	public RASTER_BLEND_MODE blend_mode = null;

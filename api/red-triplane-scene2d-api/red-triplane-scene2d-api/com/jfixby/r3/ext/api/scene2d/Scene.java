@@ -19,7 +19,7 @@ public interface Scene extends CanvasComponent {
 
 	void print ();
 
-	public Mapping<AssetID, InputComponent> listInputComponents ();
+	public Mapping<String, InputComponent> listInputComponents ();
 
 	Camera getCamera ();
 
