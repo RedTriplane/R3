@@ -40,6 +40,10 @@ public interface Layer extends VisibleComponent {
 
 	public <Q extends NamedElement> Q findComponent (String element_name);
 
+	public <Q extends NamedElement> Q findComponent ();
+
 	public <Q extends NamedElement> Collection<Q> listChildren ();
+
+	public void printChildren (String tag);
 
 }
