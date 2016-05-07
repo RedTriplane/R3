@@ -21,11 +21,12 @@ public interface ProjectableComponent extends CanvasComponent {
 
 	void setHeight (double height);
 
-	void setOriginRelative (ORIGIN_RELATIVE_HORIZONTAL orX, ORIGIN_RELATIVE_VERTICAL orY);
+	void setOriginRelative (ORIGIN_RELATIVE_HORIZONTAL ORIGIN_RELATIVE_HORIZONTAL,
+		ORIGIN_RELATIVE_VERTICAL ORIGIN_RELATIVE_VERTICAL);
 
-	void setOriginRelativeX (ORIGIN_RELATIVE_HORIZONTAL orX);
+	void setOriginRelativeX (ORIGIN_RELATIVE_HORIZONTAL ORIGIN_RELATIVE_HORIZONTAL);
 
-	void setOriginRelativeY (ORIGIN_RELATIVE_VERTICAL orY);
+	void setOriginRelativeY (ORIGIN_RELATIVE_VERTICAL ORIGIN_RELATIVE_VERTICAL);
 
 	// public void setOriginAbsolute(double origin_x, double origin_y);
 
