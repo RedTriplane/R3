@@ -26,12 +26,12 @@ public interface RasterizedFontSpecs {
 
 	float getFontScale ();
 
-	void setBorderSize (int border);
+	void setBorderSize (float border);
 
-	void setborderColor (Color border_color);
+	void setBorderColor (Color border_color);
 
 	Color getBorderColor ();
 
-	int getBorderSize ();
+	float getBorderSize ();
 
 }

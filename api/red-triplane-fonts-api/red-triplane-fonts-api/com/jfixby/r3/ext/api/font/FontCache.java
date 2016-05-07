@@ -1,13 +1,10 @@
-package com.jfixby.r3.ext.api.font;
 
-import com.jfixby.r3.api.ui.unit.txt.StringBounds;
+package com.jfixby.r3.ext.api.font;
 
 public interface FontCache {
 
-	void setText(String string_value);
+	void setText (String string_value);
 
-	
-
-	StringBounds getStringBounds();
+// StringBounds getStringBounds();
 
 }

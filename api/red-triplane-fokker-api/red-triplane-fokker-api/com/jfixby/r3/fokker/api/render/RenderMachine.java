@@ -9,7 +9,7 @@ import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
 import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
-import com.jfixby.r3.api.ui.unit.txt.RasterizedFont;
+import com.jfixby.r3.api.ui.unit.txt.RasterizedString;
 
 public class RenderMachine {
 
@@ -100,8 +100,8 @@ public class RenderMachine {
 		invoke().drawCircle(color, center_x, center_y, radius);
 	}
 
-	public static void drawString (final String string_value, final RasterizedFont font, final CanvasPosition position) {
-		invoke().drawString(string_value, font, position);
+	public static void drawString (final RasterizedString string_value, final CanvasPosition position) {
+		invoke().drawString(string_value, position);
 	}
 
 	public static void beginShaderMode (final FokkerShader fokkerShader) {

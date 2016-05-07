@@ -7,11 +7,11 @@ import com.jfixby.cmns.api.assets.AssetID;
 
 public class FontPackage implements java.io.Serializable {
 	/**
-	* 
+	*
 	*/
 	private static final long serialVersionUID = 3873830796830395210L;
 	public static final String FONT_PACKAGE_FILE_EXTENSION = "r3-font";
-	public static final String FONT_PACKAGE_FORMAT = "RedTriplane.Font";
+	public static final String FONT_PACKAGE_FORMAT_TTF = "TrueTypeFont";
 
 	public Vector<RedFontData> fonts = new Vector<RedFontData>();
 

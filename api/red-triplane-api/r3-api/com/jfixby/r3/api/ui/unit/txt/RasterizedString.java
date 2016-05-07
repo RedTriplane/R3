@@ -1,6 +1,7 @@
 
 package com.jfixby.r3.api.ui.unit.txt;
 
+import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_HORIZONTAL;
 import com.jfixby.cmns.api.geometry.ORIGIN_RELATIVE_VERTICAL;
@@ -26,6 +27,8 @@ public interface RasterizedString extends VisibleComponent, BlendableComponent {
 
 	void setPosition (CanvasPosition position);
 
+	void setPosition (FixedFloat2 position);
+
 	void setDebugRenderFlag (boolean b);
 
 	boolean getDebugRenderFlag ();
@@ -35,5 +38,9 @@ public interface RasterizedString extends VisibleComponent, BlendableComponent {
 	void setOriginRelativeX (ORIGIN_RELATIVE_HORIZONTAL center);
 
 	void setOriginRelativeY (ORIGIN_RELATIVE_VERTICAL center);
+
+	void setValue (String string);
+
+	String getValue ();
 
 }

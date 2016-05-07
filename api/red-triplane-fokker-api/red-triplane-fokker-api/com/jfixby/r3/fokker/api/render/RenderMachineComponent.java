@@ -8,7 +8,7 @@ import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
 import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
-import com.jfixby.r3.api.ui.unit.txt.RasterizedFont;
+import com.jfixby.r3.api.ui.unit.txt.RasterizedString;
 
 public interface RenderMachineComponent {
 
@@ -51,7 +51,7 @@ public interface RenderMachineComponent {
 
 	void drawCircle (Color color, double center_x, double center_y, double radius);
 
-	void drawString (String string_value, RasterizedFont font, CanvasPosition position);
+	void drawString (final RasterizedString string_value, final CanvasPosition position);
 
 	void beginRasterMode (final BLEND_MODE blend_mode, double opacity);
 
