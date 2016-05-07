@@ -1,7 +1,6 @@
 
 package com.jfixby.r3.api.ui.unit;
 
-import com.jfixby.r3.api.misc.MiscFactory;
 import com.jfixby.r3.api.ui.unit.animation.AnimationFactory;
 import com.jfixby.r3.api.ui.unit.geometry.GeometryComponentsFactory;
 import com.jfixby.r3.api.ui.unit.input.UserInputFactory;
@@ -29,7 +28,5 @@ public interface ComponentsFactory extends AssetsConsumer {
 	TextFactory getTextDepartment ();
 
 	ShaderFactory getShadersDepartment ();
-
-	MiscFactory getMiscDepartment ();
 
 }

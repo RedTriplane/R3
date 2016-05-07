@@ -1,13 +1,12 @@
+
 package com.jfixby.r3.api.game;
 
-public interface TaskProgress {
+import com.jfixby.cmns.api.util.Progress;
 
-	boolean isDone();
+public interface TaskProgress extends Progress {
 
-	public int getTotalSteps();
+	public int getTotalSteps ();
 
-	public int getProcessedSteps();
-
-	public float getProgressValue();
+	public int getProcessedSteps ();
 
 }

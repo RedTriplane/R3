@@ -24,7 +24,6 @@ public class LayerElement implements java.io.Serializable {
 	public boolean is_user_input = false;
 	public boolean is_text = false;
 	public boolean is_shader = false;
-	public boolean is_progress = false;
 
 	public boolean debug_mode = false;
 

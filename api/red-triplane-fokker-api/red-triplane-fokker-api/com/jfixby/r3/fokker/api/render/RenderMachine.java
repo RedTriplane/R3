@@ -18,12 +18,12 @@ public class RenderMachine {
 	static private ComponentInstaller<RenderMachineComponent> componentInstaller = new ComponentInstaller<RenderMachineComponent>(
 		"RenderMachine");
 
-	public static final void installComponent (RenderMachineComponent component_to_install) {
+	public static final void installComponent (final RenderMachineComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
 	}
 
 	public static final RenderMachineComponent invoke () {
-		return componentInstaller.invokeComponent();
+		return componentInstaller.getComponent();
 	}
 
 	public static final RenderMachineComponent component () {
@@ -47,7 +47,7 @@ public class RenderMachine {
 		invoke().setProjection(projection);
 	}
 
-	public static void beginRasterMode (final BLEND_MODE blend_mode, double opacity) {
+	public static void beginRasterMode (final BLEND_MODE blend_mode, final double opacity) {
 		invoke().beginRasterMode(blend_mode, opacity);
 	}
 
@@ -104,11 +104,11 @@ public class RenderMachine {
 		invoke().drawString(string_value, font, position);
 	}
 
-	public static void beginShaderMode (FokkerShader fokkerShader) {
+	public static void beginShaderMode (final FokkerShader fokkerShader) {
 		invoke().beginShaderMode(fokkerShader);
 	}
 
-	public static void endShaderMode (FokkerShader fokkerShader) {
+	public static void endShaderMode (final FokkerShader fokkerShader) {
 		invoke().endShaderMode(fokkerShader);
 	}
 
