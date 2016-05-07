@@ -36,11 +36,11 @@ public interface Layer extends VisibleComponent {
 
 	public void print ();
 
-	public <Q extends NamedElement> Collection<Q> findComponents (String element_name);
+	public <Q extends NamedComponent> Collection<Q> findComponents (String element_name);
 
-	public <Q extends NamedElement> Q findComponent (String element_name);
+	public <Q extends NamedComponent> Q findComponent (String element_name);
 
-	public <Q extends NamedElement> Q findComponent ();
+	public <Q extends Component> Q findComponent ();
 
 	public Collection<Component> listChildren ();
 

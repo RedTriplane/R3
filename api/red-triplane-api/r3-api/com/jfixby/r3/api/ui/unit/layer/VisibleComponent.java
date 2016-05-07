@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.ui.unit.layer;
 
-public interface VisibleComponent extends NamedElement  {
+public interface VisibleComponent extends NamedComponent  {
 	// DrawableComponent + Layers
 	public void hide();
 
