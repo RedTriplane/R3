@@ -43,4 +43,8 @@ public interface RasterizedString extends VisibleComponent, BlendableComponent {
 
 	String getValue ();
 
+	void setPositionX (double x);
+
+	void setPositionY (double d);
+
 }

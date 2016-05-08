@@ -9,4 +9,6 @@ public interface Raster extends ProjectableComponent, BlendableComponent {
 
 	public ComponentsFactory getComponentsFactory ();
 
+	public Raster copy ();
+
 }
