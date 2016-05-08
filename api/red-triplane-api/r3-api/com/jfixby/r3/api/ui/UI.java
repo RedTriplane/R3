@@ -4,21 +4,22 @@ package com.jfixby.r3.api.ui;
 import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.r3.api.game.LoadTask;
+import com.jfixby.r3.api.logic.LoadTask;
+import com.jfixby.r3.api.ui.unit.UnitFunctionality;
 
 public class UI {
 
-	static private ComponentInstaller<GameUIComponent> componentInstaller = new ComponentInstaller<GameUIComponent>("GameUI");
+	static private ComponentInstaller<UIComponent> componentInstaller = new ComponentInstaller<UIComponent>("UI");
 
-	public static final void installComponent (final GameUIComponent component_to_install) {
+	public static final void installComponent (final UIComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
 	}
 
-	public static final GameUIComponent invoke () {
+	public static final UIComponent invoke () {
 		return componentInstaller.invokeComponent();
 	}
 
-	public static final GameUIComponent component () {
+	public static final UIComponent component () {
 		return componentInstaller.getComponent();
 	}
 
@@ -26,12 +27,12 @@ public class UI {
 		invoke().showLoadingScreen(loader_unit_id, fadedOut);
 	}
 
-	public static LoadTask prepareLoadGameUITask (final Collection<AssetID> asetsToLoad) {
-		return invoke().prepareLoadGameUITask(asetsToLoad);
+	public static LoadTask prepareLoadUITask (final Collection<AssetID> asetsToLoad) {
+		return invoke().prepareLoadUITask(asetsToLoad);
 	}
 
-	public static LoadTask prepareLoadGameUITask (final AssetID... asetsToLoad) {
-		return invoke().prepareLoadGameUITask(asetsToLoad);
+	public static LoadTask prepareLoadUITask (final AssetID... asetsToLoad) {
+		return invoke().prepareLoadUITask(asetsToLoad);
 	}
 
 	public static void pushTaskToLoader (final LoadTask task, final UILoaderListener ui_loader_listener) {
@@ -42,8 +43,8 @@ public class UI {
 		invoke().pushFadeOut(period);
 	}
 
-	public static void loadUnit (final AssetID game_ui_unit_id) {
-		invoke().switchToGameUI(game_ui_unit_id);
+	public static void loadUnit (final AssetID ui_unit_id) {
+		invoke().switchToUI(ui_unit_id);
 	}
 
 	public static void pushFadeIn (final long period) {
@@ -61,5 +62,17 @@ public class UI {
 	public static AnimationsMachine newAnimationsMachine () {
 		return invoke().newAnimationsMachine();
 	}
+
+	public static <T extends UnitFunctionality> UIActionStatus pushAction (final UIAction<T> action) {
+		return invoke().pushAction(action);
+	}
+
+	public static void disableUserInput () {
+		invoke().disableUserInput();
+	}
+
+// public static <T extends UIController> T getUIController () {
+// return invoke().getUIController();
+// }
 
 }

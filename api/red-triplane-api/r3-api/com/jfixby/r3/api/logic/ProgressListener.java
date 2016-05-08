@@ -1,4 +1,4 @@
-package com.jfixby.r3.api.game;
+package com.jfixby.r3.api.logic;
 
 public interface ProgressListener {
 

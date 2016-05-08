@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.api.game;
+package com.jfixby.r3.api.logic;
 
 import com.jfixby.cmns.api.util.Progress;
 
