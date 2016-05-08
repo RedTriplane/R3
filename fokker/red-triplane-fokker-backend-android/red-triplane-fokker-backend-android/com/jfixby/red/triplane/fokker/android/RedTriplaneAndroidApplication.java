@@ -7,6 +7,7 @@ import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.badlogic.gdx.backends.android.RedAndroidGraphics;
 import com.jfixby.android.api.AndroidComponent;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
+import com.jfixby.cmns.api.sys.Sys;
 
 import android.app.ActivityManager;
 import android.content.pm.ActivityInfo;
@@ -87,6 +88,7 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 	protected void onPause () {
 		super.onPause();
 		Log.d("", "onPause()");
+		Sys.exit();
 	}
 
 	@Override
