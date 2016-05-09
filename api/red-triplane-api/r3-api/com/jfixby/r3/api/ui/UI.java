@@ -5,7 +5,6 @@ import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.logic.LoadTask;
-import com.jfixby.r3.api.ui.unit.UnitFunctionality;
 
 public class UI {
 
@@ -63,7 +62,7 @@ public class UI {
 		return invoke().newAnimationsMachine();
 	}
 
-	public static <T extends UnitFunctionality> UIActionStatus pushAction (final UIAction<T> action) {
+	public static <T> UIActionStatus pushAction (final UIAction<T> action) {
 		return invoke().pushAction(action);
 	}
 

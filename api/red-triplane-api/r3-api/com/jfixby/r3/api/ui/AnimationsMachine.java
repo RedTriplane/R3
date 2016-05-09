@@ -1,11 +1,12 @@
+
 package com.jfixby.r3.api.ui;
 
 public interface AnimationsMachine {
 
-	void resume();
+	void resume ();
 
-	void pause();
+	void pause ();
 
-	void activate();
+	void activate ();
 
 }

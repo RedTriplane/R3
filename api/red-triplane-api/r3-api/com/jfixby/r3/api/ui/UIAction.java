@@ -1,10 +1,10 @@
 
 package com.jfixby.r3.api.ui;
 
-import com.jfixby.r3.api.ui.unit.UnitFunctionality;
-
-public interface UIAction<T extends UnitFunctionality> {
+public interface UIAction<T> {
+	public void start (T ui);
 
 	public void perform (T ui);
 
+	public boolean isDone (T ui);
 }

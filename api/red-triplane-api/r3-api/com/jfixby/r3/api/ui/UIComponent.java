@@ -4,7 +4,6 @@ package com.jfixby.r3.api.ui;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.logic.LoadTask;
-import com.jfixby.r3.api.ui.unit.UnitFunctionality;
 
 public interface UIComponent {
 
@@ -28,7 +27,7 @@ public interface UIComponent {
 
 	AnimationsMachine newAnimationsMachine ();
 
-	public <T extends UnitFunctionality> UIActionStatus pushAction (final UIAction<T> action);
+	public <T> UIActionStatus pushAction (final UIAction<T> action);
 
 	void disableUserInput ();
 
