@@ -74,7 +74,7 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 	}
 
 	@Override
-	public String getApplicationPrivateDirPath () {
+	public String getApplicationPrivateDirPathString () {
 		final String java_path = this.getApplication().getApplicationContext().getFilesDir().getAbsolutePath();
 		return java_path;
 	}

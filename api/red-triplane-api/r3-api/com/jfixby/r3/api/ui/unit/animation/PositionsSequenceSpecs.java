@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.api.ui.unit.animation;
 
 import com.jfixby.cmns.api.collections.List;
@@ -5,20 +6,20 @@ import com.jfixby.r3.api.ui.unit.CanvasPositionable;
 
 public interface PositionsSequenceSpecs extends AnimationSpecs {
 
-	void addAnchor(PositionAnchor animation_anchor);
+	void addAnchor (PositionAnchor animation_anchor);
 
 	//
-	List<PositionAnchor> listAnchors();
+	List<PositionAnchor> listAnchors ();
 
-	void setComponent(CanvasPositionable frame);
+	void setComponent (CanvasPositionable frame);
 
-	CanvasPositionable getComponent();
+	CanvasPositionable getComponent ();
 
-	boolean componentRequiresAttachment();
+	boolean componentRequiresAttachment ();
 
-	void setComponentRequiresAttachment(boolean flag);
+	void setComponentRequiresAttachment (boolean flag);
 
-	void setOnCompleteListener(OnAnimationDoneListener animation_done_listener);
+	void setOnCompleteListener (OnAnimationDoneListener animation_done_listener);
 
-	OnAnimationDoneListener getOnAnimationDoneListener();
+	OnAnimationDoneListener getOnAnimationDoneListener ();
 }

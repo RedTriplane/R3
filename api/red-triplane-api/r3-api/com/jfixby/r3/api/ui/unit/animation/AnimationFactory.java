@@ -1,26 +1,26 @@
-package com.jfixby.r3.api.ui.unit.animation;
 
+package com.jfixby.r3.api.ui.unit.animation;
 
 public interface AnimationFactory {
 
-	LayersAnimationSpecs newLayersAnimationSpecs();
+	LayersAnimationSpecs newLayersAnimationSpecs ();
 
-	LayersAnimation newLayerAnimation(LayersAnimationSpecs specs);
-
-	// --------------------------------
-
-	PositionAnchor newAnchor(int time_stamp);
-
-	PositionsSequenceSpecs newPositionsSequence();
-
-	PositionsSequence newPositionsSequence(PositionsSequenceSpecs specs);
+	LayersAnimation newLayerAnimation (LayersAnimationSpecs specs);
 
 	// --------------------------------
 
-	EventsSequenceSpecs newEventsSequenceSpecs();
+	PositionAnchor newAnchor (long time_stamp);
 
-	EventsSequence newEventsSequence(EventsSequenceSpecs specs);
+	PositionsSequenceSpecs newPositionsSequenceSpecs ();
 
-	EventsGroupSpecs newEventsGroupSpecs();
+	PositionsSequence newPositionsSequence (PositionsSequenceSpecs specs);
+
+	// --------------------------------
+
+	EventsSequenceSpecs newEventsSequenceSpecs ();
+
+	EventsSequence newEventsSequence (EventsSequenceSpecs specs);
+
+	EventsGroupSpecs newEventsGroupSpecs ();
 
 }
