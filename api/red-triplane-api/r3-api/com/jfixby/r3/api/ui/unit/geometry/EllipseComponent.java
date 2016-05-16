@@ -16,7 +16,7 @@ public interface EllipseComponent extends DrawableComponent {
 
 	Color getDebugColor();
 
-	Circle getShape();
+	Circle shape();
 
 	public void setDebugColor(Color debug_render_color);
 	

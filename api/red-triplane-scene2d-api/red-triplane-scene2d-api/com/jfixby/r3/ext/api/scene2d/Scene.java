@@ -11,11 +11,11 @@ import com.jfixby.r3.api.ui.unit.animation.Animation;
 import com.jfixby.r3.api.ui.unit.camera.Camera;
 import com.jfixby.r3.api.ui.unit.input.InputComponent;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
-import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
+import com.jfixby.r3.api.ui.unit.layer.NamedComponent;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
 
-public interface Scene extends CanvasComponent {
+public interface Scene extends NamedComponent {
 
 	void print ();
 
@@ -40,5 +40,9 @@ public interface Scene extends CanvasComponent {
 	Collection<Layer> findLayer (String layerName);
 
 	FixedFloat2 getOriginalDimentions ();
+
+	void show ();
+
+	void hide ();
 
 }
