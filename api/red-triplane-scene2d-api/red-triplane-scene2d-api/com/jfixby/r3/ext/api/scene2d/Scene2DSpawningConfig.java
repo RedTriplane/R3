@@ -1,23 +1,29 @@
+
 package com.jfixby.r3.ext.api.scene2d;
 
 import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.rana.api.pkg.PackageReaderListener;
 
 public interface Scene2DSpawningConfig {
 
-    void setStructureID(AssetID asset_id);
+	void setStructureID (AssetID asset_id);
 
-    AssetID getStructureID();
+	AssetID getStructureID ();
 
-    String getDefaultLocaleName();
+	String getDefaultLocaleName ();
 
-    void setDefaultLocaleName(String locale_name);
+	void setDefaultLocaleName (String locale_name);
 
-    float getDebugOpacity();
+	float getDebugOpacity ();
 
-    void setDebugOpacity(float debug_opacity);
+	void setDebugOpacity (float debug_opacity);
 
-    boolean renderDebugInfo();
+	boolean renderDebugInfo ();
 
-    void setRenderDebugInfo(boolean b);
+	void setRenderDebugInfo (boolean b);
+
+	PackageReaderListener getPackageListener ();
+
+	void setPackageListener (PackageReaderListener listener);
 
 }
