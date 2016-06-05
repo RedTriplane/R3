@@ -12,4 +12,6 @@ public interface Raster extends BlendableComponent, RectangularComponent {
 
 	public Raster copy ();
 
+	public void offset (double x, double y);
+
 }

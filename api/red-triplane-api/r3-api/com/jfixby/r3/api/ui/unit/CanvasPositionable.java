@@ -12,4 +12,10 @@ public interface CanvasPositionable {
 
 	void setPosition (double position_x, double position_y);
 
+	public void offset (final double x, final double y);
+
+	double getPositionX ();
+
+	double getPositionY ();
+
 }

@@ -11,4 +11,6 @@ public interface RasterPool extends VisibleComponent {
 
 	public ComponentsFactory getComponentsFactory ();
 
+	public Raster newInstance ();
+
 }
