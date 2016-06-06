@@ -14,4 +14,6 @@ public interface TouchArea extends Component, InputComponent {
 
 	public double getHeight ();
 
+	public double getWidth ();
+
 }

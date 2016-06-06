@@ -19,8 +19,10 @@ public interface CanvasComponent extends DrawableComponent, CanvasPositionable {
 
 	public void setPositionY (double y);
 
+	@Override
 	public double getPositionX ();
 
+	@Override
 	public double getPositionY ();
 
 	// public CanvasPosition getPosition();
@@ -33,9 +35,9 @@ public interface CanvasComponent extends DrawableComponent, CanvasPositionable {
 
 	void setOriginAbsoluteY (double origin_y);
 
-	public void setOpacity (double alpha);
+	public void setOpacity (float alpha);
 
-	public double getOpacity ();
+	public float getOpacity ();
 
 	void setDebugRenderFlag (boolean b);
 
