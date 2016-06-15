@@ -5,17 +5,17 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.Map;
 import com.jfixby.r3.api.ui.Intent;
-import com.jfixby.r3.api.ui.unit.Unit;
+import com.jfixby.r3.api.ui.unit.DefaultUnit;
 import com.jfixby.r3.fokker.api.UnitSpawnerComponent;
 import com.jfixby.r3.fokker.api.UnitsSpawningException;
 
 public class GWTUnitsSpawner implements UnitSpawnerComponent {
 
-	final private Map<AssetID, Unit> register = Collections.newMap();
+	final private Map<AssetID, DefaultUnit> register = Collections.newMap();
 
 	@Override
-	public Unit spawnUnit (final Intent unit_id) throws UnitsSpawningException {
-		final Unit unit_class = this.register.get(unit_id);
+	public DefaultUnit spawnUnit (final Intent unit_id) throws UnitsSpawningException {
+		final DefaultUnit unit_class = this.register.get(unit_id);
 		this.register.print("register");
 		if (unit_class == null) {
 			throw new UnitsSpawningException("Unknown unit class: " + unit_id);
@@ -37,7 +37,7 @@ public class GWTUnitsSpawner implements UnitSpawnerComponent {
 //
 // }
 
-	public void registerUnitClass (final AssetID unit_id, final Unit unit_class) {
+	public void registerUnitClass (final AssetID unit_id, final DefaultUnit unit_class) {
 		this.register.put(unit_id, unit_class);
 	}
 }

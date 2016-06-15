@@ -1,26 +1,16 @@
 
 package com.jfixby.r3.api.ui.unit;
 
-public abstract class Unit implements UnitFunctionality {
+public interface Unit {
 
-	@Override
-	public void onCreate (final UnitManager unitManager) {
-	}
+	public void onCreate (final UnitManager unitManager);
 
-	@Override
-	public void onStart () {
-	}
+	public void onStart ();
 
-	@Override
-	public void onResume () {
-	}
+	public void onResume ();
 
-	@Override
-	public void onPause () {
-	}
+	public void onPause ();
 
-	@Override
-	public void onDestroy () {
-	}
+	public void onDestroy ();
 
 }

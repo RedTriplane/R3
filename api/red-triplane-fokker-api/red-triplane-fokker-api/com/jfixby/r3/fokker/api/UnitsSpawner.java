@@ -3,7 +3,7 @@ package com.jfixby.r3.fokker.api;
 
 import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.r3.api.ui.Intent;
-import com.jfixby.r3.api.ui.unit.Unit;
+import com.jfixby.r3.api.ui.unit.DefaultUnit;
 
 public class UnitsSpawner {
 	static private ComponentInstaller<UnitSpawnerComponent> componentInstaller = new ComponentInstaller<UnitSpawnerComponent>(
@@ -21,7 +21,7 @@ public class UnitsSpawner {
 		return componentInstaller.getComponent();
 	}
 
-	public static Unit spawnUnit (final Intent unitClassId) throws UnitsSpawningException {
+	public static DefaultUnit spawnUnit (final Intent unitClassId) throws UnitsSpawningException {
 		return invoke().spawnUnit(unitClassId);
 	}
 }
