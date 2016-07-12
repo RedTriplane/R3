@@ -14,6 +14,7 @@ import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.layer.NamedComponent;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
+import com.jfixby.r3.api.ui.unit.txt.TextBar;
 
 public interface Scene extends NamedComponent {
 
@@ -34,6 +35,8 @@ public interface Scene extends NamedComponent {
 	public Collection<ShaderComponent> listShaders ();
 
 	public Collection<LocalizedComponent> listLocalizedComponents ();
+
+	public Collection<TextBar> listTextBars ();
 
 	Layer getRoot ();
 
