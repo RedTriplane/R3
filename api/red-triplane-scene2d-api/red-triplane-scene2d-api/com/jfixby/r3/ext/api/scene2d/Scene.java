@@ -18,11 +18,11 @@ import com.jfixby.r3.api.ui.unit.txt.TextBar;
 
 public interface Scene extends NamedComponent {
 
-	void print ();
+	public void print ();
 
 	public Mapping<String, InputComponent> listInputComponents ();
 
-	Camera getCamera ();
+	public Camera getCamera ();
 
 	public ComponentsFactory getComponentsFactory ();
 
@@ -38,14 +38,14 @@ public interface Scene extends NamedComponent {
 
 	public Collection<TextBar> listTextBars ();
 
-	Layer getRoot ();
+	public Layer getRoot ();
 
-	Collection<Layer> findLayer (String layerName);
+	public Collection<Layer> findLayer (String layerName);
 
-	FixedFloat2 getOriginalDimentions ();
+	public FixedFloat2 getOriginalDimentions ();
 
-	void show ();
+	public void show ();
 
-	void hide ();
+	public void hide ();
 
 }
