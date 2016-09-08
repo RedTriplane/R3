@@ -77,7 +77,7 @@ public class SrlzSearcher {
 			JavaFileHandler handler = new JavaFileHandler(sources);
 			this.java_files_list.add(handler);
 		} else if (sources.isFolder()) {
-			ChildrenList java_files = sources.listChildren().filterByExtension(".java");
+			ChildrenList java_files = sources.listDirectChildren().filterByExtension(".java");
 			for (File src : java_files) {
 				indexJavaFiles(src);
 			}

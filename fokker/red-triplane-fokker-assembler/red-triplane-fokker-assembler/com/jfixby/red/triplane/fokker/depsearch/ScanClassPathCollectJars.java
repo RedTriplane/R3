@@ -21,7 +21,7 @@ public class ScanClassPathCollectJars {
 		File jars = LocalFileSystem.ApplicationHome().child("jars");
 		jars.clearFolder();
 		FileFilter filter = file -> file.isFolder();
-		ChildrenList folders = gradle_path.listChildren().filterFiles(filter);
+		ChildrenList folders = gradle_path.listDirectChildren().filterFiles(filter);
 		File core = folders.findChild("core");
 		List<String> core_jars = collectJars(core, jars, Collections.newList());
 		core_jars.print("core_jars");
@@ -36,7 +36,7 @@ public class ScanClassPathCollectJars {
 	}
 
 	private static List<String> collectJars(File subfolder, File jars, List<String> ignore_jars) throws IOException {
-		File class_path_file = subfolder.listChildren().findChild(".classpath");
+		File class_path_file = subfolder.listDirectChildren().findChild(".classpath");
 		if (class_path_file == null) {
 			return null;
 		}
