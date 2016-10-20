@@ -1,15 +1,20 @@
+
 package com.jfixby.r3.ext.api.text;
+
+import java.util.ArrayList;
+
+import com.jfixby.cmns.api.assets.AssetID;
 
 public class TextPackageEntry {
 
-	public String text_concept_id;
-	public String localized_text_value;
-	public String locale_name;
+	public String text_id;
+	public ArrayList<LocalizationEntry> localizations = new ArrayList<LocalizationEntry>();
 
-	@Override
-	public String toString() {
-		return "<" + text_concept_id + "." + locale_name + "> = "
-				+ localized_text_value + "";
+	public void addLocalization (final String locale_name, final AssetID string_id) {
+		final LocalizationEntry entry = new LocalizationEntry();
+		entry.locale_name = locale_name;
+		entry.string_id = string_id.toString();
+		this.localizations.add(entry);
 	}
 
 }
