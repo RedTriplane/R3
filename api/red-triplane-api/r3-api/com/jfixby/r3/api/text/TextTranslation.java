@@ -5,6 +5,6 @@ public interface TextTranslation {
 
 	public String getLocaleName ();
 
-	public String getChars ();
+	public StringData getString ();
 
 }
