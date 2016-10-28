@@ -6,5 +6,5 @@ import java.util.ArrayList;
 public class StringsPackage {
 	public static final String PACKAGE_FILE_EXTENSION = "r3-string";
 
-	public final ArrayList<StringEntry> entries = new ArrayList<StringEntry>();
+	public final ArrayList<StringPackageEntry> entries = new ArrayList<StringPackageEntry>();
 }
