@@ -3,8 +3,8 @@ package com.jfixby.red.triplane.fokker.android;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
-import com.badlogic.gdx.backends.android.RedAndroidGraphics;
 import com.jfixby.android.api.AndroidComponent;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
 import com.jfixby.cmns.api.sys.Sys;
@@ -125,7 +125,7 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 		this.handler.post(r);
 	}
 
-	public RedAndroidGraphics graphics () {
+	public AndroidGraphics graphics () {
 		return this.graphics;
 	}
 

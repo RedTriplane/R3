@@ -1,7 +1,7 @@
 
 package com.jfixby.red.triplane.fokker.android;
 
-import com.badlogic.gdx.backends.android.RedAndroidGraphics;
+import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
 
 import android.graphics.PixelFormat;
@@ -36,7 +36,7 @@ public class RedAndroidCameraSetup implements AndroidCameraSetup {
 		this.cameraControl.prepareCameraAsync(this.origWidth, this.origHeight);
 	}
 
-	private RedAndroidGraphics graphics () {
+	private AndroidGraphics graphics () {
 		return this.getActivity().graphics();
 	}
 
