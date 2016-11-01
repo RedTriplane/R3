@@ -73,31 +73,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-wdgs"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/libs"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mycroft-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mycroft-core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/passenger"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-app-tier-a"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-bin"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-data-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-data-db"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-server-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-server-core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-server-credentials"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-server-http-core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-server-tools-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-server-tools-core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-server-tools-run"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-vkbot-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-vkbot-htmlunit"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/picfight-vkbot-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-from-activemq-adaptor"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-http-processor"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-http-processor-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-http2activemq-transponder"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-http2activemq-transponder-assembler"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-sputnik-to-activemq-adaptor"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-red"/>
@@ -118,7 +95,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/star-craft"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/wifi-reconnect"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api-desktop"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

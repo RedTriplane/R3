@@ -8,7 +8,7 @@ public interface RasterizedFont extends BlendableComponent {
 
 	AssetID getName ();
 
-	void dispose ();
+// void dispose ();
 
 	float getSize ();
 
