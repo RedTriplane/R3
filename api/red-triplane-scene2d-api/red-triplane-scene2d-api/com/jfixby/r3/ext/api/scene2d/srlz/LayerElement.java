@@ -24,6 +24,7 @@ public class LayerElement implements java.io.Serializable {
 	public boolean is_user_input = false;
 	public boolean is_text = false;
 	public boolean is_shader = false;
+	public boolean is_parallax = false;;
 
 	public boolean debug_mode = false;
 
@@ -55,5 +56,6 @@ public class LayerElement implements java.io.Serializable {
 	public TextSettings text_settings = null;
 	public ShaderSettings shader_settings = null;
 	public ProgressSettings progress_settings = null;
+	public ParallaxSettings parallax_settings = null;
 
 }
