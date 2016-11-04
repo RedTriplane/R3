@@ -5,9 +5,9 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.color.Color;
 import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
+import com.jfixby.cmns.api.geometry.Projection;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
-import com.jfixby.r3.api.ui.unit.projection.Projection;
 import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.txt.RasterizedString;
 
