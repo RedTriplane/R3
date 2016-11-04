@@ -1,12 +1,13 @@
-package com.jfixby.r3.api.ui.unit.input;
+package com.jfixby.r3.api.ui.unit.user;
 
 import com.jfixby.cmns.api.input.Key;
 import com.jfixby.cmns.api.log.L;
+import com.jfixby.r3.api.ui.unit.input.MouseScrolledEvent;
 import com.jfixby.r3.api.ui.unit.layer.Component;
 
-public interface U_OnKeyboardInputEventListener extends Component {
+public interface KeyboardInputEventListener extends Component {
 
-	U_OnKeyboardInputEventListener DEBUG = new U_OnKeyboardInputEventListener() {
+	KeyboardInputEventListener DEBUG = new KeyboardInputEventListener() {
 
 		@Override
 		public boolean onKeyDown(Key key) {

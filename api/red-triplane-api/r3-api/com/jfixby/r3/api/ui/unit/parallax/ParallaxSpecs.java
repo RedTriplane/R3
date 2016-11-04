@@ -15,4 +15,12 @@ public interface ParallaxSpecs {
 
 	ParallaxElementSpecs newParallaxElementSpecs ();
 
+	void setPositionX (double posX);
+
+	void setPositionY (double posY);
+
+	double getPositionX ();
+
+	double getPositionY ();
+
 }

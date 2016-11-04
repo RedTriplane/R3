@@ -1,5 +1,6 @@
 package com.jfixby.r3.api.ui.unit.input;
 
+import com.jfixby.r3.api.ui.unit.user.MouseInputEventListener;
 
 public interface InputComponent {
 
@@ -7,8 +8,8 @@ public interface InputComponent {
 
 //	public AssetID getID();
 
-	public MouseEventListener getInputListener();
+	public MouseInputEventListener getInputListener();
 
-	public void setInputListener(MouseEventListener listener);
+	public void setInputListener(MouseInputEventListener listener);
 
 }

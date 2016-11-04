@@ -12,6 +12,7 @@ import com.jfixby.r3.api.ui.unit.camera.Camera;
 import com.jfixby.r3.api.ui.unit.input.InputComponent;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.layer.NamedComponent;
+import com.jfixby.r3.api.ui.unit.parallax.Parallax;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
 import com.jfixby.r3.api.ui.unit.txt.TextBar;
@@ -37,6 +38,8 @@ public interface Scene extends NamedComponent {
 	public Collection<LocalizedComponent> listLocalizedComponents ();
 
 	public Collection<TextBar> listTextBars ();
+
+	public Collection<Parallax> listParallaxes ();
 
 	public Layer getRoot ();
 

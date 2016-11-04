@@ -1,12 +1,16 @@
 
-package com.jfixby.r3.api.ui.unit.input;
+package com.jfixby.r3.api.ui.unit.user;
 
 import com.jfixby.cmns.api.log.L;
+import com.jfixby.r3.api.ui.unit.input.MouseMovedEvent;
+import com.jfixby.r3.api.ui.unit.input.TouchDownEvent;
+import com.jfixby.r3.api.ui.unit.input.TouchDraggedEvent;
+import com.jfixby.r3.api.ui.unit.input.TouchUpEvent;
 import com.jfixby.r3.api.ui.unit.layer.Component;
 
-public interface MouseEventListener extends Component {
+public interface MouseInputEventListener extends Component {
 
-	public static final MouseEventListener DEBUG = new MouseEventListener() {
+	public static final MouseInputEventListener DEBUG = new MouseInputEventListener() {
 
 		@Override
 		public boolean onMouseMoved (final MouseMovedEvent event) {
