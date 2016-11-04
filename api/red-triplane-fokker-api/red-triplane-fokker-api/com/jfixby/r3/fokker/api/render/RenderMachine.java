@@ -43,8 +43,8 @@ public class RenderMachine {
 		invoke().clearScreen();
 	}
 
-	public static void setProjection (final CameraProjection projection) {
-		invoke().setProjection(projection);
+	public static void setCameraProjection (final CameraProjection projection) {
+		invoke().setCameraProjection(projection);
 	}
 
 	public static void beginRasterMode (final BLEND_MODE blend_mode, final double opacity) {

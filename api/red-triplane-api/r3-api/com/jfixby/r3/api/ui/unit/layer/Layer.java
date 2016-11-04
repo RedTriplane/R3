@@ -5,6 +5,7 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.camera.Camera;
+import com.jfixby.r3.api.ui.unit.projection.Projection;
 
 public interface Layer extends VisibleComponent {
 	public void closeInputValve ();
@@ -16,6 +17,10 @@ public interface Layer extends VisibleComponent {
 	void setCamera (Camera camera);
 
 	Camera getCamera ();
+
+	public void setProjection (Projection projection);
+
+	Projection getProjection ();
 
 	// void setShader(Shader shader);
 

@@ -7,6 +7,7 @@ import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
+import com.jfixby.r3.api.ui.unit.projection.Projection;
 import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.r3.api.ui.unit.txt.RasterizedString;
 
@@ -30,7 +31,7 @@ public interface RenderMachineComponent {
 
 	void init ();
 
-	void setProjection (final CameraProjection projection);
+	void setCameraProjection (final CameraProjection projection);
 
 	// void drawEllipse(Color color, double positionX, double positionY,
 	// double width, double height, double rotation, boolean filled);
@@ -62,6 +63,8 @@ public interface RenderMachineComponent {
 	void endShaderMode (FokkerShader fokkerShader);
 
 	void applyShader ();
+
+	void setProjection (Projection projection);
 
 	// void setShader(final FokkerShader shader_handler);
 

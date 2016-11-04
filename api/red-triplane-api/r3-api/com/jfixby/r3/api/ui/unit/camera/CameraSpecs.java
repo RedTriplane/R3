@@ -11,8 +11,8 @@ public interface CameraSpecs {
 
 	SIMPLE_CAMERA_POLICY getSimpleCameraPolicy ();
 
-	void setProjectionMode (PROJECTION_MODE mode);
-
-	PROJECTION_MODE getProjectionMode ();
+// void setProjectionMode (PROJECTION_MODE mode);
+//
+// PROJECTION_MODE getProjectionMode ();
 
 }
