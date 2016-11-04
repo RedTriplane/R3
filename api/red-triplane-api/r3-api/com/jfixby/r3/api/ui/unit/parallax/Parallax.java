@@ -8,4 +8,8 @@ public interface Parallax extends Component {
 
 	void setParallaxOffset (Float2 offset);
 
+	void setPositionX (double x);
+
+	void setPositionY (double y);
+
 }

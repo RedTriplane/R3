@@ -7,7 +7,7 @@ import com.jfixby.cmns.api.collections.Set;
 
 public interface FokkerRasterDataGroup {
 
-	void purge (Set<AssetID> siblings);
+	boolean purge (Set<AssetID> siblings);
 
 	Collection<AssetID> listAssets ();
 
