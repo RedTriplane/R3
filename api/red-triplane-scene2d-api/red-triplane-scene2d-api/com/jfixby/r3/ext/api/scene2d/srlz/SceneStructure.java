@@ -22,7 +22,7 @@ public class SceneStructure implements Asset, java.io.Serializable {
 
 	public double original_height;
 
-	public HashMap<String, LayerElement> elements = new HashMap<String, LayerElement>();
+	final public HashMap<String, LayerElement> elements = new HashMap<String, LayerElement>();
 
 	@Override
 	public AssetID getAssetID () {
@@ -38,6 +38,11 @@ public class SceneStructure implements Asset, java.io.Serializable {
 			throw new Error("Element uid = null " + element);
 		}
 		this.elements.put(element.uid, element);
+	}
+
+	@Override
+	public void dispose () {
+		this.elements.clear();
 	}
 
 }

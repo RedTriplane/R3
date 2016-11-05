@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.ext.api.font;
 
 import java.util.Vector;
@@ -6,7 +7,7 @@ import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
 import com.jfixby.rana.api.asset.Asset;
 
-public class RedFontData implements Asset,java.io.Serializable {
+public class RedFontData implements Asset, java.io.Serializable {
 	public String font_name;
 
 	public Vector<TileSet> tile_sets = new Vector<TileSet>();
@@ -16,8 +17,12 @@ public class RedFontData implements Asset,java.io.Serializable {
 	public String original_font_file_name;
 
 	@Override
-	public AssetID getAssetID() {
-		return Names.newAssetID(id);
+	public AssetID getAssetID () {
+		return Names.newAssetID(this.id);
+	}
+
+	@Override
+	public void dispose () {
 	}
 
 }
