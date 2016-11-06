@@ -3,16 +3,16 @@ package com.jfixby.r3.ext.api.scene2d.srlz;
 
 import java.util.HashMap;
 
-import com.jfixby.cmns.api.assets.AssetID;
-import com.jfixby.cmns.api.assets.Names;
-import com.jfixby.rana.api.asset.Asset;
-
-public class SceneStructure implements Asset, java.io.Serializable {
+public class SceneStructure implements java.io.Serializable {
 
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = -927468651743679015L;
+
+	public SceneStructure () {
+
+	}
 
 	public String structure_name;
 
@@ -24,11 +24,6 @@ public class SceneStructure implements Asset, java.io.Serializable {
 
 	final public HashMap<String, LayerElement> elements = new HashMap<String, LayerElement>();
 
-	@Override
-	public AssetID getAssetID () {
-		return Names.newAssetID(this.structure_name);
-	}
-
 	public LayerElement findElementByUID (final String uid) {
 		return this.elements.get(uid);
 	}
@@ -38,11 +33,6 @@ public class SceneStructure implements Asset, java.io.Serializable {
 			throw new Error("Element uid = null " + element);
 		}
 		this.elements.put(element.uid, element);
-	}
-
-	@Override
-	public void dispose () {
-		this.elements.clear();
 	}
 
 }

@@ -5,7 +5,9 @@ import java.util.Vector;
 
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.assets.Names;
+import com.jfixby.cmns.api.err.Err;
 import com.jfixby.rana.api.asset.Asset;
+import com.jfixby.rana.api.asset.AssetsGroup;
 
 public class RedFontData implements Asset, java.io.Serializable {
 	public String font_name;
@@ -22,7 +24,9 @@ public class RedFontData implements Asset, java.io.Serializable {
 	}
 
 	@Override
-	public void dispose () {
+	public AssetsGroup getGroup () {
+		Err.reportNotImplementedYet();
+		return null;
 	}
 
 }
