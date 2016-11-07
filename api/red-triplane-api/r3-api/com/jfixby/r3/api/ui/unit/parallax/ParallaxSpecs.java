@@ -23,4 +23,12 @@ public interface ParallaxSpecs {
 
 	double getPositionY ();
 
+	double getHeight ();
+
+	double getWidth ();
+
+	void setWidth (double width);
+
+	void setHeight (double height);
+
 }

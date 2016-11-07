@@ -12,4 +12,6 @@ public interface Parallax extends Component {
 
 	void setPositionY (double y);
 
+	double getWidth ();
+
 }
