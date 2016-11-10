@@ -26,4 +26,6 @@ public interface Scene2DSpawningConfig {
 
 	void setPackageListener (PackageReaderListener listener);
 
+// void setAssetsConsumer (AssetsConsumer consumer);
+
 }

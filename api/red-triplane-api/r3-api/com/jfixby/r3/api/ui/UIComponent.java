@@ -4,12 +4,13 @@ package com.jfixby.r3.api.ui;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.logic.LoadTask;
+import com.jfixby.rana.api.pkg.PackageReaderListener;
 
 public interface UIComponent {
 
-	LoadTask prepareLoadUITask (Collection<AssetID> asetsToLoad);
+	LoadTask prepareLoadUITask (final PackageReaderListener packageListener, Collection<AssetID> asetsToLoad);
 
-	LoadTask prepareLoadUITask (AssetID... asetsToLoad);
+	LoadTask prepareLoadUITask (final PackageReaderListener packageListener, AssetID... asetsToLoad);
 
 	void pushTaskToLoader (LoadTask task, UILoaderListener ui_loader_listener);
 

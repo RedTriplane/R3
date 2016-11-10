@@ -5,6 +5,7 @@ import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.cmns.api.assets.AssetID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.logic.LoadTask;
+import com.jfixby.rana.api.pkg.PackageReaderListener;
 
 public class UI {
 
@@ -26,12 +27,12 @@ public class UI {
 		invoke().showLoadingScreen(loader_unit_id, fadedOut);
 	}
 
-	public static LoadTask prepareLoadUITask (final Collection<AssetID> asetsToLoad) {
-		return invoke().prepareLoadUITask(asetsToLoad);
+	public static LoadTask prepareLoadUITask (final PackageReaderListener packageListener, final Collection<AssetID> asetsToLoad) {
+		return invoke().prepareLoadUITask(packageListener, asetsToLoad);
 	}
 
-	public static LoadTask prepareLoadUITask (final AssetID... asetsToLoad) {
-		return invoke().prepareLoadUITask(asetsToLoad);
+	public static LoadTask prepareLoadUITask (final PackageReaderListener packageListener, final AssetID... asetsToLoad) {
+		return invoke().prepareLoadUITask(packageListener, asetsToLoad);
 	}
 
 	public static void pushTaskToLoader (final LoadTask task, final UILoaderListener ui_loader_listener) {
