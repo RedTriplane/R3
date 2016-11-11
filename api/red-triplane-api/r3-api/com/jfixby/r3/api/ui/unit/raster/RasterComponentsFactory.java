@@ -11,4 +11,8 @@ public interface RasterComponentsFactory {
 
 	RasterPool newRasterPool (AssetID assetID);
 
+	GraphicalConsoleSpecs newConsoleSpecs ();
+
+	GraphicalConsole newConsole (GraphicalConsoleSpecs gspec);
+
 }
