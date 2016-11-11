@@ -23,8 +23,6 @@ public interface RasterizedString extends VisibleComponent, BlendableComponent {
 
 	public Angle getRotation ();
 
-	void dispose ();
-
 	void setPosition (CanvasPosition position);
 
 	void setPosition (FixedFloat2 position);
@@ -33,15 +31,13 @@ public interface RasterizedString extends VisibleComponent, BlendableComponent {
 
 	boolean getDebugRenderFlag ();
 
-	StringBounds getStringBounds ();
-
 	void setOriginRelativeX (ORIGIN_RELATIVE_HORIZONTAL center);
 
 	void setOriginRelativeY (ORIGIN_RELATIVE_VERTICAL center);
 
-	void setValue (String string);
+	void setChars (String string);
 
-	String getValue ();
+	String getChars ();
 
 	void setPositionX (double x);
 

@@ -9,4 +9,6 @@ public interface R3TextComponent {
 
 	PackageReader getTextPackageReader ();
 
+	PackageReader getTTFFontPackageReader ();
+
 }

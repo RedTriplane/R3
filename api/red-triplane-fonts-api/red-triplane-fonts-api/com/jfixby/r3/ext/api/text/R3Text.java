@@ -6,6 +6,8 @@ import com.jfixby.rana.api.pkg.PackageReader;
 
 public class R3Text {
 
+	public static final String RenderRasterStrings = "R3Text.RenderRasterStrings";
+
 	static private ComponentInstaller<R3TextComponent> componentInstaller = new ComponentInstaller<R3TextComponent>("R3Text");
 
 	public static final void installComponent (final R3TextComponent component_to_install) {
@@ -26,6 +28,10 @@ public class R3Text {
 
 	public static PackageReader getTextPackageReader () {
 		return invoke().getTextPackageReader();
+	}
+
+	public static PackageReader getTTFFontPackageReader () {
+		return invoke().getTTFFontPackageReader();
 	}
 
 }

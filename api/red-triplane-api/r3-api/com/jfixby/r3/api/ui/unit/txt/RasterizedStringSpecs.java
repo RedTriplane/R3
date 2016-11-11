@@ -7,14 +7,6 @@ import com.jfixby.cmns.api.color.Color;
 
 public interface RasterizedStringSpecs {
 
-// void setFont (RasterizedFont font);
-//
-// RasterizedFont getFont ();
-
-	void setFontName (AssetID font_id);
-
-	AssetID getFontName ();
-
 	float getFontSize ();
 
 	void setFontSize (float size);
@@ -23,9 +15,11 @@ public interface RasterizedStringSpecs {
 
 	void addRequiredCharacters (String chars);
 
-	void setColor (Color font_color);
+	void addRequiredCharacters (Iterable<Character> chars);
 
-	public Color getColor ();
+	void setFontColor (Color font_color);
+
+	public Color getFontColor ();
 
 	void setFontScale (float font_scale);
 
@@ -38,5 +32,9 @@ public interface RasterizedStringSpecs {
 	Color getBorderColor ();
 
 	float getBorderSize ();
+
+	void setFontName (AssetID newAssetID);
+
+	AssetID getFontName ();
 
 }

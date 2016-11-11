@@ -11,14 +11,12 @@ public interface TextFactory {
 
 	TextBar newTextBar (TextBarSpecs text_specs);
 
-// FontSize newFontSize ();
-
 	RasterizedStringSpecs newRasterStringSpecs ();
 
 	RasterizedString newRasterString (RasterizedStringSpecs specs);
 
-// RasterizedFont newFont (RasterizedFontSpecs specs);
-//
-// RasterizedFontSpecs newFontSpecs ();
+
+
+	void dispose (RasterizedString string);
 
 }
