@@ -77,7 +77,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-desktop"/>
