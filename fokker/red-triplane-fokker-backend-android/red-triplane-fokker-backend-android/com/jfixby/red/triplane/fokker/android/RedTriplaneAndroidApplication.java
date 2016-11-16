@@ -7,6 +7,8 @@ import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.jfixby.android.api.AndroidComponent;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
+import com.jfixby.cmns.api.file.File;
+import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.sys.Sys;
 
 import android.app.ActivityManager;
@@ -127,6 +129,19 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 
 	public AndroidGraphics graphics () {
 		return this.graphics;
+	}
+
+	@Override
+	public File getPrivateFolder () {
+		final String path = this.getApplicationPrivateDirPathString();
+		final File privateFolder = LocalFileSystem.newFile(path);
+		return privateFolder;
+	}
+
+	@Override
+	public File getCacheFolder () {
+		final java.io.File cache = this.getCacheDir();
+		return LocalFileSystem.newFile(cache);
 	}
 
 }
