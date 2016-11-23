@@ -6,6 +6,7 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.jfixby.android.api.AndroidComponent;
+import com.jfixby.android.api.DisplayMetrics;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
@@ -142,6 +143,31 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 	public File getCacheFolder () {
 		final java.io.File cache = this.getCacheDir();
 		return LocalFileSystem.newFile(cache);
+	}
+
+	@Override
+	public DisplayMetrics getDisplayMetrics () {
+		return null;
+	}
+
+	@Override
+	public String getBrand () {
+		return null;
+	}
+
+	@Override
+	public String getModel () {
+		return null;
+	}
+
+	@Override
+	public String getHost () {
+		return null;
+	}
+
+	@Override
+	public String getVersionRelease () {
+		return null;
 	}
 
 }
