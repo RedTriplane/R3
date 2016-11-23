@@ -1,11 +1,12 @@
+
 package com.jfixby.r3.api;
 
 public interface RedTriplaneVersion {
 
-    String getName();
+	String getName ();
 
-    String getBuildID();
+	String getBuildID ();
 
-    String getHomePage();
+	String getHomePage ();
 
 }

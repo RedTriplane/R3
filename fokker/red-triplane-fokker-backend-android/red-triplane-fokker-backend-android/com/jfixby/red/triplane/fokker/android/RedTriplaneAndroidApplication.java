@@ -6,14 +6,19 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.jfixby.android.api.AndroidComponent;
+import com.jfixby.android.api.AppVersion;
 import com.jfixby.android.api.DisplayMetrics;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
+import com.jfixby.cmns.api.err.Err;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.sys.Sys;
 
 import android.app.ActivityManager;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -147,27 +152,58 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 
 	@Override
 	public DisplayMetrics getDisplayMetrics () {
-		return null;
+
+		final android.util.DisplayMetrics dm = new android.util.DisplayMetrics();
+		try {
+			this.getWindowManager().getDefaultDisplay().getMetrics(dm);
+		} catch (final Exception e) {
+			Err.reportError(e);
+		}
+		final int height = dm.heightPixels;
+		final int width = dm.widthPixels;
+
+		this.displayMetrics.set(width, height);
+
+		return this.displayMetrics;
 	}
+
+	final RedDisplayMetrics displayMetrics = new RedDisplayMetrics();
 
 	@Override
 	public String getBrand () {
-		return null;
+		return Build.BRAND;
 	}
 
 	@Override
 	public String getModel () {
-		return null;
+		return Build.MODEL;
 	}
 
 	@Override
 	public String getHost () {
-		return null;
+		return Build.HOST;
 	}
 
 	@Override
 	public String getVersionRelease () {
-		return null;
+		return Build.VERSION.RELEASE;
+	}
+
+	@Override
+	public AppVersion getAppVersion () {
+		final RedAppVersion version = new RedAppVersion();
+
+		try {
+			final PackageInfo pInfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
+			version.package_name = this.getPackageName();
+			version.name = pInfo.versionName;
+			version.code = pInfo.versionCode + "";
+
+		} catch (final NameNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return version;
 	}
 
 }

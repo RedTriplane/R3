@@ -16,4 +16,10 @@ public class RedTriplaneParams {
 	public static final String ASSET_INFO_TAG = "ASSET_INFO_TAG";
 	public static final String DEFAULT_LOGO_FADE_TIME = "DEFAULT_LOGO_FADE_TIME";
 
+	public static class Version {
+		public static final String Name = "r3.version.name";
+		public static final String BuildID = "r3.version.build_id";
+		public static final String HomePage = "r3.version.homepage";
+	}
+
 }
