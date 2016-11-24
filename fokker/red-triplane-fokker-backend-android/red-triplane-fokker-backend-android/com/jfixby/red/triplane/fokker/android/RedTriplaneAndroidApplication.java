@@ -6,6 +6,7 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.jfixby.android.api.AndroidComponent;
+import com.jfixby.android.api.AndroidSystemInfoTags;
 import com.jfixby.android.api.AppVersion;
 import com.jfixby.android.api.DisplayMetrics;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
@@ -13,6 +14,9 @@ import com.jfixby.cmns.api.err.Err;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.sys.Sys;
+import com.jfixby.cmns.api.sys.SystemInfo;
+import com.jfixby.cmns.api.sys.SystemInfoTags;
+import com.jfixby.red.sys.RedDeviceInfo;
 
 import android.app.ActivityManager;
 import android.content.pm.ActivityInfo;
@@ -175,8 +179,23 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 	}
 
 	@Override
+	public String getSerial () {
+		return Build.SERIAL;
+	}
+
+	@Override
 	public String getModel () {
 		return Build.MODEL;
+	}
+
+	@Override
+	public String getFingerPrint () {
+		return Build.FINGERPRINT;
+	}
+
+	@Override
+	public String getManufacturer () {
+		return Build.MANUFACTURER;
 	}
 
 	@Override
@@ -204,6 +223,63 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 		}
 
 		return version;
+	}
+
+	@Override
+	public SystemInfo getSystemInfo () {
+		final RedDeviceInfo deviceInfo = new RedDeviceInfo();
+		{
+			final DisplayMetrics displayMetrics = this.getDisplayMetrics();
+			final int height = displayMetrics.getHeight();
+			final int width = displayMetrics.getWidth();
+			deviceInfo.putValue(AndroidSystemInfoTags.Display.WIDTH, width);
+			deviceInfo.putValue(AndroidSystemInfoTags.Display.HEIGHT, height);
+		}
+		{
+			final String brand = this.getBrand();
+			deviceInfo.putValue(AndroidSystemInfoTags.Brand, brand);
+		}
+		{
+			final String value = this.getSerial();
+			deviceInfo.putValue(AndroidSystemInfoTags.Serial, value);
+		}
+
+		{
+			final String value = this.getFingerPrint();
+			deviceInfo.putValue(AndroidSystemInfoTags.Fingerprint, value);
+		}
+
+		{
+			final String value = this.getManufacturer();
+			deviceInfo.putValue(AndroidSystemInfoTags.Manufacturer, value);
+		}
+
+		{
+			final String model = this.getModel();
+			deviceInfo.putValue(AndroidSystemInfoTags.Model, model);
+		}
+		{
+			final String release = this.getVersionRelease();
+			deviceInfo.putValue(AndroidSystemInfoTags.Release, release);
+		}
+
+		{
+			final AppVersion version = this.getAppVersion();
+			deviceInfo.putValue(AndroidSystemInfoTags.App.Version.Name, version.getName());
+			deviceInfo.putValue(AndroidSystemInfoTags.App.Version.Code, version.getCode());
+			deviceInfo.putValue(AndroidSystemInfoTags.App.Version.PackageName, version.getPackageName());
+		}
+
+		{
+			final String host = this.getHost();
+			deviceInfo.putValue(AndroidSystemInfoTags.Host, host);
+		}
+
+		{
+			deviceInfo.putValue(SystemInfoTags.System.OS_NAME, "Android");
+		}
+
+		return deviceInfo;
 	}
 
 }

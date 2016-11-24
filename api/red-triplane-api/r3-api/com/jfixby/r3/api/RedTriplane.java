@@ -19,7 +19,7 @@ public class RedTriplane {
 		return componentInstaller.getComponent();
 	}
 
-	public static RedTriplaneVersion VERSION () {
+	public static EngineVersion VERSION () {
 		return invoke().VERSION();
 	}
 

@@ -10,5 +10,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-backend-android"/>
 	<classpathentry kind="lib" path="/libs/android/android-4.4.jar"/>
 	<classpathentry kind="lib" path="/libs/android/support-v4-19.0.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-android"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.api;
 
-public interface RedTriplaneVersion {
+public interface EngineVersion {
 
 	String getName ();
 
