@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.api.ui.unit.txt;
 
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.color.Color;
 
@@ -33,8 +33,8 @@ public interface RasterizedStringSpecs {
 
 	float getBorderSize ();
 
-	void setFontName (AssetID newAssetID);
+	void setFontName (ID newAssetID);
 
-	AssetID getFontName ();
+	ID getFontName ();
 
 }

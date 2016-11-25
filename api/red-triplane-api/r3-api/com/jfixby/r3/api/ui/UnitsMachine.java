@@ -1,7 +1,7 @@
 package com.jfixby.r3.api.ui;
 
 import com.jfixby.cmns.api.ComponentInstaller;
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 
 public class UnitsMachine {
 
@@ -25,7 +25,7 @@ public class UnitsMachine {
 		invoke().nextUnit(intent);
 	}
 
-	public static Intent newIntent(AssetID unit_class_id) {
+	public static Intent newIntent(ID unit_class_id) {
 		return invoke().newIntent(unit_class_id);
 	}
 

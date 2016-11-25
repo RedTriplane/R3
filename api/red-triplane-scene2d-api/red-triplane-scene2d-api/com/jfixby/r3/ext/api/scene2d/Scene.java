@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.ext.api.scene2d;
 
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.Mapping;
 import com.jfixby.cmns.api.floatn.FixedFloat2;
@@ -27,7 +27,7 @@ public interface Scene extends NamedComponent {
 
 	public ComponentsFactory getComponentsFactory ();
 
-	public AssetID getAssetID ();
+	public ID getAssetID ();
 
 	public Collection<Animation> listAnimations ();
 

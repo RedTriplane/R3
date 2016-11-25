@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.fokker.gwt.unitsspawner;
 
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.Map;
 import com.jfixby.r3.api.ui.Intent;
@@ -12,7 +12,7 @@ import com.jfixby.r3.fokker.api.UnitsSpawningException;
 
 public class GWTUnitsSpawner implements UnitSpawnerComponent {
 
-	final private Map<AssetID, Unit> register = Collections.newMap();
+	final private Map<ID, Unit> register = Collections.newMap();
 
 	@Override
 	public Unit spawnUnit (final Intent unit_id) throws UnitsSpawningException {
@@ -38,7 +38,7 @@ public class GWTUnitsSpawner implements UnitSpawnerComponent {
 //
 // }
 
-	public void registerUnitClass (final AssetID unit_id, final DefaultUnit unit_class) {
+	public void registerUnitClass (final ID unit_id, final DefaultUnit unit_class) {
 		this.register.put(unit_id, unit_class);
 	}
 }

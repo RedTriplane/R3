@@ -1,11 +1,11 @@
 package com.jfixby.r3.api.ui;
 
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 
 public interface UnitsMachineComponent {
 
 	void nextUnit(Intent intent);
 
-	public Intent newIntent(AssetID unit_class_id);
+	public Intent newIntent(ID unit_class_id);
 
 }

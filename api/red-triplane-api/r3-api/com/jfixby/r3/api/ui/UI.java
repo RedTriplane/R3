@@ -2,7 +2,7 @@
 package com.jfixby.r3.api.ui;
 
 import com.jfixby.cmns.api.ComponentInstaller;
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.logic.LoadTask;
 import com.jfixby.rana.api.pkg.PackageReaderListener;
@@ -23,15 +23,15 @@ public class UI {
 		return componentInstaller.getComponent();
 	}
 
-	public static void showLoadingScreen (final AssetID loader_unit_id, final boolean fadedOut) {
+	public static void showLoadingScreen (final ID loader_unit_id, final boolean fadedOut) {
 		invoke().showLoadingScreen(loader_unit_id, fadedOut);
 	}
 
-	public static LoadTask prepareLoadUITask (final PackageReaderListener packageListener, final Collection<AssetID> asetsToLoad) {
+	public static LoadTask prepareLoadUITask (final PackageReaderListener packageListener, final Collection<ID> asetsToLoad) {
 		return invoke().prepareLoadUITask(packageListener, asetsToLoad);
 	}
 
-	public static LoadTask prepareLoadUITask (final PackageReaderListener packageListener, final AssetID... asetsToLoad) {
+	public static LoadTask prepareLoadUITask (final PackageReaderListener packageListener, final ID... asetsToLoad) {
 		return invoke().prepareLoadUITask(packageListener, asetsToLoad);
 	}
 
@@ -43,7 +43,7 @@ public class UI {
 		invoke().pushFadeOut(period);
 	}
 
-	public static void loadUnit (final AssetID ui_unit_id) {
+	public static void loadUnit (final ID ui_unit_id) {
 		invoke().switchToUI(ui_unit_id);
 	}
 
@@ -55,7 +55,7 @@ public class UI {
 		invoke().allowUserInput();
 	}
 
-	public static void pushLoadAssetsTask (final Collection<AssetID> newList, final UILoaderListener loader_listener) {
+	public static void pushLoadAssetsTask (final Collection<ID> newList, final UILoaderListener loader_listener) {
 		invoke().pushLoadAssetsTask(newList, loader_listener);
 	}
 

@@ -2,7 +2,7 @@
 package com.jfixby.r3.fokker.api.render;
 
 import com.jfixby.cmns.api.ComponentInstaller;
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 import com.jfixby.cmns.api.color.Color;
 import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.cmns.api.geometry.CanvasPosition;
@@ -71,7 +71,7 @@ public class RenderMachine {
 	}
 
 	public static void drawAperture (final double ax, final double ay, final double bx, final double by,
-		final AssetID spriteAssetID) {
+		final ID spriteAssetID) {
 		invoke().drawAperture(ax, ay, bx, by, spriteAssetID);
 	}
 
@@ -91,7 +91,7 @@ public class RenderMachine {
 	// invoke().setShader(shader_handler);
 	// }
 
-	public static void drawRaster (final AssetID spriteAssetID, final Rectangle shape) {
+	public static void drawRaster (final ID spriteAssetID, final Rectangle shape) {
 		invoke().drawRaster(spriteAssetID, shape);
 	}
 

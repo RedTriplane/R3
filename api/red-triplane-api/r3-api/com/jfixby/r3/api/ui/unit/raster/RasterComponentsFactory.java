@@ -1,15 +1,15 @@
 
 package com.jfixby.r3.api.ui.unit.raster;
 
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 
 public interface RasterComponentsFactory {
 
-	Tile newTile (AssetID asset_id);
+	Tile newTile (ID asset_id);
 
-	Raster newRaster (AssetID asset_id);
+	Raster newRaster (ID asset_id);
 
-	RasterPool newRasterPool (AssetID assetID);
+	RasterPool newRasterPool (ID assetID);
 
 	GraphicalConsoleSpecs newConsoleSpecs ();
 

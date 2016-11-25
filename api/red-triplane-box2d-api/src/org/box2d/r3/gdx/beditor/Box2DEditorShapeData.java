@@ -1,14 +1,14 @@
 package org.box2d.r3.gdx.beditor;
 
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 import com.jfixby.cmns.api.debug.Debug;
 
 public class Box2DEditorShapeData {
 
-	private final AssetID asset_id;
+	private final ID asset_id;
 	private final Box2DEditorShape shape;
 
-	public Box2DEditorShapeData(AssetID spriteAssetID, Box2DEditorShape shape) {
+	public Box2DEditorShapeData(ID spriteAssetID, Box2DEditorShape shape) {
 		this.asset_id = spriteAssetID;
 		this.shape = shape;
 		Debug.checkNull("asset_id", asset_id);
@@ -16,7 +16,7 @@ public class Box2DEditorShapeData {
 
 	}
 
-	public AssetID getAssetID() {
+	public ID getAssetID() {
 		return asset_id;
 	}
 

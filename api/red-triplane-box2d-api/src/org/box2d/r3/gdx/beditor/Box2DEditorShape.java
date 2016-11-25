@@ -1,16 +1,16 @@
 package org.box2d.r3.gdx.beditor;
 
-import com.jfixby.cmns.api.assets.AssetID;
+import com.jfixby.cmns.api.assets.ID;
 
 public class Box2DEditorShape extends RedPolyBodySpecs {
 
-	private AssetID asset_id;
+	private ID asset_id;
 
-	public AssetID getID() {
+	public ID getID() {
 		return this.asset_id;
 	}
 
-	public void setID(AssetID newAssetID) {
+	public void setID(ID newAssetID) {
 		this.asset_id = newAssetID;
 	}
 
