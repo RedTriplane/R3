@@ -7,7 +7,7 @@ import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.jfixby.android.api.AndroidComponent;
 import com.jfixby.android.api.AndroidSystemInfoTags;
-import com.jfixby.android.api.AppVersion;
+import com.jfixby.android.api.AndroidAppVersion;
 import com.jfixby.android.api.DisplayMetrics;
 import com.jfixby.android.api.camera.AndroidCameraSetup;
 import com.jfixby.cmns.api.err.Err;
@@ -209,14 +209,14 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 	}
 
 	@Override
-	public AppVersion getAppVersion () {
-		final RedAppVersion version = new RedAppVersion();
+	public AndroidAppVersion getAppVersion () {
+		final RedAndroidAppVersion version = new RedAndroidAppVersion();
 
 		try {
 			final PackageInfo pInfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
 			version.package_name = this.getPackageName();
 			version.name = pInfo.versionName;
-			version.code = pInfo.versionCode + "";
+			version.code = pInfo.versionCode;
 
 		} catch (final NameNotFoundException e) {
 			e.printStackTrace();
@@ -264,7 +264,7 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 		}
 
 		{
-			final AppVersion version = this.getAppVersion();
+			final AndroidAppVersion version = this.getAppVersion();
 			deviceInfo.putValue(AndroidSystemInfoTags.App.Version.Name, version.getName());
 			deviceInfo.putValue(AndroidSystemInfoTags.App.Version.Code, version.getCode());
 			deviceInfo.putValue(AndroidSystemInfoTags.App.Version.PackageName, version.getPackageName());
