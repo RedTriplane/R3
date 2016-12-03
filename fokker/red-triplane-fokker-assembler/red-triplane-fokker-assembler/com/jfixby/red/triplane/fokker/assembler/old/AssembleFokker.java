@@ -1,9 +1,11 @@
+
 package com.jfixby.red.triplane.fokker.assembler.old;
 
 import java.io.IOException;
 
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
+import com.jfixby.cmns.api.err.Err;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.FileSystem;
 import com.jfixby.cmns.api.file.LocalFileSystem;
@@ -20,31 +22,32 @@ public class AssembleFokker {
 
 	private static final String SOURCE_FOLDERS_PREFIX = "sourceSets.main.java.srcDirs = ";
 
-	public static void main(String[] args) throws Exception {
+	public static void main (final String[] args) throws Exception {
 
 		DesktopSetup.deploy();
 
-		BuildInfo build_info = readBuildInfo();
+		final BuildInfo build_info = readBuildInfo();
 
-		String java_path = "fokker-assembler.config";
-		File mp = LocalFileSystem.newFile(java_path);
-		String config_data = mp.readToString();
-		AssemblerConfig config = Json.deserializeFromString(AssemblerConfig.class, config_data);
+		final String java_path = "fokker-assembler.config";
+		final File mp = LocalFileSystem.newFile(java_path);
+		final String config_data = mp.readToString();
+		final AssemblerConfig config = Json.deserializeFromString(AssemblerConfig.class, config_data);
 
-		File workspace = LocalFileSystem.newFile(config.getInputWorkspace());
-		File gradle_output = LocalFileSystem.newFile(config.getGradleOutputFolder());
-		File android = gradle_output.child("android");
-		File core = gradle_output.child("core");
-		File ios = gradle_output.child("ios");
-		File desktop = gradle_output.child("desktop");
-		File html = gradle_output.child("html");
+		final File workspace = LocalFileSystem.newFile(config.getInputWorkspace());
+		final File gradle_output = LocalFileSystem.newFile(config.getGradleOutputFolder());
+		final File android = gradle_output.child("android");
+		final File core = gradle_output.child("core");
+		final File ios = gradle_output.child("ios");
+		final File desktop = gradle_output.child("desktop");
+		final File html = gradle_output.child("html");
 
-		File assets_output = android.child("assets");
+		final File assets_output = android.child("assets");
 
-		File assets = LocalFileSystem.newFile(config.getAssetsInput());
+		final File assets = LocalFileSystem.newFile(config.getAssetsInput());
 		File build_file = null;
 		{
-			RelativePath relative = JUtils.newRelativePath("red-triplane-fokker-core/red-triplane-fokker-core/com/jfixby/red/engine/core/BUILD.java");
+			final RelativePath relative = JUtils
+				.newRelativePath("red-triplane-fokker-core/red-triplane-fokker-core/com/jfixby/red/engine/core/BUILD.java");
 			build_file = workspace.proceed(relative);
 		}
 
@@ -63,19 +66,20 @@ public class AssembleFokker {
 
 	}
 
-	private static void copyProjects(File workspace, List<ProjectAssemblerConfig> projects, File core) throws IOException {
-		List<String> folder_names = Collections.newList();
+	private static void copyProjects (final File workspace, final List<ProjectAssemblerConfig> projects, final File core)
+		throws IOException {
+		final List<String> folder_names = Collections.newList();
 
-		for (ProjectAssemblerConfig project : projects) {
+		for (final ProjectAssemblerConfig project : projects) {
 			folder_names.addAll(project.listSourceFolders());
 			copyProject(workspace, project, core);
 
 		}
 
-		File build_gradle = core.child("build.gradle");
-		String N = "\n";
-		String data = build_gradle.readToString();
-		List<String> lines = Collections.newList(data.split(N));
+		final File build_gradle = core.child("build.gradle");
+		final String N = "\n";
+		final String data = build_gradle.readToString();
+		final List<String> lines = Collections.newList(data.split(N));
 		String build_gradle_output_string = "";
 		for (int i = 0; i < lines.size(); i++) {
 			String line_i = lines.getElementAt(i);
@@ -87,17 +91,18 @@ public class AssembleFokker {
 		build_gradle.writeString(build_gradle_output_string);
 	}
 
-	private static void copyProject(File workspace, ProjectAssemblerConfig project, File output_project_folder) throws IOException {
-		File project_folder = workspace.child(project.getName());
-		List<String> folder_names = project.listSourceFolders();
-		for (String folder : folder_names) {
-			File source_folder = project_folder.child(folder);
+	private static void copyProject (final File workspace, final ProjectAssemblerConfig project, final File output_project_folder)
+		throws IOException {
+		final File project_folder = workspace.child(project.getName());
+		final List<String> folder_names = project.listSourceFolders();
+		for (final String folder : folder_names) {
+			final File source_folder = project_folder.child(folder);
 			copyFolder(source_folder, output_project_folder.child(folder));
 		}
 
 	}
 
-	private static String formGradleConfigLine(List<String> folder_names) {
+	private static String formGradleConfigLine (final List<String> folder_names) {
 		String line = SOURCE_FOLDERS_PREFIX + "[ \"src/\"";
 		for (int i = 0; i < folder_names.size(); i++) {
 			line = line + ", \"" + folder_names.getElementAt(i) + "/\"";
@@ -106,25 +111,27 @@ public class AssembleFokker {
 		return line;
 	}
 
-	private static void copyFolder(File input_folder, File output_folder) throws IOException {
+	private static void copyFolder (final File input_folder, final File output_folder) throws IOException {
 
 		output_folder.makeFolder();
 		output_folder.clearFolder();
 		output_folder.getFileSystem().copyFolderContentsToFolder(input_folder, output_folder);
 	}
 
-	private static void writeBuildInfo(BuildInfo info, File build_file) throws IOException {
-		AbsolutePath<FileSystem> build_info_file_path = LocalFileSystem.ApplicationHome().child(BUILD_INFO_FILE).getAbsoluteFilePath();
-		File file = LocalFileSystem.newFile(build_info_file_path);
-		String data = Json.serializeToString(info).toString();
+	private static void writeBuildInfo (final BuildInfo info, final File build_file) throws IOException {
+		final AbsolutePath<FileSystem> build_info_file_path = LocalFileSystem.ApplicationHome().child(BUILD_INFO_FILE)
+			.getAbsoluteFilePath();
+		final File file = LocalFileSystem.newFile(build_info_file_path);
+		final String data = Json.serializeToString(info).toString();
 		file.writeBytes(data.getBytes());
 
-		String template = LocalFileSystem.readFileToString(LocalFileSystem.ApplicationHome().child("BUILD.java").getAbsoluteFilePath());
+		String template = LocalFileSystem
+			.readFileToString(LocalFileSystem.ApplicationHome().child("BUILD.java").getAbsoluteFilePath());
 		template = template.replaceAll("#BUILD_VERSION#", info.getVerstionString());
 
-		File build_version_java_file = build_file;
+		final File build_version_java_file = build_file;
 		if (!build_version_java_file.exists()) {
-			throw new Error(build_version_java_file + " does not exist!");
+			Err.reportError(build_version_java_file + " does not exist!");
 		}
 		build_file.writeString(template);
 
@@ -132,15 +139,16 @@ public class AssembleFokker {
 
 	private static final String BUILD_INFO_FILE = "BUILD.INFO";
 
-	private static BuildInfo readBuildInfo() {
+	private static BuildInfo readBuildInfo () {
 		BuildInfo build_info = null;
 
 		try {
-			AbsolutePath<FileSystem> build_info_file_path = LocalFileSystem.ApplicationHome().child(BUILD_INFO_FILE).getAbsoluteFilePath();
-			File file = LocalFileSystem.newFile(build_info_file_path);
-			String data = file.readToString();
+			final AbsolutePath<FileSystem> build_info_file_path = LocalFileSystem.ApplicationHome().child(BUILD_INFO_FILE)
+				.getAbsoluteFilePath();
+			final File file = LocalFileSystem.newFile(build_info_file_path);
+			final String data = file.readToString();
 			build_info = Json.deserializeFromString(BuildInfo.class, data);
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			build_info = new BuildInfo();
 		}
 

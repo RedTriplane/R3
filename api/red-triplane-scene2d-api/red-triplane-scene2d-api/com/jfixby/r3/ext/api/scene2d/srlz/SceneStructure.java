@@ -3,6 +3,8 @@ package com.jfixby.r3.ext.api.scene2d.srlz;
 
 import java.util.HashMap;
 
+import com.jfixby.cmns.api.err.Err;
+
 public class SceneStructure implements java.io.Serializable {
 
 	/**
@@ -30,7 +32,7 @@ public class SceneStructure implements java.io.Serializable {
 
 	public void registerNewElement (final LayerElement element) {
 		if (element.uid == null) {
-			throw new Error("Element uid = null " + element);
+			Err.reportError("Element uid = null " + element);
 		}
 		this.elements.put(element.uid, element);
 	}

@@ -3,6 +3,8 @@ package com.jfixby.r3.ext.api.scene2d.srlz;
 
 import java.util.ArrayList;
 
+import com.jfixby.cmns.api.err.Err;
+
 public class LayerChildren implements java.io.Serializable {
 
 	private static final long serialVersionUID = 99160642782889515L;
@@ -12,12 +14,12 @@ public class LayerChildren implements java.io.Serializable {
 	public void addElement (final LayerElement element, final SceneStructure structure) {
 		final String uid = element.uid;
 		if (uid == null) {
-			throw new Error("UID==null");
+			Err.reportError("UID==null");
 		}
 		if (check) {
 			final LayerElement result = structure.findElementByUID(uid);
 			if (result != element) {
-				throw new Error("corrupted structure " + structure.elements);
+				Err.reportError("corrupted structure " + structure.elements);
 			}
 		}
 		this.list.add(uid);
