@@ -1,3 +1,4 @@
+
 package com.jfixby.red.triplane.fokker.assembler.srlz;
 
 import java.io.IOException;
@@ -7,18 +8,17 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URISyntaxException;
 
-import com.jfixby.cmns.adopted.gdx.json.RedJson;
 import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.cmns.api.collections.CollectionFilter;
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
 import com.jfixby.cmns.api.collections.Set;
+import com.jfixby.cmns.api.desktop.DesktopSetup;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.log.L;
 import com.jfixby.cmns.api.sys.Sys;
-import com.jfixby.red.desktop.DesktopSetup;
 import com.jfixby.red.triplane.fokker.assembler.AndroidProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.DesktopProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
@@ -26,30 +26,30 @@ import com.jfixby.red.triplane.fokker.assembler.iOSProjectSettings;
 
 public class FindSrlzd {
 
-	public static void main(String[] args) throws IOException, URISyntaxException {
+	public static void main (final String[] args) throws IOException, URISyntaxException {
 
 		DesktopSetup.deploy();
-		Json.installComponent(new RedJson());
+		Json.installComponent("com.jfixby.cmns.adopted.gdx.json.RedJson");
 
-		File workspace_folder = LocalFileSystem.newFile("D:\\[DEV]\\[CODE]\\[WS-19]");
+		final File workspace_folder = LocalFileSystem.newFile("D:\\[DEV]\\[CODE]\\[WS-19]");
 
 		// workspace_settings.print();
 		// Sys.exit();
 
-		File desktop_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-desktop");
-		File android_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-android");
-		File ios_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-ios");
-		File gwt_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-gwt");
+		final File desktop_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-desktop");
+		final File android_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-android");
+		final File ios_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-ios");
+		final File gwt_project_folder = LocalFileSystem.newFile("D:\\[DEV]\\[GIT]\\Tinto\\tinto-run-fokker-gwt");
 
-		String gradle_path_string = "D:\\[DEV]\\[CODE]\\[GDX]\\tinto";
-		File gradle_path = LocalFileSystem.newFile(gradle_path_string);
+		final String gradle_path_string = "D:\\[DEV]\\[CODE]\\[GDX]\\tinto";
+		final File gradle_path = LocalFileSystem.newFile(gradle_path_string);
 
-		DesktopProjectSettings desktop = new DesktopProjectSettings(desktop_project_folder);
-		AndroidProjectSettings android = new AndroidProjectSettings(android_project_folder);
-		iOSProjectSettings ios = new iOSProjectSettings(ios_project_folder);
-		GwtProjectSettings gwt = new GwtProjectSettings(gwt_project_folder);
+		final DesktopProjectSettings desktop = new DesktopProjectSettings(desktop_project_folder);
+		final AndroidProjectSettings android = new AndroidProjectSettings(android_project_folder);
+		final iOSProjectSettings ios = new iOSProjectSettings(ios_project_folder);
+		final GwtProjectSettings gwt = new GwtProjectSettings(gwt_project_folder);
 
-		SrlzSearcherSpecs specs = new SrlzSearcherSpecs();
+		final SrlzSearcherSpecs specs = new SrlzSearcherSpecs();
 		specs.setGradleProjectPath(gradle_path);
 		specs.setDesktopProject(desktop);
 		specs.setAndroidProject(android);
@@ -57,16 +57,16 @@ public class FindSrlzd {
 		specs.setGWTProject(gwt);
 		specs.setWorkSpaceFolder(workspace_folder);
 
-		SrlzSearcher searcher = new SrlzSearcher(specs);
+		final SrlzSearcher searcher = new SrlzSearcher(specs);
 
-		String filter_string = ".class";
-		Collection<JavaFileHandler> result = searcher.filterFiles(handler -> handler.containsString(filter_string));
+		final String filter_string = ".class";
+		final Collection<JavaFileHandler> result = searcher.filterFiles(handler -> handler.containsString(filter_string));
 		// result.print("result");
 		// Sys.exit();
 
 		// result.print("H");
-		List<JavaString> good_lines = Collections.newList();
-		for (JavaFileHandler H : result) {
+		final List<JavaString> good_lines = Collections.newList();
+		for (final JavaFileHandler H : result) {
 			H.mine();
 			Collection<JavaString> lines = H.listLines();
 			lines = Collections.filter(lines, element -> element.containsExpressin(filter_string));
@@ -79,27 +79,27 @@ public class FindSrlzd {
 		}
 
 		// good_lines.print("good_lines");
-		List<ClassReference> classes = Collections.newList();
-		for (JavaString H : good_lines) {
-			String data = H.getString();
-			int begin = data.indexOf('(') + 1;
-			int end = data.indexOf(".class");
-			String class_name = data.substring(begin, end);
-			ClassReference ref = new ClassReference(class_name, H);
+		final List<ClassReference> classes = Collections.newList();
+		for (final JavaString H : good_lines) {
+			final String data = H.getString();
+			final int begin = data.indexOf('(') + 1;
+			final int end = data.indexOf(".class");
+			final String class_name = data.substring(begin, end);
+			final ClassReference ref = new ClassReference(class_name, H);
 			classes.add(ref);
 		}
 
-		Set<Class<?>> serializable_classes = Collections.newSet();
+		final Set<Class<?>> serializable_classes = Collections.newSet();
 
-		for (ClassReference class_ref : classes) {
-			String string_name = class_ref.getClassName();
+		for (final ClassReference class_ref : classes) {
+			final String string_name = class_ref.getClassName();
 			Class<?> clazz;
 			try {
 				clazz = Class.forName(string_name);
 				serializable_classes.add(clazz);
-			} catch (ClassNotFoundException e) {
+			} catch (final ClassNotFoundException e) {
 				L.d(class_ref);
-				JavaFileHandler H = class_ref.getHandler();
+				final JavaFileHandler H = class_ref.getHandler();
 				L.d(H);
 				e.printStackTrace();
 
@@ -110,36 +110,36 @@ public class FindSrlzd {
 
 		serializable_classes.print("serializable_classes");
 
-		Collection<Class<?>> complete_list = completeList(serializable_classes);
+		final Collection<Class<?>> complete_list = completeList(serializable_classes);
 
 		complete_list.print("complete_list classes");
 
-		String CLASS_NAME = "#CLASS_NAME#";
-		String import_template = "<extend-configuration-property name=\"gdx.reflect.include\" value=\"" + CLASS_NAME
-				+ "\" />";
+		final String CLASS_NAME = "#CLASS_NAME#";
+		final String import_template = "<extend-configuration-property name=\"gdx.reflect.include\" value=\"" + CLASS_NAME
+			+ "\" />";
 
 		L.d("producing import");
 
-		for (Class<?> clazz : complete_list) {
-			String class_name = clazz.getName();
-			String import_xml = import_template.replaceAll(CLASS_NAME, class_name);
+		for (final Class<?> clazz : complete_list) {
+			final String class_name = clazz.getName();
+			final String import_xml = import_template.replaceAll(CLASS_NAME, class_name);
 			L.d(import_xml);
 
 		}
 	}
 
-	private static Collection<Class<?>> completeList(Set<Class<?>> start) {
+	private static Collection<Class<?>> completeList (final Set<Class<?>> start) {
 
-		Set<Class<?>> processing = Collections.newSet();
-		Set<Class<?>> processed = Collections.newSet();
-		Set<Class<?>> to_process = Collections.newSet();
+		final Set<Class<?>> processing = Collections.newSet();
+		final Set<Class<?>> processed = Collections.newSet();
+		final Set<Class<?>> to_process = Collections.newSet();
 
 		to_process.addAll(start);
 
 		while (to_process.size() > 0) {
 			processing.addAll(to_process);
 			to_process.clear();
-			for (Class<?> clazz : processing) {
+			for (final Class<?> clazz : processing) {
 				if (processed.contains(clazz)) {
 					continue;
 				}
@@ -149,8 +149,8 @@ public class FindSrlzd {
 				fields = Collections.filter(fields, new CollectionFilter<Field>() {
 
 					@Override
-					public boolean fits(Field element) {
-						Class<?> type = element.getType();
+					public boolean fits (final Field element) {
+						final Class<?> type = element.getType();
 						return !type.isPrimitive();
 					}
 
@@ -168,12 +168,12 @@ public class FindSrlzd {
 				//
 				// });
 				// fields.print("fields");
-				for (Field field : fields) {
-					Type generic_type = field.getGenericType();
-					Class<?> type = field.getType();
+				for (final Field field : fields) {
+					final Type generic_type = field.getGenericType();
+					final Class<?> type = field.getType();
 					if (type == generic_type) {
 						// L.d("MA|TCH");
-						String full_name = type.getName();
+						final String full_name = type.getName();
 						if (full_name.startsWith("java.")) {
 							// L.d("skip", full_name);
 							continue;
@@ -188,9 +188,9 @@ public class FindSrlzd {
 					// L.d("type", type);
 					// L.d("generic_type", generic_type);
 
-					ParameterizedType subTypeList = (ParameterizedType) generic_type;
-					Type[] type_ars = subTypeList.getActualTypeArguments();
-					Set<Type> subtypes = Collections.newSet(type_ars);
+					final ParameterizedType subTypeList = (ParameterizedType)generic_type;
+					final Type[] type_ars = subTypeList.getActualTypeArguments();
+					final Set<Type> subtypes = Collections.newSet(type_ars);
 					List<Class<?>> tmp = Collections.castCollection(subtypes);
 					// subtypes.print("subtypes");
 					tmp = Collections.filter(tmp, type_i -> !processed.contains(type_i));
@@ -206,10 +206,10 @@ public class FindSrlzd {
 			processing.clear();
 		}
 
-		List<Class<?>> result = Collections.filter(processed, new CollectionFilter<Class<?>>() {
+		final List<Class<?>> result = Collections.filter(processed, new CollectionFilter<Class<?>>() {
 
 			@Override
-			public boolean fits(Class<?> clazz) {
+			public boolean fits (final Class<?> clazz) {
 				if (clazz == String.class) {
 					return false;
 				}

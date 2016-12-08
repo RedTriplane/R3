@@ -1,10 +1,10 @@
 
 package com.jfixby.red.triplane.fokker.assembler;
 
+import com.jfixby.cmns.api.desktop.DesktopSetup;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.LocalFileSystem;
 import com.jfixby.cmns.api.json.Json;
-import com.jfixby.red.desktop.DesktopSetup;
 import com.jfixby.red.triplane.fokker.assembler.ds.AssemblerConfig;
 import com.jfixby.red.triplane.fokker.assembler.ds.ProjectAssemblerConfig;
 import com.jfixby.red.triplane.fokker.assembler.ds.ProjectAssemblerContainer;

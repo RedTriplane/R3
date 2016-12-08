@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import com.jfixby.cmns.api.collections.Collections;
 import com.jfixby.cmns.api.collections.List;
+import com.jfixby.cmns.api.desktop.DesktopSetup;
 import com.jfixby.cmns.api.err.Err;
 import com.jfixby.cmns.api.file.File;
 import com.jfixby.cmns.api.file.FileSystem;
@@ -13,7 +14,6 @@ import com.jfixby.cmns.api.json.Json;
 import com.jfixby.cmns.api.util.JUtils;
 import com.jfixby.cmns.api.util.path.AbsolutePath;
 import com.jfixby.cmns.api.util.path.RelativePath;
-import com.jfixby.red.desktop.DesktopSetup;
 import com.jfixby.red.triplane.fokker.assembler.ds.AssemblerConfig;
 import com.jfixby.red.triplane.fokker.assembler.ds.BuildInfo;
 import com.jfixby.red.triplane.fokker.assembler.ds.ProjectAssemblerConfig;

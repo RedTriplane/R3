@@ -1,9 +1,9 @@
 
 package com.jfixby.r3.fokker.api.assets;
 
-import com.jfixby.r3.api.resources.StandardPackageFormats;
 import com.jfixby.rana.api.pkg.PackageFormat;
 import com.jfixby.rana.api.pkg.ResourcesManager;
+import com.jfixby.rana.api.pkg.StandardPackageFormats;
 
 public interface FokkerTextureLoaderComponent {
 
