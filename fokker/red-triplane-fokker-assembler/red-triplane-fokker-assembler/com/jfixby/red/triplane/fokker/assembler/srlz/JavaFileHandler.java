@@ -2,11 +2,11 @@ package com.jfixby.red.triplane.fokker.assembler.srlz;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.Collections;
-import com.jfixby.cmns.api.collections.List;
-import com.jfixby.cmns.api.file.File;
-import com.jfixby.cmns.api.util.JUtils;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.file.File;
+import com.jfixby.scarabei.api.util.JUtils;
 
 public class JavaFileHandler {
 

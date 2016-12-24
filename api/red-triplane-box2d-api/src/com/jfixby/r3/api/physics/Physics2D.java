@@ -1,11 +1,11 @@
 package com.jfixby.r3.api.physics;
 
-import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.r3.api.unit.components.physics.PhysicsCore;
 import com.jfixby.r3.api.unit.components.physics.PhysicsCoreSpecs;
 import com.jfixby.r3.api.unit.components.physics.body.BoxBody;
 import com.jfixby.r3.api.unit.components.physics.body.CircleBody;
 import com.jfixby.r3.api.unit.components.physics.body.PolyBody;
+import com.jfixby.scarabei.api.ComponentInstaller;
 
 public class Physics2D {
 

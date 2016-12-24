@@ -1,14 +1,14 @@
 
 package com.jfixby.r3.fokker.gwt.unitsspawner;
 
-import com.jfixby.cmns.api.assets.ID;
-import com.jfixby.cmns.api.collections.Collections;
-import com.jfixby.cmns.api.collections.Map;
 import com.jfixby.r3.api.ui.Intent;
 import com.jfixby.r3.api.ui.unit.DefaultUnit;
 import com.jfixby.r3.api.ui.unit.Unit;
 import com.jfixby.r3.fokker.api.UnitSpawnerComponent;
 import com.jfixby.r3.fokker.api.UnitsSpawningException;
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.Map;
 
 public class GWTUnitsSpawner implements UnitSpawnerComponent {
 

@@ -1,8 +1,8 @@
 
 package com.jfixby.r3.ext.api.scene2d;
 
-import com.jfixby.cmns.api.assets.ID;
 import com.jfixby.rana.api.pkg.PackageReaderListener;
+import com.jfixby.scarabei.api.assets.ID;
 
 public interface Scene2DSpawningConfig {
 

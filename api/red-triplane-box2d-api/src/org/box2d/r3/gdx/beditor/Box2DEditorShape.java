@@ -1,6 +1,6 @@
 package org.box2d.r3.gdx.beditor;
 
-import com.jfixby.cmns.api.assets.ID;
+import com.jfixby.scarabei.api.assets.ID;
 
 public class Box2DEditorShape extends RedPolyBodySpecs {
 

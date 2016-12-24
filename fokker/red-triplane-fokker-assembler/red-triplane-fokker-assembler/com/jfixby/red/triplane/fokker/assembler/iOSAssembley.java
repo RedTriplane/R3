@@ -1,7 +1,7 @@
 package com.jfixby.red.triplane.fokker.assembler;
 
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.file.File;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.file.File;
 import com.jfixby.tool.eclipse.dep.EclipseProjectInfo;
 
 public class iOSAssembley extends AbstractAssembley {

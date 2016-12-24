@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.unit.components.physics.body;
 
-import com.jfixby.cmns.api.math.Angle;
+import com.jfixby.scarabei.api.math.Angle;
 
 public interface BodyPosition {
 

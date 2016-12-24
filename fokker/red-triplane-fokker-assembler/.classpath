@@ -2,36 +2,30 @@
 <classpath>
 	<classpathentry kind="src" path="red-triplane-fokker-assembler"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-desktop"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/apache-jfixby-cmns"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-desktop"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-apache-cmns"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-game"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-run-fokker"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-run-fokker-desktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bills-ui"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bin"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/box2d-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-gdx"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-gdx"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-double"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-float"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-android"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-desktop-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-gwt"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-log-mq"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-rmi-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-rmi-client"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-rmi-server"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-rmi-test"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-android"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-desktop-test"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-gwt"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-log-mq"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-example"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-data-science-ssgen"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-deepforger"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-git-eclipse-namefixer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-lambda-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-lambda-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-rmi-file-server"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-box2d-packer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-eclipse"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-gradle-depsearch"/>
@@ -94,6 +88,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/star-craft"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api-desktop"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api-desktop"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

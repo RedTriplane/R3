@@ -1,6 +1,6 @@
 package com.jfixby.red.triplane.fokker.assembler;
 
-import com.jfixby.cmns.api.file.File;
+import com.jfixby.scarabei.api.file.File;
 
 public class FokkerAssembleySpecs {
 

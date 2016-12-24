@@ -1,11 +1,11 @@
 
 package com.jfixby.r3.api.ui.unit.layer;
 
-import com.jfixby.cmns.api.assets.ID;
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.geometry.Projection;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.camera.Camera;
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.geometry.Projection;
 
 public interface Layer extends VisibleComponent {
 	public void closeInputValve ();

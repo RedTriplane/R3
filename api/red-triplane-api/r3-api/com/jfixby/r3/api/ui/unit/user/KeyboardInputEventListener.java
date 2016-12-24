@@ -1,9 +1,9 @@
 package com.jfixby.r3.api.ui.unit.user;
 
-import com.jfixby.cmns.api.input.Key;
-import com.jfixby.cmns.api.log.L;
 import com.jfixby.r3.api.ui.unit.input.MouseScrolledEvent;
 import com.jfixby.r3.api.ui.unit.layer.Component;
+import com.jfixby.scarabei.api.input.Key;
+import com.jfixby.scarabei.api.log.L;
 
 public interface KeyboardInputEventListener extends Component {
 

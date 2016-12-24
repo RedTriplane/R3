@@ -1,10 +1,6 @@
 
 package com.jfixby.r3.ext.api.scene2d;
 
-import com.jfixby.cmns.api.assets.ID;
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.Mapping;
-import com.jfixby.cmns.api.floatn.FixedFloat2;
 import com.jfixby.r3.api.locale.LocalizedComponent;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.animation.Animation;
@@ -16,6 +12,10 @@ import com.jfixby.r3.api.ui.unit.parallax.Parallax;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
 import com.jfixby.r3.api.ui.unit.txt.TextBar;
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.collections.Mapping;
+import com.jfixby.scarabei.api.floatn.FixedFloat2;
 
 public interface Scene extends NamedComponent {
 

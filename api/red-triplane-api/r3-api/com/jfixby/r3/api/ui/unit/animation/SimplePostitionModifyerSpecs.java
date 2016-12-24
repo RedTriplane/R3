@@ -1,7 +1,7 @@
 package com.jfixby.r3.api.ui.unit.animation;
 
-import com.jfixby.cmns.api.math.FloatMath;
 import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
+import com.jfixby.scarabei.api.math.FloatMath;
 
 public interface SimplePostitionModifyerSpecs extends AnimationSpecs {
 

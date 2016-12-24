@@ -1,10 +1,10 @@
 package com.jfixby.red.triplane.fokker.assembler.srlz;
 
-import com.jfixby.cmns.api.file.File;
 import com.jfixby.red.triplane.fokker.assembler.AndroidProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.DesktopProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.iOSProjectSettings;
+import com.jfixby.scarabei.api.file.File;
 
 public class SrlzSearcherSpecs {
 

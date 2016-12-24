@@ -1,9 +1,9 @@
 
 package com.jfixby.r3.api.ui.unit.raster;
 
-import com.jfixby.cmns.api.assets.ID;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.geometry.RectangularComponent;
+import com.jfixby.scarabei.api.assets.ID;
 
 public interface Raster extends BlendableComponent, RectangularComponent {
 	public ID getAssetID ();

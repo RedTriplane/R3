@@ -1,10 +1,10 @@
 
 package com.jfixby.r3.api.ui.unit.raster;
 
-import com.jfixby.cmns.api.color.Color;
-import com.jfixby.cmns.api.geometry.CanvasPosition;
 import com.jfixby.r3.api.ui.unit.CanvasPositionable;
 import com.jfixby.r3.api.ui.unit.layer.DrawableComponent;
+import com.jfixby.scarabei.api.color.Color;
+import com.jfixby.scarabei.api.geometry.CanvasPosition;
 
 public interface CanvasComponent extends DrawableComponent, CanvasPositionable {
 

@@ -1,7 +1,7 @@
 package org.box2d.r3.gdx.beditor;
 
-import com.jfixby.cmns.api.assets.ID;
-import com.jfixby.cmns.api.debug.Debug;
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.debug.Debug;
 
 public class Box2DEditorShapeData {
 

@@ -1,8 +1,8 @@
 
 package com.jfixby.r3.ext.api.text;
 
-import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.rana.api.pkg.PackageReader;
+import com.jfixby.scarabei.api.ComponentInstaller;
 
 public class R3Text {
 

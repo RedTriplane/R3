@@ -3,7 +3,7 @@ package com.jfixby.r3.ext.api.scene2d.srlz;
 
 import java.util.HashMap;
 
-import com.jfixby.cmns.api.err.Err;
+import com.jfixby.scarabei.api.err.Err;
 
 public class SceneStructure implements java.io.Serializable {
 

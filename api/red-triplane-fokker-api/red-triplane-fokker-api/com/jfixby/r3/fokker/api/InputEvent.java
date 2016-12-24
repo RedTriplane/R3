@@ -1,7 +1,7 @@
 package com.jfixby.r3.fokker.api;
 
-import com.jfixby.cmns.api.input.Key;
-import com.jfixby.cmns.api.input.MouseButton;
+import com.jfixby.scarabei.api.input.Key;
+import com.jfixby.scarabei.api.input.MouseButton;
 
 public interface InputEvent {
 

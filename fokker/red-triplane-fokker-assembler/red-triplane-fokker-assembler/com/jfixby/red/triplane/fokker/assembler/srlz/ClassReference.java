@@ -1,8 +1,8 @@
 package com.jfixby.red.triplane.fokker.assembler.srlz;
 
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.Collections;
-import com.jfixby.cmns.api.err.Err;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.err.Err;
 
 public class ClassReference {
 

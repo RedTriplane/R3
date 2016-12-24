@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.ui.unit.animation;
 
-import com.jfixby.cmns.api.time.TimeStream;
+import com.jfixby.scarabei.api.time.TimeStream;
 
 public interface AnimationSpecs {
 

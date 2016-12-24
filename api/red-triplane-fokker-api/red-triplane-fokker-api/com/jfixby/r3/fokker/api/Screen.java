@@ -1,7 +1,7 @@
 package com.jfixby.r3.fokker.api;
 
-import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.r3.api.ui.unit.camera.ScreenDimentions;
+import com.jfixby.scarabei.api.ComponentInstaller;
 
 public class Screen {
 

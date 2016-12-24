@@ -1,8 +1,8 @@
 
 package com.jfixby.r3.api.ui.unit.input;
 
-import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.layer.Component;
+import com.jfixby.scarabei.api.geometry.Rectangle;
 
 public interface TouchArea extends Component, InputComponent {
 

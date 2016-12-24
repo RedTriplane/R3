@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.ui;
 
-import com.jfixby.cmns.api.assets.ID;
+import com.jfixby.scarabei.api.assets.ID;
 
 public interface UnitsMachineComponent {
 

@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.ui.unit.animation;
 
-import com.jfixby.cmns.api.geometry.CanvasPosition;
+import com.jfixby.scarabei.api.geometry.CanvasPosition;
 
 public interface PositionAnchor extends CanvasPosition {
 

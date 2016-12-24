@@ -8,21 +8,21 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URISyntaxException;
 
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.CollectionFilter;
-import com.jfixby.cmns.api.collections.Collections;
-import com.jfixby.cmns.api.collections.List;
-import com.jfixby.cmns.api.collections.Set;
-import com.jfixby.cmns.api.desktop.DesktopSetup;
-import com.jfixby.cmns.api.file.File;
-import com.jfixby.cmns.api.file.LocalFileSystem;
-import com.jfixby.cmns.api.json.Json;
-import com.jfixby.cmns.api.log.L;
-import com.jfixby.cmns.api.sys.Sys;
 import com.jfixby.red.triplane.fokker.assembler.AndroidProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.DesktopProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.iOSProjectSettings;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.collections.CollectionFilter;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.collections.Set;
+import com.jfixby.scarabei.api.desktop.DesktopSetup;
+import com.jfixby.scarabei.api.file.File;
+import com.jfixby.scarabei.api.file.LocalFileSystem;
+import com.jfixby.scarabei.api.json.Json;
+import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.sys.Sys;
 
 public class FindSrlzd {
 

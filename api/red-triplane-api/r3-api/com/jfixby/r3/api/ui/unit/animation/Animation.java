@@ -1,7 +1,7 @@
 package com.jfixby.r3.api.ui.unit.animation;
 
-import com.jfixby.cmns.api.color.Color;
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
+import com.jfixby.scarabei.api.color.Color;
 
 public interface Animation extends VisibleComponent {
 

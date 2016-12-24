@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.physics;
 
-import com.jfixby.cmns.api.collections.Collection;
+import com.jfixby.scarabei.api.collections.Collection;
 
 public interface PolyBodySpecs {
 

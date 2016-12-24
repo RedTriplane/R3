@@ -1,7 +1,7 @@
 
 package com.jfixby.red.triplane.fokker.android;
 
-import com.jfixby.android.api.DisplayMetrics;
+import com.jfixby.scarabei.android.api.DisplayMetrics;
 
 public class RedDisplayMetrics implements DisplayMetrics {
 

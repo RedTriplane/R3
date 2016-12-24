@@ -2,16 +2,16 @@ package com.jfixby.red.triplane.fokker.assembler.srlz;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.Collections;
-import com.jfixby.cmns.api.collections.List;
-import com.jfixby.cmns.api.collections.Set;
-import com.jfixby.cmns.api.file.ChildrenList;
-import com.jfixby.cmns.api.file.File;
 import com.jfixby.red.triplane.fokker.assembler.AndroidProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.DesktopProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.iOSProjectSettings;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.collections.Set;
+import com.jfixby.scarabei.api.file.ChildrenList;
+import com.jfixby.scarabei.api.file.File;
 import com.jfixby.tool.eclipse.dep.EclipseProjectDependencies;
 import com.jfixby.tool.eclipse.dep.EclipseProjectInfo;
 import com.jfixby.tool.eclipse.dep.EclipseWorkSpaceSettings;

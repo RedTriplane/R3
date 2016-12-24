@@ -1,6 +1,6 @@
 package com.jfixby.red.triplane.fokker.assembler.ds;
 
-import com.jfixby.cmns.api.log.L;
+import com.jfixby.scarabei.api.log.L;
 
 public class AssemblerConfig {
 

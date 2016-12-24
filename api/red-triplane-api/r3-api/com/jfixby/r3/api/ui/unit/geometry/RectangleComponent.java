@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.api.ui.unit.geometry;
 
-import com.jfixby.cmns.api.color.Color;
+import com.jfixby.scarabei.api.color.Color;
 
 public interface RectangleComponent extends RectangularComponent {
 

@@ -2,7 +2,7 @@ package com.jfixby.red.triplane.fokker.assembler;
 
 import java.io.IOException;
 
-import com.jfixby.cmns.api.file.File;
+import com.jfixby.scarabei.api.file.File;
 import com.jfixby.tool.eclipse.dep.EclipseProjectInfo;
 
 public class GwtProjectSettings {

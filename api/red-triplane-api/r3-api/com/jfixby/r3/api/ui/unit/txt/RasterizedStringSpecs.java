@@ -1,9 +1,9 @@
 
 package com.jfixby.r3.api.ui.unit.txt;
 
-import com.jfixby.cmns.api.assets.ID;
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.color.Color;
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.color.Color;
 
 public interface RasterizedStringSpecs {
 

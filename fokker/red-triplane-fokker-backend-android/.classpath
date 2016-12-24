@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="red-triplane-fokker-backend-android"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-api-android"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api-android"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx"/>
@@ -10,7 +10,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-backend-android"/>
 	<classpathentry kind="lib" path="/libs/android/android-4.4.jar"/>
 	<classpathentry kind="lib" path="/libs/android/support-v4-19.0.1.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cmns-red-android"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-android"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

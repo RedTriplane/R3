@@ -1,7 +1,7 @@
 package com.jfixby.r3.api.shader;
 
-import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.rana.api.pkg.PackageReader;
+import com.jfixby.scarabei.api.ComponentInstaller;
 
 public class R3Shader {
 

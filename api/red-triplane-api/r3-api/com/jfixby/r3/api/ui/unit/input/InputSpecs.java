@@ -1,8 +1,8 @@
 
 package com.jfixby.r3.api.ui.unit.input;
 
-import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
+import com.jfixby.scarabei.api.collections.Collection;
 
 public interface InputSpecs {
 	String getName ();

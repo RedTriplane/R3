@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.api.ui.unit.parallax;
 
-import com.jfixby.cmns.api.collections.Collection;
+import com.jfixby.scarabei.api.collections.Collection;
 
 public interface ParallaxSpecs {
 

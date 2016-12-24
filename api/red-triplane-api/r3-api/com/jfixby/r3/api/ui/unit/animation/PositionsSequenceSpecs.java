@@ -1,8 +1,8 @@
 
 package com.jfixby.r3.api.ui.unit.animation;
 
-import com.jfixby.cmns.api.collections.List;
 import com.jfixby.r3.api.ui.unit.CanvasPositionable;
+import com.jfixby.scarabei.api.collections.List;
 
 public interface PositionsSequenceSpecs extends AnimationSpecs {
 

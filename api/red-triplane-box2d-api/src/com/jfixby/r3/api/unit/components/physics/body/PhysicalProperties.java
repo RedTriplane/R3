@@ -1,7 +1,7 @@
 package com.jfixby.r3.api.unit.components.physics.body;
 
-import com.jfixby.cmns.api.collisions.CollisionCategory;
-import com.jfixby.cmns.api.collisions.CollisionRelations;
+import com.jfixby.scarabei.api.collisions.CollisionCategory;
+import com.jfixby.scarabei.api.collisions.CollisionRelations;
 
 public interface PhysicalProperties {
 

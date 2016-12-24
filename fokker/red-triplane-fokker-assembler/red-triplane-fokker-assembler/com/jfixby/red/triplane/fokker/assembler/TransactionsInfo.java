@@ -3,9 +3,9 @@ package com.jfixby.red.triplane.fokker.assembler;
 import java.io.IOException;
 import java.util.Vector;
 
-import com.jfixby.cmns.api.file.File;
-import com.jfixby.cmns.api.file.LocalFileSystem;
-import com.jfixby.cmns.api.json.Json;
+import com.jfixby.scarabei.api.file.File;
+import com.jfixby.scarabei.api.file.LocalFileSystem;
+import com.jfixby.scarabei.api.json.Json;
 
 public class TransactionsInfo {
 

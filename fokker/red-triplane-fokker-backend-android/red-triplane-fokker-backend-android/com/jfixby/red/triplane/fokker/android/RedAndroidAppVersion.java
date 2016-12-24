@@ -1,9 +1,9 @@
 
 package com.jfixby.red.triplane.fokker.android;
 
-import com.jfixby.android.api.AndroidAppVersion;
-import com.jfixby.cmns.api.assets.ID;
-import com.jfixby.cmns.api.assets.Names;
+import com.jfixby.scarabei.android.api.AndroidAppVersion;
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.assets.Names;
 
 public class RedAndroidAppVersion implements AndroidAppVersion {
 

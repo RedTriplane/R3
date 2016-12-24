@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.ui;
 
-import com.jfixby.cmns.api.ComponentInstaller;
+import com.jfixby.scarabei.api.ComponentInstaller;
 
 public class UIStarter {
 

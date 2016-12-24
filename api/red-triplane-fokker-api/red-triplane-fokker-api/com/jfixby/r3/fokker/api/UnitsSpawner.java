@@ -1,9 +1,9 @@
 
 package com.jfixby.r3.fokker.api;
 
-import com.jfixby.cmns.api.ComponentInstaller;
 import com.jfixby.r3.api.ui.Intent;
 import com.jfixby.r3.api.ui.unit.Unit;
+import com.jfixby.scarabei.api.ComponentInstaller;
 
 public class UnitsSpawner {
 	static private ComponentInstaller<UnitSpawnerComponent> componentInstaller = new ComponentInstaller<UnitSpawnerComponent>(

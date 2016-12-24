@@ -1,10 +1,10 @@
 package org.box2d.r3.gdx.beditor;
 
-import com.jfixby.cmns.api.collections.Collection;
-import com.jfixby.cmns.api.collections.Collections;
-import com.jfixby.cmns.api.collections.Set;
-import com.jfixby.cmns.api.floatn.Float2;
-import com.jfixby.cmns.api.geometry.Geometry;
+import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.Set;
+import com.jfixby.scarabei.api.floatn.Float2;
+import com.jfixby.scarabei.api.geometry.Geometry;
 
 public class RedPolyBodyChain  {
 

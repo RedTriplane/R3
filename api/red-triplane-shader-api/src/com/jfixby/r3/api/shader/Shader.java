@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.shader;
 
-import com.jfixby.cmns.api.collections.Mapping;
+import com.jfixby.scarabei.api.collections.Mapping;
 
 public interface Shader {
 

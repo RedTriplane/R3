@@ -1,10 +1,10 @@
 
 package com.jfixby.r3.api.ui;
 
-import com.jfixby.cmns.api.assets.ID;
-import com.jfixby.cmns.api.collections.Collection;
 import com.jfixby.r3.api.logic.LoadTask;
 import com.jfixby.rana.api.pkg.PackageReaderListener;
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.collections.Collection;
 
 public interface UIComponent {
 

@@ -1,8 +1,8 @@
 package com.jfixby.r3.api.ui.unit.geometry;
 
-import com.jfixby.cmns.api.color.Color;
-import com.jfixby.cmns.api.geometry.ClosedPolygonalChain;
 import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
+import com.jfixby.scarabei.api.color.Color;
+import com.jfixby.scarabei.api.geometry.ClosedPolygonalChain;
 
 public interface PolyComponent extends CanvasComponent {
 

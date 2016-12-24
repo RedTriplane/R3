@@ -1,9 +1,9 @@
 
 package com.jfixby.r3.api.ui.unit.geometry;
 
-import com.jfixby.cmns.api.geometry.Rectangle;
 import com.jfixby.r3.api.ui.unit.CanvasPositionable;
 import com.jfixby.r3.api.ui.unit.raster.CanvasComponent;
+import com.jfixby.scarabei.api.geometry.Rectangle;
 
 public interface RectangularComponent extends CanvasComponent, CanvasPositionable, Rectangle {
 
