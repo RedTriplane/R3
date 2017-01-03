@@ -2,7 +2,7 @@
 package com.jfixby.red.triplane.fokker.android.run;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.backends.android.iOSApplicationConfiguration;
+import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.jfixby.red.triplane.fokker.android.RedAndroidAppVersion;
@@ -34,7 +34,7 @@ import android.util.Log;
 public abstract class RedTriplaneAndroidApplication extends RedAndroidApplication implements AndroidComponent {
 
 	private ApplicationListener gdxListener;
-	private iOSApplicationConfiguration androidConfig;
+	private AndroidApplicationConfiguration androidConfig;
 	private final RedAndroidCameraSetup cameraSetup = new RedAndroidCameraSetup(this);
 	public static int orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 

@@ -99,16 +99,16 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 	private float ppcY = 0;
 	private float density = 1;
 
-	protected final iOSApplicationConfiguration config;
+	protected final AndroidApplicationConfiguration config;
 	private BufferFormat bufferFormat = new BufferFormat(5, 6, 5, 0, 16, 0, 0, false);
 	private boolean isContinuous = true;
 
-	public RedAndroidGraphics (final AndroidApplicationBase application, final iOSApplicationConfiguration config,
+	public RedAndroidGraphics (final AndroidApplicationBase application, final AndroidApplicationConfiguration config,
 		final ResolutionStrategy resolutionStrategy) {
 		this(application, config, resolutionStrategy, true);
 	}
 
-	public RedAndroidGraphics (final AndroidApplicationBase application, final iOSApplicationConfiguration config,
+	public RedAndroidGraphics (final AndroidApplicationBase application, final AndroidApplicationConfiguration config,
 		final ResolutionStrategy resolutionStrategy, final boolean focusableView) {
 		this.config = config;
 		this.app = application;
