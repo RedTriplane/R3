@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.jfixby.red.triplane.fokker.android.run.RedTriplaneAndroidApplication;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;

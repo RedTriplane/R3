@@ -191,7 +191,9 @@ public class FindSrlzd {
 					final ParameterizedType subTypeList = (ParameterizedType)generic_type;
 					final Type[] type_ars = subTypeList.getActualTypeArguments();
 					final Set<Type> subtypes = Collections.newSet(type_ars);
-					List<Class<?>> tmp = Collections.castCollection(subtypes);
+// List<Class<?>> tmp = Collections.castCollection(subtypes);
+					Collection<Class<?>> tmp = (Collection<Class<?>>)(Collection<? extends Class<?>>)(Collection<? extends Type>)subtypes;
+
 					// subtypes.print("subtypes");
 					tmp = Collections.filter(tmp, type_i -> !processed.contains(type_i));
 					// tmp = Collections.filter(tmp, type_i ->

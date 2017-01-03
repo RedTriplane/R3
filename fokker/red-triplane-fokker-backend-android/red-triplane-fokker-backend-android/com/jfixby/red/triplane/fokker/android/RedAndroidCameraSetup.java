@@ -2,6 +2,7 @@
 package com.jfixby.red.triplane.fokker.android;
 
 import com.badlogic.gdx.backends.android.AndroidGraphics;
+import com.jfixby.red.triplane.fokker.android.run.RedTriplaneAndroidApplication;
 import com.jfixby.scarabei.android.api.camera.AndroidCameraSetup;
 
 import android.graphics.PixelFormat;

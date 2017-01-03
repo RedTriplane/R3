@@ -7,6 +7,5 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-backend-jglfw"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx-backend-lwjgl"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/gdx-backend-lwjgl3"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
