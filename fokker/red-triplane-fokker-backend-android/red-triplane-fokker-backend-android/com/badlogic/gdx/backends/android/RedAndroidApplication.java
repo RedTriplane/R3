@@ -28,9 +28,5 @@ import android.os.Bundle;
  *
  * @author mzechner */
 public class RedAndroidApplication extends AndroidApplication {
-  
-  public static float dpToPx(int dp, Context ctx) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, ctx.getResources().getDisplayMetrics());
- }
 
 }
