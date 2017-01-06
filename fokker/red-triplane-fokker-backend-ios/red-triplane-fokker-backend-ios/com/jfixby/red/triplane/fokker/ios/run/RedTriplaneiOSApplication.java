@@ -2,8 +2,6 @@
 package com.jfixby.red.triplane.fokker.ios.run;
 
 import com.badlogic.gdx.backends.iosrobovm.IOSApplication;
-import com.badlogic.gdx.backends.iosrobovm.IOSApplication.Delegate;
-import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.sys.SystemInfo;
@@ -14,23 +12,15 @@ import com.jfixby.scarabei.ios.api.camera.iOSCameraSetup;
 
 public class RedTriplaneiOSApplication implements iOSComponent {
 
-	private final Delegate iosLauncher;
+	private final IOSApplication.Delegate iosLauncher;
+	private final iOSLauncher launcher;
 
-	public RedTriplaneiOSApplication (final IOSApplication.Delegate iosLauncher) {
-		Debug.checkNull("iosLauncher", iosLauncher);
-		this.iosLauncher = iosLauncher;
-	}
-
-	@Override
-	public long getMaxHeapSize () {
-		Err.throwNotImplementedYet();
-		return 0;
-	}
-
-	@Override
-	public long getRecommendedHeapSize () {
-		Err.throwNotImplementedYet();
-		return 0;
+	public RedTriplaneiOSApplication (final iOSLauncher launcher) {
+		if (launcher == null) {
+			throw new Error("launcher is null");
+		}
+		this.iosLauncher = launcher.getDelegate();
+		this.launcher = launcher;
 	}
 
 	@Override
