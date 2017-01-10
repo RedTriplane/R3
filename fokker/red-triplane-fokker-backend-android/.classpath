@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="/libs/android/support-v4-19.0.1.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-android"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

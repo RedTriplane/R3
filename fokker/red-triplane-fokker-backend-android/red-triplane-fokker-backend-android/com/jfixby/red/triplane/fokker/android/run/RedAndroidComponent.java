@@ -1,14 +1,14 @@
 
 package com.jfixby.red.triplane.fokker.android.run;
 
+import com.jfixby.r3.fokker.backend.RedDisplayMetrics;
 import com.jfixby.red.triplane.fokker.android.RedAndroidAppVersion;
 import com.jfixby.red.triplane.fokker.android.RedAndroidCameraSetup;
-import com.jfixby.red.triplane.fokker.android.RedDisplayMetrics;
 import com.jfixby.scarabei.android.api.AndroidAppVersion;
 import com.jfixby.scarabei.android.api.AndroidComponent;
 import com.jfixby.scarabei.android.api.AndroidSystemInfoTags;
-import com.jfixby.scarabei.android.api.DisplayMetrics;
 import com.jfixby.scarabei.android.api.camera.AndroidCameraSetup;
+import com.jfixby.scarabei.api.display.DisplayMetrics;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.LocalFileSystem;
@@ -164,8 +164,8 @@ public class RedAndroidComponent implements AndroidComponent {
 		final RedDeviceInfo deviceInfo = new RedDeviceInfo();
 		{
 			final DisplayMetrics displayMetrics = this.getDisplayMetrics();
-			final int height = displayMetrics.getHeight();
-			final int width = displayMetrics.getWidth();
+			final double height = displayMetrics.getHeight();
+			final double width = displayMetrics.getWidth();
 			deviceInfo.putValue(AndroidSystemInfoTags.Display.WIDTH, width);
 			deviceInfo.putValue(AndroidSystemInfoTags.Display.HEIGHT, height);
 		}
@@ -210,7 +210,9 @@ public class RedAndroidComponent implements AndroidComponent {
 		}
 
 		{
-			deviceInfo.putValue(SystemInfoTags.System.OS_NAME, "Android");
+			deviceInfo.putValue(SystemInfoTags.System.OS_NAME, System.getProperty("os.name"));
+			deviceInfo.putValue(SystemInfoTags.System.OS_VERSION, System.getProperty("os.version"));
+
 		}
 
 		{

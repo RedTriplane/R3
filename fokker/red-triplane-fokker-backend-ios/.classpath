@@ -6,5 +6,12 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api-ios"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx"/>
+	<classpathentry kind="lib" path="libs/robovm-cacerts-full.jar"/>
+	<classpathentry kind="lib" path="libs/robovm-cocoatouch.jar"/>
+	<classpathentry kind="lib" path="libs/robovm-objc.jar"/>
+	<classpathentry kind="lib" path="libs/robovm-rt.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-ios"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
