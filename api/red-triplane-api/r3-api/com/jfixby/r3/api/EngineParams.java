@@ -5,8 +5,10 @@ public class EngineParams {
 
 	public static class Settings {
 		public static final String PrintLogMessageOnMissingSprite = "PrintLogMessageOnMissingSprite";
+		public static final String PrintLogMessageOnMissingShader = "PrintLogMessageOnMissingShader";
 		public static final String DisableLogo = "DisableLogo";
 		public static final String AllowMissingRaster = "AllowMissingRaster";
+		public static final String AllowMissingShader = "AllowMissingShader";
 		public static final String ExitOnMissingSprite = "ExitOnMissingSprite";
 	}
 

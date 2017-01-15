@@ -1,11 +1,16 @@
+
 package com.jfixby.r3.api.ui.unit.shader;
 
-import com.jfixby.r3.api.shader.ShaderAsset;
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.geometry.Rectangle;
 
 public interface ShaderSpecs {
 
-	void setShaderAsset(ShaderAsset shader_asset);
+	void setShaderAssetID (ID shader_asset);
 
-	ShaderAsset getShaderAsset();
+	ID getShaderAssetID ();
 
+	void setShape (Rectangle shape);
+
+	Rectangle getShape ();
 }

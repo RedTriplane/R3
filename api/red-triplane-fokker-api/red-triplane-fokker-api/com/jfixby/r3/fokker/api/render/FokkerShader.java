@@ -1,7 +1,14 @@
+
 package com.jfixby.r3.fokker.api.render;
 
-public interface FokkerShader  {
+import com.jfixby.scarabei.api.geometry.Rectangle;
 
-	Object getGdxShaderProgram();
+public interface FokkerShader {
+
+	com.badlogic.gdx.graphics.glutils.ShaderProgram getGdxShaderProgram ();
+
+	boolean isOverlay ();
+
+	Rectangle shape ();
 
 }

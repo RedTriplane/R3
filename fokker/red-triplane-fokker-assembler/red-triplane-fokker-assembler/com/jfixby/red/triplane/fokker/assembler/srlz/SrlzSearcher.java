@@ -10,7 +10,7 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.collections.Set;
-import com.jfixby.scarabei.api.file.ChildrenList;
+import com.jfixby.scarabei.api.file.FilesList;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.tool.eclipse.dep.EclipseProjectDependencies;
 import com.jfixby.tool.eclipse.dep.EclipseProjectInfo;
@@ -77,11 +77,11 @@ public class SrlzSearcher {
 			JavaFileHandler handler = new JavaFileHandler(sources);
 			this.java_files_list.add(handler);
 		} else if (sources.isFolder()) {
-			ChildrenList java_files = sources.listDirectChildren().filterByExtension(".java");
+			FilesList java_files = sources.listDirectChildren().filterByExtension(".java");
 			for (File src : java_files) {
 				indexJavaFiles(src);
 			}
-			ChildrenList subfoldes = sources.listSubFolders();
+			FilesList subfoldes = sources.listSubFolders();
 			for (File folder : subfoldes) {
 				indexJavaFiles(folder);
 			}

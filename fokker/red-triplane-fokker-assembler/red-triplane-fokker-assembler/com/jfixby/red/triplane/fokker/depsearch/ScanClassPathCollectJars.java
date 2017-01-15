@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.desktop.DesktopSetup;
-import com.jfixby.scarabei.api.file.ChildrenList;
+import com.jfixby.scarabei.api.file.FilesList;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.FileFilter;
 import com.jfixby.scarabei.api.file.LocalFileSystem;
@@ -29,7 +29,7 @@ public class ScanClassPathCollectJars {
 			}
 			return false;
 		};
-		final ChildrenList folders = gradle_path.listDirectChildren().filterFiles(filter);
+		final FilesList folders = gradle_path.listDirectChildren().filter(filter);
 		final File core = folders.findChild("core");
 		final List<String> core_jars = collectJars(core, jars, Collections.newList());
 		core_jars.print("core_jars");

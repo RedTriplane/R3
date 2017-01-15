@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.api.shader.srlz;
 
 public class R3_SHADER_SETTINGS {
