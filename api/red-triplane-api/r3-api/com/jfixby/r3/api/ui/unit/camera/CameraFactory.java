@@ -1,9 +1,6 @@
-package com.jfixby.r3.api.ui.unit.layer;
+package com.jfixby.r3.api.ui.unit.camera;
 
-import com.jfixby.r3.api.ui.unit.camera.Camera;
-import com.jfixby.r3.api.ui.unit.camera.CameraSpecs;
-
-public interface CameraComponentsFactory {
+public interface CameraFactory {
 
 	CameraSpecs newCameraSpecs();
 

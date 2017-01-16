@@ -1,4 +1,6 @@
-package com.jfixby.r3.api.ui.unit.layer;
+package com.jfixby.r3.api.ui.unit.camera;
+
+import com.jfixby.r3.api.ui.unit.layer.Component;
 
 public interface Shadow extends Component {
 
