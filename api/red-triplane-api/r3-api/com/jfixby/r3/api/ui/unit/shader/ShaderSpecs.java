@@ -13,4 +13,12 @@ public interface ShaderSpecs {
 	void setShape (Rectangle shape);
 
 	Rectangle getShape ();
+
+	void setVertexProgramRawString (String string);
+
+	void setFragmentProgramRawString (String string);
+
+	String getVertexProgramRawString ();
+
+	String getFragmentProgramRawString ();
 }

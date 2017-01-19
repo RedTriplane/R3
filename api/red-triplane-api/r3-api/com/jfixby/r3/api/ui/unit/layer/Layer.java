@@ -54,6 +54,6 @@ public interface Layer extends VisibleComponent {
 
 	public Collection<Component> listChildren ();
 
-	public void printChildren (String tag);
+	public void printChildrenList (String tag);
 
 }
