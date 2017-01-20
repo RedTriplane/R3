@@ -6,6 +6,7 @@ import com.jfixby.r3.api.ui.unit.camera.Camera;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.geometry.Projection;
+import com.jfixby.scarabei.api.util.path.RelativePath;
 
 public interface Layer extends VisibleComponent {
 	public void closeInputValve ();
@@ -45,6 +46,8 @@ public interface Layer extends VisibleComponent {
 	public <Q extends NamedComponent> Collection<Q> findComponents (String element_name);
 
 	public <Q extends NamedComponent> Q findComponent (String element_name);
+
+	public <Q extends NamedComponent> Q findComponent (RelativePath relative);
 
 	public <Q extends NamedComponent> Collection<Q> findComponents (ID element_name);
 
