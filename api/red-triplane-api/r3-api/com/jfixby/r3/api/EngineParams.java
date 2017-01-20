@@ -10,6 +10,7 @@ public class EngineParams {
 		public static final String AllowMissingRaster = "AllowMissingRaster";
 		public static final String AllowMissingShader = "AllowMissingShader";
 		public static final String ExitOnMissingSprite = "ExitOnMissingSprite";
+		public static final String PrintLogMessageOnDuplicateAssetRequest = "PrintLogMessageOnDuplicateAssetRequest";
 	}
 
 	public static class Assets {
