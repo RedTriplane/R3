@@ -3,6 +3,7 @@ package com.jfixby.r3.ext.api.scene2d;
 
 import com.jfixby.rana.api.pkg.PackageReaderListener;
 import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.time.TimeStream;
 
 public interface Scene2DSpawningConfig {
 
@@ -25,6 +26,10 @@ public interface Scene2DSpawningConfig {
 	PackageReaderListener getPackageListener ();
 
 	void setPackageListener (PackageReaderListener listener);
+
+	TimeStream getAnimationsTimeStream ();
+
+	void setAnimationsTimeStream (TimeStream time);
 
 // void setAssetsConsumer (AssetsConsumer consumer);
 
