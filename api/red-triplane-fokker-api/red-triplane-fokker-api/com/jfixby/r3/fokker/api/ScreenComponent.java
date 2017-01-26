@@ -1,19 +1,24 @@
+
 package com.jfixby.r3.fokker.api;
 
 import com.jfixby.r3.api.ui.unit.camera.ScreenDimentions;
 
 public interface ScreenComponent {
 
-	boolean isInValidState();
+	boolean isInValidState ();
 
-	int getScreenWidth();
+	int getScreenWidth ();
 
-	int getScreenHeight();
+	int getScreenHeight ();
 
-	long getLastUpdateCycleNumber();
+	long getLastUpdateCycleNumber ();
 
-	ScreenDimentionsChecker newScreenDimentionsChecker();
+	ScreenDimentionsChecker newScreenDimentionsChecker ();
 
-	ScreenDimentions getScreenDimensions();
+	ScreenDimentions getScreenDimensions ();
+
+	void setDebugScaleFactor (double debugScaleFactor);
+
+	double getDebugScaleFactor ();
 
 }

@@ -89,5 +89,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/star-craft"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api-desktop"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-gson"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

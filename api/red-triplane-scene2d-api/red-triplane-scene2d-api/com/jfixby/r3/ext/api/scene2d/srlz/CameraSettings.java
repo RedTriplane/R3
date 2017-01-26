@@ -17,7 +17,7 @@ public class CameraSettings implements java.io.Serializable {
 	public MODE mode = null;
 
 	public enum MODE {
-		FILL_SCREEN
+		FILL_SCREEN, FILL_SCREEN_APERTURE_WRAP
 	}
 
 }
