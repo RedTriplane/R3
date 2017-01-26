@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.fokker.api;
 
 import com.jfixby.scarabei.api.input.Key;
@@ -5,38 +6,38 @@ import com.jfixby.scarabei.api.input.MouseButton;
 
 public interface InputEvent {
 
-	boolean isMouseEvent();
+	boolean isMouseEvent ();
 
-	boolean isKeyboardEvent();
+	boolean isKeyboardEvent ();
 
-	boolean isKeyTypedEvent();
+	boolean isKeyTypedEvent ();
 
-	boolean isKeyDownEvent();
+	boolean isKeyDownEvent ();
 
-	boolean isKeyUpEvent();
+	boolean isKeyUpEvent ();
 
-	Key getKey();
+	Key getKey ();
 
-	char getCharTyped();
+	char getCharTyped ();
 
-	int getScreenX();
+	double getScreenX ();
 
-	int getScreenY();
+	double getScreenY ();
 
-	boolean isMouseMovedEvent();
+	boolean isMouseMovedEvent ();
 
-	boolean isMouseDraggedEvent();
+	boolean isMouseDraggedEvent ();
 
-	boolean isMouseDownEvent();
+	boolean isMouseDownEvent ();
 
-	boolean isMouseUpEvent();
+	boolean isMouseUpEvent ();
 
-	int getPointerNumber();
+	int getPointerNumber ();
 
-	MouseButton getMouseButton();
+	MouseButton getMouseButton ();
 
-	boolean isMouseScrolled();
+	boolean isMouseScrolled ();
 
-	int getScrollAmount();
+	int getScrollAmount ();
 
 }
