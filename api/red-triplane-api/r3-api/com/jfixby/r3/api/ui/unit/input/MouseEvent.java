@@ -7,4 +7,6 @@ public interface MouseEvent {
 
 	FixedFloat2 getCanvasPosition ();
 
+	int getPointerNumber ();
+
 }
