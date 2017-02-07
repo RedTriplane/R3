@@ -15,7 +15,7 @@ import com.jfixby.r3.api.ui.unit.txt.TextBar;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Mapping;
-import com.jfixby.scarabei.api.floatn.FixedFloat2;
+import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 
 public interface Scene extends NamedComponent {
 
@@ -45,7 +45,7 @@ public interface Scene extends NamedComponent {
 
 	public Collection<Layer> findLayer (String layerName);
 
-	public FixedFloat2 getOriginalDimentions ();
+	public ReadOnlyFloat2 getOriginalDimentions ();
 
 	public void show ();
 

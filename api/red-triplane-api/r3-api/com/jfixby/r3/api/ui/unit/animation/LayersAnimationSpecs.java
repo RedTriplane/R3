@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.api.ui.unit.animation;
 
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
@@ -5,19 +6,17 @@ import com.jfixby.scarabei.api.collections.List;
 
 public interface LayersAnimationSpecs extends AnimationSpecs {
 
-	void addFrame(VisibleComponent child);
+	void addFrame (VisibleComponent child);
 
-	List<VisibleComponent> getFrames();
-
-	
+	List<VisibleComponent> getFrames ();
 
 	// void setIsSimple(boolean is_simple_animation);
 
 	// boolean isSimple();
 
-	long getFrameTime();
+	long getFrameTime ();
 
-	void setFrameTime(long single_frame_time);
+	void setFrameTime (long single_frame_time);
 
 	// void setIsPositionModifyer(boolean is_positions_modifyer_animation);
 

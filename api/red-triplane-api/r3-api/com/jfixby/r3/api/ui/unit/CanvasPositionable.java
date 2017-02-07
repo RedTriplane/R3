@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.api.ui.unit;
 
-import com.jfixby.scarabei.api.floatn.FixedFloat2;
+import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.math.Angle;
 
@@ -9,7 +9,7 @@ public interface CanvasPositionable {
 
 	void setPosition (CanvasPosition position);
 
-	void setPosition (FixedFloat2 position);
+	void setPosition (ReadOnlyFloat2 position);
 
 	void setPosition (double position_x, double position_y);
 

@@ -22,4 +22,8 @@ public interface PositionsSequenceSpecs extends AnimationSpecs {
 	void setOnCompleteListener (OnAnimationDoneListener animation_done_listener);
 
 	OnAnimationDoneListener getOnAnimationDoneListener ();
+
+	void setUseSpline (boolean use_spline);
+
+	boolean useSpline ();
 }

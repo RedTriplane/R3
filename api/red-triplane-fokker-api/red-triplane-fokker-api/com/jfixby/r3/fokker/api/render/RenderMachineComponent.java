@@ -5,7 +5,7 @@ import com.jfixby.r3.api.ui.unit.camera.CameraProjection;
 import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
-import com.jfixby.scarabei.api.floatn.FixedFloat2;
+import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Projection;
 import com.jfixby.scarabei.api.geometry.Rectangle;
@@ -22,9 +22,9 @@ public interface RenderMachineComponent {
 
 	// void setOffset(Dot offset);
 
-	void drawLine (Color color, FixedFloat2 a, FixedFloat2 b);
+	void drawLine (Color color, ReadOnlyFloat2 a, ReadOnlyFloat2 b);
 
-	void drawTriangle (Color color, FixedFloat2 a, FixedFloat2 b, FixedFloat2 c);
+	void drawTriangle (Color color, ReadOnlyFloat2 a, ReadOnlyFloat2 b, ReadOnlyFloat2 c);
 
 	void endDrawComponent (FokkerDrawable fokkerDrawable);
 

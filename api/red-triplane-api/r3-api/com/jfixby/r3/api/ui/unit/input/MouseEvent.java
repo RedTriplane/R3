@@ -1,11 +1,11 @@
 
 package com.jfixby.r3.api.ui.unit.input;
 
-import com.jfixby.scarabei.api.floatn.FixedFloat2;
+import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 
 public interface MouseEvent {
 
-	FixedFloat2 getCanvasPosition ();
+	ReadOnlyFloat2 getCanvasPosition ();
 
 	int getPointerNumber ();
 

@@ -6,7 +6,7 @@ import com.jfixby.r3.api.ui.unit.raster.BLEND_MODE;
 import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
-import com.jfixby.scarabei.api.floatn.FixedFloat2;
+import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 
@@ -79,11 +79,11 @@ public class RenderMachine {
 		invoke().endFrame();
 	}
 
-	public static void drawLine (final Color color, final FixedFloat2 a, final FixedFloat2 b) {
+	public static void drawLine (final Color color, final ReadOnlyFloat2 a, final ReadOnlyFloat2 b) {
 		invoke().drawLine(color, a, b);
 	}
 
-	public static void drawTriangle (final Color color, final FixedFloat2 a, final FixedFloat2 b, final FixedFloat2 c) {
+	public static void drawTriangle (final Color color, final ReadOnlyFloat2 a, final ReadOnlyFloat2 b, final ReadOnlyFloat2 c) {
 		invoke().drawTriangle(color, a, b, c);
 	}
 

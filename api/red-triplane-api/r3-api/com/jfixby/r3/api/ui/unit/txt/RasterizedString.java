@@ -3,7 +3,7 @@ package com.jfixby.r3.api.ui.unit.txt;
 
 import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
 import com.jfixby.r3.api.ui.unit.raster.BlendableComponent;
-import com.jfixby.scarabei.api.floatn.FixedFloat2;
+import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.ORIGIN_RELATIVE_HORIZONTAL;
 import com.jfixby.scarabei.api.geometry.ORIGIN_RELATIVE_VERTICAL;
@@ -25,7 +25,7 @@ public interface RasterizedString extends VisibleComponent, BlendableComponent {
 
 	void setPosition (CanvasPosition position);
 
-	void setPosition (FixedFloat2 position);
+	void setPosition (ReadOnlyFloat2 position);
 
 	void setDebugRenderFlag (boolean b);
 

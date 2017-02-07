@@ -1,6 +1,6 @@
 package com.jfixby.r3.api.ui.unit.camera;
 
-import com.jfixby.scarabei.api.floatn.FixedFloat2;
+import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.ORIGIN_RELATIVE_HORIZONTAL;
 import com.jfixby.scarabei.api.geometry.ORIGIN_RELATIVE_VERTICAL;
@@ -15,7 +15,7 @@ public interface Camera {
 
 	public CanvasPosition getPosition();
 
-	public void setPosition(FixedFloat2 newPostition);
+	public void setPosition(ReadOnlyFloat2 newPostition);
 
 	public void setPosition(double x, double y);
 

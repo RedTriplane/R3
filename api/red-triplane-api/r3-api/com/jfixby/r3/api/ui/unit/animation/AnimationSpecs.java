@@ -1,15 +1,16 @@
+
 package com.jfixby.r3.api.ui.unit.animation;
 
 import com.jfixby.scarabei.api.time.TimeStream;
 
 public interface AnimationSpecs {
 
-	void setTimeStream(TimeStream clock);
+	void setTimeStream (TimeStream clock);
 
-	TimeStream getTimeStream();
+	TimeStream getTimeStream ();
 
-	void setIsLooped(boolean is_looped);
+	void setIsLooped (boolean is_looped);
 
-	public boolean isLooped();
+	public boolean isLooped ();
 
 }
