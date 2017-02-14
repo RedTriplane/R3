@@ -40,6 +40,9 @@ public class LayerElement implements java.io.Serializable {
 	public double position_x;
 	public double position_y;
 
+	public double offset_x;
+	public double offset_y;
+
 	public double origin_relative_x;
 	public double origin_relative_y;
 

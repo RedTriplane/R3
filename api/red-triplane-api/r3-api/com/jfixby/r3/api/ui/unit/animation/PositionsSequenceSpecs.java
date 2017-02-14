@@ -1,8 +1,9 @@
 
 package com.jfixby.r3.api.ui.unit.animation;
 
-import com.jfixby.r3.api.ui.unit.CanvasPositionable;
+import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.geometry.RotateAndOffsetProjection;
 
 public interface PositionsSequenceSpecs extends AnimationSpecs {
 
@@ -11,9 +12,9 @@ public interface PositionsSequenceSpecs extends AnimationSpecs {
 	//
 	List<PositionAnchor> listAnchors ();
 
-	void setComponent (CanvasPositionable frame);
+	void setFramesContainer (Layer frame);
 
-	CanvasPositionable getComponent ();
+	Layer getFramesContainer ();
 
 	boolean componentRequiresAttachment ();
 
@@ -26,4 +27,9 @@ public interface PositionsSequenceSpecs extends AnimationSpecs {
 	void setUseSpline (boolean use_spline);
 
 	boolean useSpline ();
+
+	void setProjection (RotateAndOffsetProjection projection);
+
+	RotateAndOffsetProjection getProjection ();
+
 }
