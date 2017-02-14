@@ -205,4 +205,10 @@ public class RedTriplaneiOSApplication implements iOSComponent {
 		return deviceInfo;
 	}
 
+	@Override
+	public File getAssetsFolder () {
+		Err.throwNotImplementedYet();
+		return null;
+	}
+
 }

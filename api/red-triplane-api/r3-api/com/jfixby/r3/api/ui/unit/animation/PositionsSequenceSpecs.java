@@ -16,10 +16,6 @@ public interface PositionsSequenceSpecs extends AnimationSpecs {
 
 	Layer getFramesContainer ();
 
-	boolean componentRequiresAttachment ();
-
-	void setComponentRequiresAttachment (boolean flag);
-
 	void setOnCompleteListener (OnAnimationDoneListener animation_done_listener);
 
 	OnAnimationDoneListener getOnAnimationDoneListener ();
