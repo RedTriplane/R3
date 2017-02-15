@@ -16,9 +16,9 @@ public interface PositionsSequenceSpecs extends AnimationSpecs {
 
 	Layer getFramesContainer ();
 
-	void setOnCompleteListener (OnAnimationDoneListener animation_done_listener);
+	void setOnCompleteListener (AnimationLifecycleListener animation_done_listener);
 
-	OnAnimationDoneListener getOnAnimationDoneListener ();
+	AnimationLifecycleListener getOnAnimationDoneListener ();
 
 	void setUseSpline (boolean use_spline);
 
