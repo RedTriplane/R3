@@ -51,4 +51,6 @@ public interface Scene extends NamedComponent {
 
 	public void hide ();
 
+	public void startAllAnimations ();
+
 }
