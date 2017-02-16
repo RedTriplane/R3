@@ -19,16 +19,6 @@ public class AnimationSettings implements java.io.Serializable {
 	public boolean use_spline = false;
 	public boolean autostart = false;
 	public Vector<Anchor> anchors = new Vector<Anchor>();
-	public String single_frame_time = MAX + "";
-
-	public long single_frame_time () {
-		if (this.single_frame_time == null) {
-			return MAX;
-		}
-		if ("".equals(this.single_frame_time)) {
-			return MAX;
-		}
-		return Long.parseLong(this.single_frame_time);
-	}
+	public String frame_time;
 
 }
