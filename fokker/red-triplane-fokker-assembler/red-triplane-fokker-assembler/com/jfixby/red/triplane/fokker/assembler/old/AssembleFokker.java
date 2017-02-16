@@ -8,7 +8,7 @@ import com.jfixby.red.triplane.fokker.assembler.ds.BuildInfo;
 import com.jfixby.red.triplane.fokker.assembler.ds.ProjectAssemblerConfig;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
-import com.jfixby.scarabei.api.desktop.DesktopSetup;
+import com.jfixby.scarabei.api.desktop.ScarabeiDesktop;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.FileSystem;
@@ -24,7 +24,7 @@ public class AssembleFokker {
 
 	public static void main (final String[] args) throws Exception {
 
-		DesktopSetup.deploy();
+		ScarabeiDesktop.deploy();
 
 		final BuildInfo build_info = readBuildInfo();
 

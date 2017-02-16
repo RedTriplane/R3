@@ -10,7 +10,7 @@ import com.jfixby.red.triplane.fokker.assembler.FokkerAssembley;
 import com.jfixby.red.triplane.fokker.assembler.FokkerAssembleySpecs;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.iOSProjectSettings;
-import com.jfixby.scarabei.api.desktop.DesktopSetup;
+import com.jfixby.scarabei.api.desktop.ScarabeiDesktop;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.LocalFileSystem;
 import com.jfixby.scarabei.api.json.Json;
@@ -20,7 +20,7 @@ public class TransferCodeToGdxBackends {
 
 	public static void main (final String[] args) throws IOException, URISyntaxException {
 
-		DesktopSetup.deploy();
+		ScarabeiDesktop.deploy();
 		Json.installComponent("com.jfixby.cmns.adopted.gdx.json.RedJson");
 
 		final File workspace_folder = LocalFileSystem.newFile("D:\\[DEV]\\[CODE]\\[WS-19]");

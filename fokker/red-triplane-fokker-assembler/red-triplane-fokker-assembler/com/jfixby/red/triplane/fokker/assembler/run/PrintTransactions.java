@@ -11,7 +11,7 @@ import com.jfixby.red.triplane.fokker.assembler.FokkerAssembleySpecs;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.iOSProjectSettings;
 import com.jfixby.scarabei.adopted.gdx.json.GoogleGson;
-import com.jfixby.scarabei.api.desktop.DesktopSetup;
+import com.jfixby.scarabei.api.desktop.ScarabeiDesktop;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.LocalFileSystem;
 import com.jfixby.scarabei.api.json.Json;
@@ -20,7 +20,7 @@ public class PrintTransactions {
 
 	public static void main (final String[] args) throws IOException, URISyntaxException {
 
-		DesktopSetup.deploy();
+		ScarabeiDesktop.deploy();
 		Json.installComponent(new GoogleGson());
 
 		final File workspace_folder = LocalFileSystem.newFile("D:\\[DEV]\\[CODE]\\[WS-19]");
