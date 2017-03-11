@@ -1,13 +1,13 @@
 
 package com.jfixby.r3.ext.api.scene2d;
 
-import com.jfixby.r3.api.locale.LocalizedComponent;
 import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.animation.Animation;
 import com.jfixby.r3.api.ui.unit.camera.Camera;
 import com.jfixby.r3.api.ui.unit.input.InputComponent;
 import com.jfixby.r3.api.ui.unit.layer.Layer;
 import com.jfixby.r3.api.ui.unit.layer.NamedComponent;
+import com.jfixby.r3.api.ui.unit.locale.LocalizedComponent;
 import com.jfixby.r3.api.ui.unit.parallax.Parallax;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
 import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
