@@ -19,7 +19,7 @@ dependencies {
 sourceSets {
     main {
         java {
-            srcDirs = ['r3-api/','ext/']
+            srcDirs = ['r3-api/']
         }
         resources {
             

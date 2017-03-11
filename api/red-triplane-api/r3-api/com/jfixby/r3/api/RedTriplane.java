@@ -1,6 +1,7 @@
 
 package com.jfixby.r3.api;
 
+import com.jfixby.r3.api.logic.GameStarter;
 import com.jfixby.scarabei.api.ComponentInstaller;
 
 public class RedTriplane {
@@ -21,6 +22,14 @@ public class RedTriplane {
 
 	public static EngineVersion VERSION () {
 		return invoke().VERSION();
+	}
+
+	public static void setGameStarter (final GameStarter starter) {
+		invoke().setGameStarter(starter);
+	}
+
+	public static GameStarter getGameStarter () {
+		return invoke().getGameStarter();
 	}
 
 }

@@ -3,8 +3,8 @@ package com.jfixby.r3.fokker.backend;
 
 import com.jfixby.r3.api.ui.Intent;
 import com.jfixby.r3.api.ui.unit.Unit;
-import com.jfixby.r3.engine.core.unit.UnitSpawnerComponent;
-import com.jfixby.r3.engine.core.unit.UnitsSpawningException;
+import com.jfixby.r3.fokker.api.unit.UnitSpawnerComponent;
+import com.jfixby.r3.fokker.api.unit.UnitsSpawningException;
 
 public class RedUnitSpawner implements UnitSpawnerComponent {
 	@Override
