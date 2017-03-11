@@ -70,19 +70,19 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-box2d-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-box2d"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-fokker"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-desktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-backend-ios"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fonts-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-pizza-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-fonts"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-pizza"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-pizza-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-scene2d-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-scene2d"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-scene2d-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-shader-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-shader"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/sc-map-unpacker"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-core"/>
