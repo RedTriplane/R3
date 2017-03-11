@@ -29,9 +29,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-box2d-packer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-eclipse"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-gradle-depsearch"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-pizza-mockgen-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-psd-to-scene2d"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-psd-unpacker-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-psd-unpacker-red"/>
@@ -45,27 +42,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-slicer-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-slicer-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-slicer-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-fields-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-fields-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-filesystem-packing-base64-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-filesystem-packing-base64-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-iso-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-iso-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-maze-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-maze-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-p18-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-p18-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-p18-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-pizza-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-pizza-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-pizza-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-p18-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-p18-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-p18-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-red"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-terrain-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-wdgs"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/libs"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-red"/>
@@ -87,7 +65,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/social-spider-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/star-craft"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api-desktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-gson"/>
 	<classpathentry kind="output" path="bin"/>
