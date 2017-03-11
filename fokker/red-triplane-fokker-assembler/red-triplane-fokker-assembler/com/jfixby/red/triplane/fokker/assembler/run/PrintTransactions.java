@@ -10,11 +10,11 @@ import com.jfixby.red.triplane.fokker.assembler.FokkerAssembley;
 import com.jfixby.red.triplane.fokker.assembler.FokkerAssembleySpecs;
 import com.jfixby.red.triplane.fokker.assembler.GwtProjectSettings;
 import com.jfixby.red.triplane.fokker.assembler.iOSProjectSettings;
-import com.jfixby.scarabei.adopted.gdx.json.GoogleGson;
 import com.jfixby.scarabei.api.desktop.ScarabeiDesktop;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.LocalFileSystem;
 import com.jfixby.scarabei.api.json.Json;
+import com.jfixby.scarabei.gson.GoogleGson;
 
 public class PrintTransactions {
 

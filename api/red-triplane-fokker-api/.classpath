@@ -6,5 +6,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gdx"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-ui-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
