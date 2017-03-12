@@ -16,7 +16,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-double"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-float"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-android"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-desktop-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-log-mq"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-api"/>
