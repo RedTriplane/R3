@@ -7,8 +7,8 @@ import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
-import com.jfixby.scarabei.api.geometry.Projection;
 import com.jfixby.scarabei.api.geometry.Rectangle;
+import com.jfixby.scarabei.api.geometry.projections.Projection;
 
 public interface RenderMachineComponent {
 

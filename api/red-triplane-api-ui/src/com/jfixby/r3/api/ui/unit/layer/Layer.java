@@ -5,7 +5,7 @@ import com.jfixby.r3.api.ui.unit.ComponentsFactory;
 import com.jfixby.r3.api.ui.unit.camera.Camera;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
-import com.jfixby.scarabei.api.geometry.Projection;
+import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.util.path.RelativePath;
 
 public interface Layer extends VisibleComponent {

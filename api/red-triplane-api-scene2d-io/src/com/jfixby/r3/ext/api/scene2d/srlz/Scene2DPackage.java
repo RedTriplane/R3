@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class Scene2DPackage implements java.io.Serializable {
 
@@ -12,6 +12,6 @@ public class Scene2DPackage implements java.io.Serializable {
 	public static final String SCENE2D_PACKAGE_FILE_EXTENSION = "r3-scenes";
 	public static final String SCENE2D_PACKAGE_FORMAT = "RedTriplane.Scene2D";
 
-	public Vector<SceneStructure> structures = new Vector<>();
+	public ArrayList<SceneStructure> structures = new ArrayList<SceneStructure>();
 
 }
