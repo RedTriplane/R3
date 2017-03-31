@@ -7,4 +7,6 @@ public interface ShaderProperties {
 
 	Mapping<String, ShaderParameter> listParameters ();
 
+	ShaderSettings newShaderSettings ();
+
 }

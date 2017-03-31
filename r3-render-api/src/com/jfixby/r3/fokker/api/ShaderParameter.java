@@ -11,4 +11,6 @@ public interface ShaderParameter {
 
 	String getType ();
 
+	<T> T getDefaultValue ();
+
 }
