@@ -1,8 +1,10 @@
 
 package com.jfixby.r3.fokker.api;
 
+import com.jfixby.scarabei.api.collections.Mapping;
+
 public interface ShaderProperties {
 
-// public String name ();
+	Mapping<String, ShaderParameter> listParameters ();
 
 }
