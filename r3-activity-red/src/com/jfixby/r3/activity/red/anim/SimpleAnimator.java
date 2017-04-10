@@ -8,7 +8,7 @@ import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.sys.Sys;
 import com.jfixby.scarabei.api.time.TimeStream;
-import com.jfixby.scarabei.api.util.JUtils;
+import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.StateSwitcher;
 
 public class SimpleAnimator implements OnUpdateListener {
@@ -17,7 +17,7 @@ public class SimpleAnimator implements OnUpdateListener {
 	final private List<RedFrameHolder> frames;
 	private long loop_time;
 
-	final StateSwitcher<ANIMATION_STATE> state = JUtils.newStateSwitcher(ANIMATION_STATE.VOID);
+	final StateSwitcher<ANIMATION_STATE> state = Utils.newStateSwitcher(ANIMATION_STATE.VOID);
 
 	private final TimeStream clock;
 	private long current_time;

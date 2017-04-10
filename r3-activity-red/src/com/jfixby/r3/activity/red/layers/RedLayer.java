@@ -22,7 +22,7 @@ import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.log.L;
-import com.jfixby.scarabei.api.util.JUtils;
+import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.path.RelativePath;
 
 public class RedLayer implements Layer, RootLayer {
@@ -280,7 +280,7 @@ public class RedLayer implements Layer, RootLayer {
 			final Component component = this.layer_children.getElementAt(i);
 			if (component instanceof NamedComponent) {
 				final Q q = (Q)component;
-				if (JUtils.equalObjects(q.getName(), element_name)) {
+				if (Utils.equalObjects(q.getName(), element_name)) {
 					return q;
 				}
 			}
@@ -295,7 +295,7 @@ public class RedLayer implements Layer, RootLayer {
 			final Component component = this.layer_children.getElementAt(i);
 			if (component instanceof NamedComponent) {
 				final Q q = (Q)component;
-				if (JUtils.equalObjects(q.getName(), element_name)) {
+				if (Utils.equalObjects(q.getName(), element_name)) {
 					result.add(q);
 				}
 			}

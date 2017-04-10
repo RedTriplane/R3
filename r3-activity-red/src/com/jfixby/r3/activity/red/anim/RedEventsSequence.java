@@ -16,14 +16,14 @@ import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.collections.Queue;
 import com.jfixby.scarabei.api.err.Err;
-import com.jfixby.scarabei.api.util.JUtils;
+import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.StateSwitcher;
 
 public class RedEventsSequence implements EventsSequence, LayerBasedComponent {
 
 	private final boolean is_looped;
 
-	final StateSwitcher<ANIMATION_STATE> state = JUtils.newStateSwitcher(ANIMATION_STATE.VOID);
+	final StateSwitcher<ANIMATION_STATE> state = Utils.newStateSwitcher(ANIMATION_STATE.VOID);
 
 	final Queue<RedEventsGroup> queue = Collections.newQueue();
 

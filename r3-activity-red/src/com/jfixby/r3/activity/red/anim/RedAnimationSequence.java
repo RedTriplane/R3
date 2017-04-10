@@ -26,7 +26,7 @@ import com.jfixby.scarabei.api.geometry.Spline2D;
 import com.jfixby.scarabei.api.geometry.projections.RotateAndOffsetProjection;
 import com.jfixby.scarabei.api.math.IntegerMath;
 import com.jfixby.scarabei.api.time.TimeStream;
-import com.jfixby.scarabei.api.util.JUtils;
+import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.StateSwitcher;
 
 public class RedAnimationSequence implements PositionsSequence, LayerBasedComponent {
@@ -45,7 +45,7 @@ public class RedAnimationSequence implements PositionsSequence, LayerBasedCompon
 
 	}
 
-	StateSwitcher<ANIMATION_STATE> state = JUtils.newStateSwitcher(ANIMATION_STATE.VOID);
+	StateSwitcher<ANIMATION_STATE> state = Utils.newStateSwitcher(ANIMATION_STATE.VOID);
 
 	final List<PositionAnchor> animations_list = Collections.newList();
 	PositionAnchor current_anchor_A;

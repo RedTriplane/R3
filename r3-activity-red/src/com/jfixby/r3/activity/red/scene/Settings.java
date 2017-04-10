@@ -4,7 +4,7 @@ package com.jfixby.r3.activity.red.scene;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.time.TimeStream;
-import com.jfixby.scarabei.api.util.JUtils;
+import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.path.RelativePath;
 
 class Settings {
@@ -58,7 +58,7 @@ class Settings {
 	}
 
 	public RelativePath getStackPath () {
-		return JUtils.newRelativePath(this.stack);
+		return Utils.newRelativePath(this.stack);
 	}
 
 }
