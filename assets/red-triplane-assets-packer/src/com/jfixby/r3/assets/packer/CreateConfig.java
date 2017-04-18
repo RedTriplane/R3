@@ -21,7 +21,7 @@ public class CreateConfig {
 		final R3AssetsPackerConfig config = new R3AssetsPackerConfig();
 
 		config.outputBankFolderPath = "D:/POOL/Tinto/tinto-run-fokker-desktop/assets/com.red-triplane.assets.r3.local";
-
+		config.targetTank = "tank-0";
 		final File outputFile = LocalFileSystem.ApplicationHome().child(R3AssetsPackerConfig.FILE_NAME);
 
 		final JsonString json = Json.serializeToString(config);
