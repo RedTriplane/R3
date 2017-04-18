@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class AnimationSettings implements java.io.Serializable {
 
@@ -18,7 +18,7 @@ public class AnimationSettings implements java.io.Serializable {
 	public boolean is_looped = false;
 	public boolean use_spline = false;
 	public boolean autostart = false;
-	public Vector<Anchor> anchors = new Vector<Anchor>();
+	public ArrayList<Anchor> anchors = new ArrayList<Anchor>();
 	public String frame_time;
 
 }

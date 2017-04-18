@@ -1,8 +1,9 @@
+
 package com.jfixby.r3.ext.api.scene2d.srlz;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class ActionsGroup {
 	public String name;
-	public Vector<Action> actions = null;
+	public ArrayList<Action> actions = null;
 }

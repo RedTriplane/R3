@@ -1,7 +1,8 @@
+
 package com.jfixby.red.triplane.fokker.assembler;
 
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
@@ -16,79 +17,76 @@ import com.jfixby.tool.eclipse.dep.EclipseWorkSpaceSettings;
 
 public class FokkerAssembley {
 
-	private CoreAssembley core_assembley;
+	private final CoreAssembley core_assembley;
 	private DesktopAssembley desktop_assembley;
 	private AndroidAssembley android_assembley;
 	private iOSAssembley ios_assembley;
 	private GWTAssembley gwt_assembley;
 
-	public FokkerAssembley(FokkerAssembleySpecs specs) throws IOException {
+	public FokkerAssembley (final FokkerAssembleySpecs specs) throws IOException {
 
-		DesktopProjectSettings desktop = specs.getDesktopProjectSettings();
-		GwtProjectSettings gwt = specs.getGwtProjectSettings();
-		iOSProjectSettings ios = specs.getiOSProjectSettings();
-		AndroidProjectSettings android = specs.getAndroidProjectSettings();
+		final DesktopProjectSettings desktop = specs.getDesktopProjectSettings();
+		final GwtProjectSettings gwt = specs.getGwtProjectSettings();
+		final iOSProjectSettings ios = specs.getiOSProjectSettings();
+		final AndroidProjectSettings android = specs.getAndroidProjectSettings();
 
-		File gradle_path = specs.getGradlePath();
+		final File gradle_path = specs.getGradlePath();
 
-		File workspace_folder = specs.getWorkSpaceFolder();
-		EclipseWorkSpaceSettings workspace_settings = EclipseWorkSpaceSettings.readWorkspaceSettings(workspace_folder);
+		final File workspace_folder = specs.getWorkSpaceFolder();
+		final EclipseWorkSpaceSettings workspace_settings = EclipseWorkSpaceSettings.readWorkspaceSettings(workspace_folder);
 
 		Set<String> core_project_names = JUtils.intersectCollection(
-				desktop//
-						.getEclipseProjectInfo()//
-						.getDependencies()//
-						.getProjectsList(),
-				gwt//
-						.getEclipseProjectInfo()//
-						.getDependencies()//
-						.getProjectsList());
+			desktop//
+				.getEclipseProjectInfo()//
+				.getDependencies()//
+				.getProjectsList(),
+			gwt//
+				.getEclipseProjectInfo()//
+				.getDependencies()//
+				.getProjectsList());
 		core_project_names = JUtils.intersectCollection(core_project_names,
-				android.getEclipseProjectInfo().getDependencies().getProjectsList());
+			android.getEclipseProjectInfo().getDependencies().getProjectsList());
 		core_project_names = JUtils.intersectCollection(core_project_names,
-				ios.getEclipseProjectInfo().getDependencies().getProjectsList());
+			ios.getEclipseProjectInfo().getDependencies().getProjectsList());
 		// core_project_names.print("desktop & gwt & android & ios : common
 		// projetcs");
 
-		Set<EclipseProjectInfo> core_complete_dependency_list = buildCompleteList(workspace_settings,
-				core_project_names);
+		final Set<EclipseProjectInfo> core_complete_dependency_list = buildCompleteList(workspace_settings, core_project_names);
 		// core_complete_dependency_list.print("core complete_dependency_list");
-		core_assembley = new CoreAssembley(this, core_complete_dependency_list, gradle_path.child("core"));
+		this.core_assembley = new CoreAssembley(this, core_complete_dependency_list, gradle_path.child("core"));
 		{
-			Set<EclipseProjectInfo> desktop_complete_dependency_list = buildAdditionalDependenciesList(
-					workspace_settings, desktop.getEclipseProjectInfo(), core_complete_dependency_list);
+			final Set<EclipseProjectInfo> desktop_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
+				desktop.getEclipseProjectInfo(), core_complete_dependency_list);
 			// desktop_complete_dependency_list.print("desktop_complete_dependency_list");
-			desktop_assembley = new DesktopAssembley(this, desktop_complete_dependency_list,
-					gradle_path.child("desktop"));
+			this.desktop_assembley = new DesktopAssembley(this, desktop_complete_dependency_list, gradle_path.child("desktop"));
 		}
 		{
-			Set<EclipseProjectInfo> android_complete_dependency_list = buildAdditionalDependenciesList(
-					workspace_settings, android.getEclipseProjectInfo(), core_complete_dependency_list);
+			final Set<EclipseProjectInfo> android_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
+				android.getEclipseProjectInfo(), core_complete_dependency_list);
 			// android_complete_dependency_list.print("android_complete_dependency_list");
-			android_assembley = new AndroidAssembley(this, android_complete_dependency_list,
-					gradle_path.child("android"));
+			this.android_assembley = new AndroidAssembley(this, android_complete_dependency_list, gradle_path.child("android"));
 
 		}
 		{
-			Set<EclipseProjectInfo> ios_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
-					ios.getEclipseProjectInfo(), core_complete_dependency_list);
+			final Set<EclipseProjectInfo> ios_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
+				ios.getEclipseProjectInfo(), core_complete_dependency_list);
 			// ios_complete_dependency_list.print("ios_complete_dependency_list");
-			ios_assembley = new iOSAssembley(this, ios_complete_dependency_list, gradle_path.child("ios"));
+			this.ios_assembley = new iOSAssembley(this, ios_complete_dependency_list, gradle_path.child("ios"));
 
 		}
 		{
-			Set<EclipseProjectInfo> gwt_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
-					gwt.getEclipseProjectInfo(), core_complete_dependency_list);
+			final Set<EclipseProjectInfo> gwt_complete_dependency_list = buildAdditionalDependenciesList(workspace_settings,
+				gwt.getEclipseProjectInfo(), core_complete_dependency_list);
 			// gwt_complete_dependency_list.print("gwt_complete_dependency_list");
-			gwt_assembley = new GWTAssembley(this, gwt_complete_dependency_list, gradle_path.child("html"));
+			this.gwt_assembley = new GWTAssembley(this, gwt_complete_dependency_list, gradle_path.child("html"));
 
 		}
 	}
 
-	private static Set<EclipseProjectInfo> buildAdditionalDependenciesList(EclipseWorkSpaceSettings workspace_settings,
-			EclipseProjectInfo begin_dependencies, Collection<EclipseProjectInfo> core_complete_dependency_list) {
-		Set<EclipseProjectInfo> result = buildCompleteList(workspace_settings,
-				begin_dependencies.getDependencies().getProjectsList());
+	private static Set<EclipseProjectInfo> buildAdditionalDependenciesList (final EclipseWorkSpaceSettings workspace_settings,
+		final EclipseProjectInfo begin_dependencies, final Collection<EclipseProjectInfo> core_complete_dependency_list) {
+		final Set<EclipseProjectInfo> result = buildCompleteList(workspace_settings,
+			begin_dependencies.getDependencies().getProjectsList());
 
 		result.removeAll(core_complete_dependency_list);
 		result.add(begin_dependencies);
@@ -96,25 +94,25 @@ public class FokkerAssembley {
 		return result;
 	}
 
-	private static Set<EclipseProjectInfo> buildCompleteList(EclipseWorkSpaceSettings workspace_settings,
-			Collection<String> begin_set) {
+	private static Set<EclipseProjectInfo> buildCompleteList (final EclipseWorkSpaceSettings workspace_settings,
+		final Collection<String> begin_set) {
 
-		Set<String> processing = Collections.newSet();
-		Set<EclipseProjectInfo> processed_projects = Collections.newSet();
-		Set<String> unprocessed_projects = Collections.newSet();
+		final Set<String> processing = Collections.newSet();
+		final Set<EclipseProjectInfo> processed_projects = Collections.newSet();
+		final Set<String> unprocessed_projects = Collections.newSet();
 		unprocessed_projects.addAll(begin_set);
 
 		while (unprocessed_projects.size() > 0) {
 			processing.addAll(unprocessed_projects);
 			unprocessed_projects.clear();
 			for (int i = 0; i < processing.size(); i++) {
-				String core_project_name = processing.getElementAt(i);
-				EclipseProjectInfo info = workspace_settings.getProjectInfo(core_project_name);
+				final String core_project_name = processing.getElementAt(i);
+				final EclipseProjectInfo info = workspace_settings.getProjectInfo(core_project_name);
 				processed_projects.add(info);
 				// L.d("info", info);
 
-				EclipseProjectDependencies project_dependencies = info.getDependencies();
-				Collection<String> projects = project_dependencies.getProjectsList();
+				final EclipseProjectDependencies project_dependencies = info.getDependencies();
+				final Collection<String> projects = project_dependencies.getProjectsList();
 				// projects.print("expand");
 				unprocessed_projects.addAll(projects);
 			}
@@ -123,7 +121,7 @@ public class FokkerAssembley {
 		return processed_projects;
 	}
 
-	public void printTransactions() {
+	public void printTransactions () {
 		this.core_assembley.printTransactions("core");
 		this.desktop_assembley.printTransactions("desktop");
 		this.android_assembley.printTransactions("android");
@@ -132,33 +130,33 @@ public class FokkerAssembley {
 
 	}
 
-	public void deletePreviousTransactionsIfPresent() throws IOException {
-		TransactionsInfo previous_transaction = TransactionsInfo.loadLast();
+	public void deletePreviousTransactionsIfPresent () throws IOException {
+		final TransactionsInfo previous_transaction = TransactionsInfo.loadLast();
 		if (previous_transaction != null) {
-			Vector<ExecutedTransaction> executed_transactions = previous_transaction.listTransactions();
+			final ArrayList<ExecutedTransaction> executed_transactions = previous_transaction.listTransactions();
 			for (int k = 0; k < executed_transactions.size(); k++) {
-				ExecutedTransaction exec = executed_transactions.get(k);
-				String native_folder_path = exec.getAbsolutePathString();
-				File source_folder = LocalFileSystem.newFile(native_folder_path);
-				boolean success = source_folder.delete();
+				final ExecutedTransaction exec = executed_transactions.get(k);
+				final String native_folder_path = exec.getAbsolutePathString();
+				final File source_folder = LocalFileSystem.newFile(native_folder_path);
+				final boolean success = source_folder.delete();
 				L.d("deleting", source_folder + " " + success);
 
 			}
 		}
 	}
 
-	public void executeCodeTransfer() throws IOException {
-		TransactionsInfo transaction = new TransactionsInfo();
+	public void executeCodeTransfer () throws IOException {
+		final TransactionsInfo transaction = new TransactionsInfo();
 		this.core_assembley.executeCodeTransfer(transaction);
 		this.desktop_assembley.executeCodeTransfer(transaction);
 		this.android_assembley.executeCodeTransfer(transaction);
 		this.gwt_assembley.executeCodeTransfer(transaction);
 		this.ios_assembley.executeCodeTransfer(transaction);
-		
+
 		TransactionsInfo.save(transaction);
 	}
 
-	public void printDependencies() {
+	public void printDependencies () {
 		this.core_assembley.printDependencies();
 		this.desktop_assembley.printDependencies();
 		this.android_assembley.printDependencies();
