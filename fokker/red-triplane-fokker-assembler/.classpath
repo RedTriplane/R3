@@ -6,11 +6,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-desktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-apache-cmns"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/bills-game"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/bills-run-fokker"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/bills-run-fokker-desktop"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/bills-ui"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/bin"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/box2d-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-gdx"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jbox2d-double"/>
@@ -21,7 +16,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-example"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-cv-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-data-science-ssgen"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-git-eclipse-namefixer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-lambda-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-lambda-red"/>
@@ -41,8 +35,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-slicer-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-slicer-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-slicer-test"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-filesystem-packing-base64-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-filesystem-packing-base64-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/libs"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-red"/>

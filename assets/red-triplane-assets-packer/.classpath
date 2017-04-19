@@ -12,8 +12,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-texture-bleed-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-desktop"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-filesystem-packing-base64-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-util-filesystem-packing-base64-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-fokker-core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jfixby-tool-psd-unpacker-red"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-scene2d"/>
@@ -34,8 +32,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-aws-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-fokker"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-gson"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/PNGQuant-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/PNGQuant-wrap"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/red-triplane-api-scene2d-io"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-gdx"/>
 	<classpathentry kind="lib" path="/libs/google/gson-2.4.jar"/>
