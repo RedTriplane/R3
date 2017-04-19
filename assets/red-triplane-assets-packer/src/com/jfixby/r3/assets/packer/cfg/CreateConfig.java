@@ -1,9 +1,8 @@
 
-package com.jfixby.r3.assets.packer;
+package com.jfixby.r3.assets.packer.cfg;
 
 import java.io.IOException;
 
-import com.jfixby.r3.assets.packer.cfg.R3AssetsPackerConfig;
 import com.jfixby.scarabei.api.desktop.ScarabeiDesktop;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.LocalFileSystem;
@@ -20,7 +19,7 @@ public class CreateConfig {
 		Json.installComponent(new GoogleGson());
 		final R3AssetsPackerConfig config = new R3AssetsPackerConfig();
 
-		config.outputBankFolderPath = "D:/POOL/Tinto/tinto-run-fokker-desktop/assets/com.red-triplane.assets.r3.local";
+		config.outputBankFolderPath = "D:/[DATA]/[RED-ASSETS]/Art-Private/red-triplane-assets/assets/com.red-triplane.assets.r3.local";
 		config.targetTank = "tank-0";
 		final File outputFile = LocalFileSystem.ApplicationHome().child(R3AssetsPackerConfig.FILE_NAME);
 

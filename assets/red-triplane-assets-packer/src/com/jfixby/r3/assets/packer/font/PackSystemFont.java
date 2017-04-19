@@ -3,7 +3,7 @@ package com.jfixby.r3.assets.packer.font;
 
 import java.io.IOException;
 
-import com.jfixby.r3.assets.packer.ConfigLoader;
+import com.jfixby.r3.assets.packer.cfg.ConfigLoader;
 import com.jfixby.r3.assets.packer.cfg.R3AssetsPackerConfig;
 import com.jfixby.r3.engine.core.unit.raster.FOKKER_SYSTEM_ASSETS;
 import com.jfixby.scarabei.api.assets.Names;

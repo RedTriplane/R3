@@ -3,7 +3,7 @@ package com.jfixby.r3.assets.packer.shader;
 
 import java.io.IOException;
 
-import com.jfixby.r3.assets.packer.ConfigLoader;
+import com.jfixby.r3.assets.packer.cfg.ConfigLoader;
 import com.jfixby.r3.assets.packer.cfg.R3AssetsPackerConfig;
 import com.jfixby.scarabei.api.desktop.ScarabeiDesktop;
 import com.jfixby.scarabei.api.file.File;
