@@ -39,4 +39,8 @@ public interface TextBarSpecs {
 
 	Color getFontColor ();
 
+	void setRawText (String text_value_raw);
+
+	String getRawText ();
+
 }
