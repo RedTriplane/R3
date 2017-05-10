@@ -7,7 +7,7 @@ import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 
-public class UI {
+public class FokkerUI {
 
 	static private ComponentInstaller<UIComponent> componentInstaller = new ComponentInstaller<UIComponent>("UI");
 
