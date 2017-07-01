@@ -14,7 +14,7 @@ dependencies {
     compile project(":red-triplane-api")
     
     
-    compile "com.github.JFixby.RedStrings:strings-api:$strVersion"
+    compile "com.github.RedTriplane.RedStrings:strings-api:$strVersion"
     
 }
 
