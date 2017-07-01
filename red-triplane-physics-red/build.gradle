@@ -1,0 +1,6 @@
+
+dependencies {
+	compile project(":red-triplane-physics-api")
+         //compile "com.github.RedTriplane.Rana:rana-loader-api:$ranaVersion"
+        
+}
