@@ -12,10 +12,9 @@ buildscript {
 
 ext {
         scarabeiVersion = "1.5.1"
-        ranaVersion = "1.1.0"
-        scene2DVersion = "1.0.0"
-        strVersion = "1.0.0"
-        //textureSlicerVer = "8d66947fbc"
+        ranaVersion = "1.1.1"
+        scene2DVersion = "1.0.1"
+        strVersion = "1.0.1"
     
 }
 
