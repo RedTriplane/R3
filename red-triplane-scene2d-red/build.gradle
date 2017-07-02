@@ -16,8 +16,7 @@ dependencies {
 	
 	
 	
-	compile "com.github.JFixby.Scene2D:scene2d-api:$scene2DVersion"
-	//compile "com.github.JFixby:Scene2D:$scene2DVersion"
+	compile "com.github.RedTriplane.Scene2D:scene2d-api:$scene2DVersion"
 	
 	compile "com.github.RedTriplane.Rana:rana-asset-api:$ranaVersion"
 	//compile "com.github.RedTriplane.Rana:rana-package-api:$ranaVersion"
