@@ -2,6 +2,7 @@
 package com.jfixby.r3.api;
 
 import com.jfixby.scarabei.api.ComponentInstaller;
+import com.jfixby.scarabei.api.assets.ID;
 
 public class RedTriplane {
 	static private ComponentInstaller<RedTriplaneComponent> componentInstaller = new ComponentInstaller<RedTriplaneComponent>(
@@ -23,11 +24,11 @@ public class RedTriplane {
 		return invoke().VERSION();
 	}
 
-	public static void setGameStarter (final GameStarter starter) {
+	public static void setGameStarter (final ID starter) {
 		invoke().setGameStarter(starter);
 	}
 
-	public static GameStarter getGameStarter () {
+	public static ID getGameStarter () {
 		return invoke().getGameStarter();
 	}
 

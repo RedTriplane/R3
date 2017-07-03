@@ -1,12 +1,14 @@
 
 package com.jfixby.r3.api;
 
+import com.jfixby.scarabei.api.assets.ID;
+
 public interface RedTriplaneComponent {
 
 	EngineVersion VERSION ();
 
-	void setGameStarter (GameStarter starter);
+	void setGameStarter (ID starter);
 
-	GameStarter getGameStarter ();
+	ID getGameStarter ();
 
 }
