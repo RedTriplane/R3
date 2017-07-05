@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>R3</name>
-	<comment>Project RedTriplane created by Buildship.</comment>
+	<name>r3-render-api</name>
+	<comment>Project r3-render-api created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
