@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>r3-api</name>
-	<comment>Project r3-api created by Buildship.</comment>
+	<name>r3-ui-api</name>
+	<comment>Project r3-ui-api created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
