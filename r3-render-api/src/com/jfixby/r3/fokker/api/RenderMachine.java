@@ -53,7 +53,7 @@ public class RenderMachine {
 		invoke().endRasterMode(blend_mode);
 	}
 
-	public static void beginDrawComponent (final FokkerDrawable fokkerDrawable) {
+	public static void beginDrawComponent (final Drawable fokkerDrawable) {
 		invoke().beginDrawComponent(fokkerDrawable);
 	}
 
@@ -65,7 +65,7 @@ public class RenderMachine {
 		invoke().endShapesMode();
 	}
 
-	public static void endDrawComponent (final FokkerDrawable fokkerDrawable) {
+	public static void endDrawComponent (final Drawable fokkerDrawable) {
 		invoke().endDrawComponent(fokkerDrawable);
 	}
 
@@ -97,8 +97,9 @@ public class RenderMachine {
 		invoke().drawCircle(color, center_x, center_y, radius);
 	}
 
-	public static void drawString (final StringHandler string_value, final CanvasPosition position) {
-		invoke().drawString(string_value, position);
+	public static void drawString (final ID fontID, final FontParameters fontParams, final String stringValue,
+		final CanvasPosition position) {
+		invoke().drawString(fontID, fontParams, stringValue, position);
 	}
 
 	public static void beginShaderMode (final ID fokkerShader, final ShaderParameters params) {

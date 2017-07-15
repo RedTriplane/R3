@@ -1,5 +1,5 @@
 package com.jfixby.r3.fokker.api;
 
-public interface StringHandler {
+public interface FontParameters {
 
 }

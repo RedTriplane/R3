@@ -1,33 +1,32 @@
+
 package com.jfixby.r3.api.ui.unit.geometry;
 
-import com.jfixby.r3.api.ui.unit.layer.DrawableComponent;
+import com.jfixby.r3.api.ui.unit.layer.VisibleComponent;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.geometry.Circle;
 
-public interface EllipseComponent extends DrawableComponent {
+public interface EllipseComponent extends VisibleComponent {
 
-	void setBorderColor(Color border_color);
+	void setBorderColor (Color border_color);
 
-	Color getBorderColor();
+	Color getBorderColor ();
 
-	void setFillColor(Color fill_color);
+	void setFillColor (Color fill_color);
 
-	Color getFillColor();
+	Color getFillColor ();
 
-	Color getDebugColor();
+	Color getDebugColor ();
 
-	Circle shape();
+	Circle shape ();
 
-	public void setDebugColor(Color debug_render_color);
-	
-	public void setOpacity(double alpha);
+	public void setDebugColor (Color debug_render_color);
 
-	public double getOpacity();
+	public void setOpacity (double alpha);
 
-	void setDebugRenderFlag(boolean b);
+	public double getOpacity ();
 
-	boolean getDebugRenderFlag();
+	void setDebugRenderFlag (boolean b);
 
-
+	boolean getDebugRenderFlag ();
 
 }

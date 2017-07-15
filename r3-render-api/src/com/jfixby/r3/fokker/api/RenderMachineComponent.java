@@ -16,7 +16,7 @@ public interface RenderMachineComponent {
 
 	void clearScreen ();
 
-	void beginDrawComponent (FokkerDrawable fokkerDrawable);
+	void beginDrawComponent (Drawable fokkerDrawable);
 
 	// void setOffset(Dot offset);
 
@@ -24,7 +24,7 @@ public interface RenderMachineComponent {
 
 	void drawTriangle (Color color, ReadOnlyFloat2 a, ReadOnlyFloat2 b, ReadOnlyFloat2 c);
 
-	void endDrawComponent (FokkerDrawable fokkerDrawable);
+	void endDrawComponent (Drawable fokkerDrawable);
 
 // void init ();
 
@@ -49,7 +49,7 @@ public interface RenderMachineComponent {
 
 	void drawCircle (Color color, double center_x, double center_y, double radius);
 
-	void drawString (final StringHandler string_value, final CanvasPosition position);
+	void drawString (ID fontID, final FontParameters fontParams, String stringValue, final CanvasPosition position);
 
 	void beginRasterMode (final TEXTURE_BLEND_MODE blend_mode, double opacity);
 
