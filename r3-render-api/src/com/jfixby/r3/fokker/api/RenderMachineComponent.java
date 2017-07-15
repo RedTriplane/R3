@@ -26,7 +26,7 @@ public interface RenderMachineComponent {
 
 	void endDrawComponent (FokkerDrawable fokkerDrawable);
 
-	void init ();
+// void init ();
 
 	void setCameraProjection (final Projection projection);
 
@@ -49,7 +49,7 @@ public interface RenderMachineComponent {
 
 	void drawCircle (Color color, double center_x, double center_y, double radius);
 
-	void drawString (final FokkerString string_value, final CanvasPosition position);
+	void drawString (final StringHandler string_value, final CanvasPosition position);
 
 	void beginRasterMode (final TEXTURE_BLEND_MODE blend_mode, double opacity);
 
@@ -62,6 +62,8 @@ public interface RenderMachineComponent {
 	void applyShader ();
 
 	void setProjection (Projection projection);
+
+	DefaultAssets DefaultAssets ();
 
 	// void setShader(final FokkerShader shader_handler);
 

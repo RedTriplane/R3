@@ -28,10 +28,10 @@ public class RenderMachine {
 		return componentInstaller.getComponent();
 	}
 
-	public static void init () {
-		invoke().init();
-	}
-	// -------------------------------------
+// public static void init () {
+// invoke().init();
+// }
+// -------------------------------------
 
 	public static void beginFrame () {
 		invoke().beginFrame();
@@ -97,7 +97,7 @@ public class RenderMachine {
 		invoke().drawCircle(color, center_x, center_y, radius);
 	}
 
-	public static void drawString (final FokkerString string_value, final CanvasPosition position) {
+	public static void drawString (final StringHandler string_value, final CanvasPosition position) {
 		invoke().drawString(string_value, position);
 	}
 
@@ -111,6 +111,10 @@ public class RenderMachine {
 
 	public static void applyShader () {
 		invoke().applyShader();
+	}
+
+	public static DefaultAssets DefaultAssets () {
+		return invoke().DefaultAssets();
 	}
 
 }
