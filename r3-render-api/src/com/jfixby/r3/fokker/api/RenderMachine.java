@@ -118,4 +118,8 @@ public class RenderMachine {
 		return invoke().DefaultAssets();
 	}
 
+	public static ScreenShot makeScreenShot (final int areaWidth, final int areaHeight, final int areaX, final int areaY) {
+		return invoke().makeScreenShot(areaWidth, areaHeight, areaX, areaY);
+	}
+
 }

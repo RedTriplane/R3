@@ -65,6 +65,8 @@ public interface RenderMachineComponent {
 
 	DefaultAssets DefaultAssets ();
 
+	ScreenShot makeScreenShot (int areaWidth, int areaHeight, int areaX, int areaY);
+
 	// void setShader(final FokkerShader shader_handler);
 
 }
