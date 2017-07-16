@@ -102,7 +102,7 @@ public class RenderMachine {
 		invoke().drawString(fontID, fontParams, stringValue, position);
 	}
 
-	public static void beginShaderMode (final ID fokkerShader, final ShaderParameters params) {
+	public static void beginShaderMode (final ID fokkerShader, final ShaderSettings params) {
 		invoke().beginShaderMode(fokkerShader, params);
 	}
 

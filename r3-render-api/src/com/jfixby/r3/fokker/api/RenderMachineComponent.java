@@ -55,7 +55,7 @@ public interface RenderMachineComponent {
 
 	void endRasterMode (final TEXTURE_BLEND_MODE blend_mode);
 
-	void beginShaderMode (ID fokkerShader, final ShaderParameters params);
+	void beginShaderMode (ID fokkerShader, final ShaderSettings params);
 
 	void endShaderMode (ID fokkerShader);
 
@@ -66,6 +66,8 @@ public interface RenderMachineComponent {
 	DefaultAssets DefaultAssets ();
 
 	ScreenShot makeScreenShot (int areaWidth, int areaHeight, int areaX, int areaY);
+
+	public DefaultShaders DefaultShaders ();
 
 	// void setShader(final FokkerShader shader_handler);
 
