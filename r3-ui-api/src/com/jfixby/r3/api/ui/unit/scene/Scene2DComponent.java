@@ -10,7 +10,6 @@ import com.jfixby.r3.api.ui.unit.layer.NamedComponent;
 import com.jfixby.r3.api.ui.unit.locale.LocalizedComponent;
 import com.jfixby.r3.api.ui.unit.parallax.Parallax;
 import com.jfixby.r3.api.ui.unit.raster.Raster;
-import com.jfixby.r3.api.ui.unit.shader.ShaderComponent;
 import com.jfixby.r3.api.ui.unit.txt.TextBar;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
@@ -32,8 +31,6 @@ public interface Scene2DComponent extends NamedComponent {
 	public Collection<Animation> listAnimations ();
 
 	public Collection<Raster> listRaster ();
-
-	public Collection<ShaderComponent> listShaders ();
 
 	public Collection<LocalizedComponent> listLocalizedComponents ();
 
