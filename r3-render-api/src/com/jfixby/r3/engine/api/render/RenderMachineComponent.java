@@ -69,6 +69,8 @@ public interface RenderMachineComponent {
 
 	public DefaultShaders DefaultShaders ();
 
+	void deploy ();
+
 	// void setShader(final FokkerShader shader_handler);
 
 }

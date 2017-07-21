@@ -9,4 +9,6 @@ public interface EngineVersion {
 
 	String getHomePage ();
 
+	void printDetails (int offset);
+
 }

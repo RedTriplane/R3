@@ -21,7 +21,7 @@ public class RenderMachine {
 	}
 
 	public static final RenderMachineComponent invoke () {
-		return componentInstaller.getComponent();
+		return componentInstaller.invokeComponent();
 	}
 
 	public static final RenderMachineComponent component () {

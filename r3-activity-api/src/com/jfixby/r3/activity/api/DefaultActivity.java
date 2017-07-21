@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.activity.api;
 
-public abstract class DefaultActivity implements Activity {
+public class DefaultActivity implements Activity {
 
 	@Override
 	public void onCreate (final ActivityManager unitManager) {

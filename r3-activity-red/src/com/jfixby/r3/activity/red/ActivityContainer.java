@@ -20,11 +20,11 @@ public class ActivityContainer {
 
 	private final Intent intent;
 	private Activity unit;
-	private final RedActivityExecutor unit_executor;
+	private final RedActivityManager unit_executor;
 
 	public ActivityContainer (final ActivityContainerProperties unit_container_propertis) {
 		this.intent = unit_container_propertis.getIntent();
-		this.unit_executor = new RedActivityExecutor(this);
+		this.unit_executor = new RedActivityManager(this);
 	}
 
 	public void doDispose () {

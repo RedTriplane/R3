@@ -35,7 +35,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 	RedParallaxFactory parallax_factory;
 
 	RedShadersFactory shaders_factory;
-	private final RedActivityExecutor master;
+	private final RedActivityManager master;
 	private final RedSceneFactory scene_factory;
 
 	@Override
@@ -43,7 +43,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 		return "ComponentsFactory@Activity<" + this.master.getActivityDebugName() + ">";
 	}
 
-	public RedComponentsFactory (final RedActivityExecutor master) {
+	public RedComponentsFactory (final RedActivityManager master) {
 		this.master = master;
 		this.geo_fac = new RedGeometryFactory(this);
 		this.raster_fac = new RasterFactory(this);

@@ -1,10 +1,12 @@
 
 package com.jfixby.r3.activity.red;
 
+import com.jfixby.r3.activity.api.DefaultActivity;
 import com.jfixby.r3.activity.api.spawn.ActivityListener;
 import com.jfixby.r3.activity.api.spawn.Intent;
 import com.jfixby.r3.activity.api.spawn.IntentStack;
 import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.assets.Names;
 
 public class RedActivityMachineIntent implements Intent {
 
@@ -13,7 +15,11 @@ public class RedActivityMachineIntent implements Intent {
 	private final IntentStack stack;
 
 	public RedActivityMachineIntent (final ID intent_id, final IntentStack stack) {
-		this.intent_id = intent_id;
+// Debug.checkNull("intent_id", intent_id);
+		final String defaultActivityName = DefaultActivity.class.getName() + "";
+// L.d("defaultActivityName", defaultActivityName);
+// Sys.exit();
+		this.intent_id = intent_id == null ? Names.newID(defaultActivityName) : intent_id;
 		this.stack = stack;
 	}
 
