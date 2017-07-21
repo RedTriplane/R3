@@ -3,8 +3,8 @@ package com.jfixby.r3.activity.red.scene;
 
 import com.jfixby.r3.io.scene2d.LayerElement;
 import com.jfixby.r3.io.scene2d.SceneStructure;
-import com.jfixby.rana.api.Asset;
-import com.jfixby.rana.api.AssetsGroup;
+import com.jfixby.r3.rana.api.Asset;
+import com.jfixby.r3.rana.api.AssetsGroup;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.assets.Names;
 

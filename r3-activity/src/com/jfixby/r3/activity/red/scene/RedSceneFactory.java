@@ -7,9 +7,9 @@ import com.jfixby.r3.activity.api.scene.Scene2DComponent;
 import com.jfixby.r3.activity.api.scene.Scene2DSpawningConfig;
 import com.jfixby.r3.activity.api.scene.SceneFactory;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
-import com.jfixby.rana.api.asset.AssetHandler;
-import com.jfixby.rana.api.asset.LoadedAssets;
-import com.jfixby.rana.api.manager.AssetsManager;
+import com.jfixby.r3.rana.api.asset.AssetHandler;
+import com.jfixby.r3.rana.api.asset.LoadedAssets;
+import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 

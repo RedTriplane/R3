@@ -13,7 +13,6 @@ buildscript {
 ext {
         scarabeiVersion = "1.5.1"
         ranaVersion = "1.1.2"
-        scene2DVersion = "1.0.4"
     
 }
 

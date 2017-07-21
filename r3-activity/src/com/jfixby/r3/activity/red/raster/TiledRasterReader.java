@@ -5,10 +5,10 @@ import java.io.IOException;
 
 import com.jfixby.r3.io.texture.slicer.SlicesCompositionInfo;
 import com.jfixby.r3.io.texture.slicer.SlicesCompositionsContainer;
-import com.jfixby.rana.api.AssetsContainer;
-import com.jfixby.rana.api.format.PackageFormat;
-import com.jfixby.rana.api.loader.PackageLoader;
-import com.jfixby.rana.api.loader.PackageReaderInput;
+import com.jfixby.r3.rana.api.AssetsContainer;
+import com.jfixby.r3.rana.api.format.PackageFormat;
+import com.jfixby.r3.rana.api.loader.PackageLoader;
+import com.jfixby.r3.rana.api.loader.PackageReaderInput;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;

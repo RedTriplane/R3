@@ -8,8 +8,8 @@ import com.jfixby.r3.activity.api.spawn.ActivitySpawningException;
 import com.jfixby.r3.activity.api.spawn.Intent;
 import com.jfixby.r3.api.exe.EngineState;
 import com.jfixby.r3.api.screen.Screen;
-import com.jfixby.rana.api.asset.AssetsConsumer;
-import com.jfixby.rana.api.asset.LoadedAssets;
+import com.jfixby.r3.rana.api.asset.AssetsConsumer;
+import com.jfixby.r3.rana.api.asset.LoadedAssets;
 import com.jfixby.scarabei.api.err.Err;
 
 public class ActivityContainer {
