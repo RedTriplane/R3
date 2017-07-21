@@ -1,19 +1,18 @@
 
 package com.jfixby.r3.activity.red.physics;
 
-import org.box2d.jfixby.api.BodyType;
-import org.box2d.jfixby.api.Box2DBody;
-import org.box2d.jfixby.api.Box2DTransform;
-import org.box2d.jfixby.api.Box2DWorld;
-import org.box2d.jfixby.api.Box2DWorldsContainer;
-import org.box2d.jfixby.api.ChainShape;
-import org.box2d.jfixby.api.CircleShape;
-import org.box2d.jfixby.api.EdgeShape;
-import org.box2d.jfixby.api.Fixture;
-import org.box2d.jfixby.api.PolygonShape;
-import org.box2d.jfixby.api.ShapeType;
-
 import com.jfixby.r3.activity.api.layer.VisibleComponent;
+import com.jfixby.r3.box2d.api.BodyType;
+import com.jfixby.r3.box2d.api.Box2DBody;
+import com.jfixby.r3.box2d.api.Box2DTransform;
+import com.jfixby.r3.box2d.api.Box2DWorld;
+import com.jfixby.r3.box2d.api.Box2DWorldsContainer;
+import com.jfixby.r3.box2d.api.ChainShape;
+import com.jfixby.r3.box2d.api.CircleShape;
+import com.jfixby.r3.box2d.api.EdgeShape;
+import com.jfixby.r3.box2d.api.Fixture;
+import com.jfixby.r3.box2d.api.PolygonShape;
+import com.jfixby.r3.box2d.api.ShapeType;
 import com.jfixby.r3.engine.api.render.Drawable;
 import com.jfixby.r3.engine.api.render.RenderMachine;
 import com.jfixby.scarabei.api.collections.Collection;
