@@ -1,7 +1,0 @@
-dependencies {
-      compile "com.github.Scarabei.Scarabei:scarabei-api:$scarabeiAPILevel"
-      
-
-}
-
-	
