@@ -8,8 +8,8 @@ import com.jfixby.r3.activity.api.user.MouseInputEventListener;
 import com.jfixby.r3.activity.red.cam.RedCamera;
 import com.jfixby.r3.activity.red.layers.FastList;
 import com.jfixby.r3.activity.red.layers.RedLayer;
-import com.jfixby.r3.api.exe.InputEvent;
-import com.jfixby.r3.api.exe.InputQueue;
+import com.jfixby.r3.engine.api.exe.InputEvent;
+import com.jfixby.r3.engine.api.exe.InputQueue;
 import com.jfixby.scarabei.api.err.Err;
 
 public class RedLayerInputProcessor {

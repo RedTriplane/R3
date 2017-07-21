@@ -2,11 +2,11 @@
 package com.jfixby.r3.activity.red.layers;
 
 import com.jfixby.r3.activity.api.camera.ScreenDimentions;
-import com.jfixby.r3.api.screen.Screen;
+import com.jfixby.r3.engine.api.screen.Screen;
 
 public class ScreenDimentionsHolder implements ScreenDimentions {
 	public void updateScreenDimentions () {
-		final com.jfixby.r3.api.screen.ScreenDimentions dims = Screen.getScreenDimensions();
+		final com.jfixby.r3.engine.api.screen.ScreenDimentions dims = Screen.getScreenDimensions();
 		this.widthToHeightRatio = dims.getWidthToHeightRatio();
 		this.screenHeight = dims.getScreenHeight();
 		this.screenWidth = dims.getScreenWidth();

@@ -2,8 +2,8 @@
 package com.jfixby.r3.activity.red.layers;
 
 import com.jfixby.r3.activity.api.user.ScreenChangeListener;
-import com.jfixby.r3.api.screen.Screen;
-import com.jfixby.r3.api.screen.ScreenDimentionsChecker;
+import com.jfixby.r3.engine.api.screen.Screen;
+import com.jfixby.r3.engine.api.screen.ScreenDimentionsChecker;
 import com.jfixby.scarabei.api.err.Err;
 
 public class ScreenDimentionsUpdate {

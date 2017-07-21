@@ -12,8 +12,8 @@ import com.jfixby.r3.activity.red.cam.RootCameraCameraViewportListener;
 import com.jfixby.r3.activity.red.input.RedLayerInputProcessor;
 import com.jfixby.r3.activity.red.layers.RedLayer;
 import com.jfixby.r3.activity.red.tool.RedActivityTools;
-import com.jfixby.r3.api.exe.EngineState;
-import com.jfixby.r3.api.exe.InputQueue;
+import com.jfixby.r3.engine.api.exe.EngineState;
+import com.jfixby.r3.engine.api.exe.InputQueue;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.projections.IdentityProjection;
 
