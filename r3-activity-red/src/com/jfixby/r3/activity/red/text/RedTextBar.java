@@ -106,4 +106,17 @@ public class RedTextBar implements TextBar {
 		return null;
 	}
 
+	@Override
+	public void setDebugRenderFlag (final boolean b) {
+	}
+
+	@Override
+	public boolean getDebugRenderFlag () {
+		return false;
+	}
+
+	@Override
+	public void setPositionXY (final double x, final double y) {
+	}
+
 }
