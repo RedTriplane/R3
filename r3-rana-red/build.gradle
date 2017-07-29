@@ -1,5 +1,5 @@
  dependencies {
-      
+      compile "com.github.Scarabei.Scarabei:scarabei-api:$scarabeiVersion"
       compile project(":r3-rana-api")
       compile project(":r3-rana-io")
  
