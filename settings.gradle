@@ -16,7 +16,11 @@ include 'r3-texture-slicer-io'
 
 include "r3-box2d-api"
 include "r3-box2d-jd"
-include "r3-box2d-jf"	
+include "r3-box2d-jf"
+
+include "r3-gravity-api"
+include "r3-gravity-box2d"
+include "r3-gravity-box2d-bridge"	
 
 
 

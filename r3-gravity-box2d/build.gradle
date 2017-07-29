@@ -1,0 +1,6 @@
+dependencies {
+     compile project(":r3-gravity-api")
+     compile project(":r3-box2d-api")
+}
+
+	
