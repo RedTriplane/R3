@@ -1,0 +1,4 @@
+dependencies {
+     compile project(":r3-box2d-api")
+
+}

@@ -14,7 +14,10 @@ include 'r3-render-api'
 include 'r3-scene2d-io'
 include 'r3-texture-slicer-io'
 
-include 'r3-activity'
+include "r3-box2d-api"
+include "r3-box2d-jd"
+include "r3-box2d-jf"	
+
 
 
 
