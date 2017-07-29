@@ -1,3 +1,12 @@
+include 'r3-scene2d-io'
+
+include 'r3-texture-slicer-io'
+
+include 'r3-rana-io'
+include 'r3-rana-api'
+include 'r3-rana-red'
+
+
 include 'r3-activity-api'
 include 'r3-activity-red'
 include 'r3-engine-api'

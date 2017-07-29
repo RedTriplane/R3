@@ -11,8 +11,7 @@ buildscript {
 }
 
 ext {
-        scarabeiVersion = "1.5.1"
-        ranaVersion = "1.1.2"
+         scarabeiVersion = "2.4.1"
     
 }
 
@@ -30,13 +29,6 @@ apply plugin: "maven"
 
 sourceCompatibility = 1.6
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
-
-ext {   
-        scarabeiAPILevel = "F.2"
-             BFsAPILevel = "B.0"
-}
-
 
 sourceSets {
     main {
@@ -63,22 +55,6 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
-
-// To specify a license in the pom:
-install {
-  repositories.mavenInstaller {
-    pom.project {
-      licenses {
-        license {
-          name 'The Apache Software License, Version 2.0'
-          url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-          distribution 'repo'
-        }
-      }
-    }
-  }
-}
-
     
     
 }
