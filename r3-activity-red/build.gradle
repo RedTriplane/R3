@@ -7,4 +7,6 @@
       compile project(":r3-texture-slicer-io")
  }
  
+  sourceCompatibility = 1.7
+ 
  

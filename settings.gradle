@@ -20,7 +20,16 @@ include "r3-box2d-jf"
 
 include "r3-gravity-api"
 include "r3-gravity-box2d"
-include "r3-gravity-box2d-bridge"	
+include "r3-gravity-box2d-bridge"
+
+include "r3-fokker-android"
+include "r3-fokker-box2d"
+include "r3-fokker-desktop"
+include "r3-fokker-engine"
+include "r3-fokker-font"
+include "r3-fokker-io"
+include "r3-fokker-physics-io"
+include "r3-fokker-shader-io"		
 
 
 

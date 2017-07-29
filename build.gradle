@@ -12,6 +12,7 @@ buildscript {
 
 ext {
          scarabeiVersion = "2.4.1"
+         gdxVersion = "1.9.6"
     
 }
 
@@ -27,7 +28,7 @@ allprojects {
 apply plugin: "java"
 apply plugin: "maven"
 
-sourceCompatibility = 1.7
+
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 sourceSets {

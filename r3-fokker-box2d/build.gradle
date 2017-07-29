@@ -1,0 +1,7 @@
+dependencies {
+    compile project(":r3-box2d-api")
+    compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+}
+
+ sourceCompatibility = 1.7
+	

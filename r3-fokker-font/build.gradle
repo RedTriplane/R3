@@ -1,0 +1,14 @@
+
+
+ sourceCompatibility = 1.7
+ 
+dependencies{
+         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+         
+  compile project(":r3-fokker-engine")
+  compile project(":r3-fokker-io")
+  compile project(":r3-engine-api")
+  compile project(":r3-render-api") 
+  compile project(":r3-rana-api")  
+}
