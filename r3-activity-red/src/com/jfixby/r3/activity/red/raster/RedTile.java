@@ -13,7 +13,6 @@ import com.jfixby.r3.engine.api.render.RenderMachine;
 import com.jfixby.r3.engine.api.render.TEXTURE_BLEND_MODE;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.debug.Debug;
-import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 
@@ -77,8 +76,8 @@ public class RedTile extends RedRectangularComponent implements Tile, Drawable {
 
 	private TEXTURE_BLEND_MODE TOtxtmODE (final UI_BLEND_MODE mode2) {
 
-		Err.throwNotImplementedYet();
-		return null;
+// Err.throwNotImplementedYet();
+		return TEXTURE_BLEND_MODE.Normal;
 	}
 
 	@Override

@@ -13,6 +13,8 @@ buildscript {
 ext {
          scarabeiVersion = "2.4.1"
          gdxVersion = "1.9.6"
+         //gdxJitPackVersion = "1.9.6"
+         
     
 }
 

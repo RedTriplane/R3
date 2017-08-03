@@ -4,7 +4,6 @@ package com.jfixby.r3.activity.red.text;
 import com.jfixby.r3.activity.api.txt.TextBar;
 import com.jfixby.r3.activity.api.txt.TextBarSpecs;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
-import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.math.Angle;
@@ -12,7 +11,7 @@ import com.jfixby.scarabei.api.math.Angle;
 public class RedTextBar implements TextBar {
 
 	public RedTextBar (final TextBarSpecs text_specs, final RedComponentsFactory componentsFactory) {
-		Err.throwNotImplementedYet();
+// Err.throwNotImplementedYet();
 	}
 
 	@Override

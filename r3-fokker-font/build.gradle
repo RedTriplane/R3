@@ -3,8 +3,9 @@
  sourceCompatibility = 1.7
  
 dependencies{
-         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-         compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+         
+  compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+  //compile "com.github.libgdx.libgdx:gdx-freetype:$gdxJitPackVersion"
          
   compile project(":r3-fokker-engine")
   compile project(":r3-fokker-io")
