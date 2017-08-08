@@ -111,6 +111,7 @@ public class RedAssetsManager implements AssetsManagerComponent {
 		readArgs.packageInfo.packedAssets = package_handler.listPackedAssets();
 		readArgs.packageInfo.dependencies = package_handler.listDependencies();
 		this.autoResolveDeps(package_handler.listDependencies());
+		L.d("Rana: reading package", readArgs.packageRootFile.parent());
 		package_reader.doReadPackage(readArgs);
 		container.printAll();
 		LoadedAssets.registerAssetsContainer(container.seal());

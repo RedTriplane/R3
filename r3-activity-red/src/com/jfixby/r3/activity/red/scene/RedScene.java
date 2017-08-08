@@ -44,10 +44,10 @@ import com.jfixby.r3.io.scene2d.Action;
 import com.jfixby.r3.io.scene2d.ActionsGroup;
 import com.jfixby.r3.io.scene2d.Anchor;
 import com.jfixby.r3.io.scene2d.CameraSettings;
+import com.jfixby.r3.io.scene2d.CameraSettings.MODE;
 import com.jfixby.r3.io.scene2d.LayerElement;
 import com.jfixby.r3.io.scene2d.ParallaxSettings;
 import com.jfixby.r3.io.scene2d.RASTER_BLEND_MODE;
-import com.jfixby.r3.io.scene2d.CameraSettings.MODE;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
@@ -456,7 +456,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 		final TextBarSpecs text_bar_specs = text_factory.newTextBarSpecs();
 
-		text_bar_specs.name = (settings.locale_name);
+		text_bar_specs.name = (element.name);
 
 		final ID font_id = Names.newID(element.text_settings.font_settings.name);
 		final SceneStructureAsset structure = settings.getStructure();

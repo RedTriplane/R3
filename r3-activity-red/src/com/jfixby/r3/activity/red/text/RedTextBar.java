@@ -10,8 +10,11 @@ import com.jfixby.scarabei.api.math.Angle;
 
 public class RedTextBar implements TextBar {
 
+	private String name;
+
 	public RedTextBar (final TextBarSpecs text_specs, final RedComponentsFactory componentsFactory) {
 // Err.throwNotImplementedYet();
+		this.name = text_specs.name;
 	}
 
 	@Override
@@ -33,11 +36,12 @@ public class RedTextBar implements TextBar {
 
 	@Override
 	public void setName (final String name) {
+		this.name = name;
 	}
 
 	@Override
 	public String getName () {
-		return null;
+		return this.name;
 	}
 
 	@Override

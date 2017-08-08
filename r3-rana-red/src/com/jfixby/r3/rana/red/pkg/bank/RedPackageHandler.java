@@ -226,7 +226,7 @@ public class RedPackageHandler implements PackageHandler, PackageVersion {
 			sandbox_folder = read_folder;
 		} else {
 
-			sandbox_folder = FileSystemSandBox.wrap(this.name, read_folder).ROOT();
+			sandbox_folder = FileSystemSandBox.wrap(read_folder.getAbsoluteFilePath().getRelativePath() + "", read_folder).ROOT();
 
 			FS = sandbox_folder.getFileSystem();
 		}
