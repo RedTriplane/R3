@@ -1,8 +1,6 @@
 
 package com.jfixby.r3.rana.api.pkg;
 
-import java.io.IOException;
-
 import com.jfixby.scarabei.api.assets.ID;
 
 public interface PackagesBank {
@@ -13,7 +11,7 @@ public interface PackagesBank {
 
 	PackageSearchResult findPackages (PackageSearchParameters search_params);
 
-	void rebuildAllIndexes () throws IOException;
+// Promise<Void> rebuildIndex () throws IOException;
 
 	PackagesTank getTank (String tankName);
 

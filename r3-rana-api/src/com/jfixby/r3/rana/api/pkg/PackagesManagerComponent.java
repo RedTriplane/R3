@@ -6,15 +6,32 @@ import java.io.IOException;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.file.File;
-import com.jfixby.scarabei.api.net.http.HttpURL;
+import com.jfixby.scarabei.api.promise.Promise;
 
 public interface PackagesManagerComponent {
 
-// PackageSearchParameters newSearchParameters ();
+	Promise<PackagesManagerConfig> readPackagesManagerConfig (File assets_cache_folder);
 
-	PackageSearchResult findPackages (PackageSearchParameters search_params);
+	Promise<Collection<FileSystemBankSettings>> findBanks (File assets_folder);
 
-	void printAllPackages ();
+	Promise<Collection<FileSystemBankSettings>> findBanks (RemoteBankSettings remoteBankSettings, final File cacheFolder);
+
+	Promise<Collection<FileSystemBankSettings>> findBanks (Collection<RemoteBankSettings> remoteBankSettings,
+		final File cacheFolder);
+
+	Promise<Collection<PackagesBank>> loadBanks (Collection<FileSystemBankSettings> localBanks);
+
+	Promise<PackagesBank> loadBank (FileSystemBankSettings bankSettings);
+
+	Promise<Collection<PackagesBank>> deploy (File assets_folder, File assets_cache_folder);
+
+	Collection<PackagesBank> listInstalledBanks ();
+
+// Promise<Collection<PackagesBank>> findAndInstallResources (File assets_folder);
+
+	void installBanks (Collection<PackagesBank> resources);
+
+// Promise<Collection<PackagesBank>> loadAssetsFolder (File assets_folder);
 
 // PackageFormat newPackageFormat (String format_name);
 
@@ -32,21 +49,14 @@ public interface PackagesManagerComponent {
 
 // void updateAll (ResourceRebuildIndexListener listener);
 
-	Collection<PackagesBank> findBanks (File assets_folder) throws IOException;
-
 	void printAllResources ();
 
 	void printAllIndexes ();
 
 	PackagesBank getBank (ID name);
 
-	void installBanks (Collection<PackagesBank> resources);
+	PackageSearchResult findPackages (PackageSearchParameters search_params);
 
-	Collection<PackagesBank> findAndInstallResources (File assets_folder) throws IOException;
-
-	PackagesBank installRemoteBank (final HttpURL bankUrl, final File assets_cache_folder, final Iterable<String> tanks)
-		throws IOException;
-
-	DeployRemoteBanksTask prepareDeployRemoteBanksTask ();
+	void printAllPackages ();
 
 }

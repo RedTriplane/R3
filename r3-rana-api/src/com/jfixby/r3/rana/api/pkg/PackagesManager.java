@@ -8,8 +8,7 @@ import com.jfixby.scarabei.api.assets.ID;
 
 public class PackagesManager {
 
-	static private ComponentInstaller<PackagesManagerComponent> componentInstaller = new ComponentInstaller<PackagesManagerComponent>(
-		"PackagesManager");
+	static private ComponentInstaller<PackagesManagerComponent> componentInstaller = new ComponentInstaller<>("PackagesManager");
 
 	public static final void installComponent (final PackagesManagerComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
@@ -81,10 +80,6 @@ public class PackagesManager {
 
 	public static PackagesBank getBank (final ID name) {
 		return invoke().getBank(name);
-	}
-
-	public static DeployRemoteBanksTask prepareDeployRemoteBanksTask () {
-		return invoke().prepareDeployRemoteBanksTask();
 	}
 
 }

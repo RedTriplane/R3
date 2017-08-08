@@ -2,6 +2,7 @@
 package com.jfixby.r3.rana.red.pkg.bank;
 
 import com.jfixby.r3.rana.api.pkg.DeployRemoteBanksTask;
+import com.jfixby.r3.rana.api.pkg.RemoteBankSettings;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.log.L;

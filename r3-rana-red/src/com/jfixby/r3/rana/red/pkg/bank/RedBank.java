@@ -56,8 +56,7 @@ public class RedBank implements PackagesBank {
 		}
 	}
 
-	@Override
-	public void rebuildAllIndexes () throws IOException {
+	public void rebuildIndex () throws IOException {
 		for (int i = 0; i < this.resources.size(); i++) {
 			final PackagesTank resouce = this.resources.getValueAt(i);
 // L.d("index of ", resouce);

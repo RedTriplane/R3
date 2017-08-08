@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class HttpAssetsFolder {
 
-	public ArrayList<String> tanks = new ArrayList<String>();
+	public ArrayList<String> tanks = new ArrayList<>();
 	public String bank_url;
 
 }
