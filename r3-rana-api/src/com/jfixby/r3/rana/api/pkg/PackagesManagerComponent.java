@@ -10,28 +10,28 @@ import com.jfixby.scarabei.api.promise.Promise;
 
 public interface PackagesManagerComponent {
 
-	Promise<PackagesManagerConfig> readPackagesManagerConfig (File assets_cache_folder);
+	Promise<Void, PackagesManagerConfig> readPackagesManagerConfig (File assets_cache_folder);
 
-	Promise<Collection<FileSystemBankSettings>> findBanks (File assets_folder);
+	Promise<Void, Collection<FileSystemBankSettings>> findBanks (File assets_folder);
 
-	Promise<Collection<FileSystemBankSettings>> findBanks (RemoteBankSettings remoteBankSettings, final File cacheFolder);
+	Promise<Void, Collection<FileSystemBankSettings>> findBanks (RemoteBankSettings remoteBankSettings, final File cacheFolder);
 
-	Promise<Collection<FileSystemBankSettings>> findBanks (Collection<RemoteBankSettings> remoteBankSettings,
+	Promise<Void, Collection<FileSystemBankSettings>> findBanks (Collection<RemoteBankSettings> remoteBankSettings,
 		final File cacheFolder);
 
-	Promise<Collection<PackagesBank>> loadBanks (Collection<FileSystemBankSettings> localBanks);
+	Promise<Void, Collection<PackagesBank>> loadBanks (Collection<FileSystemBankSettings> localBanks);
 
-	Promise<PackagesBank> loadBank (FileSystemBankSettings bankSettings);
+	Promise<Void, PackagesBank> loadBank (FileSystemBankSettings bankSettings);
 
-	Promise<Collection<PackagesBank>> deploy (File assets_folder, File assets_cache_folder);
+	Promise<Void, Collection<PackagesBank>> deploy (File assets_folder, File assets_cache_folder);
 
 	Collection<PackagesBank> listInstalledBanks ();
 
-// Promise<Collection<PackagesBank>> findAndInstallResources (File assets_folder);
+// Promise<Void,Collection<PackagesBank>> findAndInstallResources (File assets_folder);
 
 	void installBanks (Collection<PackagesBank> resources);
 
-// Promise<Collection<PackagesBank>> loadAssetsFolder (File assets_folder);
+// Promise<Void,Collection<PackagesBank>> loadAssetsFolder (File assets_folder);
 
 // PackageFormat newPackageFormat (String format_name);
 
