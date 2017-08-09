@@ -31,20 +31,16 @@ public class RedAssetsManager implements AssetsManagerComponent {
 
 	@Override
 	public void autoResolveAsset (final ID dependency) throws IOException {
+		L.e("AssetsConsumer heavy call: autoResolveAsset (final ID dependency)");
 
-		final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, this.stub_consumer);
-		L.e("AssetsConsumer leak public boolean autoResolveAsset (final ID dependency, final PackageReaderListener listener)");
+		final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
 
 		if (asset_entry != null) {
-			LoadedAssets.releaseAsset(asset_entry, this.stub_consumer);
-			return;
+			LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
 		}
 		L.e("Asset[" + dependency + "] delays loading since it is not pre-loaded.");
-// Debug.printCallStack();
-// ResourcesManager.updateAll();
-
 		try {
-			this.resolve(dependency, true);
+			RedAssetsManager.this.resolve(dependency, true);
 		} catch (final IOException e) {
 			throw new IOException("Failed to resolve asset[" + dependency + "]", e);
 		}
@@ -129,26 +125,24 @@ public class RedAssetsManager implements AssetsManagerComponent {
 
 	@Override
 	public void autoResolveAssets (final Collection<ID> dependencies) throws IOException {
+		L.e("AssetsConsumer heavy call: autoResolveAssets (final ID dependency)");
 		Debug.checkNull("dependencies", dependencies);
-// boolean updated = true;
 		for (final ID dependency : dependencies) {
 
-			final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, this.stub_consumer);
-			L.e(
-				"AssetsConsumer leak public void autoResolveAssets (final Collection<ID> dependencies, final PackageReaderListener listener)");
+			final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
 
 			if (asset_entry != null) {
 				L.d("already loaded", dependency);
-				LoadedAssets.releaseAsset(asset_entry, this.stub_consumer);
+				LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
 				continue;
 			}
-// if (!updated) {
-//// ResourcesManager.updateAll();
-// updated = true;
-// }
-// this.resolve(dependency, true, listener);
+			// if (!updated) {
+			//// ResourcesManager.updateAll();
+			// updated = true;
+			// }
+			// this.resolve(dependency, true, listener);
 			try {
-				this.resolve(dependency, true);
+				RedAssetsManager.this.resolve(dependency, true);
 			} catch (final IOException e) {
 				throw new IOException("Failed to resolve asset[" + dependency + "]", e);
 			}

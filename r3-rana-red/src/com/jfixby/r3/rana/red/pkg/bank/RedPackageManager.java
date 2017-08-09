@@ -70,10 +70,10 @@ public class RedPackageManager implements PackagesManagerComponent {
 	@Override
 	public Promise<PackagesManagerConfig> readPackagesManagerConfig (final File assets_cache_folder) {
 
-		final Future<PackagesManagerConfig> future = new Future<PackagesManagerConfig>() {
+		final Future<Void, PackagesManagerConfig> future = new Future<Void, PackagesManagerConfig>() {
 
 			@Override
-			public PackagesManagerConfig deliver () throws Throwable {
+			public PackagesManagerConfig deliver (final Void v) throws Throwable {
 				final RedPackagesManagerConfig config = new RedPackagesManagerConfig();
 				final PackageManagerConfig local_config = RedPackageManager.this.loadConfigFile(LocalFileSystem.ApplicationHome())
 					.await();
@@ -110,10 +110,10 @@ public class RedPackageManager implements PackagesManagerComponent {
 	}
 
 	private Promise<FileSystemBankSettings> findBank (final File bankFolder) throws IOException {
-		final Future<FileSystemBankSettings> bank = new Future<FileSystemBankSettings>() {
+		final Future<Void, FileSystemBankSettings> bank = new Future<Void, FileSystemBankSettings>() {
 
 			@Override
-			public FileSystemBankSettings deliver () throws Throwable {
+			public FileSystemBankSettings deliver (final Void v) throws Throwable {
 				if (!bankFolder.exists()) {
 					L.e("bank not found", bankFolder);
 					return null;
@@ -168,10 +168,10 @@ public class RedPackageManager implements PackagesManagerComponent {
 		specs.setRootUrl(url);
 		specs.setCacheSize(200);
 
-		final Future<Collection<FileSystemBankSettings>> future = new Future<Collection<FileSystemBankSettings>>() {
+		final Future<Void, Collection<FileSystemBankSettings>> future = new Future<Void, Collection<FileSystemBankSettings>>() {
 
 			@Override
-			public Collection<FileSystemBankSettings> deliver () throws Throwable {
+			public Collection<FileSystemBankSettings> deliver (final Void v) throws Throwable {
 				final HttpFileSystem fs = Http.newHttpFileSystem(specs);
 
 				final File httpRemote = fs.ROOT();
@@ -192,9 +192,9 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 	@Override
 	public Promise<Collection<FileSystemBankSettings>> findBanks (final File assets_folder) {
-		final Future<Collection<FileSystemBankSettings>> future = new Future<Collection<FileSystemBankSettings>>() {
+		final Future<Void, Collection<FileSystemBankSettings>> future = new Future<Void, Collection<FileSystemBankSettings>>() {
 			@Override
-			public Collection<FileSystemBankSettings> deliver () throws Throwable {
+			public Collection<FileSystemBankSettings> deliver (final Void v) throws Throwable {
 
 				final List<FileSystemBankSettings> result = Collections.newList();
 
@@ -259,10 +259,10 @@ public class RedPackageManager implements PackagesManagerComponent {
 	}
 
 // public Promise<Collection<PackagesBank>> loadAssetsFolder (final File assets_folder) {
-// final Future<Collection<PackagesBank>> future = new Future<Collection<PackagesBank>>() {
+// final Future<Void,Collection<PackagesBank>> future = new Future<Void,Collection<PackagesBank>>() {
 //
 // @Override
-// public Collection<PackagesBank> deliver () throws Throwable {
+// public Collection<PackagesBank> deliver (Void v) throws Throwable {
 // Debug.checkNull("assets_folder", assets_folder);
 // if (assets_folder.exists() && assets_folder.isFolder()) {
 // final Promise<Collection<PackagesBank>> locals = RedPackageManager.this.findBanks(assets_folder);
@@ -282,10 +282,10 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 	public Promise<PackageManagerConfig> loadConfigFile (final File applicationHome) {
 
-		final Future<PackageManagerConfig> future = new Future<PackageManagerConfig>() {
+		final Future<Void, PackageManagerConfig> future = new Future<Void, PackageManagerConfig>() {
 
 			@Override
-			public PackageManagerConfig deliver () throws Throwable {
+			public PackageManagerConfig deliver (final Void v) throws Throwable {
 				PackageManagerConfig config = null;
 				final File resources_config_file = applicationHome.child(PackageManagerConfig.FILE_NAME);
 
@@ -377,9 +377,9 @@ public class RedPackageManager implements PackagesManagerComponent {
 	}
 
 	private Promise<BankHeader> findAndLoadBankHeader (final File bank_folder) throws IOException {
-		final Future<BankHeader> plan = new Future<BankHeader>() {
+		final Future<Void, BankHeader> plan = new Future<Void, BankHeader>() {
 			@Override
-			public BankHeader deliver () throws Throwable {
+			public BankHeader deliver (final Void v) throws Throwable {
 
 				if (!(bank_folder.exists() && bank_folder.isFolder())) {
 					return null;
@@ -416,10 +416,10 @@ public class RedPackageManager implements PackagesManagerComponent {
 	@Override
 	public Promise<Collection<FileSystemBankSettings>> findBanks (final Collection<RemoteBankSettings> remoteBankSettings,
 		final File cacheFolder) {
-		final Future<Collection<FileSystemBankSettings>> future = new Future<Collection<FileSystemBankSettings>>() {
+		final Future<Void, Collection<FileSystemBankSettings>> future = new Future<Void, Collection<FileSystemBankSettings>>() {
 
 			@Override
-			public Collection<FileSystemBankSettings> deliver () throws Throwable {
+			public Collection<FileSystemBankSettings> deliver (final Void v) throws Throwable {
 				final List<FileSystemBankSettings> results = Collections.newList();
 				for (final RemoteBankSettings set : remoteBankSettings) {
 					final Promise<Collection<FileSystemBankSettings>> bankPromise = RedPackageManager.this.findBanks(set, cacheFolder);
@@ -434,10 +434,10 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 	@Override
 	public Promise<Collection<PackagesBank>> loadBanks (final Collection<FileSystemBankSettings> localBanks) {
-		final Future<Collection<PackagesBank>> future = new Future<Collection<PackagesBank>>() {
+		final Future<Void, Collection<PackagesBank>> future = new Future<Void, Collection<PackagesBank>>() {
 
 			@Override
-			public Collection<PackagesBank> deliver () throws Throwable {
+			public Collection<PackagesBank> deliver (final Void v) throws Throwable {
 				final List<PackagesBank> results = Collections.newList();
 				for (final FileSystemBankSettings set : localBanks) {
 					final Promise<PackagesBank> bankPromise = RedPackageManager.this.loadBank(set);
@@ -452,9 +452,9 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 	@Override
 	public Promise<PackagesBank> loadBank (final FileSystemBankSettings bankSettings) {
-		final Future<PackagesBank> future = new Future<PackagesBank>() {
+		final Future<Void, PackagesBank> future = new Future<Void, PackagesBank>() {
 			@Override
-			public PackagesBank deliver () throws Throwable {
+			public PackagesBank deliver (final Void v) throws Throwable {
 				final ID id = Names.newID(bankSettings.name);
 				final RedBank bank = new RedBank(id);
 
@@ -486,10 +486,10 @@ public class RedPackageManager implements PackagesManagerComponent {
 	@Override
 	public Promise<Collection<PackagesBank>> deploy (final File assets_folder, final File assets_cache_folder) {
 
-		final Future<Collection<PackagesBank>> future = new Future<Collection<PackagesBank>>() {
+		final Future<Void, Collection<PackagesBank>> future = new Future<Void, Collection<PackagesBank>>() {
 
 			@Override
-			public Collection<PackagesBank> deliver () throws Throwable {
+			public Collection<PackagesBank> deliver (final Void v) throws Throwable {
 				{
 					final Promise<Collection<FileSystemBankSettings>> assetsFolderPromise = PackagesManager.invoke()
 						.findBanks(assets_folder);
