@@ -11,13 +11,6 @@ public class ActivitySpawningException extends Exception {
 		super(message);
 	}
 
-	public ActivitySpawningException (final String message, final IntentStack stack) {
-		super(message, stack);
-	}
-
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = -5040594272969667398L;
 
 }

@@ -20,7 +20,11 @@ public class ShadersGroup implements AssetsGroup {
 
 	final List<ShaderEntry> list = Collections.newList();
 
-	public ShadersGroup (final PackageReaderInput input, final RedFokkerShaders redFokkerShaders) throws IOException {
+	public ShadersGroup () {
+
+	}
+
+	void read (final PackageReaderInput input, final RedFokkerShaders redFokkerShaders) throws IOException {
 		final File package_root_file = input.packageRootFile;
 // final PackageHandler handler = input.getPackageHandler();
 		final AssetsContainer container = input.assetsContainer;

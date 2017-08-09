@@ -9,7 +9,7 @@ import com.jfixby.r3.activity.api.raster.RasterPool;
 import com.jfixby.r3.activity.red.raster.RedTile;
 import com.jfixby.r3.activity.red.raster.RedTilesComposition;
 import com.jfixby.r3.activity.red.raster.TileSet;
-import com.jfixby.r3.engine.api.render.R3_SYSTEM_ASSETS;
+import com.jfixby.r3.engine.api.render.R3_SYSTEM_PARAMS;
 import com.jfixby.r3.engine.api.render.RasterData;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
@@ -70,8 +70,9 @@ public class RasterFactory implements RasterComponentsFactory {
 	}
 
 	private AssetHandler obtainRaster (final ID newAssetID) {
-		return this.master.obtainAsset(newAssetID, SystemSettings.getFlag(R3_SYSTEM_ASSETS.AllowMissingRaster),
-			R3_SYSTEM_ASSETS.RASTER_IS_MISING, SystemSettings.getFlag(R3_SYSTEM_ASSETS.PrintLogMessageOnMissingSprite));
+		return this.master.obtainAsset(newAssetID, SystemSettings.getFlag(R3_SYSTEM_PARAMS.AllowMissingRaster),
+			SystemSettings.getStringParameter(R3_SYSTEM_PARAMS.RASTER_IS_MISING),
+			SystemSettings.getFlag(R3_SYSTEM_PARAMS.PrintLogMessageOnMissingSprite));
 	}
 
 	private void release (final AssetHandler asset_handler) {

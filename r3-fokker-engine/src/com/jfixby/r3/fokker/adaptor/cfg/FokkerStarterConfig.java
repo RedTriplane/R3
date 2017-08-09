@@ -3,7 +3,7 @@ package com.jfixby.r3.fokker.adaptor.cfg;
 
 import java.util.HashMap;
 
-import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.log.L;
 
 public class FokkerStarterConfig {
 
@@ -15,14 +15,14 @@ public class FokkerStarterConfig {
 	public static final String PACKAGE_FORMAT = "RedTriplane.Fokker.StarterConfig";
 	public static final String FILE_NAME = "r3-fokker-starter-config.json";
 
-	public HashMap<String, String> params = new HashMap<String, String>();
+	public HashMap<String, String> params = new HashMap<>();
 
 	public String getValue (final String key) {
 		return this.params.get(key);
 	}
 
 	public void print () {
-		Collections.newMap(this.params).print("FokkerStarterConfig");
+		L.d("FokkerStarterConfig", this.params);
 	}
 
 }

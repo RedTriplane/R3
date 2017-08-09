@@ -18,6 +18,7 @@ import com.jfixby.scarabei.api.assets.Names;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.log.L;
@@ -26,17 +27,20 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 
 	private Texture texture;
 	private GdxTextureAtlas atlas;
-	private final PackageReaderInput input;
+	private File package_root_file;
 
-	public RedFokkerRasterDataGroup (final PackageReaderInput input, final FokkerTextureLoader reader,
-		final RedFokkerTextures registry) throws IOException {
-		this.input = input;
+	public RedFokkerRasterDataGroup () {
 
-		final File package_root_file = this.getPackageInput().packageRootFile;
-// final PackageReaderListener reader_listener = this.getPackageInput().getPackageReaderListener();
+	}
 
-		if (!package_root_file.exists()) {
-			final String msg = "Texture file not found: " + package_root_file;
+	public void read (final PackageReaderInput input, final FokkerTextureLoader reader, final RedFokkerTextures registry)
+		throws IOException {
+
+		this.package_root_file = input.packageRootFile;
+// final PackageReaderListener reader_listener = input.getPackageReaderListener();
+
+		if (!this.package_root_file.exists()) {
+			final String msg = "Texture file not found: " + this.package_root_file;
 			L.e(msg);
 			final IOException e = new IOException(msg);
 // if (reader_listener != null) {
@@ -48,25 +52,26 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 			return;
 		}
 
-		final PackageFormat format = this.getPackageInput().packageInfo.packageFormat;
+		final PackageFormat format = input.packageInfo.packageFormat;
 
 		if (FokkerTextureLoader.TEXTURE.equals(format)) {
-			this.readTexture(registry);
+			this.readTexture(registry, input);
 		}
 
 		else if (FokkerTextureLoader.ATLAS.equals(format)) {
-			this.readAtlas(registry);
+			this.readAtlas(registry, input);
 		} else {
 			Err.reportError("Unknown format " + format);
 		}
 	}
 
-	public void readTexture (final RedFokkerTextures registry) {
-		final File package_root_file = this.getPackageInput().packageRootFile;
-// final PackageHandler handler = this.getPackageInput().getPackageHandler();
+	public void readTexture (final RedFokkerTextures registry, final PackageReaderInput input) {
+		Debug.checkCurrentThreadIsMain();
+		final File package_root_file = input.packageRootFile;
+// final PackageHandler handler = input.getPackageHandler();
 		final ToGdxFileAdaptor gdx_file = new ToGdxFileAdaptor(package_root_file);
-		final ID raster_id = this.getPackageInput().packageInfo.packedAssets.getLast();
-		final Collection<ID> assets = this.getPackageInput().packageInfo.packedAssets;
+		final ID raster_id = input.packageInfo.packedAssets.getLast();
+		final Collection<ID> assets = input.packageInfo.packedAssets;
 
 		this.texture = new Texture(gdx_file);
 		this.atlas = null;
@@ -74,22 +79,23 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 		final com.badlogic.gdx.graphics.g2d.Sprite gdx_sprite = new com.badlogic.gdx.graphics.g2d.Sprite(this.texture);
 		final RedFokkerRasterData data = new RedFokkerRasterData(raster_id, gdx_sprite, this);
 
-		final AssetsContainer container = this.input.assetsContainer;
+		final AssetsContainer container = input.assetsContainer;
 		container.addAsset(raster_id, data);
 		registry.register(raster_id, data);
 
 	}
 
-	private PackageReaderInput getPackageInput () {
-		return this.input;
-	}
+// private PackageReaderInput getPackageInput () {
+// return this.input;
+// }
 
-	public void readAtlas (final RedFokkerTextures registry) {
-		final File package_root_file = this.getPackageInput().packageRootFile;
-// final PackageHandler handler = this.getPackageInput().getPackageHandler();
+	public void readAtlas (final RedFokkerTextures registry, final PackageReaderInput input) {
+		Debug.checkCurrentThreadIsMain();
+		final File package_root_file = input.packageRootFile;
+// final PackageHandler handler = input.getPackageHandler();
 		final ToGdxFileAdaptor gdx_file = new ToGdxFileAdaptor(package_root_file);
-		final Collection<ID> assets = this.getPackageInput().packageInfo.packedAssets;
-		final AssetsContainer container = this.input.assetsContainer;
+		final Collection<ID> assets = input.packageInfo.packedAssets;
+		final AssetsContainer container = input.assetsContainer;
 		this.texture = null;
 		this.atlas = new GdxTextureAtlas(gdx_file);
 
@@ -147,7 +153,7 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 	@Override
 	public String toString () {
 		if (this.atlas != null) {
-			return this.atlas.toString(this.input.packageRootFile);
+			return this.atlas.toString(this.package_root_file);
 		}
 		if (this.texture != null) {
 			return this.texture.toString();

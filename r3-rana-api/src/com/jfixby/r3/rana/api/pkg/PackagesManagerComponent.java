@@ -22,7 +22,7 @@ public interface PackagesManagerComponent {
 
 	Promise<PackagesBank> loadBank (FileSystemBankSettings bankSettings);
 
-	Promise<Collection<PackagesBank>> deploy (File assets_folder, File assets_cache_folder);
+	Promise<Collection<PackagesBank>> deploy (File assets_folder);
 
 	Collection<PackagesBank> listInstalledBanks ();
 

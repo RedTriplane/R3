@@ -7,6 +7,7 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.log.L;
 
 public class Assets {
 
@@ -27,7 +28,8 @@ public class Assets {
 	}
 
 	final public void print (final String tag) {
-		Collections.newMap(this.main_registry).print(tag);
+// Collections.newMap(this.main_registry).print(tag);
+		L.d(tag, Collections.newList(this.main_registry));
 	}
 
 // public void purgeAssets (final Collection<ID> assetsToDrop) {

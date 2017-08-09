@@ -11,7 +11,7 @@ public class LoadedAssets {
 
 	public static final String ReportUnusedAssets = "ReportUnusedAssets";
 
-	static private ComponentInstaller<LoadedAssetsComponent> componentInstaller = new ComponentInstaller<LoadedAssetsComponent>(
+	static private ComponentInstaller<LoadedAssetsComponent> componentInstaller = new ComponentInstaller<>(
 		"LoadedAssets");
 
 	public static final void installComponent (final LoadedAssetsComponent component_to_install) {

@@ -9,18 +9,16 @@ public class FokkerEngineParams {
 	}
 
 	public static class Settings {
-		public static final String PrintLogMessageOnMissingSprite = "PrintLogMessageOnMissingSprite";
+
 		public static final String PrintLogMessageOnMissingShader = "PrintLogMessageOnMissingShader";
 // public static final String DisableLogo = "DisableLogo";
-		public static final String AllowMissingRaster = "AllowMissingRaster";
 		public static final String AllowMissingShader = "AllowMissingShader";
-		public static final String ExitOnMissingSprite = "ExitOnMissingSprite";
+
 		public static final String PrintLogMessageOnDuplicateAssetRequest = "PrintLogMessageOnDuplicateAssetRequest";
 	}
 
 	public static class Assets {
 
-		public static final String RASTER_IS_MISING = "RASTER_IS_MISING";
 		public static final String SPRITE_BLACK = "BLACK";
 		public static final String SPRITE_BLACK_DEBUG = "BLACK_DEBUG";
 		public static final String DefaultFont = "DefaultFont";

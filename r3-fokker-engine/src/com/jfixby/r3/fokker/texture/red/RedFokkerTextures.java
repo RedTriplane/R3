@@ -1,8 +1,6 @@
 
 package com.jfixby.r3.fokker.texture.red;
 
-import java.io.IOException;
-
 import com.jfixby.r3.fokker.texture.api.FokkerTexture;
 import com.jfixby.r3.fokker.texture.api.FokkerTexturePackageReader;
 import com.jfixby.r3.fokker.texture.api.FokkerTexturesComponent;
@@ -31,8 +29,8 @@ public class RedFokkerTextures implements FokkerTexturesComponent {
 		FokkerTexture shader = this.registry.get(assetID);
 		if (shader == null) {
 			try {
-				AssetsManager.autoResolveAssetAsync(assetID);
-			} catch (final IOException e) {
+				AssetsManager.autoResolveAsset(assetID).await();
+			} catch (final Throwable e) {
 				e.printStackTrace();
 				Err.reportError(e);
 			}

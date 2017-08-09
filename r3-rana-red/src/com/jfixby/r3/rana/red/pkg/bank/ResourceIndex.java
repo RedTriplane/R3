@@ -16,6 +16,7 @@ import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.collections.Set;
 import com.jfixby.scarabei.api.file.File;
+import com.jfixby.scarabei.api.log.L;
 
 public class ResourceIndex {
 	Set<PackageHandler> all_handlers = Collections.newSet();
@@ -127,7 +128,8 @@ public class ResourceIndex {
 
 	public void print () {
 
-		this.handlers_by_asset_id.print("index");
+// this.handlers_by_asset_id.print("index");
+		L.d("index", this.handlers_by_asset_id);
 	}
 
 	public ResourceIndex (final RedResource fileSystemBasedResource) {

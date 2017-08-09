@@ -1,8 +1,6 @@
 
 package com.jfixby.r3.fokker.shader.red;
 
-import java.io.IOException;
-
 import com.jfixby.r3.fokker.shader.api.FokkerShader;
 import com.jfixby.r3.fokker.shader.api.FokkerShaderPackageReader;
 import com.jfixby.r3.fokker.shader.api.FokkerShadersComponent;
@@ -30,8 +28,8 @@ public class RedFokkerShaders implements FokkerShadersComponent {
 		FokkerShader shader = this.registry.get(assetID);
 		if (shader == null) {
 			try {
-				AssetsManager.autoResolveAssetAsync(assetID);
-			} catch (final IOException e) {
+				AssetsManager.autoResolveAsset(assetID).await();
+			} catch (final Throwable e) {
 				e.printStackTrace();
 				Err.reportError(e);
 			}

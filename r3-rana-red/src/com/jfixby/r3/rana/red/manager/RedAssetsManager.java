@@ -27,36 +27,138 @@ import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.promise.Promise;
 import com.jfixby.scarabei.api.sys.settings.ExecutionMode;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
+import com.jfixby.scarabei.api.taskman.PromiseSpecs;
 import com.jfixby.scarabei.api.taskman.SysExecutor;
 import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class RedAssetsManager implements AssetsManagerComponent {
 	final AssetsConsumer stub_consumer = new StubAssetsConsumer();
 
+// @Override
+// public void autoResolveAssetAsync (final ID dependency) throws IOException {
+//
+// }
+
+//
+// @Override
+// public void autoResolveAssetsAsync (final Collection<ID> dependencies) throws IOException {
+// Debug.checkNull("dependencies", dependencies);
+//
+// final boolean isMain = SysExecutor.isMainThread();
+// if (isMain) {
+// L.e("AssetsConsumer heavy call in main thread: autoResolveAssets (" + dependencies.toJavaList() + ")");
+// }
+//
+// for (final ID dependency : dependencies) {
+//
+// final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
+//
+// if (asset_entry != null) {
+// L.d("already loaded", dependency);
+// LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
+// continue;
+// }
+// // if (!updated) {
+// //// ResourcesManager.updateAll();
+// // updated = true;
+// // }
+// // this.resolve(dependency, true, listener);
+// try {
+//// RedAssetsManager.this.resolve(dependency, true).await();
+// final PackageHandler pkg = this.findPackage(dependency, true).deliver(null);
+// final PackageHandler deps = this.resolveDependencies().deliver(pkg);
+// final PackageReaderInputAndReader install = this.installPackage().deliver(deps);
+// this.readPackage().deliver(install);
+// } catch (final Throwable e) {
+// throw new IOException("Failed to resolve asset[" + dependency + "]", e);
+// }
+// }
+// }
+//
+// private Promise<AssetsContainer> resolve (final Collection<ID> dependencies, final boolean print_debug_output) {
+// final Promise<PackageHandler> promiseToFindPackage = TaskManager.newPromise("findPackage(" + dependency + ")",
+// this.findPackage(dependency, print_debug_output));
+// final Promise<PackageHandler> promiseToResolve = promiseToFindPackage.then("resolce dependencies for (" + dependency + ")",
+// this.resolveDependencies());
+// final Promise<PackageReaderInputAndReader> promisePrepareToRead = promiseToResolve
+// .then("installAndReadPackage(" + dependency + ")", this.installPackage());
+// final Promise<AssetsContainer> readPromise = promisePrepareToRead.then("readPackage", this.readPackage());
+// return readPromise;
+// }
+
+	final ContainersRegistry conrtainersReg = new ContainersRegistry();
+
 	@Override
-	public void autoResolveAssetAsync (final ID dependency) throws IOException {
-		final boolean isMain = SysExecutor.isMainThread();
-		if (isMain) {
-			L.e("AssetsConsumer heavy call in main thread: autoResolveAssetAsync (" + dependency + ")");
+	public AssetsPurgeResult purge () {
+		final RedAssetsPurgeResult result = new RedAssetsPurgeResult();
+		final Collection<SealedAssetsContainer> unused = LoadedAssets.listUnusedContainers();
+		for (final SealedAssetsContainer c : unused) {
+			final AssetsContainerOwner owner = this.conrtainersReg.getContainerOwner(c);
+			Debug.checkNull("Owner of " + c + " not found", owner);
+			owner.onAssetsUnload(c);
+			this.conrtainersReg.unregisterContainer(c);
+			if (!this.conrtainersReg.hasMoreContainers(owner)) {
+				this.conrtainersReg.unregister(owner);
+				result.addOwner(owner);
+			}
 		}
-
-		final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
-
-		if (asset_entry != null) {
-			LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
-		}
-		L.e("Asset[" + dependency + "] delays loading since it is not pre-loaded.");
-		try {
-			RedAssetsManager.this.resolve(dependency, true);
-		} catch (final IOException e) {
-			throw new IOException("Failed to resolve asset[" + dependency + "]", e);
-		}
-
+		LoadedAssets.unRegisterAssetsContainers(unused);
+		return result;
 	}
 
-	private void resolve (final ID dependency, final boolean print_debug_output) throws IOException {
+	void registerAssetsContainer (final SealedAssetsContainer container) {
+		LoadedAssets.registerAssetsContainer(container);
+		RedAssetsManager.this.conrtainersReg.registerContainer(container);
+	}
 
-		// L.d("RESOLVING DEPENDENCY", dependency);
+	@Override
+	public Promise<Void> autoResolveAsset (final ID dependency) {
+
+		final Future<Void, AssetsContainer> autoResolveAssetFuture = new Future<Void, AssetsContainer>() {
+
+			@Override
+			public AssetsContainer deliver (final Void input) throws Throwable {
+				final boolean isMain = SysExecutor.isMainThread();
+				if (isMain) {
+					L.e("AssetsConsumer heavy call in main thread: autoResolveAssetAsync (" + dependency + ")");
+				}
+
+				final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
+
+				if (asset_entry != null) {
+					LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
+					return null;
+				}
+				L.e("Asset[" + dependency + "] delays loading since it is not pre-loaded.");
+
+				final AssetsContainer container = RedAssetsManager.this.resolveAsync(dependency, true);
+				Debug.checkNull("container", container);
+				return container;
+
+			}
+
+		};
+
+		final Future<AssetsContainer, Void> registerAssetsContainer = new Future<AssetsContainer, Void>() {
+
+			@Override
+			public Void deliver (final AssetsContainer container) throws Throwable {
+				if (container == null) {
+					return null;
+				}
+				RedAssetsManager.this.registerAssetsContainer(container.seal());
+				return null;
+			}
+		};
+
+		final PromiseSpecs specs = new PromiseSpecs();
+		specs.name = "registerAssetsContainer";
+		specs.executeInMainThread = true;
+		return TaskManager.newPromise("autoResolveAsset(" + dependency + ")", autoResolveAssetFuture).then(specs,
+			registerAssetsContainer);
+	}
+
+	private AssetsContainer resolveAsync (final ID dependency, final boolean print_debug_output) throws Throwable {
 		final PackageSearchParameters search_params = new PackageSearchParameters();
 		search_params.asset_to_find = dependency;
 
@@ -79,13 +181,16 @@ public class RedAssetsManager implements AssetsManagerComponent {
 			if (SystemSettings.executionModeCovers(ExecutionMode.EARLY_DEVELOPMENT)) {
 				PackagesManager.printAllIndexes();
 			}
-// Err.reportError(msg);
+			// Err.reportError(msg);
 			throw new IOException(msg);
 			//
 		}
 
 		final PackageHandler package_handler = search_result.getBest();
-		// package_handler.print();
+
+		final Collection<ID> deps = package_handler.listDependencies();
+		final Promise<Void> promise = RedAssetsManager.this.autoResolveAssets(deps);
+		promise.await();
 
 		final PACKAGE_STATUS package_status = package_handler.getStatus();
 		if (PACKAGE_STATUS.NOT_INSTALLED == package_status) {
@@ -96,7 +201,7 @@ public class RedAssetsManager implements AssetsManagerComponent {
 		final Collection<PackageLoader> package_loaders = PackagesLoader.findPackageReaders(format);
 		if (package_loaders.isEmpty()) {
 			PackagesLoader.printInstalledPackageReaders();
-// L.e("Failed to read package", package_handler);
+			// L.e("Failed to read package", package_handler);
 			throw new IOException("Failed to read package: " + package_handler + " No package reader for " + format);
 			//
 		}
@@ -113,101 +218,55 @@ public class RedAssetsManager implements AssetsManagerComponent {
 		readArgs.packageInfo.packageFormat = package_handler.getFormat();
 		readArgs.packageInfo.packedAssets = package_handler.listPackedAssets();
 		readArgs.packageInfo.dependencies = package_handler.listDependencies();
-		final Collection<ID> deps = package_handler.listDependencies();
-		if (deps.size() > 0) {
-			this.autoResolveDeps(deps);
-		}
-		L.d("Rana: reading package", readArgs.packageRootFile.parent());
-		package_reader.doReadPackage(readArgs);
-		container.printAll();
-		LoadedAssets.registerAssetsContainer(container.seal());
-		this.conrtainersReg.registerContainer(container.seal());
-// L.d("MISSING OWNER!");
-// package_handler.doReadPackage(listener, package_reader);
-// debigTimer.printTimeAbove(50L, "LOAD-TIME: Asset[" + dependency + "] loaded");
 
-// return true;
-	}
+		L.d("Rana: reading package[" + readArgs.packageInfo.packageFormat + "]", readArgs.packageRootFile.parent());
+		L.d("                     ", package_reader);
+		final Promise<AssetsContainer> promiseToRead = package_reader.doReadPackage(readArgs);
+		promiseToRead.await();
+		return container;
 
-	private void autoResolveDeps (final Collection<ID> listDependencies) throws IOException {
-		this.autoResolveAssetsAsync(listDependencies);
-	}
-
-	@Override
-	public void autoResolveAssetsAsync (final Collection<ID> dependencies) throws IOException {
-		Debug.checkNull("dependencies", dependencies);
-
-		final boolean isMain = SysExecutor.isMainThread();
-		if (isMain) {
-			L.e("AssetsConsumer heavy call in main thread: autoResolveAssets (" + dependencies.toJavaList() + ")");
-		}
-
-		for (final ID dependency : dependencies) {
-
-			final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
-
-			if (asset_entry != null) {
-				L.d("already loaded", dependency);
-				LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
-				continue;
-			}
-			// if (!updated) {
-			//// ResourcesManager.updateAll();
-			// updated = true;
-			// }
-			// this.resolve(dependency, true, listener);
-			try {
-				RedAssetsManager.this.resolve(dependency, true);
-			} catch (final IOException e) {
-				throw new IOException("Failed to resolve asset[" + dependency + "]", e);
-			}
-		}
-	}
-
-	final ContainersRegistry conrtainersReg = new ContainersRegistry();
-
-	@Override
-	public AssetsPurgeResult purge () {
-		final RedAssetsPurgeResult result = new RedAssetsPurgeResult();
-		final Collection<SealedAssetsContainer> unused = LoadedAssets.listUnusedContainers();
-		for (final SealedAssetsContainer c : unused) {
-			final AssetsContainerOwner owner = this.conrtainersReg.getContainerOwner(c);
-			Debug.checkNull("Owner of " + c + " not found", owner);
-			owner.onAssetsUnload(c);
-			this.conrtainersReg.unregisterContainer(c);
-			if (!this.conrtainersReg.hasMoreContainers(owner)) {
-				this.conrtainersReg.unregister(owner);
-				result.addOwner(owner);
-			}
-		}
-		LoadedAssets.unRegisterAssetsContainers(unused);
-		return result;
-	}
-
-	@Override
-	public Promise<Void> autoResolveAsset (final ID dependency) {
-		final Future<Void, Void> future = new Future<Void, Void>() {
-
-			@Override
-			public Void deliver (final Void input) throws Throwable {
-				RedAssetsManager.this.autoResolveAssetAsync(dependency);
-				return null;
-			}
-		};
-		return TaskManager.newPromise(future);
 	}
 
 	@Override
 	public Promise<Void> autoResolveAssets (final Collection<ID> dependencies) {
-		final Future<Void, Void> future = new Future<Void, Void>() {
+		final Future<Void, Void> autoResolveAssetFuture = new Future<Void, Void>() {
 
 			@Override
 			public Void deliver (final Void input) throws Throwable {
-				RedAssetsManager.this.autoResolveAssetsAsync(dependencies);
+				Debug.checkNull("dependencies", dependencies);
+
+				final boolean isMain = SysExecutor.isMainThread();
+				if (isMain) {
+					L.e("AssetsConsumer heavy call in main thread: autoResolveAssets (" + dependencies.toJavaList() + ")");
+				}
+
+				for (final ID dependency : dependencies) {
+					final Promise<Void> promise = RedAssetsManager.this.autoResolveAsset(dependency);
+					promise.await();
+// final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
+//
+// if (asset_entry != null) {
+// L.d("already loaded", dependency);
+// LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
+// continue;
+// }
+// // if (!updated) {
+// //// ResourcesManager.updateAll();
+// // updated = true;
+// // }
+// // this.resolve(dependency, true, listener);
+// try {
+// RedAssetsManager.this.resolveAsync(dependency, true);
+// } catch (final IOException e) {
+// throw new IOException("Failed to resolve asset[" + dependency + "]", e);
+// }
+				}
 				return null;
 			}
+
 		};
-		return TaskManager.newPromise(future);
+
+		return TaskManager.newPromise("autoResolveAssets(" + dependencies.toJavaList() + ")", autoResolveAssetFuture);
 	}
 
 }

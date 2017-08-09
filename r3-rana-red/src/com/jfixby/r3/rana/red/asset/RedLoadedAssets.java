@@ -123,6 +123,8 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 	public void registerAssetContainer (final ID asset_id, final SealedAssetsContainer container) {
 		Debug.checkNull("asset_id", asset_id);
 		Debug.checkNull("container", container);
+// L.d("register", asset_id);
+// Debug.printCallStack();
 
 // Set<AssetID> set = this.containers.get(asset_id);
 // if (set == null) {
@@ -145,6 +147,7 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 
 	@Override
 	public void registerAssetsContainer (final SealedAssetsContainer container) {
+		Debug.checkCurrentThreadIsMain();
 		final Collection<ID> list = container.listAssets();
 		for (final ID rester_id : list) {
 			this.registerAssetContainer(rester_id, container);
@@ -176,6 +179,7 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 
 	@Override
 	public void releaseAsset (final AssetHandler asset_info, final AssetsConsumer consumer) {
+		Debug.checkCurrentThreadIsMain();
 		Debug.checkNull("asset_info", asset_info);
 		final ID asset_id = asset_info.ID();
 		Debug.checkNull("asset_id", asset_id);
@@ -312,8 +316,10 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 				continue;
 			}
 			if (!assets.containsAll(assetsToPurge)) {
-				assets.print("  assets");
-				assetsToPurge.print("to purge");
+// assets.print(" assets");
+				L.d("assets", assets);
+				L.d("to purge", assetsToPurge);
+// assetsToPurge.print("to purge");
 				Err.reportError("Not equal sets");
 				continue;
 			}
