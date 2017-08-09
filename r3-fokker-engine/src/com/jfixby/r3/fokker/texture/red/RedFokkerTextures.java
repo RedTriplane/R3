@@ -31,7 +31,7 @@ public class RedFokkerTextures implements FokkerTexturesComponent {
 		FokkerTexture shader = this.registry.get(assetID);
 		if (shader == null) {
 			try {
-				AssetsManager.autoResolveAsset(assetID);
+				AssetsManager.autoResolveAssetAsync(assetID);
 			} catch (final IOException e) {
 				e.printStackTrace();
 				Err.reportError(e);

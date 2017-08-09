@@ -20,6 +20,11 @@ public class RedActionTask<T> extends UIEvent {
 	}
 
 	@Override
+	public String toString () {
+		return "ActionTask[" + this.action + "]";
+	}
+
+	@Override
 	public void go () {
 		this.current_unit_man = this.redUIManager.getCurrent();
 		final Activity unit = this.current_unit_man.getActivity();

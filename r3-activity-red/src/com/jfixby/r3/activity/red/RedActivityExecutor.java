@@ -1,6 +1,7 @@
 
 package com.jfixby.r3.activity.red;
 
+import com.jfixby.r3.activity.api.act.UIEventsManager;
 import com.jfixby.r3.activity.api.spawn.ActivityMachine;
 import com.jfixby.r3.activity.api.spawn.ActivityMachineComponent;
 import com.jfixby.r3.activity.api.spawn.Intent;
@@ -77,10 +78,14 @@ public class RedActivityExecutor implements ActivityMachineComponent, EngineExec
 // if (starter == null) {
 // Err.reportError("RedTriplane.GameStarter is not set");
 // }
-		final Intent intent = ActivityMachine.newIntent(starter);
-		this.nextActivity(intent);
+// final Intent intent = ActivityMachine.newIntent(starter);
+// this.nextActivity(intent);
+
 // L.d("Screen dimensions", Screen.getScreenDimensions());
 		RenderMachine.component().deploy();
+
+		UIEventsManager.startEventsMachine();
+		UIEventsManager.loadUnit(starter);
 	}
 
 	@Override

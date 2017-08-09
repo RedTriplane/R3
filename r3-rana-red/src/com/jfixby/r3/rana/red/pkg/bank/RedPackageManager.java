@@ -43,14 +43,14 @@ import com.jfixby.scarabei.api.taskman.TaskManager;
 public class RedPackageManager implements PackagesManagerComponent {
 
 // private static final boolean COLLECT_TANKS = true;
-// private final File assets_cache_folder;
+	private final File assets_cache_folder;
 	boolean deployed = false;
 
 	final Map<ID, PackagesBank> resources = Collections.newMap();
 
 	public RedPackageManager (final RedResourcesManagerSpecs specs) {
 		this.deployed = false;
-
+		this.assets_cache_folder = specs.assets_cache_folder;
 // final Collection<RemoteBankSpecs> remotebanks = specs.remotebanks;
 // for (final RemoteBankSpecs rbank : remotebanks) {
 // final RemoteBankSettings element = new RemoteBankSettings();
@@ -68,7 +68,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 // }
 
 	@Override
-	public Promise<PackagesManagerConfig> readPackagesManagerConfig (final File assets_cache_folder) {
+	public Promise<PackagesManagerConfig> readPackagesManagerConfig () {
 
 		final Future<Void, PackagesManagerConfig> future = new Future<Void, PackagesManagerConfig>() {
 
@@ -240,7 +240,8 @@ public class RedPackageManager implements PackagesManagerComponent {
 		return this.resources.get(name);
 	}
 
-	private void installBank (final PackagesBank group) {
+	@Override
+	public void installBank (final PackagesBank group) {
 		Debug.checkNull("resource_to_install", group);
 		final ID name = group.getName();
 
@@ -414,15 +415,15 @@ public class RedPackageManager implements PackagesManagerComponent {
 	}
 
 	@Override
-	public Promise<Collection<FileSystemBankSettings>> findBanks (final Collection<RemoteBankSettings> remoteBankSettings,
-		final File cacheFolder) {
+	public Promise<Collection<FileSystemBankSettings>> findBanks (final Collection<RemoteBankSettings> remoteBankSettings) {
 		final Future<Void, Collection<FileSystemBankSettings>> future = new Future<Void, Collection<FileSystemBankSettings>>() {
 
 			@Override
 			public Collection<FileSystemBankSettings> deliver (final Void v) throws Throwable {
 				final List<FileSystemBankSettings> results = Collections.newList();
 				for (final RemoteBankSettings set : remoteBankSettings) {
-					final Promise<Collection<FileSystemBankSettings>> bankPromise = RedPackageManager.this.findBanks(set, cacheFolder);
+					final Promise<Collection<FileSystemBankSettings>> bankPromise = RedPackageManager.this.findBanks(set,
+						RedPackageManager.this.assets_cache_folder);
 					results.addAll(bankPromise.await());
 				}
 				return results;
@@ -494,13 +495,12 @@ public class RedPackageManager implements PackagesManagerComponent {
 					final Promise<Collection<FileSystemBankSettings>> assetsFolderPromise = PackagesManager.invoke()
 						.findBanks(assets_folder);
 					final Collection<FileSystemBankSettings> assetsFolderBanks = assetsFolderPromise.await();
-					final Promise<PackagesManagerConfig> configPromise = PackagesManager.invoke()
-						.readPackagesManagerConfig(assets_cache_folder);
+					final Promise<PackagesManagerConfig> configPromise = PackagesManager.invoke().readPackagesManagerConfig();
 					final PackagesManagerConfig packmanConfig = configPromise.await();
 					final Collection<FileSystemBankSettings> localBankFiles = packmanConfig.localBanks();
 					final Collection<RemoteBankSettings> remoteSettings = packmanConfig.remoteBanks();
-					final Collection<FileSystemBankSettings> remoteBankFiles = PackagesManager.invoke()
-						.findBanks(remoteSettings, assets_cache_folder).await();
+					final Collection<FileSystemBankSettings> remoteBankFiles = PackagesManager.invoke().findBanks(remoteSettings)
+						.await();
 					final Promise<Collection<PackagesBank>> localBanksPromise = PackagesManager.invoke().loadBanks(localBankFiles);
 					final Promise<Collection<PackagesBank>> assetsFolderBanksPromise = PackagesManager.invoke()
 						.loadBanks(assetsFolderBanks);

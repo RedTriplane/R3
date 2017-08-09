@@ -47,7 +47,7 @@ public class FokkerRedRasterizedString implements FokkerString {
 	}
 
 	private AssetHandler obtain (final ID newAssetID, final AssetsConsumer componentsFactory) throws IOException {
-		AssetsManager.autoResolveAsset(newAssetID);
+		AssetsManager.autoResolveAssetAsync(newAssetID);
 		final AssetHandler asset_handler = LoadedAssets.obtainAsset(newAssetID, componentsFactory);
 		if (asset_handler == null) {
 			LoadedAssets.printAllLoadedAssets();

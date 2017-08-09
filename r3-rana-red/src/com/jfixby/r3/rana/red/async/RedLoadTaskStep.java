@@ -19,7 +19,7 @@ class RedLoadTaskStep {
 
 		public void push () {
 			try {
-				AssetsManager.autoResolveAsset(this.scene_id);
+				AssetsManager.autoResolveAssetAsync(this.scene_id);
 				this.procesed = true;
 			} catch (final IOException e) {
 				e.printStackTrace();

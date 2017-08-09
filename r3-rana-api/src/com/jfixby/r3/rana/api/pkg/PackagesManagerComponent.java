@@ -10,14 +10,13 @@ import com.jfixby.scarabei.api.promise.Promise;
 
 public interface PackagesManagerComponent {
 
-	Promise<PackagesManagerConfig> readPackagesManagerConfig (File assets_cache_folder);
+	Promise<PackagesManagerConfig> readPackagesManagerConfig ();
 
 	Promise<Collection<FileSystemBankSettings>> findBanks (File assets_folder);
 
 	Promise<Collection<FileSystemBankSettings>> findBanks (RemoteBankSettings remoteBankSettings, final File cacheFolder);
 
-	Promise<Collection<FileSystemBankSettings>> findBanks (Collection<RemoteBankSettings> remoteBankSettings,
-		final File cacheFolder);
+	Promise<Collection<FileSystemBankSettings>> findBanks (Collection<RemoteBankSettings> remoteBankSettings);
 
 	Promise<Collection<PackagesBank>> loadBanks (Collection<FileSystemBankSettings> localBanks);
 
@@ -30,6 +29,8 @@ public interface PackagesManagerComponent {
 // Promise<Collection<PackagesBank>> findAndInstallResources (File assets_folder);
 
 	void installBanks (Collection<PackagesBank> resources);
+
+	void installBank (PackagesBank bank);
 
 // Promise<Collection<PackagesBank>> loadAssetsFolder (File assets_folder);
 

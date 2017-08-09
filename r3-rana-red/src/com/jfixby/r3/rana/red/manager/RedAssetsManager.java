@@ -23,15 +23,22 @@ import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.promise.Future;
+import com.jfixby.scarabei.api.promise.Promise;
 import com.jfixby.scarabei.api.sys.settings.ExecutionMode;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
+import com.jfixby.scarabei.api.taskman.SysExecutor;
+import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class RedAssetsManager implements AssetsManagerComponent {
 	final AssetsConsumer stub_consumer = new StubAssetsConsumer();
 
 	@Override
-	public void autoResolveAsset (final ID dependency) throws IOException {
-		L.e("AssetsConsumer heavy call: autoResolveAsset (final ID dependency)");
+	public void autoResolveAssetAsync (final ID dependency) throws IOException {
+		final boolean isMain = SysExecutor.isMainThread();
+		if (isMain) {
+			L.e("AssetsConsumer heavy call in main thread: autoResolveAssetAsync (" + dependency + ")");
+		}
 
 		final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
 
@@ -106,7 +113,10 @@ public class RedAssetsManager implements AssetsManagerComponent {
 		readArgs.packageInfo.packageFormat = package_handler.getFormat();
 		readArgs.packageInfo.packedAssets = package_handler.listPackedAssets();
 		readArgs.packageInfo.dependencies = package_handler.listDependencies();
-		this.autoResolveDeps(package_handler.listDependencies());
+		final Collection<ID> deps = package_handler.listDependencies();
+		if (deps.size() > 0) {
+			this.autoResolveDeps(deps);
+		}
 		L.d("Rana: reading package", readArgs.packageRootFile.parent());
 		package_reader.doReadPackage(readArgs);
 		container.printAll();
@@ -120,13 +130,18 @@ public class RedAssetsManager implements AssetsManagerComponent {
 	}
 
 	private void autoResolveDeps (final Collection<ID> listDependencies) throws IOException {
-		this.autoResolveAssets(listDependencies);
+		this.autoResolveAssetsAsync(listDependencies);
 	}
 
 	@Override
-	public void autoResolveAssets (final Collection<ID> dependencies) throws IOException {
-		L.e("AssetsConsumer heavy call: autoResolveAssets (final ID dependency)");
+	public void autoResolveAssetsAsync (final Collection<ID> dependencies) throws IOException {
 		Debug.checkNull("dependencies", dependencies);
+
+		final boolean isMain = SysExecutor.isMainThread();
+		if (isMain) {
+			L.e("AssetsConsumer heavy call in main thread: autoResolveAssets (" + dependencies.toJavaList() + ")");
+		}
+
 		for (final ID dependency : dependencies) {
 
 			final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
@@ -167,6 +182,32 @@ public class RedAssetsManager implements AssetsManagerComponent {
 		}
 		LoadedAssets.unRegisterAssetsContainers(unused);
 		return result;
+	}
+
+	@Override
+	public Promise<Void> autoResolveAsset (final ID dependency) {
+		final Future<Void, Void> future = new Future<Void, Void>() {
+
+			@Override
+			public Void deliver (final Void input) throws Throwable {
+				RedAssetsManager.this.autoResolveAssetAsync(dependency);
+				return null;
+			}
+		};
+		return TaskManager.newPromise(future);
+	}
+
+	@Override
+	public Promise<Void> autoResolveAssets (final Collection<ID> dependencies) {
+		final Future<Void, Void> future = new Future<Void, Void>() {
+
+			@Override
+			public Void deliver (final Void input) throws Throwable {
+				RedAssetsManager.this.autoResolveAssetsAsync(dependencies);
+				return null;
+			}
+		};
+		return TaskManager.newPromise(future);
 	}
 
 }

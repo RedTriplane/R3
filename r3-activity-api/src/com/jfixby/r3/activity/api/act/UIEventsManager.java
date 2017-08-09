@@ -6,7 +6,7 @@ import com.jfixby.scarabei.api.assets.ID;
 
 public class UIEventsManager {
 
-	static private ComponentInstaller<UIEventsManagerComponent> componentInstaller = new ComponentInstaller<UIEventsManagerComponent>(
+	static private ComponentInstaller<UIEventsManagerComponent> componentInstaller = new ComponentInstaller<>(
 		"UIEventsManagerComponent");
 
 	public static final void installComponent (final UIEventsManagerComponent component_to_install) {

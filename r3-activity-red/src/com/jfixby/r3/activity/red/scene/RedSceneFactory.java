@@ -35,7 +35,7 @@ public class RedSceneFactory implements SceneFactory {
 		Debug.checkNull("structureID", config.structureID);
 // final PackageReaderListener listener = config.getPackageListener();
 		try {
-			AssetsManager.autoResolveAsset(config.structureID);
+			AssetsManager.autoResolveAssetAsync(config.structureID);
 		} catch (final IOException e) {
 			e.printStackTrace();
 			Err.reportError(e);
