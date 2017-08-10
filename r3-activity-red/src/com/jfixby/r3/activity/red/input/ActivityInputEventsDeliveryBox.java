@@ -16,13 +16,13 @@ import com.jfixby.r3.activity.api.user.KeyboardInputEventListener;
 import com.jfixby.r3.activity.api.user.MouseInputEventListener;
 import com.jfixby.r3.activity.red.cam.RedCamera;
 import com.jfixby.r3.engine.api.exe.InputEvent;
-import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.Float2;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.input.Key;
 import com.jfixby.scarabei.api.input.MouseButton;
+import com.jfixby.scarabei.api.log.L;
 
 public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDraggedEvent, TouchUpEvent, TouchDownEvent,
 	MouseScrolledEvent, MouseExitEvent, CharTypedEvent, KeyUpEvent, KeyDownEvent {
@@ -72,7 +72,7 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 
 	}
 
-	final ArrayList<RedCamera> cameras_stack = new ArrayList<RedCamera>();
+	final ArrayList<RedCamera> cameras_stack = new ArrayList<>();
 
 	private InputEvent current_input_event;
 	boolean keyboard_event = false;
@@ -208,7 +208,8 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 					camera.unProject(this.canvas_point);
 				}
 			} else {
-				Collections.newList(this.cameras_stack).print("cameras stack");
+// Collections.newList(this.cameras_stack).print("cameras stack");
+				L.d("cameras stack", this.cameras_stack);
 				Err.reportError("Cameras stack is corrupted.");
 			}
 		}
@@ -216,7 +217,8 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 
 	public void checkStack () {
 		if (!this.cameras_stack.isEmpty()) {
-			Collections.newList(this.cameras_stack).print("cameras stack");
+// Collections.newList(this.cameras_stack).print("cameras stack");
+			L.d("cameras stack", this.cameras_stack);
 			Err.reportError("Cameras stack is corrupted.");
 		}
 	}

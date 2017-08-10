@@ -11,8 +11,9 @@ public class RedAssetsPurgeResult implements AssetsPurgeResult {
 
 	@Override
 	public void print () {
-		L.d("AssetsPurgeResult");
-		this.owners.print("           purged");
+		L.d("AssetsPurgeResult", this.owners);
+
+// this.owners.print(" purged");
 	}
 
 	public void addOwner (final AssetsContainerOwner owner) {

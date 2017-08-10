@@ -123,6 +123,8 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 	public void registerAssetContainer (final ID asset_id, final SealedAssetsContainer container) {
 		Debug.checkNull("asset_id", asset_id);
 		Debug.checkNull("container", container);
+// L.d("register", asset_id);
+// Debug.printCallStack();
 
 // Set<AssetID> set = this.containers.get(asset_id);
 // if (set == null) {
@@ -312,8 +314,10 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 				continue;
 			}
 			if (!assets.containsAll(assetsToPurge)) {
-				assets.print("  assets");
-				assetsToPurge.print("to purge");
+// assets.print(" assets");
+				L.d("assets", assets);
+				L.d("to purge", assetsToPurge);
+// assetsToPurge.print("to purge");
 				Err.reportError("Not equal sets");
 				continue;
 			}

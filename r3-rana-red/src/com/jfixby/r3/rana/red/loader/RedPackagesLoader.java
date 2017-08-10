@@ -34,7 +34,7 @@ public class RedPackagesLoader implements PackagesLoaderComponent {
 
 	@Override
 	public void printInstalledPackageReaders () {
-		this.loaders_by_format.print("Installed package readers");
+		L.d("Installed package readers", this.loaders_by_format);
 	}
 
 	@Override

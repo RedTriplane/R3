@@ -18,6 +18,9 @@ import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.io.IO;
 import com.jfixby.scarabei.api.java.ByteArray;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.promise.Future;
+import com.jfixby.scarabei.api.promise.Promise;
+import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class Scene2DPackageLoader implements PackageLoader {
 
@@ -35,33 +38,42 @@ public class Scene2DPackageLoader implements PackageLoader {
 	}
 
 	@Override
-	public void doReadPackage (final PackageReaderInput input) throws IOException {
-// final PackageHandler handler = input.getPackageHandler();
-// final PackageReaderListener listener = input.getPackageReaderListener();
-// listener.onDependenciesRequired(handler, handler.listDependencies());
-		final File package_root_file = input.packageRootFile;
-		final AssetsContainer storage = input.assetsContainer;
-		try {
-			final ByteArray content = package_root_file.readBytes();
+	public Promise<AssetsContainer> doReadPackage (final PackageReaderInput input) throws IOException {
+		final Future<Void, AssetsContainer> future = this.reading(input);
+		return TaskManager.executeAsynchronously("Scene2DPackageLoader.doReadPackage", future);
+	}
 
-			final Scene2DPackage container = IO.deserialize(Scene2DPackage.class, content);
+	private Future<Void, AssetsContainer> reading (final PackageReaderInput input) {
+		return new Future<Void, AssetsContainer>() {
 
-			final SceneStructuresGroup group = new SceneStructuresGroup();
-			for (final SceneStructure structure : container.structures) {
-				final LayerStructureRegistrationEntry entry = new LayerStructureRegistrationEntry();
-				final ID asset_id = Names.newID(structure.structure_name);
-				entry.setAssetId(asset_id);
-				entry.setStructure(structure);
-				final SceneStructureAsset asset = new SceneStructureAsset(group, structure);
-				storage.addAsset(asset_id, asset);
+			@Override
+			public AssetsContainer deliver (final Void v) throws Throwable {
+				final File package_root_file = input.packageRootFile;
+				final AssetsContainer storage = input.assetsContainer;
+				try {
+					final ByteArray content = package_root_file.readBytes();
+
+					final Scene2DPackage container = IO.deserialize(Scene2DPackage.class, content);
+
+					final SceneStructuresGroup group = new SceneStructuresGroup();
+					for (final SceneStructure structure : container.structures) {
+						final LayerStructureRegistrationEntry entry = new LayerStructureRegistrationEntry();
+						final ID asset_id = Names.newID(structure.structure_name);
+						entry.setAssetId(asset_id);
+						entry.setStructure(structure);
+						final SceneStructureAsset asset = new SceneStructureAsset(group, structure);
+						storage.addAsset(asset_id, asset);
+					}
+					return storage;
+				} catch (final Throwable e) {
+					e.printStackTrace();
+					final String bad_data = package_root_file.readToString();
+					L.e("bad data", bad_data);
+					throw new IOException(package_root_file + " " + e, e);
+				}
+
 			}
-
-		} catch (final Throwable e) {
-			e.printStackTrace();
-			final String bad_data = package_root_file.readToString();
-			L.e("bad data", bad_data);
-			throw new IOException(package_root_file + " " + e, e);
-		}
+		};
 	}
 
 }

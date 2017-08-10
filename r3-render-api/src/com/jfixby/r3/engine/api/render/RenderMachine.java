@@ -8,13 +8,13 @@ import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
+import com.jfixby.scarabei.api.promise.Promise;
 
 public class RenderMachine {
 
 	public static final String PRIMARY_BUFFER_TYPE = "FokkerRenderMachine.PRIMARY_BUFFER_TYPE";
 
-	static private ComponentInstaller<RenderMachineComponent> componentInstaller = new ComponentInstaller<RenderMachineComponent>(
-		"RenderMachine");
+	static private ComponentInstaller<RenderMachineComponent> componentInstaller = new ComponentInstaller<>("RenderMachine");
 
 	public static final void installComponent (final RenderMachineComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
@@ -120,6 +120,10 @@ public class RenderMachine {
 
 	public static ScreenShot makeScreenShot (final int areaWidth, final int areaHeight, final int areaX, final int areaY) {
 		return invoke().makeScreenShot(areaWidth, areaHeight, areaX, areaY);
+	}
+
+	public static Promise<Void> deploy () {
+		return invoke().deploy();
 	}
 
 }

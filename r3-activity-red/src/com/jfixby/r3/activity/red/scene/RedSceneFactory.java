@@ -1,8 +1,6 @@
 
 package com.jfixby.r3.activity.red.scene;
 
-import java.io.IOException;
-
 import com.jfixby.r3.activity.api.scene.Scene2DComponent;
 import com.jfixby.r3.activity.api.scene.Scene2DSpawningConfig;
 import com.jfixby.r3.activity.api.scene.SceneFactory;
@@ -35,8 +33,8 @@ public class RedSceneFactory implements SceneFactory {
 		Debug.checkNull("structureID", config.structureID);
 // final PackageReaderListener listener = config.getPackageListener();
 		try {
-			AssetsManager.autoResolveAssetAsync(config.structureID);
-		} catch (final IOException e) {
+			AssetsManager.autoResolveAsset(config.structureID).await();
+		} catch (final Throwable e) {
 			e.printStackTrace();
 			Err.reportError(e);
 		}

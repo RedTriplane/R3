@@ -4,16 +4,17 @@ package com.jfixby.r3.activity.red.spawn;
 import com.jfixby.r3.activity.api.Activity;
 import com.jfixby.r3.activity.api.spawn.ActivitySpawnerComponent;
 import com.jfixby.r3.activity.api.spawn.ActivitySpawningException;
-import com.jfixby.r3.activity.api.spawn.Intent;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.promise.Future;
+import com.jfixby.scarabei.api.promise.Promise;
+import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class RedActivitySpawner implements ActivitySpawnerComponent {
-	@Override
-	public Activity spawnActivity (final Intent intent) throws ActivitySpawningException {
-		Debug.checkNull("intent", intent);
-		final ID classID = intent.getActivityClassID();
+
+	public Activity spawnActivityAsync (final ID classID) throws ActivitySpawningException {
+		Debug.checkNull("classID", classID);
 		final String string_name = classID.toString();
 		Class<?> clazz;
 		try {
@@ -22,8 +23,20 @@ public class RedActivitySpawner implements ActivitySpawnerComponent {
 			return unit_instance;
 		} catch (final Throwable e) {
 			Err.reportError(e);
-			throw new ActivitySpawningException(e + "", intent.getStack());
+			throw new ActivitySpawningException(e + "");
 		}
 
+	}
+
+	@Override
+	public Promise<Activity> spawnActivity (final ID classID) {
+		final Future<Void, Activity> future = new Future<Void, Activity>() {
+
+			@Override
+			public Activity deliver (final Void input) throws Throwable {
+				return RedActivitySpawner.this.spawnActivityAsync(classID);
+			}
+		};
+		return TaskManager.executeAsynchronously("spawnActivity(" + classID + ")", future);
 	}
 }

@@ -19,7 +19,8 @@ public class AssetUsers {
 	}
 
 	public void print (final String tag) {
-		this.asset_users.print(tag);
+// this.asset_users.print(tag);
+		L.d(tag, this.asset_users);
 	}
 
 	public void addUser (final ID asset_id, final AssetUser user) {

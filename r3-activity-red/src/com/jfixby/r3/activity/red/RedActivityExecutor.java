@@ -1,29 +1,22 @@
 
 package com.jfixby.r3.activity.red;
 
-import com.jfixby.r3.activity.api.act.UIEventsManager;
-import com.jfixby.r3.activity.api.spawn.ActivityMachine;
-import com.jfixby.r3.activity.api.spawn.ActivityMachineComponent;
-import com.jfixby.r3.activity.api.spawn.Intent;
-import com.jfixby.r3.activity.api.spawn.IntentStack;
 import com.jfixby.r3.engine.api.EngineAssembler;
 import com.jfixby.r3.engine.api.RedTriplane;
 import com.jfixby.r3.engine.api.exe.EngineExecutor;
 import com.jfixby.r3.engine.api.exe.EngineState;
 import com.jfixby.r3.engine.api.render.RenderMachine;
 import com.jfixby.scarabei.api.assets.ID;
-import com.jfixby.scarabei.api.collections.Collections;
-import com.jfixby.scarabei.api.collections.Queue;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
-import com.jfixby.scarabei.api.taskman.SysExecutor;
 import com.jfixby.scarabei.api.ver.Version;
 
-public class RedActivityExecutor implements ActivityMachineComponent, EngineExecutor {
+public class RedActivityExecutor implements EngineExecutor {
 
 	final private EngineAssembler engine_assembler;
-	private Queue<IntentContainer> queue;
 	ActivityManager units_manager;
 
 	public RedActivityExecutor (final EngineAssembler engine_assembler) {
@@ -32,8 +25,6 @@ public class RedActivityExecutor implements ActivityMachineComponent, EngineExec
 
 	@Override
 	public void doDeploy () {
-		this.queue = Collections.newQueue();
-		ActivityMachine.installComponent(this);
 
 		if (this.engine_assembler != null) {
 			this.engine_assembler.assembleEngine();
@@ -69,23 +60,26 @@ public class RedActivityExecutor implements ActivityMachineComponent, EngineExec
 		// Sys.exit();
 
 		this.units_manager = new ActivityManager();
+		RenderMachine.deploy().then("pushStarter", this.pushStarter());
 
-		SysExecutor.onSystemStart();
+	}
 
-// RenderMachine.init();
+	private Future<Void, Void> pushStarter () {
+		return new Future<Void, Void>() {
+			@Override
+			public Void deliver (final Void input) throws Throwable {
+				final ID starter = RedTriplane.getGameStarter();
+				if (starter == null) {
+					Err.reportError("RedTriplane.GameStarter is not set");
+				}
+				RedActivityExecutor.this.units_manager.pushNextActivity(starter);
+				return null;
+			}
+		};
+	}
 
-		final ID starter = RedTriplane.getGameStarter();
-// if (starter == null) {
-// Err.reportError("RedTriplane.GameStarter is not set");
-// }
-// final Intent intent = ActivityMachine.newIntent(starter);
-// this.nextActivity(intent);
+	public void deployStarter () {
 
-// L.d("Screen dimensions", Screen.getScreenDimensions());
-		RenderMachine.component().deploy();
-
-		UIEventsManager.startEventsMachine();
-		UIEventsManager.loadUnit(starter);
 	}
 
 	@Override
@@ -126,28 +120,17 @@ public class RedActivityExecutor implements ActivityMachineComponent, EngineExec
 
 	@Override
 	public void doUpdate (final EngineState engine_state) {
-		if (this.queue.hasMore()) {
-			final Intent intent = this.queue.dequeue().intent();
-			this.units_manager.loadNext(intent);
-			return;
-		}
+// if (this.queue.hasMore()) {
+// final Intent intent = this.queue.dequeue().intent();
+// this.units_manager.loadNext(intent);
+// return;
+// }
 		if (this.units_manager.isIdle()) {
 			return;
 		}
 
 		this.units_manager.update(engine_state);
 
-	}
-
-	@Override
-	public Intent newIntent (final ID intent_id) {
-		final IntentStack stack = new IntentStack();
-		return new RedActivityMachineIntent(intent_id, stack);
-	}
-
-	@Override
-	public void nextActivity (final Intent intent) {
-		this.queue.enqueue(new IntentContainer(intent));
 	}
 
 }

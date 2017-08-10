@@ -1,15 +1,17 @@
 
 package com.jfixby.r3.fokker.texture.red;
 
-import java.io.IOException;
-
+import com.jfixby.r3.fokker.api.FokkerThread;
 import com.jfixby.r3.fokker.texture.api.FokkerTexturePackageReader;
+import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.format.PackageFormat;
 import com.jfixby.r3.rana.api.loader.PackageLoader;
 import com.jfixby.r3.rana.api.loader.PackageReaderInput;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.promise.Future;
+import com.jfixby.scarabei.api.promise.Promise;
 
 public final class FokkerTextureLoader implements FokkerTexturePackageReader, PackageLoader {
 	public static final PackageFormat TEXTURE = new PackageFormat(FokkerTexturePackageReader.PACKAGE_FORMAT_TEXTURE);
@@ -30,8 +32,20 @@ public final class FokkerTextureLoader implements FokkerTexturePackageReader, Pa
 	}
 
 	@Override
-	public void doReadPackage (final PackageReaderInput input) throws IOException {
-		final RedFokkerRasterDataGroup group = new RedFokkerRasterDataGroup(input, this, this.registry);
+	public Promise<AssetsContainer> doReadPackage (final PackageReaderInput input) {
+
+		final Future<Void, AssetsContainer> futre = new Future<Void, AssetsContainer>() {
+			@Override
+			public AssetsContainer deliver (final Void v) throws Throwable {
+				final RedFokkerRasterDataGroup group = new RedFokkerRasterDataGroup();
+				group.read(input, FokkerTextureLoader.this, FokkerTextureLoader.this.registry);
+				return input.assetsContainer;
+			}
+		};
+
+		final Promise<AssetsContainer> promiseToLoad = FokkerThread
+			.executeInMainThread("FokkerTextureLoader.doReadPackage(" + input.packageInfo.packageName + ")", futre);
+		return promiseToLoad;
 
 	}
 

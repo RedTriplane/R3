@@ -3,17 +3,15 @@ package com.jfixby.r3.activity.red;
 
 import com.jfixby.r3.activity.api.Activity;
 import com.jfixby.r3.activity.api.ActivityStateInspector;
-import com.jfixby.r3.activity.api.spawn.ActivityListener;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.sys.settings.ExecutionMode;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 import com.jfixby.scarabei.api.util.EvaluationResult;
-import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.StateSwitcher;
+import com.jfixby.scarabei.api.util.Utils;
 
 public class RedActivityStateInspector implements ActivityStateInspector {
 
-	private ActivityListener listener;
 	private final StateSwitcher<UNIT_STATES> states;
 	private Activity unit;
 	private EvaluationResult check;
@@ -26,10 +24,6 @@ public class RedActivityStateInspector implements ActivityStateInspector {
 		} else {
 			this.states.setThrowErrorOnUnexpectedState(!false);
 		}
-	}
-
-	public void setListener (final ActivityListener listener) {
-		this.listener = listener;
 	}
 
 	public void setActivity (final Activity unit) {
@@ -50,9 +44,6 @@ public class RedActivityStateInspector implements ActivityStateInspector {
 		this.check = this.states.expectState(UNIT_STATES.INIT_WAS_CALLED);
 		// ckeck();
 		this.states.switchState(UNIT_STATES.CREATE_WAS_CALLED);
-		if (this.listener != null) {
-			this.listener.onActivityCreated(this.unit);
-		}
 	}
 
 	@Override
@@ -69,9 +60,6 @@ public class RedActivityStateInspector implements ActivityStateInspector {
 		// + "> has super().onCreate() call inside its onCreate() method.");
 		// }
 		this.states.switchState(UNIT_STATES.START_WAS_CALLED);
-		if (this.listener != null) {
-			this.listener.onActivityStarted();
-		}
 	}
 
 	@Override

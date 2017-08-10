@@ -319,7 +319,7 @@ public class RedLayer implements Layer, RootLayer {
 
 	@Override
 	public void printChildrenList (final String tag) {
-		this.layer_children.print(tag);
+		L.d(tag, this.layer_children);
 	}
 
 	@Override

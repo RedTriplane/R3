@@ -36,7 +36,8 @@ public class UserAssets {
 	}
 
 	public void print () {
-		this.reg.print("assets used");
+// this.reg.print("assets used");
+		L.d("assets used", this.reg);
 	}
 
 	public Collection<ID> listAssetsUsedBy (final AssetUser consumer) {

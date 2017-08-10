@@ -1,8 +1,6 @@
 
 package com.jfixby.r3.fokker.font.red;
 
-import java.io.IOException;
-
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.jfixby.r3.fokker.font.api.FokkerFont;
@@ -31,7 +29,7 @@ public class FokkerRedRasterizedString implements FokkerString {
 
 		try {
 			this.font_aset = this.obtain(specs.fontID, fontConsumer);
-		} catch (final IOException e) {
+		} catch (final Throwable e) {
 			e.printStackTrace();
 			Err.reportError(e);
 			this.font_aset = null;
@@ -46,8 +44,8 @@ public class FokkerRedRasterizedString implements FokkerString {
 		L.e("RedRasterizedString disposal required: https://github.com/JFixby/RedTriplane/issues/3");
 	}
 
-	private AssetHandler obtain (final ID newAssetID, final AssetsConsumer componentsFactory) throws IOException {
-		AssetsManager.autoResolveAssetAsync(newAssetID);
+	private AssetHandler obtain (final ID newAssetID, final AssetsConsumer componentsFactory) throws Throwable {
+		AssetsManager.autoResolveAsset(newAssetID).await();
 		final AssetHandler asset_handler = LoadedAssets.obtainAsset(newAssetID, componentsFactory);
 		if (asset_handler == null) {
 			LoadedAssets.printAllLoadedAssets();

@@ -19,8 +19,11 @@ import com.jfixby.r3.activity.red.text.RedTextFacory;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
+import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.r3.rana.api.pkg.PackagesManager;
 import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.assets.Names;
+import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.log.L;
 
@@ -109,7 +112,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 		return this.parallax_factory;
 	}
 
-	public AssetHandler obtainAsset (final ID newAssetID, final boolean allowMissingAsset, final ID missingAsset,
+	public AssetHandler obtainAsset (final ID newAssetID, final boolean allowMissingAsset, final String missingAssetString,
 		final boolean reportFail) {
 		AssetHandler asset_handler = LoadedAssets.obtainAsset(newAssetID, this);
 		if (asset_handler == null) {
@@ -117,7 +120,18 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 // final boolean allowMissingRaster = SystemSettings.getFlag(Settings.AllowMissingRaster);
 			if (allowMissingAsset) {
 // asset_handler = AssetsManager.obtainAsset(FOKKER_SYSTEM_ASSETS.RASTER_IS_MISING, this);
+				final ID missingAsset = Names.newID(missingAssetString);
 				asset_handler = LoadedAssets.obtainAsset(missingAsset, this);
+				if (asset_handler == null) {
+					try {
+						AssetsManager.autoResolveAsset(missingAsset).await();
+					} catch (final Throwable e) {
+						e.printStackTrace();
+						Err.reportError(e);
+					}
+				}
+				asset_handler = LoadedAssets.obtainAsset(missingAsset, this);
+				Debug.checkNull("AssetHandler[" + missingAsset + "]", asset_handler);
 
 // if (SystemSettings.getFlag(Settings.PrintLogMessageOnMissingSprite)) {
 				if (reportFail) {

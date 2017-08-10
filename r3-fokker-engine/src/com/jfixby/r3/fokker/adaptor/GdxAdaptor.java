@@ -6,12 +6,13 @@ import com.jfixby.r3.engine.api.exe.EngineExecutor;
 import com.jfixby.r3.engine.api.exe.EngineState;
 import com.jfixby.r3.engine.api.exe.InputQueue;
 import com.jfixby.r3.engine.api.screen.Screen;
+import com.jfixby.r3.fokker.api.FokkerThread;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.DebugTimer;
 import com.jfixby.scarabei.api.log.L;
-import com.jfixby.scarabei.api.taskman.SysExecutor;
-import com.jfixby.scarabei.api.util.Utils;
+import com.jfixby.scarabei.api.ui.UIThread;
 import com.jfixby.scarabei.api.util.StateSwitcher;
+import com.jfixby.scarabei.api.util.Utils;
 
 public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineState {
 
@@ -29,6 +30,7 @@ public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineS
 // private FokkerRenderMachine fokker_render_machine;
 	private final StateSwitcher<ENGINE_STATE> state;
 	private DebugTimer timer;
+	private final GdxThread fokkerThread = new GdxThread();
 
 	public GdxAdaptor (final EngineExecutor executor) {
 		this.executor = executor != null ? executor : new DefaultExecutor();
@@ -41,7 +43,8 @@ public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineS
 
 	@Override
 	public void create () {
-
+		UIThread.registerUIThread();
+		FokkerThread.installComponent(this.fokkerThread);
 	}
 
 	@Override
@@ -81,7 +84,7 @@ public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineS
 	}
 
 	private void do_only_update_cycle () {
-		SysExecutor.pushTasks();
+		this.fokkerThread.pushTasks();
 		this.input_adaptor.flush();
 		this.viewport_state.checkNeedUpdateFlag(this.cycle);
 		this.executor.doUpdate(this);
@@ -96,7 +99,7 @@ public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineS
 
 	private void do_full_cycle () {
 		// this.timer.reset();
-		SysExecutor.pushTasks();
+		this.fokkerThread.pushTasks();
 		// this.timer.printTime("SysExecutor.pushTasks()");
 		this.viewport_state.checkNeedUpdateFlag(this.cycle);
 		// this.timer.reset();

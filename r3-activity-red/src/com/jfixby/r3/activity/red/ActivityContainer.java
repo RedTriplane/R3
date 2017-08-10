@@ -2,28 +2,20 @@
 package com.jfixby.r3.activity.red;
 
 import com.jfixby.r3.activity.api.Activity;
-import com.jfixby.r3.activity.api.spawn.ActivityListener;
-import com.jfixby.r3.activity.api.spawn.ActivitySpawner;
-import com.jfixby.r3.activity.api.spawn.ActivitySpawningException;
-import com.jfixby.r3.activity.api.spawn.Intent;
 import com.jfixby.r3.engine.api.exe.EngineState;
 import com.jfixby.r3.engine.api.screen.Screen;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
-import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.debug.Debug;
 
 public class ActivityContainer {
 
-	public static ActivityContainer newActivityContainer (final ActivityContainerProperties unit_container_propertis) {
-		return new ActivityContainer(unit_container_propertis);
-	}
-
-	private final Intent intent;
-	private Activity unit;
+	private final Activity unit;
 	private final RedActivityManager unit_executor;
 
-	public ActivityContainer (final ActivityContainerProperties unit_container_propertis) {
-		this.intent = unit_container_propertis.getIntent();
+	public ActivityContainer (final Activity unit) {
+		this.unit = Debug.checkNull("Activity", unit);
+
 		this.unit_executor = new RedActivityManager(this);
 	}
 
@@ -39,14 +31,7 @@ public class ActivityContainer {
 	final RedActivityStateInspector inspector = new RedActivityStateInspector();
 
 	public void doDeploy () {
-		try {
-			this.unit = ActivitySpawner.spawnActivity(this.intent);
-		} catch (final ActivitySpawningException e) {
-			e.printStackTrace();
-			Err.reportError(e);
-		}
-		final ActivityListener listener = this.intent.getActivityListener();
-		this.inspector.setListener(listener);
+
 		this.inspector.setActivity(this.unit);
 		this.inspector.onInit();
 		this.unit.onCreate(this.unit_executor);

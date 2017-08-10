@@ -7,7 +7,7 @@ import com.jfixby.scarabei.api.file.File;
 
 public class RedTTFFontGroup {
 
-	public RedTTFFontGroup (final PackageReaderInput input, final FokkerFontRegister redFokkerFonts) {
+	public void read (final PackageReaderInput input, final FokkerFontRegister redFokkerFonts) {
 
 		final File package_root_file = input.packageRootFile;
 // final PackageReaderListener reader_listener = input.getPackageReaderListener();

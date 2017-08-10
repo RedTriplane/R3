@@ -5,6 +5,7 @@ import com.jfixby.r3.activity.api.act.AnimationsMachine;
 import com.jfixby.r3.activity.api.act.UIAction;
 import com.jfixby.r3.activity.api.act.UIEventsManagerComponent;
 import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.err.Err;
 
 public class RedUIManager implements UIEventsManagerComponent {
 
@@ -30,8 +31,9 @@ public class RedUIManager implements UIEventsManagerComponent {
 
 	@Override
 	public void showLoadingScreen (final ID loader_unit_id, final boolean fadedOut) {
-		final ShowLoadingScreenEvent event = new ShowLoadingScreenEvent(this, loader_unit_id, fadedOut);
-		this.events_queue.put(event);
+// final ShowLoadingScreenEvent event = new ShowLoadingScreenEvent(this, loader_unit_id, fadedOut);
+// this.events_queue.put(event);
+		Err.throwNotImplementedYet();
 	}
 
 	@Override
@@ -42,8 +44,9 @@ public class RedUIManager implements UIEventsManagerComponent {
 
 	@Override
 	public void switchToUI (final ID game_ui_unit_id) {
-		final ShowGameUIScreenEvent event = new ShowGameUIScreenEvent(this, game_ui_unit_id);
-		this.events_queue.put(event);
+// final ShowGameUIScreenEvent event = new ShowGameUIScreenEvent(this, game_ui_unit_id);
+// this.events_queue.put(event);
+		Err.throwNotImplementedYet();
 	}
 
 	@Override
@@ -89,7 +92,7 @@ public class RedUIManager implements UIEventsManagerComponent {
 
 	@Override
 	public <T> void pushAction (final UIAction<T> action) {
-		final RedActionTask<T> event = new RedActionTask<T>(this, action);
+		final RedActionTask<T> event = new RedActionTask<>(this, action);
 		this.events_queue.put(event);
 // return event.getStatus();
 	}

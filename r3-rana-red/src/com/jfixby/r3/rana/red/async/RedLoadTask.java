@@ -10,6 +10,7 @@ import com.jfixby.scarabei.api.taskman.SimpleProgress;
 import com.jfixby.scarabei.api.taskman.Task;
 import com.jfixby.scarabei.api.taskman.TaskManager;
 import com.jfixby.scarabei.api.taskman.TaskProgress;
+import com.jfixby.scarabei.api.util.Utils;
 
 class RedLoadTask implements LoadTaskHandler {
 
@@ -30,7 +31,7 @@ class RedLoadTask implements LoadTaskHandler {
 
 	final List<RedLoadTaskStep> assets_to_load_list = Collections.newList();
 
-	final SimpleProgress progress = TaskManager.newSimpleProgress();
+	final SimpleProgress progress = Utils.newSimpleProgress();
 
 	private final UpdateProgressJob update_progress_job = new UpdateProgressJob(this);
 

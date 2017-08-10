@@ -9,6 +9,7 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.log.L;
 
 public class RedAssetsContainer implements SealedAssetsContainer, AssetsContainer {
 
@@ -23,7 +24,7 @@ public class RedAssetsContainer implements SealedAssetsContainer, AssetsContaine
 
 	@Override
 	public void printAll () {
-		this.assets.print("assets container");
+		L.d("assets", this.assets);
 	}
 
 	@Override
@@ -33,7 +34,7 @@ public class RedAssetsContainer implements SealedAssetsContainer, AssetsContaine
 
 	@Override
 	public void addAsset (final ID raster_id, final Asset data) {
-		Debug.checkTrue(!this.sealed);
+		Debug.checkTrue("Container is already sealed<" + this + "> : " + raster_id, !this.sealed);
 		Debug.checkNull("raster_id", raster_id);
 		Debug.checkNull("data", data);
 		this.assets.put(raster_id, data);

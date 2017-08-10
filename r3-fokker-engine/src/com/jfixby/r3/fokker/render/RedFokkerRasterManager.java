@@ -1,8 +1,6 @@
 
 package com.jfixby.r3.fokker.render;
 
-import java.io.IOException;
-
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
 import com.jfixby.r3.rana.api.manager.AssetsManager;
@@ -42,8 +40,8 @@ public class RedFokkerRasterManager implements AssetsConsumer {
 
 	private void loadSystemAsset (final ID asset_id) {
 		try {
-			AssetsManager.autoResolveAssetAsync(asset_id);
-		} catch (final IOException e) {
+			AssetsManager.autoResolveAsset(asset_id).await();
+		} catch (final Throwable e) {
 			e.printStackTrace();
 			Err.reportError(e);
 		}
