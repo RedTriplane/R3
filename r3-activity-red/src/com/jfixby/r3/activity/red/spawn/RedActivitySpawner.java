@@ -37,6 +37,6 @@ public class RedActivitySpawner implements ActivitySpawnerComponent {
 				return RedActivitySpawner.this.spawnActivityAsync(classID);
 			}
 		};
-		return TaskManager.newPromise("spawnActivity(" + classID + ")", future);
+		return TaskManager.executeAsynchronously("spawnActivity(" + classID + ")", future);
 	}
 }

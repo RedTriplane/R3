@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Matrix4;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
 import com.jfixby.r3.fokker.shader.api.FokkerShader;
 import com.jfixby.r3.fokker.shader.api.FokkerShaders;
+import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.err.Err;
 
@@ -29,8 +30,8 @@ public class GdxRender {
 	public static void init (final FokkerRasterRenderer raster_renderer) {
 		shadersProvider = raster_renderer;
 		if (gdx_sprite_batch == null) {
-
-			final FokkerShader defaultShader = FokkerShaders.obtain(raster_renderer.DefaultAssets().SHADER_GDX_DEFAULT);
+			final ID defaultShaderID = raster_renderer.DefaultAssets().SHADER_GDX_DEFAULT;
+			final FokkerShader defaultShader = FokkerShaders.obtain(defaultShaderID);
 			final ShaderProgram gdxDefaultShader = defaultShader.getGdxShaderProgram();
 			gdx_sprite_batch = new com.badlogic.gdx.graphics.g2d.SpriteBatch(1000, gdxDefaultShader);
 		}

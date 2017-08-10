@@ -31,7 +31,7 @@ public class UIEventsQueue {
 
 			if (UIEventsQueue.this.current_event == null) {
 				if (UIEventsQueue.this.queue.hasMore()) {
-					UIEventsQueue.this.queue.print("queue");
+					L.d("queue", UIEventsQueue.this.queue);
 					UIEventsQueue.this.current_event = UIEventsQueue.this.queue.dequeue();
 					L.d("current_event", UIEventsQueue.this.current_event);
 					UIEventsQueue.this.current_event.go();

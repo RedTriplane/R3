@@ -43,7 +43,7 @@ public class TrueTypeFontFontPackageLoader implements PackageLoader, FokkerFontP
 				return input.assetsContainer;
 			}
 		};
-		return TaskManager.newPromise("TrueTypeFontFontPackageLoader.doReadPackage()", future);
+		return TaskManager.executeAsynchronously("TrueTypeFontFontPackageLoader.doReadPackage()", future);
 	}
 
 	@Override

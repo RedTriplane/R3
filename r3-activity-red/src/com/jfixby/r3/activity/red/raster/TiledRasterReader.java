@@ -94,7 +94,7 @@ public class TiledRasterReader implements PackageLoader {
 			}
 		};
 
-		return TaskManager.newPromise("TiledRasterReader.doReadPackage()", future);
+		return TaskManager.executeAsynchronously("TiledRasterReader.doReadPackage()", future);
 
 	}
 

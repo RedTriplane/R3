@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker;
+package com.jfixby.r3.fokker.api;
 
 public class FOKKER_SYSTEM_ASSETS {
 
@@ -12,7 +12,7 @@ public class FOKKER_SYSTEM_ASSETS {
 	public static String DEBUG_BLACK = "com.jfixby.fokker.assets.render.black-debug";
 	public static String LOGO = "com.jfixby.fokker.assets.render.logo";
 
-	public static String GENERIC_FONT = "otf.GenericFont";
+	public static String GENERIC_FONT = "GenericFont.otf";
 
 	public static String SHADER_TEST = SHADERS + "." + "test";
 	public static String SHADER_NORMAL = SHADERS + "." + "normal";

@@ -10,8 +10,8 @@ import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
-import com.jfixby.scarabei.api.taskman.SysExecutor;
 import com.jfixby.scarabei.api.ver.Version;
 
 public class RedActivityExecutor implements EngineExecutor {
@@ -60,29 +60,26 @@ public class RedActivityExecutor implements EngineExecutor {
 		// Sys.exit();
 
 		this.units_manager = new ActivityManager();
+		RenderMachine.deploy().then("pushStarter", this.pushStarter());
 
-		SysExecutor.switchMainThread();
+	}
 
-// RenderMachine.init();
+	private Future<Void, Void> pushStarter () {
+		return new Future<Void, Void>() {
+			@Override
+			public Void deliver (final Void input) throws Throwable {
+				final ID starter = RedTriplane.getGameStarter();
+				if (starter == null) {
+					Err.reportError("RedTriplane.GameStarter is not set");
+				}
+				RedActivityExecutor.this.units_manager.pushNextActivity(starter);
+				return null;
+			}
+		};
+	}
 
-// L.d("Screen dimensions", Screen.getScreenDimensions());
-		RenderMachine.component().deploy();
+	public void deployStarter () {
 
-		final ID starter = RedTriplane.getGameStarter();
-		if (starter == null) {
-			Err.reportError("RedTriplane.GameStarter is not set");
-		}
-		this.units_manager.pushNextActivity(starter);
-
-// try {
-// final Promise<Activity> promise = ActivitySpawner.spawnActivity(starter);
-// final Activity unit = promise.await();// load starter
-// this.units_manager.deployActivity(unit);
-// } catch (final Throwable e) {
-// L.e("Failed to load starter activity <" + starter + ">");
-// e.printStackTrace();
-// Err.reportError(e);
-// }
 	}
 
 	@Override

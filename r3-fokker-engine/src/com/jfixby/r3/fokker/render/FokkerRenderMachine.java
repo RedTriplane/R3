@@ -9,6 +9,7 @@ import com.jfixby.r3.engine.api.render.RenderMachineComponent;
 import com.jfixby.r3.engine.api.render.ScreenShot;
 import com.jfixby.r3.engine.api.render.ShaderSettings;
 import com.jfixby.r3.engine.api.render.TEXTURE_BLEND_MODE;
+import com.jfixby.r3.fokker.api.FokkerThread;
 import com.jfixby.r3.fokker.font.api.FokkerFonts;
 import com.jfixby.r3.fokker.render.geo.FokkerShapesRenderer;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
@@ -17,6 +18,7 @@ import com.jfixby.r3.fokker.render.shader.FokkerShaderRenderer;
 import com.jfixby.r3.fokker.shader.api.FokkerShaders;
 import com.jfixby.r3.fokker.texture.api.FokkerTextures;
 import com.jfixby.r3.rana.api.loader.PackagesLoader;
+import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.color.Colors;
@@ -26,9 +28,11 @@ import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
+import com.jfixby.scarabei.api.promise.Future;
+import com.jfixby.scarabei.api.promise.Promise;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
-import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.StateSwitcher;
+import com.jfixby.scarabei.api.util.Utils;
 
 public class FokkerRenderMachine implements RenderMachineComponent {
 
@@ -61,9 +65,17 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	private final FokkerDefaultShaders defaultShaders = new FokkerDefaultShaders(this);
 
-	@Override
-	final public void deploy () {
+	private final Future<Void, Void> future = new Future<Void, Void>() {
 
+		@Override
+		public Void deliver (final Void v) throws Throwable {
+			GdxRender.init(FokkerRenderMachine.this.raster_renderer);
+			return v;
+		}
+	};
+
+	@Override
+	final public Promise<Void> deploy () {
 		render_state = Utils.newStateSwitcher(RENDER_MACHINE_STATE.NEW);
 
 		// L.d("init()", render_state);
@@ -87,13 +99,17 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 		this.raster_renderer.init(this, this.primary_buffer);
 		this.shader_renderer.init(this.raster_renderer);
 
-		GdxRender.init(this.raster_renderer);
 		// shader_renderer.init(this);
 
 		expectState(RENDER_MACHINE_STATE.NEW);
 		switchState(RENDER_MACHINE_STATE.READY);
 		initClearScreenColor();
-		// L.d("init()", render_state);
+
+		final Promise<Void> resolveShaderPromise = AssetsManager.autoResolveAssets(this.DefaultAssets().list());
+
+		final Promise<Void> initPromise = resolveShaderPromise.then("GdxRender.init", this.future, FokkerThread.taskManager());
+
+		return initPromise;
 	}
 
 	@Override

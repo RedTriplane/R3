@@ -16,37 +16,14 @@
 
 package com.badlogic.gdx.backends.lwjgl;
 
-import java.awt.Canvas;
-
 import com.badlogic.gdx.ApplicationListener;
 
 /** An OpenGL surface fullscreen or in a lightweight window. */
 public class FokkerLwjglApplication extends LwjglApplication {
 
-	public FokkerLwjglApplication (final ApplicationListener listener, final Canvas canvas) {
-		super(listener, canvas);
-	}
-
-	public FokkerLwjglApplication (final ApplicationListener listener, final FokkerLwjglApplicationConfiguration config,
-		final Canvas canvas) {
-		super(listener, config, canvas);
-	}
-
-	public FokkerLwjglApplication (final ApplicationListener listener, final FokkerLwjglApplicationConfiguration config,
-		final LwjglGraphics graphics) {
-		super(listener, config, graphics);
-	}
-
 	public FokkerLwjglApplication (final ApplicationListener listener, final FokkerLwjglApplicationConfiguration config) {
 		super(listener, config);
-	}
 
-	public FokkerLwjglApplication (final ApplicationListener listener, final String title, final int width, final int height) {
-		super(listener, title, width, height);
-	}
-
-	public FokkerLwjglApplication (final ApplicationListener listener) {
-		super(listener);
 	}
 
 }

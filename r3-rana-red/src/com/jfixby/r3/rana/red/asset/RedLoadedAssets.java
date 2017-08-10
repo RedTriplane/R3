@@ -147,7 +147,6 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 
 	@Override
 	public void registerAssetsContainer (final SealedAssetsContainer container) {
-		Debug.checkCurrentThreadIsMain();
 		final Collection<ID> list = container.listAssets();
 		for (final ID rester_id : list) {
 			this.registerAssetContainer(rester_id, container);
@@ -179,7 +178,6 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 
 	@Override
 	public void releaseAsset (final AssetHandler asset_info, final AssetsConsumer consumer) {
-		Debug.checkCurrentThreadIsMain();
 		Debug.checkNull("asset_info", asset_info);
 		final ID asset_id = asset_info.ID();
 		Debug.checkNull("asset_id", asset_id);

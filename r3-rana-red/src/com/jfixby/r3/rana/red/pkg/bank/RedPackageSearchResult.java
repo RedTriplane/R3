@@ -83,7 +83,7 @@ public class RedPackageSearchResult implements PackageSearchResult {
 	public void print () {
 		L.d("---PackageSearchResult----------------");
 		this.search_params.print();
-		this.list.print("packages");
+		L.d("packages", this.list);
 	}
 
 	@Override

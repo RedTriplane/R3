@@ -47,7 +47,7 @@ public class FokkerStarterConfigReader implements PackageLoader {
 				return input.assetsContainer;
 			}
 		};
-		return TaskManager.newPromise("FokkerStarterConfigReader.doReadPackage", future);
+		return TaskManager.executeAsynchronously("FokkerStarterConfigReader.doReadPackage", future);
 	}
 
 }

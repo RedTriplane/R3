@@ -2,9 +2,11 @@
 package com.jfixby.r3.fokker.render;
 
 import com.jfixby.r3.engine.api.render.DefaultAssets;
-import com.jfixby.r3.fokker.FOKKER_SYSTEM_ASSETS;
+import com.jfixby.r3.fokker.api.FOKKER_SYSTEM_ASSETS;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.assets.Names;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.List;
 
 public class FokkerDefaultAssets implements DefaultAssets {
 
@@ -56,6 +58,21 @@ public class FokkerDefaultAssets implements DefaultAssets {
 	@Override
 	public ID LOGO () {
 		return LOGO;
+	}
+
+	public List<ID> list () {
+		final List<ID> result = Collections.newList();
+		result.add(SHADER_GDX_DEFAULT);
+		result.add(RASTER_IS_MISING);
+		result.add(BLACK);
+		result.add(DEBUG_BLACK);
+		result.add(GENERIC_FONT);
+		result.add(LOGO);
+		result.add(SHADER_TEST);
+		result.add(SHADER_NORMAL);
+		result.add(SHADER_MULTIPLY);
+		result.add(SHADER_GRAYSCALE);
+		return result;
 	}
 
 }

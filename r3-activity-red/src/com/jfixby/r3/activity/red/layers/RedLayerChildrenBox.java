@@ -20,14 +20,14 @@ import com.jfixby.scarabei.api.err.Err;
 
 public class RedLayerChildrenBox {
 
-	final private FastList<Component> all_components = new FastList<Component>();;
-	final private FastList<Object> keyboard_listeners = new FastList<Object>();;
-	final private FastList<Object> mouse_listeners = new FastList<Object>();;
-	final private FastList<Object> update_listeners = new FastList<Object>();;
-	final private FastList<Raster> raster = new FastList<Raster>();;
-	final private FastList<Layer> child_layers = new FastList<Layer>();
-	final private FastList<VisibleComponent> visible_components = new FastList<VisibleComponent>();
-	final private FastList<Object> renderable = new FastList<Object>();;
+	final private FastList<Component> all_components = new FastList<>();;
+	final private FastList<Object> keyboard_listeners = new FastList<>();;
+	final private FastList<Object> mouse_listeners = new FastList<>();;
+	final private FastList<Object> update_listeners = new FastList<>();;
+	final private FastList<Raster> raster = new FastList<>();;
+	final private FastList<Layer> child_layers = new FastList<>();
+	final private FastList<VisibleComponent> visible_components = new FastList<>();
+	final private FastList<Object> renderable = new FastList<>();;
 	final private Map<Object, ScreenDimentionsUpdate> viewport_listeners = Collections.newMap();
 
 	public void detatchComponents (final Collection<? extends Component> attachments) {
@@ -205,8 +205,8 @@ public class RedLayerChildrenBox {
 		return this.all_components.size();
 	}
 
-	public void print (final String tag) {
-		this.all_components.print(tag);
-	}
+// public void print (final String tag) {
+// this.all_components.print(tag);
+// }
 
 }

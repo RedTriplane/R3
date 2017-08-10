@@ -7,8 +7,6 @@ import com.jfixby.r3.engine.api.exe.EngineState;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.promise.Promise;
-import com.jfixby.scarabei.api.taskman.PromiseSpecs;
-import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class ActivityManager {
 	private ActivityContainer current_unit_container;
@@ -33,10 +31,7 @@ public class ActivityManager {
 
 	public void pushNextActivity (final ID unitID) {
 		final Promise<Activity> promise = ActivitySpawner.spawnActivity(unitID);
-		final PromiseSpecs specs = TaskManager.newPromiseSpecs();
-		specs.name = "pushNextActivity(" + unitID + ")";
-		specs.executeInMainThread = true;
-		promise.then(specs, this.deployNextActiviy);
+		promise.then("deployNextActiviy", this.deployNextActiviy);
 	}
 
 	public boolean isIdle () {

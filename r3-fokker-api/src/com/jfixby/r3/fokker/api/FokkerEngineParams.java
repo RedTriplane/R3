@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker;
+package com.jfixby.r3.fokker.api;
 
 public class FokkerEngineParams {
 

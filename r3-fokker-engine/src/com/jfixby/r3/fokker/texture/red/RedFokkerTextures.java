@@ -4,7 +4,6 @@ package com.jfixby.r3.fokker.texture.red;
 import com.jfixby.r3.fokker.texture.api.FokkerTexture;
 import com.jfixby.r3.fokker.texture.api.FokkerTexturePackageReader;
 import com.jfixby.r3.fokker.texture.api.FokkerTexturesComponent;
-import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
@@ -26,19 +25,14 @@ public class RedFokkerTextures implements FokkerTexturesComponent {
 
 	@Override
 	public FokkerTexture obtain (final ID assetID) {
-		FokkerTexture shader = this.registry.get(assetID);
-		if (shader == null) {
-			try {
-				AssetsManager.autoResolveAsset(assetID).await();
-			} catch (final Throwable e) {
-				e.printStackTrace();
-				Err.reportError(e);
-			}
+		FokkerTexture texture = this.registry.get(assetID);
+		if (texture == null) {
+			Err.reportError("Asset not found <" + assetID + ">");
 		}
-		shader = this.registry.get(assetID);
-		if (shader == null) {
+		texture = this.registry.get(assetID);
+		if (texture == null) {
 			Err.reportError("Texture not found: " + assetID);
 		}
-		return shader;
+		return texture;
 	}
 }

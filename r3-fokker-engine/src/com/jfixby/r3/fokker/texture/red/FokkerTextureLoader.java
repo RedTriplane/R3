@@ -1,6 +1,7 @@
 
 package com.jfixby.r3.fokker.texture.red;
 
+import com.jfixby.r3.fokker.api.FokkerThread;
 import com.jfixby.r3.fokker.texture.api.FokkerTexturePackageReader;
 import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.format.PackageFormat;
@@ -11,8 +12,6 @@ import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.promise.Promise;
-import com.jfixby.scarabei.api.taskman.PromiseSpecs;
-import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public final class FokkerTextureLoader implements FokkerTexturePackageReader, PackageLoader {
 	public static final PackageFormat TEXTURE = new PackageFormat(FokkerTexturePackageReader.PACKAGE_FORMAT_TEXTURE);
@@ -43,10 +42,10 @@ public final class FokkerTextureLoader implements FokkerTexturePackageReader, Pa
 				return input.assetsContainer;
 			}
 		};
-		final PromiseSpecs specs = TaskManager.invoke().newPromiseSpecs();
-		specs.name = "FokkerTextureLoader.doReadPackage";
-		specs.executeInMainThread = true;
-		return TaskManager.invoke().newPromise(specs, futre);
+
+		final Promise<AssetsContainer> promiseToLoad = FokkerThread
+			.executeInMainThread("FokkerTextureLoader.doReadPackage(" + input.packageInfo.packageName + ")", futre);
+		return promiseToLoad;
 
 	}
 

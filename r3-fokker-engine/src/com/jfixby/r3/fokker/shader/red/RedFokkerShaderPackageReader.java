@@ -1,6 +1,7 @@
 
 package com.jfixby.r3.fokker.shader.red;
 
+import com.jfixby.r3.fokker.api.FokkerThread;
 import com.jfixby.r3.fokker.shader.api.FokkerShaderPackageReader;
 import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.format.PackageFormat;
@@ -11,8 +12,6 @@ import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.promise.Promise;
-import com.jfixby.scarabei.api.taskman.PromiseSpecs;
-import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class RedFokkerShaderPackageReader implements PackageLoader, FokkerShaderPackageReader {
 
@@ -41,11 +40,10 @@ public class RedFokkerShaderPackageReader implements PackageLoader, FokkerShader
 				return input.assetsContainer;
 			}
 		};
-		final PromiseSpecs specs = TaskManager.newPromiseSpecs();
-		specs.executeInMainThread = true;
-		specs.name = "RedFokkerShaderPackageReader.doReadPackage(" + input.packageInfo.packageName + ")";
-		return TaskManager.invoke()//
-			.newPromise(specs, futre);
+
+		final Promise<AssetsContainer> promiseToLoad = FokkerThread
+			.executeInMainThread("RedFokkerShaderPackageReader.doReadPackage(" + input.packageInfo.packageName + ")", futre);
+		return promiseToLoad;
 	}
 
 	@Override

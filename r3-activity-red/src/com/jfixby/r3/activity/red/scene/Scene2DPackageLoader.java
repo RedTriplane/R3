@@ -40,7 +40,7 @@ public class Scene2DPackageLoader implements PackageLoader {
 	@Override
 	public Promise<AssetsContainer> doReadPackage (final PackageReaderInput input) throws IOException {
 		final Future<Void, AssetsContainer> future = this.reading(input);
-		return TaskManager.newPromise("Scene2DPackageLoader.doReadPackage", future);
+		return TaskManager.executeAsynchronously("Scene2DPackageLoader.doReadPackage", future);
 	}
 
 	private Future<Void, AssetsContainer> reading (final PackageReaderInput input) {

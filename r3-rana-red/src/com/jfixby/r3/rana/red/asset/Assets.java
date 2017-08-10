@@ -129,4 +129,7 @@ public class Assets {
 		return this.main_registry.keys();
 	}
 
+// public void purgeAssets (Collection<ID> assetsToDrop) {
+// }
+
 }

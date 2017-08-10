@@ -9,7 +9,7 @@ import com.jfixby.scarabei.api.log.L;
 
 public final class FastList<T> {
 
-	final ArrayList<T> legacy = new ArrayList<T>();
+	final ArrayList<T> legacy = new ArrayList<>();
 
 	final public void removeAll (final Collection<?> components) {
 		this.legacy.removeAll(components.toJavaList());
@@ -45,13 +45,13 @@ public final class FastList<T> {
 	}
 
 	public java.util.List<T> toJavaList () {
-		final java.util.List<T> result = new ArrayList<T>();
+		final java.util.List<T> result = new ArrayList<>();
 		result.addAll(this.legacy);
 		return result;
 	}
 
-	public void print (final String tag) {
-		this.toCollection().print(tag);
-	}
+// public void print (final String tag) {
+// this.toCollection().print(tag);
+// }
 
 }

@@ -27,8 +27,6 @@ import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.promise.Promise;
 import com.jfixby.scarabei.api.sys.settings.ExecutionMode;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
-import com.jfixby.scarabei.api.taskman.PromiseSpecs;
-import com.jfixby.scarabei.api.taskman.SysExecutor;
 import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class RedAssetsManager implements AssetsManagerComponent {
@@ -118,10 +116,6 @@ public class RedAssetsManager implements AssetsManagerComponent {
 
 			@Override
 			public AssetsContainer deliver (final Void input) throws Throwable {
-				final boolean isMain = SysExecutor.isMainThread();
-				if (isMain) {
-					L.e("AssetsConsumer heavy call in main thread: autoResolveAssetAsync (" + dependency + ")");
-				}
 
 				final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
 
@@ -151,11 +145,8 @@ public class RedAssetsManager implements AssetsManagerComponent {
 			}
 		};
 
-		final PromiseSpecs specs = new PromiseSpecs();
-		specs.name = "registerAssetsContainer";
-		specs.executeInMainThread = true;
-		return TaskManager.newPromise("autoResolveAsset(" + dependency + ")", autoResolveAssetFuture).then(specs,
-			registerAssetsContainer);
+		return TaskManager.executeAsynchronously("autoResolveAsset(" + dependency + ")", autoResolveAssetFuture)
+			.then("register(" + dependency + ")", registerAssetsContainer);
 	}
 
 	private AssetsContainer resolveAsync (final ID dependency, final boolean print_debug_output) throws Throwable {
@@ -222,8 +213,8 @@ public class RedAssetsManager implements AssetsManagerComponent {
 		L.d("Rana: reading package[" + readArgs.packageInfo.packageFormat + "]", readArgs.packageRootFile.parent());
 		L.d("                     ", package_reader);
 		final Promise<AssetsContainer> promiseToRead = package_reader.doReadPackage(readArgs);
-		promiseToRead.await();
-		return container;
+		final AssetsContainer result_container = promiseToRead.await();
+		return result_container;
 
 	}
 
@@ -234,11 +225,6 @@ public class RedAssetsManager implements AssetsManagerComponent {
 			@Override
 			public Void deliver (final Void input) throws Throwable {
 				Debug.checkNull("dependencies", dependencies);
-
-				final boolean isMain = SysExecutor.isMainThread();
-				if (isMain) {
-					L.e("AssetsConsumer heavy call in main thread: autoResolveAssets (" + dependencies.toJavaList() + ")");
-				}
 
 				for (final ID dependency : dependencies) {
 					final Promise<Void> promise = RedAssetsManager.this.autoResolveAsset(dependency);
@@ -266,7 +252,12 @@ public class RedAssetsManager implements AssetsManagerComponent {
 
 		};
 
-		return TaskManager.newPromise("autoResolveAssets(" + dependencies.toJavaList() + ")", autoResolveAssetFuture);
+		final Promise<Void> chain = TaskManager.executeAsynchronously("" + dependencies.toJavaList(), autoResolveAssetFuture);
+// for (final ID dependency : dependencies) {
+// final Promise<Void> promise = RedAssetsManager.this.autoResolveAsset(dependency);
+// chain = chain.join(promise);
+// }
+		return chain;
 	}
 
 }

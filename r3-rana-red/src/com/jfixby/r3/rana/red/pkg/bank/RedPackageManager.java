@@ -65,7 +65,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 		};
 
 		// final File resourcesConfigFile = LocalFileSystem.ApplicationHome().child(ResourcesConfigFile.FILE_NAME);
-		return TaskManager.newPromise("readPackagesManagerConfig", future);
+		return TaskManager.executeAsynchronously("readPackagesManagerConfig", future);
 	}
 
 	private Promise<FileSystemBankSettings> findBank (final File bankFolder) throws IOException {
@@ -78,7 +78,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 		};
 
-		return TaskManager.newPromise("findBank(" + bankFolder + ")", bank);
+		return TaskManager.executeAsynchronously("findBank(" + bankFolder + ")", bank);
 	}
 
 	private FileSystemBankSettings findBankAsync (final File bankFolder) throws IOException {
@@ -177,7 +177,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 			}
 		};
 
-		return TaskManager.newPromise("findBanks(" + remoteBankSettings + ")", future);
+		return TaskManager.executeAsynchronously("findBanks(" + remoteBankSettings + ")", future);
 
 	}
 
@@ -192,7 +192,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 		};
 
-		return TaskManager.newPromise("findBanks(" + assets_folder + ")", future);
+		return TaskManager.executeAsynchronously("findBanks(" + assets_folder + ")", future);
 	}
 
 	@Override
@@ -249,7 +249,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 // return null;
 // }
 // };
-// return TaskManager.newPromise(future);
+// return TaskManager.executeAsynchronously(future);
 //
 // }
 
@@ -263,7 +263,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 			}
 		};
 
-		return TaskManager.newPromise("loadConfigFile(" + applicationHome + ")", future);
+		return TaskManager.executeAsynchronously("loadConfigFile(" + applicationHome + ")", future);
 
 	}
 
@@ -300,8 +300,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 		final PackageSearchParameters search_params = new PackageSearchParameters();
 		search_params.getAllFlag = true;
 		final PackageSearchResult packages = this.findPackages(search_params);
-		packages.list().print("All available packages");
-		;
+		L.d("All available packages", packages.list());
 	}
 
 	@Override
@@ -347,7 +346,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 		};
 
-		final Promise<BankHeader> promise = TaskManager.newPromise("findAndLoadBankHeader(" + bank_folder + ")", plan);
+		final Promise<BankHeader> promise = TaskManager.executeAsynchronously("findAndLoadBankHeader(" + bank_folder + ")", plan);
 		return promise;
 	}
 
@@ -367,7 +366,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 			}
 		};
 
-		return TaskManager.newPromise("findBanks(" + remoteBankSettings.toJavaList() + ")", future);
+		return TaskManager.executeAsynchronously("findBanks(" + remoteBankSettings.toJavaList() + ")", future);
 	}
 
 	@Override
@@ -381,7 +380,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 			}
 		};
 
-		return TaskManager.newPromise("loadBanks(" + localBanks.toJavaList() + ")", future);
+		return TaskManager.executeAsynchronously("loadBanks(" + localBanks.toJavaList() + ")", future);
 	}
 
 	@Override
@@ -392,7 +391,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 				return RedPackageManager.this.loadBankAsync(bankSettings);
 			}
 		};
-		return TaskManager.newPromise("loadBank(" + bankSettings + ")", future);
+		return TaskManager.executeAsynchronously("loadBank(" + bankSettings + ")", future);
 	}
 
 	PackagesBank loadBankAsync (final FileSystemBankSettings bankSettings) throws IOException {
@@ -455,7 +454,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 			}
 		};
 
-		return TaskManager.newPromise("deploy(" + assets_folder + ")", future);
+		return TaskManager.executeAsynchronously("deploy(" + assets_folder + ")", future);
 
 	}
 

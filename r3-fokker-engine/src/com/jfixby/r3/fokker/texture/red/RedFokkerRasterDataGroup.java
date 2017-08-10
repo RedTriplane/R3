@@ -18,7 +18,6 @@ import com.jfixby.scarabei.api.assets.Names;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
-import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.log.L;
@@ -66,7 +65,6 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 	}
 
 	public void readTexture (final RedFokkerTextures registry, final PackageReaderInput input) {
-		Debug.checkCurrentThreadIsMain();
 		final File package_root_file = input.packageRootFile;
 // final PackageHandler handler = input.getPackageHandler();
 		final ToGdxFileAdaptor gdx_file = new ToGdxFileAdaptor(package_root_file);
@@ -90,7 +88,6 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 // }
 
 	public void readAtlas (final RedFokkerTextures registry, final PackageReaderInput input) {
-		Debug.checkCurrentThreadIsMain();
 		final File package_root_file = input.packageRootFile;
 // final PackageHandler handler = input.getPackageHandler();
 		final ToGdxFileAdaptor gdx_file = new ToGdxFileAdaptor(package_root_file);

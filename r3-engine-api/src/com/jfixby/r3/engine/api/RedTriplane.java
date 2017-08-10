@@ -5,8 +5,7 @@ import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.assets.ID;
 
 public class RedTriplane {
-	static private ComponentInstaller<RedTriplaneComponent> componentInstaller = new ComponentInstaller<RedTriplaneComponent>(
-		"RedTriplane");
+	static private ComponentInstaller<RedTriplaneComponent> componentInstaller = new ComponentInstaller<>("RedTriplane");
 
 	public static final void installComponent (final RedTriplaneComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
