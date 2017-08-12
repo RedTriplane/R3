@@ -30,9 +30,9 @@ public class RedActivityExecutor implements EngineExecutor {
 			this.engine_assembler.assembleEngine();
 		}
 
-		final String applicationPackageName = (SystemSettings.getStringParameter(Version.Tags.PackageName));
-		final String versionCode = SystemSettings.getStringParameter(Version.Tags.VersionCode);
-		final String versionName = SystemSettings.getStringParameter(Version.Tags.VersionName);
+		final String applicationPackageName = (SystemSettings.getStringParameter(Version.Tags.PackageName, ""));
+		final String versionCode = SystemSettings.getStringParameter(Version.Tags.VersionCode, "");
+		final String versionName = SystemSettings.getStringParameter(Version.Tags.VersionName, "");
 
 		Debug.checkNull("SystemSettings :: " + Version.Tags.PackageName, applicationPackageName);
 		Debug.checkEmpty("SystemSettings :: " + Version.Tags.PackageName, applicationPackageName);

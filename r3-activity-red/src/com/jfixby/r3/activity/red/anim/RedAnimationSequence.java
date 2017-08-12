@@ -26,8 +26,8 @@ import com.jfixby.scarabei.api.geometry.Spline2D;
 import com.jfixby.scarabei.api.geometry.projections.RotateAndOffsetProjection;
 import com.jfixby.scarabei.api.math.IntegerMath;
 import com.jfixby.scarabei.api.time.TimeStream;
-import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.StateSwitcher;
+import com.jfixby.scarabei.api.util.Utils;
 
 public class RedAnimationSequence implements PositionsSequence, LayerBasedComponent {
 

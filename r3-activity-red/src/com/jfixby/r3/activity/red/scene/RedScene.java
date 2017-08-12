@@ -71,7 +71,6 @@ import com.jfixby.scarabei.api.geometry.projections.RotateAndOffsetProjection;
 import com.jfixby.scarabei.api.json.Json;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.sys.Sys;
-import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
@@ -843,7 +842,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 // SystemSettings.getStringParameter(EngineParams.Assets.ASSET_INFO_TAG);
 		String param = PREFIX;
 		if (param == null) {
-			SystemSettings.printSystemParameters();
+// SystemSettings.printSystemParameters();
 			Sys.exit();
 		}
 		if (camera_settings != null) {

@@ -185,7 +185,8 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	static final private void initClearScreenColor () {
 		if (CLEAR_SCREEN_COLOR == null) {
-			final String hexstring = SystemSettings.getStringParameter(RENDER_PARAMS.CLEAR_SCREEN_COLOR_ARGB);
+			final String hexstring = SystemSettings.getStringParameter(RENDER_PARAMS.CLEAR_SCREEN_COLOR_ARGB,
+				Colors.FUCHSIA().toShortHexString());
 			if (hexstring == null) {
 				// Sys.printSystemParameters();
 				// Sys.exit();

@@ -1,30 +1,33 @@
 
 package com.jfixby.r3.fokker.api;
 
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.assets.Names;
+
 public class FokkerEngineParams {
 
 	public static class FokkerTextureFilter {
-		public static final String Mag = "FokkerEngineParams.TextureFilter.Mag";
-		public static final String Min = "FokkerEngineParams.TextureFilter.Min";
+		public static final ID Mag = Names.newID("FokkerEngineParams.TextureFilter.Mag");
+		public static final ID Min = Names.newID("FokkerEngineParams.TextureFilter.Min");
 	}
 
 	public static class Settings {
 
-		public static final String PrintLogMessageOnMissingShader = "PrintLogMessageOnMissingShader";
+		public static final ID PrintLogMessageOnMissingShader = Names.newID("PrintLogMessageOnMissingShader");
 // public static final String DisableLogo = "DisableLogo";
-		public static final String AllowMissingShader = "AllowMissingShader";
+		public static final ID AllowMissingShader = Names.newID("AllowMissingShader");
 
-		public static final String PrintLogMessageOnDuplicateAssetRequest = "PrintLogMessageOnDuplicateAssetRequest";
+		public static final ID PrintLogMessageOnDuplicateAssetRequest = Names.newID("PrintLogMessageOnDuplicateAssetRequest");
 	}
 
 	public static class Assets {
 
-		public static final String SPRITE_BLACK = "BLACK";
-		public static final String SPRITE_BLACK_DEBUG = "BLACK_DEBUG";
-		public static final String DefaultFont = "DefaultFont";
-		public static final String CLEAR_SCREEN_COLOR_ARGB = "CLEAR_SCREEN_COLOR_ARGB";
-		public static final String ASSET_INFO_TAG = "ASSET_INFO_TAG";
-		public static final String DEFAULT_LOGO_FADE_TIME = "DEFAULT_LOGO_FADE_TIME";
+		public static final ID SPRITE_BLACK = Names.newID("BLACK");
+		public static final ID SPRITE_BLACK_DEBUG = Names.newID("BLACK_DEBUG");
+		public static final ID DefaultFont = Names.newID("DefaultFont");
+		public static final ID CLEAR_SCREEN_COLOR_ARGB = Names.newID("CLEAR_SCREEN_COLOR_ARGB");
+		public static final ID ASSET_INFO_TAG = Names.newID("ASSET_INFO_TAG");
+		public static final ID DEFAULT_LOGO_FADE_TIME = Names.newID("DEFAULT_LOGO_FADE_TIME");
 	}
 
 }

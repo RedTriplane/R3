@@ -71,7 +71,7 @@ public class RasterFactory implements RasterComponentsFactory {
 
 	private AssetHandler obtainRaster (final ID newAssetID) {
 		return this.master.obtainAsset(newAssetID, SystemSettings.getFlag(R3_SYSTEM_PARAMS.AllowMissingRaster),
-			SystemSettings.getStringParameter(R3_SYSTEM_PARAMS.RASTER_IS_MISING),
+			SystemSettings.getStringParameter(R3_SYSTEM_PARAMS.RASTER_IS_MISING, ""),
 			SystemSettings.getFlag(R3_SYSTEM_PARAMS.PrintLogMessageOnMissingSprite));
 	}
 

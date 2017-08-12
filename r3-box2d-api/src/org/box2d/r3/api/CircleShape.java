@@ -1,7 +1,7 @@
 package org.box2d.r3.api;
 
-import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.floatn.Float2;
+import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 
 public interface CircleShape extends Shape {
 

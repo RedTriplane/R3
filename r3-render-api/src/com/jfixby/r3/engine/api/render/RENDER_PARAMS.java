@@ -1,8 +1,11 @@
 
 package com.jfixby.r3.engine.api.render;
 
+import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.assets.Names;
+
 public class RENDER_PARAMS {
 
-	public static final String CLEAR_SCREEN_COLOR_ARGB = "CLEAR_SCREEN_COLOR_ARGB";
+	public static final ID CLEAR_SCREEN_COLOR_ARGB = Names.newID("CLEAR_SCREEN_COLOR_ARGB");
 
 }

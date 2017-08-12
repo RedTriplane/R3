@@ -11,8 +11,8 @@ import com.jfixby.r3.engine.api.screen.ScreenDimentionsChecker;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.DebugTimer;
 import com.jfixby.scarabei.api.err.Err;
-import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.StateSwitcher;
+import com.jfixby.scarabei.api.util.Utils;
 
 public class FrameRenderBuffer extends RenderBuffer {
 	private static StateSwitcher<BUFFER_STATE> buffer_state;

@@ -5,14 +5,14 @@ import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.SealedAssetsContainer;
 import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.assets.Names;
 import com.jfixby.scarabei.api.collections.Collection;
 
 public class LoadedAssets {
 
-	public static final String ReportUnusedAssets = "ReportUnusedAssets";
+	public static final ID ReportUnusedAssets = Names.newID("ReportUnusedAssets");
 
-	static private ComponentInstaller<LoadedAssetsComponent> componentInstaller = new ComponentInstaller<>(
-		"LoadedAssets");
+	static private ComponentInstaller<LoadedAssetsComponent> componentInstaller = new ComponentInstaller<>("LoadedAssets");
 
 	public static final void installComponent (final LoadedAssetsComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
