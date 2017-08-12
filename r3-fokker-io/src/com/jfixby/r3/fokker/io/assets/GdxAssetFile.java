@@ -72,7 +72,7 @@ public class GdxAssetFile implements File {
 	}
 
 	private void throwOutdated (final AbsolutePath<FileSystem> output_file_path) {
-		this.fs.index.print("index");
+// this.fs.index.print("index");
 		Err.reportError("Index is outdated: " + output_file_path);
 	}
 

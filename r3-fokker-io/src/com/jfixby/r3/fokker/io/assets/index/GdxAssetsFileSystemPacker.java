@@ -84,7 +84,7 @@ public class GdxAssetsFileSystemPacker {
 
 			// String string_data = Json.serializeToString(index);
 			index_file.writeData(index);
-			Collections.newList(index.index).print("index");
+// Collections.newList(index.index).print("index");
 
 		}
 		// pack

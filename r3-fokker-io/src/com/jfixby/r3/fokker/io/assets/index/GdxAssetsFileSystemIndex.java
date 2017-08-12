@@ -4,8 +4,6 @@ package com.jfixby.r3.fokker.io.assets.index;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.jfixby.scarabei.api.collections.Collections;
-import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.md5.MD5;
 import com.jfixby.scarabei.api.util.path.RelativePath;
 
@@ -13,18 +11,18 @@ public class GdxAssetsFileSystemIndex implements Serializable {
 
 	private static final long serialVersionUID = -1735720358714267158L;
 	public static final String INDEX_FILE_NAME = "gdx-filesystem.index";
-	public ArrayList<GdxAssetsFileSystemIndexEntry> index = new ArrayList<GdxAssetsFileSystemIndexEntry>();
+	public ArrayList<GdxAssetsFileSystemIndexEntry> index = new ArrayList<>();
 	public boolean collapsedFolders;
 	public boolean encryptedNames;
 	public String salt;
 
-	public void print () {
-		L.d("---GdxAssetsFileSystemIndex-------------------------------");
-		Collections.newList(this.index).print("index");
-		L.d("   collapsed folders", this.collapsedFolders);
-		L.d("     encrypted names", this.encryptedNames);
-		L.d("                salt", this.salt);
-	}
+// public void print () {
+// L.d("---GdxAssetsFileSystemIndex-------------------------------");
+// Collections.newList(this.index).print("index");
+// L.d(" collapsed folders", this.collapsedFolders);
+// L.d(" encrypted names", this.encryptedNames);
+// L.d(" salt", this.salt);
+// }
 
 	public static String internalFileName (final RelativePath path, final boolean collapsedFolders, final boolean encryptedNames,
 		final String salt) {

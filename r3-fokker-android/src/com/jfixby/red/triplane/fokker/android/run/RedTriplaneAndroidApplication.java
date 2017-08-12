@@ -7,6 +7,7 @@ import com.badlogic.gdx.backends.android.AndroidGraphics;
 import com.badlogic.gdx.backends.android.RedAndroidApplication;
 import com.jfixby.scarabei.android.api.AndroidComponent;
 import com.jfixby.scarabei.api.sys.Sys;
+import com.jfixby.scarabei.red.android.RedAndroidComponent;
 
 import android.app.ActivityManager;
 import android.content.pm.ActivityInfo;
@@ -19,7 +20,7 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 	private AndroidApplicationConfiguration androidConfig;
 
 	public static int orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-	final RedAndroidComponent redAndroidComponent = new RedAndroidComponent(this);
+	RedAndroidComponent redAndroidComponent;
 
 	static boolean deployed = false;
 	public static boolean useCamera = false;
@@ -35,6 +36,8 @@ public abstract class RedTriplaneAndroidApplication extends RedAndroidApplicatio
 				return;
 			}
 			deploying = true;
+
+			this.redAndroidComponent = new RedAndroidComponent(this.getApplication());
 
 			final RedTriplaneAndroidApplicationConfig config = this.doGdxDeploy(this);
 			this.gdxListener = config.getGdxListener();

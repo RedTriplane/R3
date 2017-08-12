@@ -47,7 +47,7 @@ public class CameraSurface extends SurfaceView implements SurfaceHolder.Callback
 		// We use the opportunity to initialize the camera preview display dimensions.
 		final Camera.Parameters parameters = this.camera.getParameters();
 		final List<CameraSize> previewSizes = this.getSupportedPreviewSizes();
-		previewSizes.print("previewSizes");
+// previewSizes.print("previewSizes");
 		final RedDisplay display = this.getDefaultDisplay();
 		L.d(display);
 		L.d("Surface size = " + width + " x " + height);
