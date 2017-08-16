@@ -3,8 +3,8 @@ package com.jfixby.r3.rana.api.asset;
 
 import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.SealedAssetsContainer;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
+import com.jfixby.scarabei.api.names.ID;
 
 public interface LoadedAssetsComponent {
 

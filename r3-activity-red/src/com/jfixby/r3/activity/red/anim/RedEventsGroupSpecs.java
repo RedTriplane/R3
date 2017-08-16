@@ -2,10 +2,10 @@
 package com.jfixby.r3.activity.red.anim;
 
 import com.jfixby.r3.activity.api.animation.EventsGroupSpecs;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedEventsGroupSpecs implements EventsGroupSpecs {
 	final List<ID> events = Collections.newList();

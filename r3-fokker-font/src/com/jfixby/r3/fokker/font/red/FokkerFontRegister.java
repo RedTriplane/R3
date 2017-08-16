@@ -2,9 +2,9 @@
 package com.jfixby.r3.fokker.font.red;
 
 import com.jfixby.r3.fokker.font.api.FokkerFont;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
+import com.jfixby.scarabei.api.names.ID;
 
 public class FokkerFontRegister {
 

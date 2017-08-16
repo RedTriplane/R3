@@ -8,8 +8,8 @@ import com.jfixby.r3.fokker.shader.api.ShaderAsset;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.names.ID;
 
 public class FokkerDefaultShaders implements DefaultShaders, AssetsConsumer {
 

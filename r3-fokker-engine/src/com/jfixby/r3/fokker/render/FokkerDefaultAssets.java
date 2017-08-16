@@ -3,9 +3,9 @@ package com.jfixby.r3.fokker.render;
 
 import com.jfixby.r3.engine.api.render.DefaultAssets;
 import com.jfixby.r3.fokker.api.FOKKER_SYSTEM_ASSETS;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.names.ID;
 
 public class FokkerDefaultAssets implements DefaultAssets {
 

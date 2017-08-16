@@ -2,9 +2,9 @@
 package com.jfixby.r3.activity.api.txt;
 
 import com.jfixby.r3.activity.api.raster.Raster;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.color.Colors;
+import com.jfixby.scarabei.api.names.ID;
 
 public class TextBarSpecs {
 

@@ -4,10 +4,10 @@ package com.jfixby.r3.fokker.texture.red;
 import com.jfixby.r3.fokker.texture.api.FokkerTexture;
 import com.jfixby.r3.fokker.texture.api.FokkerTexturePackageReader;
 import com.jfixby.r3.fokker.texture.api.FokkerTexturesComponent;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedFokkerTextures implements FokkerTexturesComponent {
 

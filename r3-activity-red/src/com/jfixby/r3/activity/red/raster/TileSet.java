@@ -4,9 +4,9 @@ package com.jfixby.r3.activity.red.raster;
 import com.jfixby.r3.io.texture.slicer.SlicesCompositionInfo;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.AssetsGroup;
-import com.jfixby.scarabei.api.assets.ID;
-import com.jfixby.scarabei.api.assets.Names;
 import com.jfixby.scarabei.api.json.Json;
+import com.jfixby.scarabei.api.names.ID;
+import com.jfixby.scarabei.api.names.Names;
 
 public class TileSet implements Asset {
 

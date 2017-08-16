@@ -3,10 +3,10 @@ package com.jfixby.r3.rana.red.async;
 
 import com.jfixby.r3.rana.api.async.AsyncTaskManagerComponent;
 import com.jfixby.r3.rana.api.async.LoadTaskHandler;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.taskman.ProgressListener;
 
 public class RedAsyncTaskComponent implements AsyncTaskManagerComponent {

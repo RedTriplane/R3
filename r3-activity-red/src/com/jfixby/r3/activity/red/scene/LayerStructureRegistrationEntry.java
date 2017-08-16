@@ -2,7 +2,7 @@
 package com.jfixby.r3.activity.red.scene;
 
 import com.jfixby.r3.io.scene2d.SceneStructure;
-import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.names.ID;
 
 public class LayerStructureRegistrationEntry {
 

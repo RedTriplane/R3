@@ -11,10 +11,10 @@ import com.jfixby.r3.activity.api.locale.LocalizedComponent;
 import com.jfixby.r3.activity.api.parallax.Parallax;
 import com.jfixby.r3.activity.api.raster.Raster;
 import com.jfixby.r3.activity.api.txt.TextBar;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Mapping;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
+import com.jfixby.scarabei.api.names.ID;
 
 public interface Scene2DComponent extends NamedComponent {
 

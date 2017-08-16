@@ -12,10 +12,10 @@ import com.jfixby.r3.fokker.render.RenderBuffer;
 import com.jfixby.r3.fokker.render.geo.Renderer;
 import com.jfixby.r3.fokker.shader.api.FokkerShader;
 import com.jfixby.r3.fokker.shader.api.FokkerShaders;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.util.StateSwitcher;
 import com.jfixby.scarabei.api.util.Utils;
 

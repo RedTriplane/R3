@@ -4,7 +4,7 @@ package com.jfixby.r3.rana.red.asset;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.SealedAssetsContainer;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
-import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedAssetHandler implements AssetHandler {
 

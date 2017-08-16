@@ -22,7 +22,6 @@ import com.jfixby.r3.fokker.texture.api.FokkerTexture;
 import com.jfixby.r3.fokker.texture.api.FokkerTextures;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.debug.DEBUG_TIMER_MODE;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.DebugTimer;
@@ -34,6 +33,7 @@ import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.math.MathTools;
 import com.jfixby.scarabei.api.math.VectorTool;
+import com.jfixby.scarabei.api.names.ID;
 
 public class FokkerSpritesRenderer extends SpritesRenderer implements AssetsConsumer {
 

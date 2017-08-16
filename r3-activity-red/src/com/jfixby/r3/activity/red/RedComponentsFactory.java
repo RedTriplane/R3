@@ -21,11 +21,11 @@ import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
 import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.r3.rana.api.pkg.PackagesManager;
-import com.jfixby.scarabei.api.assets.ID;
-import com.jfixby.scarabei.api.assets.Names;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.names.ID;
+import com.jfixby.scarabei.api.names.Names;
 
 public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 	RedGeometryFactory geo_fac;

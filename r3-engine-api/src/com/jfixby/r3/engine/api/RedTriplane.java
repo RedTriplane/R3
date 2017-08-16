@@ -2,7 +2,7 @@
 package com.jfixby.r3.engine.api;
 
 import com.jfixby.scarabei.api.ComponentInstaller;
-import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedTriplane {
 	static private ComponentInstaller<RedTriplaneComponent> componentInstaller = new ComponentInstaller<>("RedTriplane");

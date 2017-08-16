@@ -5,7 +5,7 @@ import com.jfixby.r3.engine.api.render.RasterData;
 import com.jfixby.r3.fokker.texture.api.FokkerTexture;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.AssetsGroup;
-import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedFokkerRasterData implements FokkerTexture, Asset, RasterData {
 

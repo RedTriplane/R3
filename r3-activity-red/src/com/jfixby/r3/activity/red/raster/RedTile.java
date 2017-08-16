@@ -11,10 +11,10 @@ import com.jfixby.r3.engine.api.render.Drawable;
 import com.jfixby.r3.engine.api.render.RasterData;
 import com.jfixby.r3.engine.api.render.RenderMachine;
 import com.jfixby.r3.engine.api.render.TEXTURE_BLEND_MODE;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Rectangle;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedTile extends RedRectangularComponent implements Tile, Drawable {
 

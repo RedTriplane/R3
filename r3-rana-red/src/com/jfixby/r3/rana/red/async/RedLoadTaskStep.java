@@ -2,7 +2,7 @@
 package com.jfixby.r3.rana.red.async;
 
 import com.jfixby.r3.rana.api.manager.AssetsManager;
-import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.names.ID;
 
 class RedLoadTaskStep {
 	private final ID scene_id;

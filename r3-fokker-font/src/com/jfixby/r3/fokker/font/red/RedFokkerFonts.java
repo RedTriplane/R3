@@ -6,7 +6,7 @@ import com.jfixby.r3.fokker.font.api.FokkerFont;
 import com.jfixby.r3.fokker.font.api.FokkerFontPackageReader;
 import com.jfixby.r3.fokker.font.api.FokkerFontsComponent;
 import com.jfixby.r3.fokker.font.api.FokkerString;
-import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedFokkerFonts implements FokkerFontsComponent {
 

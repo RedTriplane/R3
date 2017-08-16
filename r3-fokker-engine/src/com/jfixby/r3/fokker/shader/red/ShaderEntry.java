@@ -12,13 +12,13 @@ import com.jfixby.r3.fokker.assets.api.shader.io.ShadersContainer;
 import com.jfixby.r3.fokker.shader.api.FokkerShader;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.AssetsGroup;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.java.LegacyFloat;
 import com.jfixby.scarabei.api.java.LegacyInt;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.names.ID;
 
 public class ShaderEntry implements Asset, FokkerShader, Shader {
 	ID asset_id;

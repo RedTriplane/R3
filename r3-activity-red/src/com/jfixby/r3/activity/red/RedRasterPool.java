@@ -6,9 +6,9 @@ import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.layer.Layer;
 import com.jfixby.r3.activity.api.raster.Raster;
 import com.jfixby.r3.activity.api.raster.RasterPool;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedRasterPool implements RasterPool, LayerBasedComponent {
 

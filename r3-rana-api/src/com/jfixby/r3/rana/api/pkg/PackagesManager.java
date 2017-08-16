@@ -4,9 +4,9 @@ package com.jfixby.r3.rana.api.pkg;
 import java.io.IOException;
 
 import com.jfixby.scarabei.api.ComponentInstaller;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.file.File;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.promise.Promise;
 
 public class PackagesManager {

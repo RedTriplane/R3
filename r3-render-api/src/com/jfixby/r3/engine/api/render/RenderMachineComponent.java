@@ -1,12 +1,12 @@
 
 package com.jfixby.r3.engine.api.render;
 
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.promise.Promise;
 
 public interface RenderMachineComponent {

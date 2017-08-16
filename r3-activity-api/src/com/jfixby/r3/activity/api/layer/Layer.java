@@ -3,9 +3,9 @@ package com.jfixby.r3.activity.api.layer;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.camera.CanvasCamera;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.util.path.RelativePath;
 
 public interface Layer extends VisibleComponent {

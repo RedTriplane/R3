@@ -4,10 +4,10 @@ package com.jfixby.r3.rana.red.manager;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.AssetsGroup;
 import com.jfixby.r3.rana.api.SealedAssetsContainer;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Set;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.names.ID;
 
 public class AssetsContainerOwner {
 

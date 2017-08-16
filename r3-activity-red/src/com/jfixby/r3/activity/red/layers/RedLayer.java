@@ -14,7 +14,6 @@ import com.jfixby.r3.activity.api.layer.NamedComponent;
 import com.jfixby.r3.activity.api.layer.VisibleComponent;
 import com.jfixby.r3.activity.api.raster.Raster;
 import com.jfixby.r3.activity.red.cam.RedCamera;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
@@ -22,6 +21,7 @@ import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.util.Utils;
 import com.jfixby.scarabei.api.util.path.RelativePath;
 

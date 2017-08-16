@@ -14,8 +14,8 @@ import com.jfixby.r3.engine.api.render.RasterData;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class RasterFactory implements RasterComponentsFactory {

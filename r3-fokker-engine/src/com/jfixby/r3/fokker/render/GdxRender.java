@@ -10,9 +10,9 @@ import com.badlogic.gdx.math.Matrix4;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
 import com.jfixby.r3.fokker.shader.api.FokkerShader;
 import com.jfixby.r3.fokker.shader.api.FokkerShaders;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.names.ID;
 
 public class GdxRender {
 

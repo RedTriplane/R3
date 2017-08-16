@@ -4,10 +4,10 @@ package com.jfixby.r3.fokker.shader.red;
 import com.jfixby.r3.fokker.shader.api.FokkerShader;
 import com.jfixby.r3.fokker.shader.api.FokkerShaderPackageReader;
 import com.jfixby.r3.fokker.shader.api.FokkerShadersComponent;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedFokkerShaders implements FokkerShadersComponent {
 	final RedFokkerShaderPackageReader reader = new RedFokkerShaderPackageReader(this);

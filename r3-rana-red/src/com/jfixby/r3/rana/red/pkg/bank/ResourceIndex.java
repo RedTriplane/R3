@@ -8,8 +8,6 @@ import com.jfixby.r3.rana.api.pkg.PackageHandler;
 import com.jfixby.r3.rana.api.pkg.PackageSearchParameters;
 import com.jfixby.r3.rana.api.pkg.PackageSearchResult;
 import com.jfixby.r3.rana.api.pkg.io.PackageDescriptor;
-import com.jfixby.scarabei.api.assets.ID;
-import com.jfixby.scarabei.api.assets.Names;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
@@ -17,6 +15,8 @@ import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.collections.Set;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.names.ID;
+import com.jfixby.scarabei.api.names.Names;
 
 public class ResourceIndex {
 	Set<PackageHandler> all_handlers = Collections.newSet();

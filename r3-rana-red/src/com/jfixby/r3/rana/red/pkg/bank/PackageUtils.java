@@ -5,12 +5,12 @@ import java.io.IOException;
 
 import com.jfixby.r3.rana.api.pkg.PackerSpecs;
 import com.jfixby.r3.rana.api.pkg.io.PackageDescriptor;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.json.Json;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.sys.Sys;
 
 public class PackageUtils {

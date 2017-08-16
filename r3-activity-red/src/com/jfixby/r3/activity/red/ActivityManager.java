@@ -4,7 +4,7 @@ package com.jfixby.r3.activity.red;
 import com.jfixby.r3.activity.api.Activity;
 import com.jfixby.r3.activity.api.spawn.ActivitySpawner;
 import com.jfixby.r3.engine.api.exe.EngineState;
-import com.jfixby.scarabei.api.assets.ID;
+import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.promise.Promise;
 

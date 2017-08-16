@@ -15,7 +15,6 @@ import com.jfixby.r3.engine.api.render.RenderMachine;
 import com.jfixby.r3.engine.api.render.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.engine.api.screen.Screen;
 import com.jfixby.r3.engine.api.screen.ScreenDimentionsChecker;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Colors;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.Float2;
@@ -29,6 +28,7 @@ import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.math.Angle;
 import com.jfixby.scarabei.api.math.FloatMath;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedCamera implements CanvasCamera, CameraProjection, Projection {
 

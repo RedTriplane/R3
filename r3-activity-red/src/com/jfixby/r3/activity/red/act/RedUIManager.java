@@ -4,8 +4,8 @@ package com.jfixby.r3.activity.red.act;
 import com.jfixby.r3.activity.api.act.AnimationsMachine;
 import com.jfixby.r3.activity.api.act.UIAction;
 import com.jfixby.r3.activity.api.act.UIEventsManagerComponent;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedUIManager implements UIEventsManagerComponent {
 

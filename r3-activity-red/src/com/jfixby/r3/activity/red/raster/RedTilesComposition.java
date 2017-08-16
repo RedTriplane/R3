@@ -15,7 +15,6 @@ import com.jfixby.r3.engine.api.render.Drawable;
 import com.jfixby.r3.engine.api.render.RenderMachine;
 import com.jfixby.r3.io.texture.slicer.SliceInfo;
 import com.jfixby.r3.io.texture.slicer.SlicesCompositionInfo;
-import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.color.Colors;
 import com.jfixby.scarabei.api.debug.DEBUG_TIMER_MODE;
@@ -30,6 +29,7 @@ import com.jfixby.scarabei.api.geometry.ORIGIN_RELATIVE_VERTICAL;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.RectangleCorner;
 import com.jfixby.scarabei.api.math.Angle;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedTilesComposition extends RedRectangularComponent implements TilesComposition, Drawable {
 	private final ID composition_asset_id;
