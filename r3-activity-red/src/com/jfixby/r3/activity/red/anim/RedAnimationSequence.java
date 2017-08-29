@@ -18,6 +18,7 @@ import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.Float2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
@@ -26,8 +27,6 @@ import com.jfixby.scarabei.api.geometry.Spline2D;
 import com.jfixby.scarabei.api.geometry.projections.RotateAndOffsetProjection;
 import com.jfixby.scarabei.api.math.IntegerMath;
 import com.jfixby.scarabei.api.time.TimeStream;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class RedAnimationSequence implements PositionsSequence, LayerBasedComponent {
 
@@ -45,7 +44,7 @@ public class RedAnimationSequence implements PositionsSequence, LayerBasedCompon
 
 	}
 
-	StateSwitcher<ANIMATION_STATE> state = Utils.newStateSwitcher(ANIMATION_STATE.VOID);
+	StateSwitcher<ANIMATION_STATE> state = Debug.newStateSwitcher(ANIMATION_STATE.VOID);
 
 	final List<PositionAnchor> animations_list = Collections.newList();
 	PositionAnchor current_anchor_A;

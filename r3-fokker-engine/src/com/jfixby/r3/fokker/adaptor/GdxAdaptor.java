@@ -9,10 +9,9 @@ import com.jfixby.r3.engine.api.screen.Screen;
 import com.jfixby.r3.fokker.api.FokkerThread;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.DebugTimer;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.ui.UIThread;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineState {
 
@@ -34,7 +33,7 @@ public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineS
 
 	public GdxAdaptor (final EngineExecutor executor) {
 		this.executor = executor != null ? executor : new DefaultExecutor();
-		this.state = Utils.newStateSwitcher(ENGINE_STATE.NEW);
+		this.state = Debug.newStateSwitcher(ENGINE_STATE.NEW);
 	}
 
 	public com.badlogic.gdx.ApplicationListener getGDXApplicationListener () {

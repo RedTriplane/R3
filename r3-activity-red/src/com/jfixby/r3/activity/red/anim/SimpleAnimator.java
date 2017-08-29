@@ -5,11 +5,10 @@ import com.jfixby.r3.activity.api.update.ActivityClocks;
 import com.jfixby.r3.activity.api.update.OnUpdateListener;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.sys.Sys;
 import com.jfixby.scarabei.api.time.TimeStream;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class SimpleAnimator implements OnUpdateListener {
 
@@ -17,7 +16,7 @@ public class SimpleAnimator implements OnUpdateListener {
 	final private List<RedFrameHolder> frames;
 	private long loop_time;
 
-	final StateSwitcher<ANIMATION_STATE> state = Utils.newStateSwitcher(ANIMATION_STATE.VOID);
+	final StateSwitcher<ANIMATION_STATE> state = Debug.newStateSwitcher(ANIMATION_STATE.VOID);
 
 	private final TimeStream clock;
 	private long current_time;

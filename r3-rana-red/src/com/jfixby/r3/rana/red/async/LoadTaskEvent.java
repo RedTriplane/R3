@@ -1,11 +1,11 @@
 
 package com.jfixby.r3.rana.red.async;
 
+import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.taskman.Job;
 import com.jfixby.scarabei.api.taskman.ProgressListener;
 import com.jfixby.scarabei.api.taskman.TaskProgress;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 class LoadTaskEvent implements Job {
 
@@ -22,7 +22,7 @@ class LoadTaskEvent implements Job {
 		this.task = task;
 		this.progress_listener = ui_loader_listener;
 // this.tintoUIManager = tintoUIManager;
-		this.state = Utils.newStateSwitcher(TASK_LOADER_STATE.NEW);
+		this.state = Debug.newStateSwitcher(TASK_LOADER_STATE.NEW);
 	}
 
 	@Override

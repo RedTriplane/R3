@@ -12,12 +12,12 @@ import com.jfixby.r3.fokker.render.RenderBuffer;
 import com.jfixby.r3.fokker.render.geo.Renderer;
 import com.jfixby.r3.fokker.shader.api.FokkerShader;
 import com.jfixby.r3.fokker.shader.api.FokkerShaders;
+import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class FokkerRasterRenderer extends Renderer {
 
@@ -39,7 +39,7 @@ public class FokkerRasterRenderer extends Renderer {
 		GdxRender.activateRasterRenderer();
 		this.primary_buffer = primary_buffer;
 
-		this.blend_state = Utils.newStateSwitcher(TEXTURE_BLEND_MODE.Normal);
+		this.blend_state = Debug.newStateSwitcher(TEXTURE_BLEND_MODE.Normal);
 		this.current_shader.init();
 	}
 

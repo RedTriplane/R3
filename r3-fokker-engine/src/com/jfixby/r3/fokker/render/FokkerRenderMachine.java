@@ -22,6 +22,7 @@ import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.color.Colors;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Geometry;
@@ -31,8 +32,6 @@ import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.promise.Promise;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class FokkerRenderMachine implements RenderMachineComponent {
 
@@ -76,7 +75,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	@Override
 	final public Promise<Void> deploy () {
-		render_state = Utils.newStateSwitcher(RENDER_MACHINE_STATE.NEW);
+		render_state = Debug.newStateSwitcher(RENDER_MACHINE_STATE.NEW);
 
 		// L.d("init()", render_state);
 		render_state.setDebugName("render_state");

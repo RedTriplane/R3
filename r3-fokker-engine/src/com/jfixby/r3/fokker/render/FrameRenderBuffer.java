@@ -10,9 +10,8 @@ import com.jfixby.r3.engine.api.screen.Screen;
 import com.jfixby.r3.engine.api.screen.ScreenDimentionsChecker;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.DebugTimer;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.err.Err;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class FrameRenderBuffer extends RenderBuffer {
 	private static StateSwitcher<BUFFER_STATE> buffer_state;
@@ -46,7 +45,7 @@ public class FrameRenderBuffer extends RenderBuffer {
 	@Override
 	public void init () {
 		this.checker = Screen.newScreenDimentionsChecker();
-		buffer_state = Utils.newStateSwitcher(BUFFER_STATE.NEW);
+		buffer_state = Debug.newStateSwitcher(BUFFER_STATE.NEW);
 	}
 
 	private void createBuffers () {

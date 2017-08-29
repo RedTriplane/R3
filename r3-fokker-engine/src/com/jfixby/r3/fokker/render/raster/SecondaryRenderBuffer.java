@@ -10,9 +10,9 @@ import com.jfixby.r3.engine.api.screen.Screen;
 import com.jfixby.r3.engine.api.screen.ScreenDimentionsChecker;
 import com.jfixby.r3.fokker.render.GdxRender;
 import com.jfixby.scarabei.api.color.Colors;
+import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.err.Err;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class SecondaryRenderBuffer {
 	private final ScreenDimentionsChecker checker;
@@ -22,7 +22,7 @@ public class SecondaryRenderBuffer {
 	public SecondaryRenderBuffer () {
 		super();
 		this.checker = Screen.newScreenDimentionsChecker();
-		buffer_state = Utils.newStateSwitcher(BUFFER_STATE.PAUSED);
+		buffer_state = Debug.newStateSwitcher(BUFFER_STATE.PAUSED);
 	}
 
 	private void createBuffers () {

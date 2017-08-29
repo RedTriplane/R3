@@ -4,11 +4,10 @@ package com.jfixby.r3.activity.red;
 import com.jfixby.r3.activity.api.Activity;
 import com.jfixby.r3.activity.api.ActivityStateInspector;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.sys.settings.ExecutionMode;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 import com.jfixby.scarabei.api.util.EvaluationResult;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class RedActivityStateInspector implements ActivityStateInspector {
 
@@ -17,7 +16,7 @@ public class RedActivityStateInspector implements ActivityStateInspector {
 	private EvaluationResult check;
 
 	RedActivityStateInspector () {
-		this.states = Utils.newStateSwitcher(UNIT_STATES.NULL);
+		this.states = Debug.newStateSwitcher(UNIT_STATES.NULL);
 		this.states.setDebugFlag(!true);
 		if (SystemSettings.executionModeCovers(ExecutionMode.EARLY_DEVELOPMENT)) {
 			this.states.setThrowErrorOnUnexpectedState(false);

@@ -12,14 +12,13 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.debug.Debug;
+import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.FileConflistResolver;
 import com.jfixby.scarabei.api.file.FileSystem;
 import com.jfixby.scarabei.api.file.FileSystemSandBox;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.util.StateSwitcher;
-import com.jfixby.scarabei.api.util.Utils;
 
 public class RedPackageHandler implements PackageHandler, PackageVersion {
 
@@ -48,7 +47,7 @@ public class RedPackageHandler implements PackageHandler, PackageVersion {
 		throws IOException {
 		this.resourceIndex = resourceIndex;
 		this.package_folder = package_folder;
-		this.status = Utils.newStateSwitcher(PACKAGE_STATUS.NOT_INSTALLED);
+		this.status = Debug.newStateSwitcher(PACKAGE_STATUS.NOT_INSTALLED);
 		if (package_cache == null) {
 			this.status.switchState(PACKAGE_STATUS.INSTALLED);
 		}
