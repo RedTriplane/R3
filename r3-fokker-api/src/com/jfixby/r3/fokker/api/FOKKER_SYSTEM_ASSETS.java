@@ -15,7 +15,7 @@ public class FOKKER_SYSTEM_ASSETS {
 	public static ID DEBUG_BLACK = Names.newID("com.jfixby.fokker.assets.render.black-debug");
 	public static ID LOGO = Names.newID("com.jfixby.fokker.assets.render.logo");
 
-	public static ID GENERIC_FONT = Names.newID("GenericFont.otf");
+	public static ID GENERIC_FONT = Names.newID("otf.GenericFont");
 
 	public static ID SHADER_TEST = SHADERS.child("test");
 	public static ID SHADER_NORMAL = SHADERS.child("normal");
