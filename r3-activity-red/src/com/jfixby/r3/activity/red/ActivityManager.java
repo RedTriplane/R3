@@ -3,10 +3,10 @@ package com.jfixby.r3.activity.red;
 
 import com.jfixby.r3.activity.api.Activity;
 import com.jfixby.r3.activity.api.spawn.ActivitySpawner;
+import com.jfixby.r3.activity.api.spawn.ActivitySpawningException;
 import com.jfixby.r3.engine.api.exe.EngineState;
 import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.promise.Future;
-import com.jfixby.scarabei.api.promise.Promise;
 
 public class ActivityManager {
 	private ActivityContainer current_unit_container;
@@ -14,7 +14,7 @@ public class ActivityManager {
 
 		@Override
 		public Void deliver (final Activity unit) throws Throwable {
-			ActivityManager.this.deployActivity(unit);
+
 			return null;
 		}
 
@@ -29,9 +29,9 @@ public class ActivityManager {
 		ActivityManager.this.current_unit_container.doDeploy();
 	}
 
-	public void pushNextActivity (final ID unitID) {
-		final Promise<Activity> promise = ActivitySpawner.spawnActivity(unitID);
-		promise.then("deployNextActiviy", this.deployNextActiviy);
+	public void pushNextActivity (final ID unitID) throws ActivitySpawningException {
+		final Activity promise = ActivitySpawner.spawnActivity(unitID);
+		ActivityManager.this.deployActivity(promise);
 	}
 
 	public boolean isIdle () {

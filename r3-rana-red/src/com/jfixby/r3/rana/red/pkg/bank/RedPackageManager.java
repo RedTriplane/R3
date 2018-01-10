@@ -36,9 +36,6 @@ import com.jfixby.scarabei.api.net.http.Http;
 import com.jfixby.scarabei.api.net.http.HttpFileSystem;
 import com.jfixby.scarabei.api.net.http.HttpFileSystemSpecs;
 import com.jfixby.scarabei.api.net.http.HttpURL;
-import com.jfixby.scarabei.api.promise.Future;
-import com.jfixby.scarabei.api.promise.Promise;
-import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class RedPackageManager implements PackagesManagerComponent {
 
@@ -53,41 +50,26 @@ public class RedPackageManager implements PackagesManagerComponent {
 		this.assets_cache_folder = specs.assets_cache_folder;
 	}
 
-	@Override
-	public Promise<PackagesManagerConfig> readPackagesManagerConfig () {
+// private Promise<FileSystemBankSettings> findBank (final File bankFolder) throws IOException {
+// final Future<Void, FileSystemBankSettings> bank = new Future<Void, FileSystemBankSettings>() {
+//
+// @Override
+// public FileSystemBankSettings deliver (final Void v) throws Throwable {
+// return RedPackageManager.this.findBank(bankFolder);
+// }
+//
+// };
+//
+// return TaskManager.executehronously("findBank(" + bankFolder + ")", bank);
+// }
 
-		final Future<Void, PackagesManagerConfig> future = new Future<Void, PackagesManagerConfig>() {
-
-			@Override
-			public PackagesManagerConfig deliver (final Void v) throws Throwable {
-				return RedPackageManager.this.readPackagesManagerConfigAsync();
-			}
-		};
-
-		// final File resourcesConfigFile = LocalFileSystem.ApplicationHome().child(ResourcesConfigFile.FILE_NAME);
-		return TaskManager.executeAsynchronously("readPackagesManagerConfig", future);
-	}
-
-	private Promise<FileSystemBankSettings> findBank (final File bankFolder) throws IOException {
-		final Future<Void, FileSystemBankSettings> bank = new Future<Void, FileSystemBankSettings>() {
-
-			@Override
-			public FileSystemBankSettings deliver (final Void v) throws Throwable {
-				return RedPackageManager.this.findBankAsync(bankFolder);
-			}
-
-		};
-
-		return TaskManager.executeAsynchronously("findBank(" + bankFolder + ")", bank);
-	}
-
-	private FileSystemBankSettings findBankAsync (final File bankFolder) throws IOException {
+	private FileSystemBankSettings findBank (final File bankFolder) throws IOException {
 
 		if (!bankFolder.exists()) {
 			L.e("bank not found", bankFolder);
 			return null;
 		}
-		final BankHeader bankHeader_ = RedPackageManager.this.findAndLoadBankHeaderAsync(bankFolder);
+		final BankHeader bankHeader_ = RedPackageManager.this.findAndLoadBankHeader(bankFolder);
 
 		if (bankHeader_ == null) {
 			return null;
@@ -115,7 +97,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 	}
 
-	private BankHeader findAndLoadBankHeaderAsync (final File bank_folder) throws IOException {
+	private BankHeader findAndLoadBankHeader (final File bank_folder) throws IOException {
 
 		if (!(bank_folder.exists() && bank_folder.isFolder())) {
 			return null;
@@ -144,55 +126,31 @@ public class RedPackageManager implements PackagesManagerComponent {
 	}
 
 	@Override
-	public Promise<Collection<FileSystemBankSettings>> findBanks (final RemoteBankSettings remoteBankSettings,
-		final File cacheFolder) {
+	public Collection<FileSystemBankSettings> findBanks (final RemoteBankSettings remoteBankSettings, final File cacheFolder)
+		throws IOException {
 
-		final Future<Void, Collection<FileSystemBankSettings>> future = new Future<Void, Collection<FileSystemBankSettings>>() {
+		final HttpURL bankUrl = remoteBankSettings.bankURL;
+		final Iterable<String> tanks = remoteBankSettings.tanks;
+		Debug.checkNull("bankUrl", bankUrl);
+		Debug.checkNull("tanks", tanks);
 
-			@Override
-			public Collection<FileSystemBankSettings> deliver (final Void v) throws Throwable {
+		final HttpFileSystemSpecs specs = Http.newHttpFileSystemSpecs();
 
-				final HttpURL bankUrl = remoteBankSettings.bankURL;
-				final Iterable<String> tanks = remoteBankSettings.tanks;
-				Debug.checkNull("bankUrl", bankUrl);
-				Debug.checkNull("tanks", tanks);
+		final HttpURL url = bankUrl;
+		specs.setRootUrl(url);
+		specs.setCacheSize(200);
 
-				final HttpFileSystemSpecs specs = Http.newHttpFileSystemSpecs();
+		final HttpFileSystem fs = Http.newHttpFileSystem(specs);
 
-				final HttpURL url = bankUrl;
-				specs.setRootUrl(url);
-				specs.setCacheSize(200);
-
-				final HttpFileSystem fs = Http.newHttpFileSystem(specs);
-
-				final File httpRemote = fs.ROOT();
-				final Collection<FileSystemBankSettings> banks = RedPackageManager.this.findBanks(httpRemote).await();
-				for (final FileSystemBankSettings bank : banks) {
-					if (true) {
-						final File bank_cache_folder = cacheFolder.child(bank.name);
-						bank.cacheFolder = bank_cache_folder;
-					}
-				}
-				return banks;
+		final File httpRemote = fs.ROOT();
+		final Collection<FileSystemBankSettings> banks = RedPackageManager.this.findBanks(httpRemote);
+		for (final FileSystemBankSettings bank : banks) {
+			if (true) {
+				final File bank_cache_folder = cacheFolder.child(bank.name);
+				bank.cacheFolder = bank_cache_folder;
 			}
-		};
-
-		return TaskManager.executeAsynchronously("findBanks(" + remoteBankSettings + ")", future);
-
-	}
-
-	@Override
-	public Promise<Collection<FileSystemBankSettings>> findBanks (final File assets_folder) {
-		final Future<Void, Collection<FileSystemBankSettings>> future = new Future<Void, Collection<FileSystemBankSettings>>() {
-			@Override
-			public Collection<FileSystemBankSettings> deliver (final Void v) throws Throwable {
-
-				return RedPackageManager.this.findBanksAsync(assets_folder);
-			}
-
-		};
-
-		return TaskManager.executeAsynchronously("findBanks(" + assets_folder + ")", future);
+		}
+		return banks;
 	}
 
 	@Override
@@ -231,16 +189,12 @@ public class RedPackageManager implements PackagesManagerComponent {
 		}
 	}
 
-// public Promise<Collection<PackagesBank>> loadAssetsFolder (final File assets_folder) {
-// final Future<Void,Collection<PackagesBank>> future = new Future<Void,Collection<PackagesBank>>() {
-//
-// @Override
-// public Collection<PackagesBank> deliver (Void v) throws Throwable {
+// public Collection<PackagesBank> loadAssetsFolder (final File assets_folder) {
 // Debug.checkNull("assets_folder", assets_folder);
 // if (assets_folder.exists() && assets_folder.isFolder()) {
-// final Promise<Collection<PackagesBank>> locals = RedPackageManager.this.findBanks(assets_folder);
+// final Collection<PackagesBank> locals = RedPackageManager.this.findBanks(assets_folder);
 // // locals.print("locals");
-// final Collection<PackagesBank> localsList = locals.await();
+// final Collection<PackagesBank> localsList = locals;
 // for (final PackagesBank local : localsList) {
 // local.rebuildIndex().await();
 // }
@@ -248,24 +202,20 @@ public class RedPackageManager implements PackagesManagerComponent {
 // }
 // return null;
 // }
+
+// public Promise<PackageManagerConfig> loadConfigFile (final File applicationHome) {
+//
+// final Future<Void, PackageManagerConfig> future = new Future<Void, PackageManagerConfig>() {
+//
+// @Override
+// public PackageManagerConfig deliver (final Void v) throws Throwable {
+// return RedPackageManager.this.loadConfigFile(applicationHome);
+// }
 // };
-// return TaskManager.executeAsynchronously(future);
+//
+// return TaskManager.executehronously("loadConfigFile(" + applicationHome + ")", future);
 //
 // }
-
-	public Promise<PackageManagerConfig> loadConfigFile (final File applicationHome) {
-
-		final Future<Void, PackageManagerConfig> future = new Future<Void, PackageManagerConfig>() {
-
-			@Override
-			public PackageManagerConfig deliver (final Void v) throws Throwable {
-				return RedPackageManager.this.loadConfigFileAsync(applicationHome);
-			}
-		};
-
-		return TaskManager.executeAsynchronously("loadConfigFile(" + applicationHome + ")", future);
-
-	}
 
 // void loadRemoteBank (final HttpURL bankURL, final Iterable<String> tanks, final File assets_cache_folder) throws IOException {
 // final PackagesBank bank = this.installRemoteBank(bankURL, assets_cache_folder, tanks);
@@ -337,64 +287,58 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 	}
 
-	private Promise<BankHeader> findAndLoadBankHeader (final File bank_folder) throws IOException {
-		final Future<Void, BankHeader> plan = new Future<Void, BankHeader>() {
-			@Override
-			public BankHeader deliver (final Void v) throws Throwable {
-				return RedPackageManager.this.findAndLoadBankHeaderAsync(bank_folder);
-			}
-
-		};
-
-		final Promise<BankHeader> promise = TaskManager.executeAsynchronously("findAndLoadBankHeader(" + bank_folder + ")", plan);
-		return promise;
-	}
-
-	@Override
-	public Promise<Collection<FileSystemBankSettings>> findBanks (final Collection<RemoteBankSettings> remoteBankSettings) {
-		final Future<Void, Collection<FileSystemBankSettings>> future = new Future<Void, Collection<FileSystemBankSettings>>() {
-
-			@Override
-			public Collection<FileSystemBankSettings> deliver (final Void v) throws Throwable {
-				final List<FileSystemBankSettings> results = Collections.newList();
-				for (final RemoteBankSettings set : remoteBankSettings) {
-					final Promise<Collection<FileSystemBankSettings>> bankPromise = RedPackageManager.this.findBanks(set,
-						RedPackageManager.this.assets_cache_folder);
-					results.addAll(bankPromise.await());
-				}
-				return results;
-			}
-		};
-
-		return TaskManager.executeAsynchronously("findBanks(" + remoteBankSettings.toJavaList() + ")", future);
-	}
+// private Promise<BankHeader> findAndLoadBankHeader (final File bank_folder) throws IOException {
+// final Future<Void, BankHeader> plan = new Future<Void, BankHeader>() {
+// @Override
+// public BankHeader deliver (final Void v) throws Throwable {
+// return RedPackageManager.this.findAndLoadBankHeader(bank_folder);
+// }
+//
+// };
+//
+// final Promise<BankHeader> promise = TaskManager.executehronously("findAndLoadBankHeader(" + bank_folder + ")", plan);
+// return promise;
+// }
 
 	@Override
-	public Promise<Collection<PackagesBank>> loadBanks (final Collection<FileSystemBankSettings> localBanks) {
-		final Future<Void, Collection<PackagesBank>> future = new Future<Void, Collection<PackagesBank>>() {
-
-			@Override
-			public Collection<PackagesBank> deliver (final Void v) throws Throwable {
-				return RedPackageManager.this.loadBanksAsync(localBanks);
-
-			}
-		};
-
-		return TaskManager.executeAsynchronously("loadBanks(" + localBanks.toJavaList() + ")", future);
+	public Collection<FileSystemBankSettings> findBanks (final Collection<RemoteBankSettings> remoteBankSettings)
+		throws IOException {
+		final List<FileSystemBankSettings> results = Collections.newList();
+		for (final RemoteBankSettings set : remoteBankSettings) {
+			final Collection<FileSystemBankSettings> bankPromise = RedPackageManager.this.findBanks(set,
+				RedPackageManager.this.assets_cache_folder);
+			results.addAll(bankPromise);
+		}
+		return results;
 	}
+//
+// @Override
+// public Promise<Collection<PackagesBank>> loadBanks (final Collection<FileSystemBankSettings> localBanks) {
+// final Future<Void, Collection<PackagesBank>> future = new Future<Void, Collection<PackagesBank>>() {
+//
+// @Override
+// public Collection<PackagesBank> deliver (final Void v) throws Throwable {
+// return RedPackageManager.this.loadBanks(localBanks);
+//
+// }
+// };
+//
+// return TaskManager.executehronously("loadBanks(" + localBanks.toJavaList() + ")", future);
+// }
+
+// @Override
+// public Promise<PackagesBank> loadBank (final FileSystemBankSettings bankSettings) {
+// final Future<Void, PackagesBank> future = new Future<Void, PackagesBank>() {
+// @Override
+// public PackagesBank deliver (final Void v) throws Throwable {
+// return RedPackageManager.this.loadBank(bankSettings);
+// }
+// };
+// return TaskManager.executehronously("loadBank(" + bankSettings + ")", future);
+// }
 
 	@Override
-	public Promise<PackagesBank> loadBank (final FileSystemBankSettings bankSettings) {
-		final Future<Void, PackagesBank> future = new Future<Void, PackagesBank>() {
-			@Override
-			public PackagesBank deliver (final Void v) throws Throwable {
-				return RedPackageManager.this.loadBankAsync(bankSettings);
-			}
-		};
-		return TaskManager.executeAsynchronously("loadBank(" + bankSettings + ")", future);
-	}
-
-	PackagesBank loadBankAsync (final FileSystemBankSettings bankSettings) throws IOException {
+	public PackagesBank loadBank (final FileSystemBankSettings bankSettings) throws IOException {
 		final ID id = Names.newID(bankSettings.name);
 		final RedBank bank = new RedBank(id);
 
@@ -421,41 +365,26 @@ public class RedPackageManager implements PackagesManagerComponent {
 	}
 
 	@Override
-	public Promise<Collection<PackagesBank>> deploy (final File assets_folder) {
+	public Collection<PackagesBank> deploy (final File assets_folder) throws IOException {
+		final Collection<FileSystemBankSettings> assetsFolderPromise = PackagesManager.invoke().findBanks(assets_folder);
+		final Collection<FileSystemBankSettings> assetsFolderBanks = assetsFolderPromise;
+		final PackagesManagerConfig configPromise = PackagesManager.invoke().readPackagesManagerConfig();
+		final PackagesManagerConfig packmanConfig = configPromise;
+		final Collection<FileSystemBankSettings> localBankFiles = packmanConfig.localBanks();
+		final Collection<RemoteBankSettings> remoteSettings = packmanConfig.remoteBanks();
+		final Collection<FileSystemBankSettings> remoteBankFiles = PackagesManager.invoke().findBanks(remoteSettings);
+		final Collection<PackagesBank> localBanksPromise = PackagesManager.invoke().loadBanks(localBankFiles);
+		final Collection<PackagesBank> assetsFolderBanksPromise = PackagesManager.invoke().loadBanks(assetsFolderBanks);
+		final Collection<PackagesBank> remoteBanksPromise = PackagesManager.invoke().loadBanks(remoteBankFiles);
+		final Collection<PackagesBank> localBanks = localBanksPromise;
+		final Collection<PackagesBank> assetsBanks = assetsFolderBanksPromise;
+		final Collection<PackagesBank> remoteBanks = remoteBanksPromise;
 
-		final Future<Void, Collection<PackagesBank>> future = new Future<Void, Collection<PackagesBank>>() {
+		RedPackageManager.this.installBanks(assetsBanks);
+		RedPackageManager.this.installBanks(localBanks);
+		RedPackageManager.this.installBanks(remoteBanks);
 
-			@Override
-			public Collection<PackagesBank> deliver (final Void v) throws Throwable {
-				{
-					final Promise<Collection<FileSystemBankSettings>> assetsFolderPromise = PackagesManager.invoke()
-						.findBanks(assets_folder);
-					final Collection<FileSystemBankSettings> assetsFolderBanks = assetsFolderPromise.await();
-					final Promise<PackagesManagerConfig> configPromise = PackagesManager.invoke().readPackagesManagerConfig();
-					final PackagesManagerConfig packmanConfig = configPromise.await();
-					final Collection<FileSystemBankSettings> localBankFiles = packmanConfig.localBanks();
-					final Collection<RemoteBankSettings> remoteSettings = packmanConfig.remoteBanks();
-					final Collection<FileSystemBankSettings> remoteBankFiles = PackagesManager.invoke().findBanks(remoteSettings)
-						.await();
-					final Promise<Collection<PackagesBank>> localBanksPromise = PackagesManager.invoke().loadBanks(localBankFiles);
-					final Promise<Collection<PackagesBank>> assetsFolderBanksPromise = PackagesManager.invoke()
-						.loadBanks(assetsFolderBanks);
-					final Promise<Collection<PackagesBank>> remoteBanksPromise = PackagesManager.invoke().loadBanks(remoteBankFiles);
-					final Collection<PackagesBank> localBanks = localBanksPromise.await();
-					final Collection<PackagesBank> assetsBanks = assetsFolderBanksPromise.await();
-					final Collection<PackagesBank> remoteBanks = remoteBanksPromise.await();
-
-					RedPackageManager.this.installBanks(assetsBanks);
-					RedPackageManager.this.installBanks(localBanks);
-					RedPackageManager.this.installBanks(remoteBanks);
-
-					return PackagesManager.invoke().listInstalledBanks();
-				}
-			}
-		};
-
-		return TaskManager.executeAsynchronously("deploy(" + assets_folder + ")", future);
-
+		return PackagesManager.invoke().listInstalledBanks();
 	}
 
 	@Override
@@ -463,15 +392,16 @@ public class RedPackageManager implements PackagesManagerComponent {
 		return this.resources.values();
 	}
 
-	private PackagesManagerConfig readPackagesManagerConfigAsync () throws IOException {
+	@Override
+	public PackagesManagerConfig readPackagesManagerConfig () throws IOException {
 		final RedPackagesManagerConfig config = new RedPackagesManagerConfig();
-		final PackageManagerConfig local_config = RedPackageManager.this.loadConfigFileAsync(LocalFileSystem.ApplicationHome());
+		final PackageManagerConfig local_config = RedPackageManager.this.loadConfigFile(LocalFileSystem.ApplicationHome());
 		if (local_config != null) {
 			for (final LocalAssetsFolder folder : local_config.local_banks) {
 				final String java_path = folder.path;
 				final File dir = LocalFileSystem.newFile(java_path);
 
-				final Collection<FileSystemBankSettings> locals = RedPackageManager.this.findBanksAsync(dir);
+				final Collection<FileSystemBankSettings> locals = RedPackageManager.this.findBanks(dir);
 				config.localBanks.addAll(locals);
 
 			}
@@ -493,7 +423,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 		return config;
 	}
 
-	private PackageManagerConfig loadConfigFileAsync (final File applicationHome) throws IOException {
+	private PackageManagerConfig loadConfigFile (final File applicationHome) throws IOException {
 		PackageManagerConfig config = null;
 		final File resources_config_file = applicationHome.child(PackageManagerConfig.FILE_NAME);
 
@@ -509,10 +439,11 @@ public class RedPackageManager implements PackagesManagerComponent {
 		return config;
 	}
 
-	public Collection<FileSystemBankSettings> findBanksAsync (final File assets_folder) throws IOException {
+	@Override
+	public Collection<FileSystemBankSettings> findBanks (final File assets_folder) throws IOException {
 		final List<FileSystemBankSettings> result = Collections.newList();
 		{
-			final FileSystemBankSettings bank = RedPackageManager.this.findBankAsync(assets_folder);
+			final FileSystemBankSettings bank = RedPackageManager.this.findBank(assets_folder);
 			if (bank != null) {
 				result.add(bank);
 				return result;
@@ -523,7 +454,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 			if (file.isFile()) {
 				continue;
 			}
-			final FileSystemBankSettings bank = RedPackageManager.this.findBankAsync(file);
+			final FileSystemBankSettings bank = RedPackageManager.this.findBank(file);
 			if (bank != null) {
 				result.add(bank);
 			}
@@ -532,10 +463,11 @@ public class RedPackageManager implements PackagesManagerComponent {
 
 	}
 
-	public Collection<PackagesBank> loadBanksAsync (final Collection<FileSystemBankSettings> localBanks) throws IOException {
+	@Override
+	public Collection<PackagesBank> loadBanks (final Collection<FileSystemBankSettings> localBanks) throws IOException {
 		final List<PackagesBank> results = Collections.newList();
 		for (final FileSystemBankSettings set : localBanks) {
-			final PackagesBank bank = RedPackageManager.this.loadBankAsync(set);
+			final PackagesBank bank = RedPackageManager.this.loadBank(set);
 			results.add(bank);
 		}
 		return results;

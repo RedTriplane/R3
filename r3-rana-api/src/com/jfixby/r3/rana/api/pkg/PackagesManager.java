@@ -7,7 +7,6 @@ import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.promise.Promise;
 
 public class PackagesManager {
 
@@ -89,15 +88,15 @@ public class PackagesManager {
 		invoke().installBanks(banksList);
 	}
 
-	public static Promise<Collection<PackagesBank>> loadBanks (final Collection<FileSystemBankSettings> localBanks) {
+	public static Collection<PackagesBank> loadBanks (final Collection<FileSystemBankSettings> localBanks) throws IOException {
 		return invoke().loadBanks(localBanks);
 	}
 
-	public static Promise<PackagesManagerConfig> readPackagesManagerConfig () {
+	public static PackagesManagerConfig readPackagesManagerConfig () throws IOException {
 		return invoke().readPackagesManagerConfig();
 	}
 
-	public static Promise<Collection<FileSystemBankSettings>> findBanks (final File assets_folder) {
+	public static Collection<FileSystemBankSettings> findBanks (final File assets_folder) throws IOException {
 		return invoke().findBanks(assets_folder);
 	}
 

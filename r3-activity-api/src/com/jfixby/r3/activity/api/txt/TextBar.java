@@ -15,6 +15,4 @@ public interface TextBar extends VisibleComponent, LocalizedComponent, CanvasPos
 
 	boolean getDebugRenderFlag ();
 
-	void setPositionXY (double x, double y);
-
 }

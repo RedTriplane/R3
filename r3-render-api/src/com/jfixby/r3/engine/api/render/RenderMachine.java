@@ -8,7 +8,6 @@ import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.promise.Promise;
 
 public class RenderMachine {
 
@@ -122,8 +121,8 @@ public class RenderMachine {
 		return invoke().makeScreenShot(areaWidth, areaHeight, areaX, areaY);
 	}
 
-	public static Promise<Void> deploy () {
-		return invoke().deploy();
+	public static void deploy () {
+		invoke().deploy();
 	}
 
 }

@@ -6,33 +6,33 @@ import java.io.IOException;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.promise.Promise;
 
 public interface PackagesManagerComponent {
 
-	Promise<PackagesManagerConfig> readPackagesManagerConfig ();
+	PackagesManagerConfig readPackagesManagerConfig () throws IOException;
 
-	Promise<Collection<FileSystemBankSettings>> findBanks (File assets_folder);
+	Collection<FileSystemBankSettings> findBanks (File assets_folder) throws IOException;
 
-	Promise<Collection<FileSystemBankSettings>> findBanks (RemoteBankSettings remoteBankSettings, final File cacheFolder);
+	Collection<FileSystemBankSettings> findBanks (RemoteBankSettings remoteBankSettings, final File cacheFolder)
+		throws IOException;
 
-	Promise<Collection<FileSystemBankSettings>> findBanks (Collection<RemoteBankSettings> remoteBankSettings);
+	Collection<FileSystemBankSettings> findBanks (Collection<RemoteBankSettings> remoteBankSettings) throws IOException;
 
-	Promise<Collection<PackagesBank>> loadBanks (Collection<FileSystemBankSettings> localBanks);
+	Collection<PackagesBank> loadBanks (Collection<FileSystemBankSettings> localBanks) throws IOException;
 
-	Promise<PackagesBank> loadBank (FileSystemBankSettings bankSettings);
+	PackagesBank loadBank (FileSystemBankSettings bankSettings) throws IOException;
 
-	Promise<Collection<PackagesBank>> deploy (File assets_folder);
+	Collection<PackagesBank> deploy (File assets_folder) throws IOException;
 
 	Collection<PackagesBank> listInstalledBanks ();
 
-// Promise<Collection<PackagesBank>> findAndInstallResources (File assets_folder);
+// Collection<PackagesBank> findAndInstallResources (File assets_folder);
 
 	void installBanks (Collection<PackagesBank> resources);
 
 	void installBank (PackagesBank bank);
 
-// Promise<Collection<PackagesBank>> loadAssetsFolder (File assets_folder);
+// Collection<PackagesBank> loadAssetsFolder (File assets_folder);
 
 // PackageFormat newPackageFormat (String format_name);
 

@@ -7,7 +7,6 @@ import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.promise.Promise;
 
 public interface RenderMachineComponent {
 
@@ -70,7 +69,7 @@ public interface RenderMachineComponent {
 
 	public DefaultShaders DefaultShaders ();
 
-	Promise<Void> deploy ();
+	void deploy ();
 
 	// void setShader(final FokkerShader shader_handler);
 

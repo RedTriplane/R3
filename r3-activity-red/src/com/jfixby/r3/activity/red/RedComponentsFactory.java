@@ -124,7 +124,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 				asset_handler = LoadedAssets.obtainAsset(missingAsset, this);
 				if (asset_handler == null) {
 					try {
-						AssetsManager.autoResolveAsset(missingAsset).await();
+						AssetsManager.autoResolveAsset(missingAsset);
 					} catch (final Throwable e) {
 						e.printStackTrace();
 						Err.reportError(e);

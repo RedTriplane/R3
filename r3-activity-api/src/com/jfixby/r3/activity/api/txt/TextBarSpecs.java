@@ -19,4 +19,11 @@ public class TextBarSpecs {
 	public String text;
 	public float padding;
 
+	@Override
+	public String toString () {
+		return "TextBarSpecs [fontSize=" + this.fontSize + ", fontColor=" + this.fontColor + ", borderSize=" + this.borderSize
+			+ ", fontID=" + this.fontID + ", borderColor=" + this.borderColor + ", backgroundRaster=" + this.backgroundRaster
+			+ ", name=" + this.name + ", text=" + this.text + ", padding=" + this.padding + "]";
+	}
+
 }

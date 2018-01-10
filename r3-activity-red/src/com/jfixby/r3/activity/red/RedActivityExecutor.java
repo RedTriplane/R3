@@ -1,6 +1,7 @@
 
 package com.jfixby.r3.activity.red;
 
+import com.jfixby.r3.activity.api.spawn.ActivitySpawningException;
 import com.jfixby.r3.engine.api.EngineAssembler;
 import com.jfixby.r3.engine.api.RedTriplane;
 import com.jfixby.r3.engine.api.exe.EngineExecutor;
@@ -10,7 +11,6 @@ import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.promise.Future;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 import com.jfixby.scarabei.api.ver.Version;
 
@@ -60,25 +60,17 @@ public class RedActivityExecutor implements EngineExecutor {
 		// Sys.exit();
 
 		this.units_manager = new ActivityManager();
-		RenderMachine.deploy().then("pushStarter", this.pushStarter());
-
-	}
-
-	private Future<Void, Void> pushStarter () {
-		return new Future<Void, Void>() {
-			@Override
-			public Void deliver (final Void input) throws Throwable {
-				final ID starter = RedTriplane.getGameStarter();
-				if (starter == null) {
-					Err.reportError("RedTriplane.GameStarter is not set");
-				}
-				RedActivityExecutor.this.units_manager.pushNextActivity(starter);
-				return null;
-			}
-		};
-	}
-
-	public void deployStarter () {
+		RenderMachine.deploy();
+		final ID starter = RedTriplane.getGameStarter();
+		if (starter == null) {
+			Err.reportError("RedTriplane.GameStarter is not set");
+		}
+		try {
+			RedActivityExecutor.this.units_manager.pushNextActivity(starter);
+		} catch (final ActivitySpawningException e) {
+			e.printStackTrace();
+			Err.reportError(e);
+		}
 
 	}
 

@@ -21,6 +21,7 @@ public class LayerElement implements java.io.Serializable {
 	public boolean is_animation = false;
 	public boolean is_hidden = false;
 	public boolean is_child_scene = false;
+	public boolean is_9_patch = false;
 	public boolean is_user_input = false;
 	public boolean is_text = false;
 	public boolean is_shader = false;
@@ -60,5 +61,6 @@ public class LayerElement implements java.io.Serializable {
 	public ShaderSettings shader_settings = null;
 	public ProgressSettings progress_settings = null;
 	public ParallaxSettings parallax_settings = null;
+	public NinePatchSettings nine_patch_settings = null;;
 
 }

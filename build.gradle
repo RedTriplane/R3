@@ -9,7 +9,7 @@ buildscript {
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
-
+												D
 ext {
          //scarabeiVersion = "2.4.1"
          gdxVersion = "1.9.6"
@@ -49,14 +49,9 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
 
 artifacts {
     archives sourcesJar
-    //archives javadocJar
 }
     
     

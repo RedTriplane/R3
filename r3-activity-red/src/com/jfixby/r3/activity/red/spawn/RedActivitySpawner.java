@@ -7,9 +7,6 @@ import com.jfixby.r3.activity.api.spawn.ActivitySpawningException;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.promise.Future;
-import com.jfixby.scarabei.api.promise.Promise;
-import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class RedActivitySpawner implements ActivitySpawnerComponent {
 
@@ -29,14 +26,7 @@ public class RedActivitySpawner implements ActivitySpawnerComponent {
 	}
 
 	@Override
-	public Promise<Activity> spawnActivity (final ID classID) {
-		final Future<Void, Activity> future = new Future<Void, Activity>() {
-
-			@Override
-			public Activity deliver (final Void input) throws Throwable {
-				return RedActivitySpawner.this.spawnActivityAsync(classID);
-			}
-		};
-		return TaskManager.executeAsynchronously("spawnActivity(" + classID + ")", future);
+	public Activity spawnActivity (final ID classID) throws ActivitySpawningException {
+		return RedActivitySpawner.this.spawnActivityAsync(classID);
 	}
 }

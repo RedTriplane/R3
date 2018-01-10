@@ -23,11 +23,8 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.promise.Future;
-import com.jfixby.scarabei.api.promise.Promise;
 import com.jfixby.scarabei.api.sys.settings.ExecutionMode;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
-import com.jfixby.scarabei.api.taskman.TaskManager;
 
 public class RedAssetsManager implements AssetsManagerComponent {
 	final AssetsConsumer stub_consumer = new StubAssetsConsumer();
@@ -110,46 +107,28 @@ public class RedAssetsManager implements AssetsManagerComponent {
 	}
 
 	@Override
-	public Promise<Void> autoResolveAsset (final ID dependency) {
+	public void autoResolveAsset (final ID dependency) throws IOException {
 
-		final Future<Void, AssetsContainer> autoResolveAssetFuture = new Future<Void, AssetsContainer>() {
+		final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
 
-			@Override
-			public AssetsContainer deliver (final Void input) throws Throwable {
+		if (asset_entry != null) {
+			LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
+			return;
+		}
+		L.e("Asset[" + dependency + "] delays loading since it is not pre-loaded.");
 
-				final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
+		final AssetsContainer container = RedAssetsManager.this.resolveAsync(dependency, true);
+		Debug.checkNull("container", container);
+// return container;
 
-				if (asset_entry != null) {
-					LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
-					return null;
-				}
-				L.e("Asset[" + dependency + "] delays loading since it is not pre-loaded.");
-
-				final AssetsContainer container = RedAssetsManager.this.resolveAsync(dependency, true);
-				Debug.checkNull("container", container);
-				return container;
-
-			}
-
-		};
-
-		final Future<AssetsContainer, Void> registerAssetsContainer = new Future<AssetsContainer, Void>() {
-
-			@Override
-			public Void deliver (final AssetsContainer container) throws Throwable {
-				if (container == null) {
-					return null;
-				}
-				RedAssetsManager.this.registerAssetsContainer(container.seal());
-				return null;
-			}
-		};
-
-		return TaskManager.executeAsynchronously("autoResolveAsset(" + dependency + ")", autoResolveAssetFuture)
-			.then("register(" + dependency + ")", registerAssetsContainer);
+		if (container == null) {
+			return;
+		}
+		RedAssetsManager.this.registerAssetsContainer(container.seal());
+		return;
 	}
 
-	private AssetsContainer resolveAsync (final ID dependency, final boolean print_debug_output) throws Throwable {
+	private AssetsContainer resolveAsync (final ID dependency, final boolean print_debug_output) throws IOException {
 		final PackageSearchParameters search_params = new PackageSearchParameters();
 		search_params.asset_to_find = dependency;
 
@@ -180,8 +159,7 @@ public class RedAssetsManager implements AssetsManagerComponent {
 		final PackageHandler package_handler = search_result.getBest();
 
 		final Collection<ID> deps = package_handler.listDependencies();
-		final Promise<Void> promise = RedAssetsManager.this.autoResolveAssets(deps);
-		promise.await();
+		RedAssetsManager.this.autoResolveAssets(deps);
 
 		final PACKAGE_STATUS package_status = package_handler.getStatus();
 		if (PACKAGE_STATUS.NOT_INSTALLED == package_status) {
@@ -212,52 +190,16 @@ public class RedAssetsManager implements AssetsManagerComponent {
 
 		L.d("Rana: reading package[" + readArgs.packageInfo.packageFormat + "]", readArgs.packageRootFile.parent());
 		L.d("                     ", package_reader);
-		final Promise<AssetsContainer> promiseToRead = package_reader.doReadPackage(readArgs);
-		final AssetsContainer result_container = promiseToRead.await();
+		final AssetsContainer result_container = package_reader.doReadPackage(readArgs);
 		return result_container;
 
 	}
 
 	@Override
-	public Promise<Void> autoResolveAssets (final Collection<ID> dependencies) {
-		final Future<Void, Void> autoResolveAssetFuture = new Future<Void, Void>() {
-
-			@Override
-			public Void deliver (final Void input) throws Throwable {
-				Debug.checkNull("dependencies", dependencies);
-
-				for (final ID dependency : dependencies) {
-					final Promise<Void> promise = RedAssetsManager.this.autoResolveAsset(dependency);
-					promise.await();
-// final AssetHandler asset_entry = LoadedAssets.obtainAsset(dependency, RedAssetsManager.this.stub_consumer);
-//
-// if (asset_entry != null) {
-// L.d("already loaded", dependency);
-// LoadedAssets.releaseAsset(asset_entry, RedAssetsManager.this.stub_consumer);
-// continue;
-// }
-// // if (!updated) {
-// //// ResourcesManager.updateAll();
-// // updated = true;
-// // }
-// // this.resolve(dependency, true, listener);
-// try {
-// RedAssetsManager.this.resolveAsync(dependency, true);
-// } catch (final IOException e) {
-// throw new IOException("Failed to resolve asset[" + dependency + "]", e);
-// }
-				}
-				return null;
-			}
-
-		};
-
-		final Promise<Void> chain = TaskManager.executeAsynchronously("" + dependencies.toJavaList(), autoResolveAssetFuture);
-// for (final ID dependency : dependencies) {
-// final Promise<Void> promise = RedAssetsManager.this.autoResolveAsset(dependency);
-// chain = chain.join(promise);
-// }
-		return chain;
+	public void autoResolveAssets (final Collection<ID> dependencies) throws IOException {
+		for (final ID dependency : dependencies) {
+			RedAssetsManager.this.autoResolveAsset(dependency);
+		}
 	}
 
 }

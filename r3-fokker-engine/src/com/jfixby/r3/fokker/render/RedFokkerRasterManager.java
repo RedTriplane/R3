@@ -40,7 +40,7 @@ public class RedFokkerRasterManager implements AssetsConsumer {
 
 	private void loadSystemAsset (final ID asset_id) {
 		try {
-			AssetsManager.autoResolveAsset(asset_id).await();
+			AssetsManager.autoResolveAsset(asset_id);
 		} catch (final Throwable e) {
 			e.printStackTrace();
 			Err.reportError(e);

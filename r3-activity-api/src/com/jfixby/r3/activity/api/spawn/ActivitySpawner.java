@@ -4,7 +4,6 @@ package com.jfixby.r3.activity.api.spawn;
 import com.jfixby.r3.activity.api.Activity;
 import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.promise.Promise;
 
 public class ActivitySpawner {
 	static private ComponentInstaller<ActivitySpawnerComponent> componentInstaller = new ComponentInstaller<>(
@@ -22,7 +21,7 @@ public class ActivitySpawner {
 		return componentInstaller.getComponent();
 	}
 
-	public static Promise<Activity> spawnActivity (final ID unitClassId) {
+	public static Activity spawnActivity (final ID unitClassId) throws ActivitySpawningException {
 		return invoke().spawnActivity(unitClassId);
 	}
 }

@@ -6,11 +6,11 @@ import com.jfixby.r3.engine.api.exe.EngineExecutor;
 import com.jfixby.r3.engine.api.exe.EngineState;
 import com.jfixby.r3.engine.api.exe.InputQueue;
 import com.jfixby.r3.engine.api.screen.Screen;
-import com.jfixby.r3.fokker.api.FokkerThread;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.DebugTimer;
 import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.log.L;
+import com.jfixby.scarabei.api.taskman.TaskManager;
 import com.jfixby.scarabei.api.ui.UIThread;
 
 public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineState {
@@ -43,7 +43,7 @@ public class GdxAdaptor implements com.badlogic.gdx.ApplicationListener, EngineS
 	@Override
 	public void create () {
 		UIThread.registerUIThread();
-		FokkerThread.installComponent(this.fokkerThread);
+		TaskManager.installComponent(this.fokkerThread.taskManager());
 	}
 
 	@Override
