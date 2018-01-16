@@ -2,6 +2,7 @@
 package com.jfixby.r3.activity.red;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
+import com.jfixby.r3.activity.api.UIFactory;
 import com.jfixby.r3.activity.api.animation.AnimationFactory;
 import com.jfixby.r3.activity.api.camera.CameraFactory;
 import com.jfixby.r3.activity.api.geometry.GeometryComponentsFactory;
@@ -16,6 +17,7 @@ import com.jfixby.r3.activity.red.parallax.RedParallaxFactory;
 import com.jfixby.r3.activity.red.scene.RedSceneFactory;
 import com.jfixby.r3.activity.red.shader.RedShadersFactory;
 import com.jfixby.r3.activity.red.text.RedTextFacory;
+import com.jfixby.r3.activity.red.ui.RedUIFactory;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
@@ -40,6 +42,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 	RedShadersFactory shaders_factory;
 	private final RedActivityManager master;
 	private final RedSceneFactory scene_factory;
+	private final RedUIFactory ui_factory;
 
 	@Override
 	public String toString () {
@@ -57,6 +60,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 		this.shaders_factory = new RedShadersFactory(this);
 		this.parallax_factory = new RedParallaxFactory(this);
 		this.scene_factory = new RedSceneFactory(this);
+		this.ui_factory = new RedUIFactory(this);
 
 		// this.pizza_factory = new RedPizzaFactory(this);
 
@@ -83,7 +87,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 	}
 
 	@Override
-	public SceneFactory getSceneFactory () {
+	public SceneFactory getSceneDepartment () {
 		return this.scene_factory;
 	}
 
@@ -148,6 +152,11 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 			}
 		}
 		return asset_handler;
+	}
+
+	@Override
+	public UIFactory getUIDepartment () {
+		return this.ui_factory;
 	}
 
 }

@@ -3,6 +3,7 @@ package com.jfixby.r3.activity.red.scene;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.LayerBasedComponent;
+import com.jfixby.r3.activity.api.UIFactory;
 import com.jfixby.r3.activity.api.animation.Animation;
 import com.jfixby.r3.activity.api.animation.AnimationFactory;
 import com.jfixby.r3.activity.api.animation.EventsGroupSpecs;
@@ -40,6 +41,8 @@ import com.jfixby.r3.activity.api.scene.Scene2DComponent;
 import com.jfixby.r3.activity.api.txt.TextBar;
 import com.jfixby.r3.activity.api.txt.TextBarSpecs;
 import com.jfixby.r3.activity.api.txt.TextFactory;
+import com.jfixby.r3.activity.api.ui.ninepatch.NinePatch;
+import com.jfixby.r3.activity.api.ui.ninepatch.NinePatchSettings;
 import com.jfixby.r3.io.scene2d.Action;
 import com.jfixby.r3.io.scene2d.ActionsGroup;
 import com.jfixby.r3.io.scene2d.Anchor;
@@ -64,6 +67,7 @@ import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.Float2;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Geometry;
+import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.OffsetProjection;
 import com.jfixby.scarabei.api.geometry.projections.RotateAndOffsetProjection;
 import com.jfixby.scarabei.api.json.Json;
@@ -86,6 +90,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 // private final List<ShaderComponent> shaders = Collections.newList();
 	private final List<LocalizedComponent> localized_components = Collections.newList();
 	private final List<Parallax> parallaxes = Collections.newList();
+	private final List<NinePatch> ninepatches = Collections.newList();
 	private final Map<String, InputComponent> inputs_components = Collections.newMap();
 	private final List<Layer> layers_list = Collections.newList();
 	private SceneStructureAsset original_structure;
@@ -201,6 +206,14 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			component = parallax;
 
+		} else if (element.is_9_patch) {
+
+			final NinePatch ninpatch = currentScene.restoreNinePatch(element, components_factory, settings);
+
+			currentScene.ninepatches.add(ninpatch);
+
+			component = ninpatch;
+
 		} else if (element.is_shader) {
 
 // final ShaderComponent shader = currentScene.restoreShader(element, components_factory, settings);
@@ -233,6 +246,38 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 	// return restoreSequenceAnimation(element, components_factory,
 	// canvas_components);
 	// }
+
+	private NinePatch restoreNinePatch (final LayerElement element, final ComponentsFactory components_factory,
+		final Settings settings) {
+
+		final UIFactory fac = components_factory.getUIDepartment();
+
+		final NinePatchSettings n9settings = fac.newNinePatchSettings();
+
+		final NinePatch n9 = fac.newNinePatch(n9settings);
+
+		n9settings.name = element.name;
+
+		final Rectangle shape = n9.shape();
+
+		final float opacity = (float)(element.opacity * settings.debug_opacity);
+		n9.setOpacity(opacity);
+// L.d(raster + "", opacity);
+// raster.setDebugColor(Colors.newRandomColor(0));
+		shape.setWidth(element.width);
+		shape.setHeight(element.height);
+		shape.setOriginRelative(element.origin_relative_x, element.origin_relative_y);
+		shape.setPosition(element.position_x, element.position_y);
+
+		n9.setBlendMode(blend(element.blend_mode));
+		n9.setDebugRenderFlag(element.debug_mode);
+		n9.setDebugRenderFlag(!true || settings.debug_raster);
+
+		// raster.setRotation(element.rotation - Angles.g30().toRadians());
+		n9.setRotation(element.rotation);
+
+		return n9;
+	}
 
 	static public UI_BLEND_MODE blend (final RASTER_BLEND_MODE blend_mode) {
 		if (blend_mode == RASTER_BLEND_MODE.NORMAL) {

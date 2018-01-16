@@ -32,6 +32,8 @@ public interface ComponentsFactory {
 
 	ParallaxFactory getParallaxDepartment ();
 
-	SceneFactory getSceneFactory ();
+	SceneFactory getSceneDepartment ();
+
+	UIFactory getUIDepartment ();
 
 }
