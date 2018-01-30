@@ -171,7 +171,8 @@ public class RedAssetsManager implements AssetsManagerComponent {
 		if (package_loaders.isEmpty()) {
 			PackagesLoader.printInstalledPackageReaders();
 			// L.e("Failed to read package", package_handler);
-			throw new IOException("Failed to read package: " + package_handler + " No package reader for " + format);
+			throw new IOException(
+				"Failed to read package: " + package_handler.getPackageName() + " No package reader for " + format);
 			//
 		}
 
