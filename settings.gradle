@@ -29,10 +29,27 @@ include "r3-fokker-android"
 include "r3-fokker-box2d"
 include "r3-fokker-desktop"
 include "r3-fokker-engine"
-include "r3-fokker-font"
+
+
+include "r3-fokker-font-api"
+include "r3-fokker-font-red"
+
+include "r3-fokker-render-api"
+include "r3-fokker-render-red"
+
+include "r3-fokker-shader-api"
+include "r3-fokker-shader-io"
+include "r3-fokker-shader-red"
+
+include "r3-fokker-raster-api"
+include "r3-fokker-raster-io"
+include "r3-fokker-raster-red"
+
 include "r3-fokker-io"
 include "r3-fokker-physics-io"
-include "r3-fokker-shader-io"		
+
+
+		
 
 
 

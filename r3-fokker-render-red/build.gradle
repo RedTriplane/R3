@@ -1,0 +1,13 @@
+dependencies{
+  compile project(":r3-fokker-render-api")
+  compile project(":r3-fokker-shader-api")
+  compile project(":r3-fokker-raster-api")
+  compile project(":r3-fokker-font-api")
+  compile project(":r3-fokker-api")  
+  
+}
+
+ 
+  sourceCompatibility = 1.7
+ 
+ 

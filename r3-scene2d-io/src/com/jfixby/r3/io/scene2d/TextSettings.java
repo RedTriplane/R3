@@ -7,6 +7,6 @@ public class TextSettings implements java.io.Serializable {
 	public String text_value_asset_id;
 	public FontSettings font_settings = new FontSettings();
 	public float padding;
-	public String text_value_raw;
+// public String text_value_raw;
 
 }

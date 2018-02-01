@@ -1,0 +1,10 @@
+dependencies{
+    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+    compile project(":r3-rana-api")  
+    compile project(":r3-render-api") 
+}
+
+ 
+  sourceCompatibility = 1.7
+ 
+ 

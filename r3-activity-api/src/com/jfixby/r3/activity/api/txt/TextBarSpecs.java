@@ -16,7 +16,7 @@ public class TextBarSpecs {
 
 	public Raster backgroundRaster;
 	public String name;
-	public String text;
+	public ID text;
 	public float padding;
 
 	@Override

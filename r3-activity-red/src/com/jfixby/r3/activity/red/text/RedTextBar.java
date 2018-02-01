@@ -3,42 +3,64 @@ package com.jfixby.r3.activity.red.text;
 
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.layer.Layer;
-import com.jfixby.r3.activity.api.raster.Raster;
 import com.jfixby.r3.activity.api.txt.TextBar;
 import com.jfixby.r3.activity.api.txt.TextBarSpecs;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.layers.RedLayer;
-import com.jfixby.scarabei.api.color.Colors;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Rectangle;
-import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.math.Angle;
+import com.jfixby.scarabei.api.names.ID;
 
 public class RedTextBar implements TextBar, LayerBasedComponent {
 
 	private final String name;
 	private final RedLayer root;
-	private final Raster backgroundRaster;
-	private Rectangle shape;
+// private final Raster backgroundRaster;
+	private final Rectangle shape;
+	private final ID textID;
 
 	public RedTextBar (final TextBarSpecs text_specs, final RedComponentsFactory componentsFactory) {
 // Err.throwNotImplementedYet();
 		this.name = text_specs.name;
-		L.d(text_specs);
+		this.textID = text_specs.text;
+// L.d(text_specs);
 		this.root = componentsFactory.newLayer();
-		this.backgroundRaster = text_specs.backgroundRaster;
-		if (this.backgroundRaster != null) {
-			this.backgroundRaster.setDebugRenderFlag(true);
-			this.backgroundRaster.setDebugColor(Colors.GREEN());
-			this.root.attachComponent(text_specs.backgroundRaster);
-			this.shape = this.backgroundRaster.shape();
-		} else {
-			this.shape = Geometry.newRectangle(10, 10);
-		}
+
+// AssetsManager.invoke().
+
+// this.backgroundRaster = text_specs.backgroundRaster;
+// if (this.backgroundRaster != null) {
+// this.backgroundRaster.setDebugRenderFlag(true);
+// this.backgroundRaster.setDebugColor(Colors.GREEN());
+// this.root.attachComponent(text_specs.backgroundRaster);
+// this.shape = this.backgroundRaster.shape();
+// } else {
+		this.shape = Geometry.newRectangle(10, 10);
+// }
 // Sys.exit();
+	}
+
+	@Override
+	public void setLocaleName (final String locale_name) {
+	}
+
+	@Override
+	public String getLocaleName () {
+// return this.textID.get;
+		return "";
+	}
+
+	@Override
+	public void setDebugRenderFlag (final boolean b) {
+	}
+
+	@Override
+	public boolean getDebugRenderFlag () {
+		return false;
 	}
 
 	@Override
@@ -69,15 +91,6 @@ public class RedTextBar implements TextBar, LayerBasedComponent {
 	@Override
 	public String getName () {
 		return this.root.getName();
-	}
-
-	@Override
-	public void setLocaleName (final String locale_name) {
-	}
-
-	@Override
-	public String getLocaleName () {
-		return null;
 	}
 
 	@Override
@@ -113,44 +126,21 @@ public class RedTextBar implements TextBar, LayerBasedComponent {
 	@Override
 	public void setRotation (final Angle rotation) {
 		this.shape.setRotation(rotation);
-		;
 	}
 
 	@Override
 	public void setRotation (final double rotation) {
 		this.shape.setRotation(rotation);
-		;
-
 	}
 
 	@Override
 	public void setPositionX (final double x) {
 		this.shape.setPositionX(x);
-
 	}
 
 	@Override
 	public void setPositionY (final double y) {
-
 		this.shape.setPositionY(y);
-	}
-
-	@Override
-	public void setText (final String text) {
-	}
-
-	@Override
-	public String getText () {
-		return null;
-	}
-
-	@Override
-	public void setDebugRenderFlag (final boolean b) {
-	}
-
-	@Override
-	public boolean getDebugRenderFlag () {
-		return false;
 	}
 
 	@Override

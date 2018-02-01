@@ -1,0 +1,9 @@
+dependencies{
+   compile project(":r3-fokker-shader-api")
+   compile project(":r3-fokker-shader-io")  
+}
+
+ 
+  sourceCompatibility = 1.7
+ 
+ 

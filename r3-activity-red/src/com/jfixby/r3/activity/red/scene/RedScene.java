@@ -516,12 +516,13 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 // if (text != null) {
 // text_bar_specs.setText(text);
 // }
-		if (element.text_settings.text_value_raw != null) {
-			text_bar_specs.text = (element.text_settings.text_value_raw);
-		} else {
-			text_bar_specs.text = ("");
-		}
+// if (element.text_settings.text_value_raw != null) {
+// text_bar_specs.text = (element.text_settings.text_value_raw);
+// } else {
+//
+// }
 		text_bar_specs.padding = (element.text_settings.padding);
+		text_bar_specs.text = Names.newID(element.text_settings.text_value_asset_id);
 
 		text_bar_specs.fontID = (font_id);
 		text_bar_specs.fontSize = (element.text_settings.font_settings.font_size);
@@ -908,8 +909,9 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 // string_specs.setFont(font);
 
 		final TextBar string = textFactory.newTextBar(string_specs);
-		string.setText(param);
-		string.getText();
+// string.setText(param);
+// string.getText();
+		L.e("setupDebugInfo", param);
 		root_layer.attachComponent(string);
 	}
 
