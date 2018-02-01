@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.utils.Array;
+import com.jfixby.r3.fokker.api.FokkerEngineParams;
 import com.jfixby.r3.fokker.io.ToGdxFileAdaptor;
 import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.AssetsGroup;
@@ -21,6 +22,7 @@ import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.names.Names;
+import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class RedFokkerRasterDataGroup implements AssetsGroup {
 
@@ -103,20 +105,13 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 			// #FLIP
 			// region.flip(false, true);
 
-			final TextureFilter minFilter = TextureFilter.MipMapLinearLinear;
-			final TextureFilter magFilter = TextureFilter.MipMapLinearLinear;
-// {
-// final String magString = SystemSettings.getStringParameter(FokkerEngineParams.TextureFilter.Mag);
-// if (magString != null) {
-// magFilter = TextureFilter.valueOf(magString);
-// }
-// }
-// {
-// final String minString = SystemSettings.getStringParameter(FokkerEngineParams.TextureFilter.Min);
-// if (minString != null) {
-// minFilter = TextureFilter.valueOf(minString);
-// }
-// }
+			final String magString = SystemSettings.getStringParameter(FokkerEngineParams.FokkerTextureFilter.Mag,
+				TextureFilter.MipMapLinearLinear.toString());
+			final TextureFilter magFilter = TextureFilter.valueOf(magString);
+
+			final String minString = SystemSettings.getStringParameter(FokkerEngineParams.FokkerTextureFilter.Min,
+				TextureFilter.MipMapLinearLinear.toString());
+			final TextureFilter minFilter = TextureFilter.valueOf(minString);
 
 			// L.d("FILTERING", minFilter + " " + magFilter);
 
