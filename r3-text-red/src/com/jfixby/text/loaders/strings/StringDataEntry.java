@@ -3,11 +3,10 @@ package com.jfixby.text.loaders.strings;
 
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.AssetsGroup;
-import com.jfixby.r3.string.StringData;
 import com.jfixby.r3.string.io.StringPackageEntry;
 import com.jfixby.scarabei.api.names.ID;
 
-public class StringDataEntry implements StringData, AssetsGroup, Asset {
+public class StringDataEntry implements AssetsGroup, Asset {
 
 	private final ID asset_id;
 	private String data;
@@ -26,11 +25,6 @@ public class StringDataEntry implements StringData, AssetsGroup, Asset {
 	}
 
 	@Override
-	public String getChars () {
-		return this.data;
-	}
-
-	@Override
 	public String toString () {
 		return "<" + this.asset_id + "> = [" + this.data + "]";
 	}
@@ -43,6 +37,10 @@ public class StringDataEntry implements StringData, AssetsGroup, Asset {
 	@Override
 	public void dispose () {
 
+	}
+
+	public String getData () {
+		return this.data;
 	}
 
 }

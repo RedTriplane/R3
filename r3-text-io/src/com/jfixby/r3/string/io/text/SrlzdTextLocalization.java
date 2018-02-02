@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.string.io.text;
 
-public class TextLocalization implements java.io.Serializable {
+public class SrlzdTextLocalization implements java.io.Serializable {
 
 	/**
 	 *

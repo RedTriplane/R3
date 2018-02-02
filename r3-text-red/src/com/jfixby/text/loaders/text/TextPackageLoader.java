@@ -7,7 +7,7 @@ import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.format.PackageFormat;
 import com.jfixby.r3.rana.api.loader.PackageLoader;
 import com.jfixby.r3.rana.api.loader.PackageReaderInput;
-import com.jfixby.r3.string.io.text.TextPackage;
+import com.jfixby.r3.string.io.text.SrlzdTextPackage;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
@@ -18,7 +18,7 @@ public class TextPackageLoader implements PackageLoader {
 
 	public TextPackageLoader () {
 		this.acceptablePackageFormats = Collections.newList();
-		final PackageFormat format = new PackageFormat(TextPackage.PACKAGE_FORMAT);
+		final PackageFormat format = new PackageFormat(SrlzdTextPackage.PACKAGE_FORMAT);
 		this.acceptablePackageFormats.add(format);
 	}
 

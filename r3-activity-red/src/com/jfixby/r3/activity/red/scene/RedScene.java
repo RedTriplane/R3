@@ -522,7 +522,10 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 //
 // }
 		text_bar_specs.padding = (element.text_settings.padding);
-		text_bar_specs.text = Names.newID(element.text_settings.text_value_asset_id);
+
+		final ID text_value_asset_id = Names.newID(element.text_settings.text_value_asset_id);
+
+		text_bar_specs.text = text_value_asset_id;
 
 		text_bar_specs.fontID = (font_id);
 		text_bar_specs.fontSize = (element.text_settings.font_settings.font_size);

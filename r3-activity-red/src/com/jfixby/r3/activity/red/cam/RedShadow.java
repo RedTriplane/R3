@@ -9,7 +9,7 @@ import com.jfixby.r3.activity.api.camera.ScreenDimentions;
 import com.jfixby.r3.activity.api.camera.Shadow;
 import com.jfixby.r3.activity.api.camera.ShadowSpecs;
 import com.jfixby.r3.activity.api.layer.Layer;
-import com.jfixby.r3.activity.api.raster.Tile;
+import com.jfixby.r3.activity.api.raster.Raster;
 import com.jfixby.r3.activity.api.user.CanvasCameraManager;
 import com.jfixby.r3.engine.api.render.RenderMachine;
 import com.jfixby.r3.engine.api.screen.Screen;
@@ -35,7 +35,7 @@ public class RedShadow implements Shadow, LayerBasedComponent, CanvasCameraManag
 
 	}
 
-	private Tile shadow_sprite;
+	private Raster shadow_sprite;
 
 	public RedShadow (final ShadowSpecs shadow_specs, final ComponentsFactory components_factory) {
 		this.setup(components_factory);
@@ -55,7 +55,7 @@ public class RedShadow implements Shadow, LayerBasedComponent, CanvasCameraManag
 		// camera.setApertureOpacity(ABSOLUTE_CLEAR);
 		this.root.setCamera(this.camera);
 
-		this.shadow_sprite = components_factory.getRasterDepartment().newTile(RenderMachine.DefaultAssets().BLACK());
+		this.shadow_sprite = components_factory.getRasterDepartment().newRaster(RenderMachine.DefaultAssets().BLACK());
 		this.shadow_sprite.setOpacity(1f);
 		this.root.attachComponent(this.shadow_sprite);
 

@@ -5,8 +5,8 @@ import java.io.IOException;
 
 import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
-import com.jfixby.r3.string.io.text.TextPackage;
-import com.jfixby.r3.string.io.text.TextPackageEntry;
+import com.jfixby.r3.string.io.text.SrlzdTextPackage;
+import com.jfixby.r3.string.io.text.SrlzdTextPackageEntry;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.file.FileHash;
@@ -22,9 +22,9 @@ public class TextFileEntry implements AssetsConsumer {
 	public TextFileEntry (final File package_root_file) throws IOException {
 
 		this.package_root_file = package_root_file;
-		if (!package_root_file.extensionIs(TextPackage.PACKAGE_FILE_EXTENSION)) {
+		if (!package_root_file.extensionIs(SrlzdTextPackage.PACKAGE_FILE_EXTENSION)) {
 			Err.reportError("Wrong file extention: <." + package_root_file.getExtension() + ">, expected: <."
-				+ TextPackage.PACKAGE_FILE_EXTENSION + ">");
+				+ SrlzdTextPackage.PACKAGE_FILE_EXTENSION + ">");
 		}
 		this.hash = hash(this.package_root_file);
 	}
@@ -47,8 +47,8 @@ public class TextFileEntry implements AssetsConsumer {
 	public void load (final AssetsContainer container) throws IOException {
 
 		final String content = this.package_root_file.readToString();
-		final TextPackage data = Json.deserializeFromString(TextPackage.class, content);
-		for (final TextPackageEntry entry_srlz : data.entries) {
+		final SrlzdTextPackage data = Json.deserializeFromString(SrlzdTextPackage.class, content);
+		for (final SrlzdTextPackageEntry entry_srlz : data.entries) {
 			final ID asset_id = Names.newID(entry_srlz.id);
 			final TextDataEntry entry = new TextDataEntry(asset_id);
 			entry.setData(entry_srlz);

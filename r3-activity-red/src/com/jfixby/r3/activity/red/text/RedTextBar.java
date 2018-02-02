@@ -21,12 +21,12 @@ public class RedTextBar implements TextBar, LayerBasedComponent {
 	private final RedLayer root;
 // private final Raster backgroundRaster;
 	private final Rectangle shape;
-	private final ID textID;
+	private final ID text;
 
 	public RedTextBar (final TextBarSpecs text_specs, final RedComponentsFactory componentsFactory) {
 // Err.throwNotImplementedYet();
 		this.name = text_specs.name;
-		this.textID = text_specs.text;
+		this.text = text_specs.text;
 // L.d(text_specs);
 		this.root = componentsFactory.newLayer();
 

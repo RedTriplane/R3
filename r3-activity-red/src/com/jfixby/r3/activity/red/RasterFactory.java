@@ -14,8 +14,10 @@ import com.jfixby.r3.engine.api.render.RasterData;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
+import com.jfixby.r3.rana.api.pkg.PackagesManager;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.names.ID;
+import com.jfixby.scarabei.api.names.Names;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class RasterFactory implements RasterComponentsFactory {
@@ -27,26 +29,28 @@ public class RasterFactory implements RasterComponentsFactory {
 	}
 
 	@Override
-	public RedTile newTile (final ID newAssetID) {
-		final AssetHandler asset_handler = this.obtainRaster(newAssetID);
-		final Asset asset = asset_handler.asset();
-
-		if (asset instanceof RasterData) {
-			return new RedTile(this.master, (RasterData)asset);
-		}
-
-		if (asset instanceof TileSet) {
-			Err.reportError("This is not a tile: " + asset);
-		}
-
-		Err.reportError("Unknown asset type: " + asset);
-		return null;
-
-	}
-
-	@Override
 	public Raster newRaster (final ID newAssetID) {
-		final AssetHandler asset_handler = this.obtainRaster(newAssetID);
+		final boolean allowMissingAsset = SystemSettings.getFlag(R3_SYSTEM_PARAMS.AllowMissingRaster);
+		final String missingAssetString = SystemSettings.getStringParameter(R3_SYSTEM_PARAMS.RASTER_IS_MISING, "");
+		final boolean reportFail = SystemSettings.getFlag(R3_SYSTEM_PARAMS.PrintLogMessageOnMissingSprite);
+
+		AssetHandler asset_handler = LoadedAssets.obtainAsset(newAssetID, this.master);
+		if (asset_handler == null) {
+			if (!allowMissingAsset) {
+				PackagesManager.printAllIndexes();
+				Err.reportError("Asset<" + newAssetID + "> not found.");
+				return null;
+			}
+
+			final ID missingAsset = Names.newID(missingAssetString);
+			asset_handler = LoadedAssets.obtainAsset(missingAsset, this.master);
+			if (asset_handler == null) {
+				Err.reportError("Asset not loaded: " + missingAsset);
+				return null;
+			}
+
+		}
+
 		final Asset asset = asset_handler.asset();
 
 		if (asset instanceof RasterData) {
@@ -55,7 +59,7 @@ public class RasterFactory implements RasterComponentsFactory {
 
 		if (asset instanceof TileSet) {
 			final TileSet composition = ((TileSet)asset).copy();
-			this.release(asset_handler);
+			LoadedAssets.releaseAsset(asset_handler, this.master);
 			if (composition.size() == 0) {
 				Err.reportError("Bad structure<" + newAssetID + "> - has no tiles");
 			}
@@ -67,16 +71,6 @@ public class RasterFactory implements RasterComponentsFactory {
 		Err.reportError("Unknown asset type: " + asset);
 		return null;
 
-	}
-
-	private AssetHandler obtainRaster (final ID newAssetID) {
-		return this.master.obtainAsset(newAssetID, SystemSettings.getFlag(R3_SYSTEM_PARAMS.AllowMissingRaster),
-			SystemSettings.getStringParameter(R3_SYSTEM_PARAMS.RASTER_IS_MISING, ""),
-			SystemSettings.getFlag(R3_SYSTEM_PARAMS.PrintLogMessageOnMissingSprite));
-	}
-
-	private void release (final AssetHandler asset_handler) {
-		LoadedAssets.releaseAsset(asset_handler, this.master);
 	}
 
 	@Override

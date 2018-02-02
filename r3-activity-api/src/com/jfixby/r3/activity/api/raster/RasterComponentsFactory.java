@@ -5,8 +5,6 @@ import com.jfixby.scarabei.api.names.ID;
 
 public interface RasterComponentsFactory {
 
-	Tile newTile (ID asset_id);
-
 	Raster newRaster (ID asset_id);
 
 	RasterPool newRasterPool (ID assetID);

@@ -1,27 +1,24 @@
 
 package com.jfixby.text.loaders.text;
 
-import com.jfixby.r3.string.StringData;
-import com.jfixby.r3.string.TextTranslation;
+import com.jfixby.text.loaders.strings.StringDataEntry;
 
-public class RedTextTranslation implements TextTranslation {
+public class RedTextTranslation {
 
 	private final String name;
-	private final StringData data;
+	private final StringDataEntry data;
 
-	public RedTextTranslation (final String name, final StringData data) {
+	public RedTextTranslation (final String name, final StringDataEntry data) {
 		this.name = name;
 		this.data = data;
 	}
 
-	@Override
 	public String getLocaleName () {
 		return this.name;
 	}
 
-	@Override
-	public StringData getString () {
-		return this.data;
+	public String getString () {
+		return this.data.getData();
 	}
 
 	@Override

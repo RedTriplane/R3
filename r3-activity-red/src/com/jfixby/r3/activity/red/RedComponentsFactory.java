@@ -18,16 +18,7 @@ import com.jfixby.r3.activity.red.scene.RedSceneFactory;
 import com.jfixby.r3.activity.red.shader.RedShadersFactory;
 import com.jfixby.r3.activity.red.text.RedTextFacory;
 import com.jfixby.r3.activity.red.ui.RedUIFactory;
-import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
-import com.jfixby.r3.rana.api.asset.LoadedAssets;
-import com.jfixby.r3.rana.api.manager.AssetsManager;
-import com.jfixby.r3.rana.api.pkg.PackagesManager;
-import com.jfixby.scarabei.api.debug.Debug;
-import com.jfixby.scarabei.api.err.Err;
-import com.jfixby.scarabei.api.log.L;
-import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.names.Names;
 
 public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 	RedGeometryFactory geo_fac;
@@ -114,44 +105,6 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 	@Override
 	public ParallaxFactory getParallaxDepartment () {
 		return this.parallax_factory;
-	}
-
-	public AssetHandler obtainAsset (final ID newAssetID, final boolean allowMissingAsset, final String missingAssetString,
-		final boolean reportFail) {
-		AssetHandler asset_handler = LoadedAssets.obtainAsset(newAssetID, this);
-		if (asset_handler == null) {
-// final boolean allowMissingRaster = SystemSettings.getFlag(Settings.AllowMissingRaster);
-// final boolean allowMissingRaster = SystemSettings.getFlag(Settings.AllowMissingRaster);
-			if (allowMissingAsset) {
-// asset_handler = AssetsManager.obtainAsset(FOKKER_SYSTEM_ASSETS.RASTER_IS_MISING, this);
-				final ID missingAsset = Names.newID(missingAssetString);
-				asset_handler = LoadedAssets.obtainAsset(missingAsset, this);
-				if (asset_handler == null) {
-					try {
-						AssetsManager.autoResolveAsset(missingAsset);
-					} catch (final Throwable e) {
-						e.printStackTrace();
-						Err.reportError(e);
-					}
-				}
-				asset_handler = LoadedAssets.obtainAsset(missingAsset, this);
-				Debug.checkNull("AssetHandler[" + missingAsset + "]", asset_handler);
-
-// if (SystemSettings.getFlag(Settings.PrintLogMessageOnMissingSprite)) {
-				if (reportFail) {
-					L.d("Asset<" + newAssetID + "> is missing");
-// AssetsManager.printAllLoadedAssets();
-				}
-
-			} else {
-// L.d("Asset<" + newAssetID + "> is missing");
-// L.d("Missing asset is not allowed in the RedTriplane settings.");
-// L.d("Load missing raster or enable the flag with RedTriplane.setFlag(RedTriplaneFlags.AllowMissingRaster, true)");
-				PackagesManager.printAllIndexes();
-				Err.reportError("Asset<" + newAssetID + "> not found.");
-			}
-		}
-		return asset_handler;
 	}
 
 	@Override

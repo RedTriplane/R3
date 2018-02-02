@@ -3,7 +3,6 @@ package com.jfixby.r3.activity.red.raster;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.raster.Raster;
-import com.jfixby.r3.activity.api.raster.Tile;
 import com.jfixby.r3.activity.api.raster.UI_BLEND_MODE;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.RedRectangularComponent;
@@ -16,7 +15,7 @@ import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.names.ID;
 
-public class RedTile extends RedRectangularComponent implements Tile, Drawable {
+public class RedTile extends RedRectangularComponent implements Raster, Drawable {
 
 	@Override
 	public String toString () {

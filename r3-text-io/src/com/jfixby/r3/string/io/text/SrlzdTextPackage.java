@@ -3,7 +3,7 @@ package com.jfixby.r3.string.io.text;
 
 import java.util.ArrayList;
 
-public class TextPackage implements java.io.Serializable {
+public class SrlzdTextPackage implements java.io.Serializable {
 	/**
 	 *
 	 */
@@ -13,5 +13,5 @@ public class TextPackage implements java.io.Serializable {
 
 	public static final String PACKAGE_FORMAT = "r3-text";
 
-	public final ArrayList<TextPackageEntry> entries = new ArrayList<>();
+	public final ArrayList<SrlzdTextPackageEntry> entries = new ArrayList<>();
 }
