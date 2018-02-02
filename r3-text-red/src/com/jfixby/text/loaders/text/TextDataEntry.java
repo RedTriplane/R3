@@ -44,28 +44,10 @@ public class TextDataEntry implements Text, AssetsConsumer, AssetsGroup, Asset {
 		return this.asset_id;
 	}
 
-// @Override
-// public TextLocalization getByLocaleName (final String locale_name) {
-// if (!this.mapping.containsKey(locale_name)) {
-// return null;
-// }
-// if (!this.localizations.containsKey(locale_name)) {
-// final ID locale_id = this.mapping.get(locale_name);
-// this.load(locale_name, locale_id);
-// }
-//
-// return this.localizations.get(locale_name);
-// }
-
 	@Override
 	public AssetsGroup getGroup () {
 		return this;
 	}
-
-// @Override
-// public TextLocalization getLast () {
-// return this.getByLocaleName(this.mapping.keys().getLast());
-// }
 
 	public void setData (final SrlzdTextPackageEntry entry_srlz) {
 		for (int i = 0; i < entry_srlz.localizations.size(); i++) {

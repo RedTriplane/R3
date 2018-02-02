@@ -1,12 +1,17 @@
 
 package com.jfixby.r3.activity.red.text;
 
+import java.io.IOException;
+
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.layer.Layer;
 import com.jfixby.r3.activity.api.txt.TextBar;
 import com.jfixby.r3.activity.api.txt.TextBarSpecs;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.layers.RedLayer;
+import com.jfixby.r3.rana.api.asset.AssetHandler;
+import com.jfixby.r3.rana.api.asset.LoadedAssets;
+import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
@@ -14,6 +19,9 @@ import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.math.Angle;
 import com.jfixby.scarabei.api.names.ID;
+import com.jfixby.scarabei.api.strings.Text;
+import com.jfixby.text.loaders.strings.StringDataEntry;
+import com.jfixby.text.loaders.text.RedTextTranslation;
 
 public class RedTextBar implements TextBar, LayerBasedComponent {
 
@@ -27,21 +35,39 @@ public class RedTextBar implements TextBar, LayerBasedComponent {
 // Err.throwNotImplementedYet();
 		this.name = text_specs.name;
 		this.text = text_specs.text;
+		this.setText(this.text);
 // L.d(text_specs);
 		this.root = componentsFactory.newLayer();
 
-// AssetsManager.invoke().
-
-// this.backgroundRaster = text_specs.backgroundRaster;
-// if (this.backgroundRaster != null) {
-// this.backgroundRaster.setDebugRenderFlag(true);
-// this.backgroundRaster.setDebugColor(Colors.GREEN());
-// this.root.attachComponent(text_specs.backgroundRaster);
-// this.shape = this.backgroundRaster.shape();
-// } else {
 		this.shape = Geometry.newRectangle(10, 10);
-// }
-// Sys.exit();
+
+		final Text t;
+	}
+
+	public void setText (final ID text) {
+		{
+			AssetHandler stringData = LoadedAssets.obtainAsset(locale_id, this);
+
+			if (stringData == null) {
+				try {
+					AssetsManager.autoResolveAsset(locale_id);
+				} catch (final IOException e) {
+					e.printStackTrace();
+					Err.reportError(e);
+				}
+				stringData = LoadedAssets.obtainAsset(locale_id, this);
+			}
+
+			final StringDataEntry data = stringData.asset();
+			final RedTextTranslation translation = new RedTextTranslation(this.name, data);
+
+			this.mapping.put(this.name, locale_id);
+			this.localizations.put(this.name, translation);
+			this.switchLocale(this.name);
+
+			LoadedAssets.releaseAsset(stringData, this);
+		}
+
 	}
 
 	@Override
