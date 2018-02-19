@@ -1,10 +1,10 @@
 
 package com.jfixby.r3.engine.api.render;
 
+import com.jfixby.r3.fokker.font.api.StringSpec;
 import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
-import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.names.ID;
@@ -96,11 +96,6 @@ public class RenderMachine {
 		invoke().drawCircle(color, center_x, center_y, radius);
 	}
 
-	public static void drawString (final ID fontID, final FontParameters fontParams, final String stringValue,
-		final CanvasPosition position) {
-		invoke().drawString(fontID, fontParams, stringValue, position);
-	}
-
 	public static void beginShaderMode (final ID fokkerShader, final ShaderSettings params) {
 		invoke().beginShaderMode(fokkerShader, params);
 	}
@@ -123,6 +118,10 @@ public class RenderMachine {
 
 	public static void deploy () {
 		invoke().deploy();
+	}
+
+	public static void drawString (final StringSpec stringSpec) {
+		invoke().drawString(stringSpec);
 	}
 
 }

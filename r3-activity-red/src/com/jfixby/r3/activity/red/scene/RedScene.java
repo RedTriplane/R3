@@ -1,6 +1,8 @@
 
 package com.jfixby.r3.activity.red.scene;
 
+import java.io.IOException;
+
 import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.UIFactory;
@@ -54,6 +56,7 @@ import com.jfixby.r3.io.scene2d.RASTER_BLEND_MODE;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
+import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.CollectionFilter;
 import com.jfixby.scarabei.api.collections.Collections;
@@ -74,6 +77,8 @@ import com.jfixby.scarabei.api.json.Json;
 import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.names.Names;
+import com.jfixby.scarabei.api.strings.Text;
+import com.jfixby.scarabei.api.strings.TextSpawner;
 import com.jfixby.scarabei.api.sys.Sys;
 
 public class RedScene implements Scene2DComponent, LayerBasedComponent {
@@ -513,19 +518,32 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 			text_bar_specs.backgroundRaster = (bg);
 		} else {
 		}
-// if (text != null) {
-// text_bar_specs.setText(text);
-// }
-// if (element.text_settings.text_value_raw != null) {
-// text_bar_specs.text = (element.text_settings.text_value_raw);
-// } else {
-//
-// }
+
 		text_bar_specs.padding = (element.text_settings.padding);
 
 		final ID text_value_asset_id = Names.newID(element.text_settings.text_value_asset_id);
+		Text text = null;
+		{
+			final AssetsConsumer consumer = new AssetsConsumer() {};
+			AssetHandler stringData = LoadedAssets.obtainAsset(text_value_asset_id, consumer);
 
-		text_bar_specs.text = text_value_asset_id;
+			if (stringData == null) {
+				try {
+					AssetsManager.autoResolveAsset(text_value_asset_id);
+				} catch (final IOException e) {
+					e.printStackTrace();
+					Err.reportError(e);
+				}
+				stringData = LoadedAssets.obtainAsset(text_value_asset_id, consumer);
+			}
+
+			final TextSpawner data = stringData.asset();
+			text = data.newInstance();
+
+			LoadedAssets.releaseAsset(stringData, consumer);
+		}
+
+		text_bar_specs.text = text;
 
 		text_bar_specs.fontID = (font_id);
 		text_bar_specs.fontSize = (element.text_settings.font_settings.font_size);

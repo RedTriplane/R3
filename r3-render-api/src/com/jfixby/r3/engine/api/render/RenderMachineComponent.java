@@ -3,7 +3,6 @@ package com.jfixby.r3.engine.api.render;
 
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
-import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.names.ID;
@@ -48,8 +47,6 @@ public interface RenderMachineComponent {
 	void drawAperture (double ax, double ay, double bx, double by, ID spriteAssetID);
 
 	void drawCircle (Color color, double center_x, double center_y, double radius);
-
-	void drawString (ID fontID, final FontParameters fontParams, String stringValue, final CanvasPosition position);
 
 	void beginRasterMode (final TEXTURE_BLEND_MODE blend_mode, double opacity);
 

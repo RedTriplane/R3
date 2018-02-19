@@ -5,6 +5,7 @@ import com.jfixby.r3.activity.api.raster.Raster;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.color.Colors;
 import com.jfixby.scarabei.api.names.ID;
+import com.jfixby.scarabei.api.strings.Text;
 
 public class TextBarSpecs {
 
@@ -16,7 +17,7 @@ public class TextBarSpecs {
 
 	public Raster backgroundRaster;
 	public String name;
-	public ID text;
+	public Text text;
 	public float padding;
 
 	@Override

@@ -1,14 +1,13 @@
 
 package com.jfixby.r3.fokker.font.api;
 
-import com.jfixby.r3.engine.api.render.FontParameters;
 import com.jfixby.scarabei.api.ComponentInstaller;
+import com.jfixby.scarabei.api.font.StringSpec;
 import com.jfixby.scarabei.api.names.ID;
 
 public class FokkerFonts {
 
-	static private ComponentInstaller<FokkerFontsComponent> componentInstaller = new ComponentInstaller<FokkerFontsComponent>(
-		"FokkerFonts");
+	static private ComponentInstaller<FokkerFontsComponent> componentInstaller = new ComponentInstaller<>("FokkerFonts");
 
 	public static final void installComponent (final FokkerFontsComponent component_to_install) {
 		componentInstaller.installComponent(component_to_install);
@@ -27,9 +26,17 @@ public class FokkerFonts {
 
 	}
 
-	public static final FokkerString obtain (final ID fontID, final FontParameters fontParams, final String stringValue) {
-		return componentInstaller.getComponent().obtainString(fontID, fontParams, stringValue);
+	public static final FokkerStringHandler obtainString (final StringSpec stringSpecs) {
+		return componentInstaller.getComponent().obtainString(stringSpecs);
 
+	}
+
+	public static StringSpec newStringSpec () {
+		return componentInstaller.invokeComponent().newStringSpec();
+	}
+
+	public static void disposeString (final FokkerStringHandler string) {
+		componentInstaller.invokeComponent().disposeString(string);
 	}
 
 }

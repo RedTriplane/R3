@@ -18,9 +18,10 @@ import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.names.Names;
 import com.jfixby.scarabei.api.strings.Text;
+import com.jfixby.scarabei.api.strings.TextSpawner;
 import com.jfixby.text.loaders.strings.StringDataEntry;
 
-public class TextDataEntry implements Text, AssetsConsumer, AssetsGroup, Asset {
+public class TextDataEntry implements Text, TextSpawner, AssetsConsumer, AssetsGroup, Asset {
 
 	private final ID asset_id;
 	final Map<String, RedTextTranslation> localizations = Collections.newMap();
@@ -108,6 +109,17 @@ public class TextDataEntry implements Text, AssetsConsumer, AssetsGroup, Asset {
 		}
 		this.currentLocalization = locale_name;
 		return true;
+	}
+
+	@Override
+	public Text newInstance () {
+		final TextDataEntry e = new TextDataEntry(this.asset_id);
+		e.currentLocalization = this.currentLocalization;
+
+		e.localizations.putAll(this.localizations);
+		e.mapping.putAll(this.mapping);
+
+		return e;
 	}
 
 }
