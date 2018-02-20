@@ -2,7 +2,7 @@
 package com.jfixby.r3.fokker.font.api;
 
 import com.jfixby.scarabei.api.ComponentInstaller;
-import com.jfixby.scarabei.api.font.StringSpec;
+import com.jfixby.scarabei.api.font.RasterStringSettings;
 import com.jfixby.scarabei.api.names.ID;
 
 public class FokkerFonts {
@@ -26,12 +26,12 @@ public class FokkerFonts {
 
 	}
 
-	public static final FokkerStringHandler obtainString (final StringSpec stringSpecs) {
-		return componentInstaller.getComponent().obtainString(stringSpecs);
+	public static final FokkerStringHandler obtainString (final RasterStringSettings rasterStringSettings) {
+		return componentInstaller.getComponent().obtainString(rasterStringSettings);
 
 	}
 
-	public static StringSpec newStringSpec () {
+	public static RasterStringSettings newStringSpec () {
 		return componentInstaller.invokeComponent().newStringSpec();
 	}
 

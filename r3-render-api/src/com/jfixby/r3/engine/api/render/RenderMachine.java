@@ -1,10 +1,10 @@
 
 package com.jfixby.r3.engine.api.render;
 
-import com.jfixby.r3.fokker.font.api.StringSpec;
 import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
+import com.jfixby.scarabei.api.font.RasterStringSettings;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.names.ID;
@@ -92,6 +92,10 @@ public class RenderMachine {
 		invoke().drawRaster(spriteAssetID, shape);
 	}
 
+	public static void drawString (final RasterStringSettings stringSpec) {
+		invoke().drawString(stringSpec);
+	}
+
 	public static void drawCircle (final Color color, final double center_x, final double center_y, final double radius) {
 		invoke().drawCircle(color, center_x, center_y, radius);
 	}
@@ -118,10 +122,6 @@ public class RenderMachine {
 
 	public static void deploy () {
 		invoke().deploy();
-	}
-
-	public static void drawString (final StringSpec stringSpec) {
-		invoke().drawString(stringSpec);
 	}
 
 }

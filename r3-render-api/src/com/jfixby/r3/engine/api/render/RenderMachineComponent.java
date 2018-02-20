@@ -3,6 +3,7 @@ package com.jfixby.r3.engine.api.render;
 
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
+import com.jfixby.scarabei.api.font.RasterStringSettings;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.names.ID;
@@ -67,6 +68,8 @@ public interface RenderMachineComponent {
 	public DefaultShaders DefaultShaders ();
 
 	void deploy ();
+
+	void drawString (RasterStringSettings stringSpec);
 
 	// void setShader(final FokkerShader shader_handler);
 

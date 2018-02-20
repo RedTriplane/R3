@@ -7,7 +7,7 @@ import com.jfixby.r3.fokker.font.api.FokkerFontPackageReader;
 import com.jfixby.r3.fokker.font.api.FokkerFontsComponent;
 import com.jfixby.r3.fokker.font.api.FokkerString;
 import com.jfixby.r3.fokker.font.api.FokkerStringHandler;
-import com.jfixby.scarabei.api.font.StringSpec;
+import com.jfixby.scarabei.api.font.RasterStringSettings;
 import com.jfixby.scarabei.api.names.ID;
 
 public class RedFokkerFonts implements FokkerFontsComponent {
@@ -31,12 +31,12 @@ public class RedFokkerFonts implements FokkerFontsComponent {
 	}
 
 	@Override
-	public StringSpec newStringSpec () {
-		return new StringSpec();
+	public RasterStringSettings newStringSpec () {
+		return new RasterStringSettings();
 	}
 
 	@Override
-	public FokkerStringHandler obtainString (final StringSpec stringSpecs) {
+	public FokkerStringHandler obtainString (final RasterStringSettings rasterStringSettings) {
 		return null;
 	}
 
