@@ -1,14 +1,13 @@
 
-package com.jfixby.r3.fokker.font.red;
+package com.jfixby.r3.fokker.font.red.io;
 
-import com.jfixby.r3.fokker.font.api.FokkerFont;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.AssetsGroup;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.names.ID;
 
-public class RedTTFFontInfo implements Asset, FokkerFont {
+public class RedTTFFont implements Asset {
 
 	final private ID asset_id;
 	final private File gdx_font_file;
@@ -18,7 +17,7 @@ public class RedTTFFontInfo implements Asset, FokkerFont {
 		return "TTFFontInfo[" + this.asset_id + "] " + this.gdx_font_file + "";
 	}
 
-	public RedTTFFontInfo (final ID asset_id, final File original_font_file) {
+	public RedTTFFont (final ID asset_id, final File original_font_file) {
 		this.asset_id = asset_id;
 		this.gdx_font_file = original_font_file;
 	}

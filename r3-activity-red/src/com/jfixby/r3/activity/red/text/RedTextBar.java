@@ -27,11 +27,13 @@ public class RedTextBar implements TextBar, LayerBasedComponent {
 	public RedTextBar (final TextBarSpecs text_specs, final RedComponentsFactory componentsFactory) {
 		this.name = text_specs.name;
 
-		this.string = new RedString(text_specs);
+		this.string = new RedString(text_specs, componentsFactory);
 
 		this.root = componentsFactory.newLayer();
 
 		this.shape = Geometry.newRectangle(10, 10);
+
+		this.root.attachComponent(this.string);
 
 	}
 

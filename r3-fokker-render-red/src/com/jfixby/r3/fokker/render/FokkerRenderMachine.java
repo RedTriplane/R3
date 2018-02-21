@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import com.jfixby.r3.engine.api.render.DefaultShaders;
 import com.jfixby.r3.engine.api.render.Drawable;
-import com.jfixby.r3.engine.api.render.FontParameters;
 import com.jfixby.r3.engine.api.render.RENDER_PARAMS;
 import com.jfixby.r3.engine.api.render.RenderMachineComponent;
 import com.jfixby.r3.engine.api.render.ScreenShot;
@@ -26,6 +25,7 @@ import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
+import com.jfixby.scarabei.api.font.RasterStringSettings;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Rectangle;
@@ -274,11 +274,10 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	final public void drawString (final ID fontID, final FontParameters fontParams, final String stringValue,
-		final CanvasPosition position) {
+	final public void drawString (final RasterStringSettings specs, final CanvasPosition position) {
 		expectState(RENDER_MACHINE_STATE.RASTER);
 
-		this.raster_renderer.drawString(fontID, fontParams, stringValue, position);
+		this.raster_renderer.drawString(specs, position);
 
 	}
 

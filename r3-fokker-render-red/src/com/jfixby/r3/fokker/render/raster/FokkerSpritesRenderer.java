@@ -12,7 +12,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasSprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.NumberUtils;
-import com.jfixby.r3.engine.api.render.FontParameters;
 import com.jfixby.r3.engine.api.render.SpritesRenderer;
 import com.jfixby.r3.engine.api.screen.Screen;
 import com.jfixby.r3.fokker.font.api.FokkerFonts;
@@ -27,6 +26,7 @@ import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.DebugTimer;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.Float2;
+import com.jfixby.scarabei.api.font.RasterStringSettings;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Rectangle;
@@ -231,10 +231,10 @@ public class FokkerSpritesRenderer extends SpritesRenderer implements AssetsCons
 
 	}
 
-	final public void drawString (final ID fontID, final FontParameters fontParams, final String stringValue,
-		final CanvasPosition position, final double opacity, final Texture blend_texture) {
+	final public void drawString (final RasterStringSettings specs, final CanvasPosition position, final double opacity,
+		final Texture blend_texture) {
 
-		final FokkerString redString = FokkerFonts.component().obtainString(fontID, fontParams, stringValue);
+		final FokkerString redString = FokkerFonts.component().obtainString(specs);
 
 		final Projection camProjection = this.raster_renderer.machine.camera_projection;
 		final Projection layProjection = this.raster_renderer.machine.layer_projection;

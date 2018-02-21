@@ -2,7 +2,6 @@
 package com.jfixby.r3.fokker.render.raster;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.jfixby.r3.engine.api.render.FontParameters;
 import com.jfixby.r3.engine.api.render.ShaderSettings;
 import com.jfixby.r3.engine.api.render.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.render.FokkerDefaultAssets;
@@ -15,6 +14,7 @@ import com.jfixby.r3.fokker.shader.api.FokkerShaders;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.debug.StateSwitcher;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.font.RasterStringSettings;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.names.ID;
@@ -120,11 +120,10 @@ public class FokkerRasterRenderer extends Renderer {
 		this.sprites_renderer.drawAperture(spriteAssetID, ax, ay, bx, by, this.current_opacity);
 	}
 
-	public final void drawString (final ID fontID, final FontParameters fontParams, final String stringValue,
-		final CanvasPosition position) {
+	public final void drawString (final RasterStringSettings specs, final CanvasPosition position) {
 		// blend_state.doesNotExpectState(TEXTURE_BLEND_MODE.NOT_SET);
 		final Texture blend_texture = this.current_shader.getBlendTexture();
-		this.sprites_renderer.drawString(fontID, fontParams, stringValue, position, this.current_opacity, blend_texture);
+		this.sprites_renderer.drawString(specs, position, this.current_opacity, blend_texture);
 // sprites_renderer.drawString(string_value, position, opacity, blend_texture);
 	}
 

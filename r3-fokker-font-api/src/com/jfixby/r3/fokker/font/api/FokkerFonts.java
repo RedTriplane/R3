@@ -3,7 +3,6 @@ package com.jfixby.r3.fokker.font.api;
 
 import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.font.RasterStringSettings;
-import com.jfixby.scarabei.api.names.ID;
 
 public class FokkerFonts {
 
@@ -21,13 +20,8 @@ public class FokkerFonts {
 		return componentInstaller.getComponent();
 	}
 
-	public static final FokkerFont obtain (final ID assetID) {
-		return componentInstaller.getComponent().obtainFont(assetID);
-
-	}
-
-	public static final FokkerStringHandler obtainString (final RasterStringSettings rasterStringSettings) {
-		return componentInstaller.getComponent().obtainString(rasterStringSettings);
+	public static final FokkerStringHandler spawnString (final RasterStringSettings rasterStringSettings) {
+		return componentInstaller.getComponent().spawnString(rasterStringSettings);
 
 	}
 

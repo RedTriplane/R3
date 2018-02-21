@@ -1,6 +1,7 @@
 
 package com.jfixby.r3.activity.red.text;
 
+import com.jfixby.r3.activity.api.layer.VisibleComponent;
 import com.jfixby.r3.activity.api.raster.UI_BLEND_MODE;
 import com.jfixby.r3.activity.api.txt.TextBarSpecs;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
@@ -12,9 +13,10 @@ import com.jfixby.r3.fokker.font.api.FokkerFonts;
 import com.jfixby.r3.fokker.font.api.FokkerStringHandler;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.font.RasterStringSettings;
+import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.strings.Text;
 
-public class RedString implements Drawable {
+public class RedString implements Drawable, VisibleComponent {
 
 	private final RasterStringSettings rasterStringSettings;
 
@@ -35,7 +37,7 @@ public class RedString implements Drawable {
 		this.rasterStringSettings.borderColor = text_specs.borderColor;
 		this.rasterStringSettings.string = this.text.getString();
 
-		this.string = FokkerFonts.obtainString(this.rasterStringSettings);
+		this.string = FokkerFonts.spawnString(this.rasterStringSettings);
 
 		//
 
@@ -50,6 +52,31 @@ public class RedString implements Drawable {
 	float opacity = 1f;
 
 	@Override
+	public void setName (final String name) {
+
+	}
+
+	@Override
+	public String getName () {
+		return "nonamestring";
+	}
+
+	@Override
+	public void hide () {
+		this.visible = false;
+	}
+
+	@Override
+	public void show () {
+		this.visible = true;
+	}
+
+	@Override
+	public void setVisible (final boolean b) {
+		this.visible = b;
+	}
+
+	@Override
 	public void doDraw () {
 		if (!this.visible) {
 			return;
@@ -57,8 +84,8 @@ public class RedString implements Drawable {
 
 		RenderMachine.beginDrawComponent(this);
 		RenderMachine.beginRasterMode(this.TOtxtmODE(this.mode), this.opacity);
-
-		RenderMachine.drawString(this.rasterStringSettings);
+		final CanvasPosition position = this.debug_rectangle.getPosition();
+		RenderMachine.drawString(this.rasterStringSettings, position);
 
 		RenderMachine.endRasterMode(this.TOtxtmODE(this.mode));
 		RenderMachine.endDrawComponent(this);
@@ -91,7 +118,7 @@ public class RedString implements Drawable {
 
 		FokkerFonts.disposeString(this.string);
 		this.rasterStringSettings.string = this.text.getString();
-		this.string = FokkerFonts.obtainString(this.rasterStringSettings);
+		this.string = FokkerFonts.spawnString(this.rasterStringSettings);
 	}
 
 	public void switchLocale (final String locale_name) {
@@ -106,4 +133,5 @@ public class RedString implements Drawable {
 	public Text getText () {
 		return this.text;
 	}
+
 }

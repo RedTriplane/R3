@@ -5,6 +5,7 @@ import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.font.RasterStringSettings;
+import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.names.ID;
@@ -92,8 +93,8 @@ public class RenderMachine {
 		invoke().drawRaster(spriteAssetID, shape);
 	}
 
-	public static void drawString (final RasterStringSettings stringSpec) {
-		invoke().drawString(stringSpec);
+	public static void drawString (final RasterStringSettings stringSpec, final CanvasPosition position) {
+		invoke().drawString(stringSpec, position);
 	}
 
 	public static void drawCircle (final Color color, final double center_x, final double center_y, final double radius) {

@@ -1,22 +1,19 @@
 
 package com.jfixby.r3.fokker.font.red;
 
-import com.jfixby.r3.engine.api.render.FontParameters;
 import com.jfixby.r3.fokker.font.api.FokkerString;
+import com.jfixby.r3.fokker.font.api.FokkerStringHandler;
+import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
-import com.jfixby.scarabei.api.names.ID;
+import com.jfixby.scarabei.api.font.RasterStringSettings;
 
 public class FokkerStringRegister {
-	final Map<ID, FokkerStringGroup> registry = Collections.newMap();
+	final Map<RasterStringSettings, FokkerStringGroup> registry = Collections.newMap();
 
-// public void register (final ID fontID, final FokkerString data) {
+	public FokkerStringHandler register (final RasterStringSettings rasterStringSettings, final FokkerString string,
+		final AssetsConsumer consumer) {
 
-// this.registry.put(raster_id, data);
-// }
-
-	public FokkerString get (final ID fontID, final FontParameters fontParams, final String stringValue) {
-		final FokkerStringGroup group = this.registry.get(fontID);
-		return group.resolve(fontParams, stringValue);
+		return null;
 	}
 }

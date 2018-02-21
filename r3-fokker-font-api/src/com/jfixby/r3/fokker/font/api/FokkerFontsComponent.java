@@ -1,22 +1,19 @@
 
 package com.jfixby.r3.fokker.font.api;
 
-import com.jfixby.r3.engine.api.render.FontParameters;
+import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.scarabei.api.font.RasterStringSettings;
-import com.jfixby.scarabei.api.names.ID;
 
 public interface FokkerFontsComponent {
 
 	public FokkerFontPackageReader packageReader ();
 
-	public FokkerFont obtainFont (ID assetID);
-
-	public FokkerString obtainString (final ID fontID, final FontParameters fontParams, final String stringValue);
+	public FokkerString obtainString (RasterStringSettings specs);
 
 	public RasterStringSettings newStringSpec ();
 
-	public FokkerStringHandler obtainString (RasterStringSettings rasterStringSettings);
+	public FokkerStringHandler spawnString (RasterStringSettings rasterStringSettings, final AssetsConsumer consumer);
 
-	public void disposeString (FokkerStringHandler string);
+	public void disposeString (FokkerStringHandler string, final AssetsConsumer consumer);
 
 }
