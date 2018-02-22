@@ -18,6 +18,7 @@ public class RedFokkerString implements FokkerString {
 
 	private final BitmapFont bmpFont;
 	private final BitmapFontCache cache;
+	final VerticesCache verticesCache = new VerticesCache();
 
 	public RedFokkerString (final RedTTFFont redTTFFont, final RasterStringSettings rasterStringSettings) {
 
@@ -28,11 +29,13 @@ public class RedFokkerString implements FokkerString {
 		final FreeTypeFontParameter parameter = new FreeTypeFontParameter();
 		parameter.size = (int)rasterStringSettings.fontSize;
 		parameter.characters = rasterStringSettings.string;
-
+		parameter.flip = true;
 		this.bmpFont = generator.generateFont(parameter);
 		this.cache = this.bmpFont.getCache();
 		this.cache.clear();
 		this.cache.addText(rasterStringSettings.string, 0, 0);
+		final int n = this.getRegions().size;
+		this.verticesCache.updateNumberOfRegions(n);
 
 		generator.dispose();
 
@@ -51,12 +54,17 @@ public class RedFokkerString implements FokkerString {
 
 	@Override
 	public float[] getVertices (final int region) {
-		return this.cache.getVertices(region);
+		this.verticesCache.updateRegion(region, this.cache.getVertices(region));
+		return this.verticesCache.getVertices(region);
 	}
 
 	@Override
 	public int getNumberOfSprites (final int region) {
-		return this.cache.getLayouts().size;
+		return this.verticesCache.getNumberOfSprites(region);
+	}
+
+	@Override
+	public void prepare () {
 	}
 
 }

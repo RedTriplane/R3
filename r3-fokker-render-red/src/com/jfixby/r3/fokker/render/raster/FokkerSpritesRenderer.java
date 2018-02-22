@@ -235,6 +235,7 @@ public class FokkerSpritesRenderer extends SpritesRenderer implements AssetsCons
 		final Texture blend_texture) {
 
 		final FokkerString redString = FokkerFonts.component().obtainString(specs);
+		redString.prepare();
 
 		final Projection camProjection = this.raster_renderer.machine.camera_projection;
 		final Projection layProjection = this.raster_renderer.machine.layer_projection;

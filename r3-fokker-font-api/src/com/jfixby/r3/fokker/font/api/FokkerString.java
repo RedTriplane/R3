@@ -14,4 +14,6 @@ public interface FokkerString {
 
 	int getNumberOfSprites (int region);
 
+	void prepare ();
+
 }

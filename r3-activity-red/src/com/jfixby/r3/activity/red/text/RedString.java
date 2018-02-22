@@ -89,6 +89,10 @@ public class RedString implements Drawable, VisibleComponent {
 		RenderMachine.beginDrawComponent(this);
 		RenderMachine.beginRasterMode(this.TOtxtmODE(this.mode), this.opacity);
 		final CanvasPosition position = this.debug_rectangle.getPosition();
+
+// position.setX(100);
+// position.setY(50);
+
 		RenderMachine.drawString(this.rasterStringSettings, position);
 
 		RenderMachine.endRasterMode(this.TOtxtmODE(this.mode));
