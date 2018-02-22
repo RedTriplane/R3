@@ -12,6 +12,7 @@ import com.jfixby.r3.rana.api.asset.LoadedAssets;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.font.RasterStringSettings;
+import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.names.ID;
 
 public class RedFokkerFonts implements FokkerFontsComponent {
@@ -26,7 +27,12 @@ public class RedFokkerFonts implements FokkerFontsComponent {
 
 	@Override
 	public FokkerString obtainString (final RasterStringSettings rasterStringSettings) {
-		return this.stringRegister.get(rasterStringSettings);
+		final RedFokkerStringHandler handler = this.stringRegister.get(rasterStringSettings);
+		if (handler == null) {
+			L.d("register", this.stringRegister.settingsToHandler);
+		}
+		Debug.checkNull(handler);
+		return handler.string;
 	}
 
 	@Override
@@ -35,10 +41,13 @@ public class RedFokkerFonts implements FokkerFontsComponent {
 	}
 
 	@Override
-	public FokkerStringHandler spawnString (final RasterStringSettings rasterStringSettings, final AssetsConsumer consumer) {
+	public RedFokkerStringHandler spawnString (final RasterStringSettings rasterStringSettings, final AssetsConsumer consumer) {
 
-		FokkerString string = this.obtainString(rasterStringSettings);
-		Debug.checkTrue(string == null);
+		RedFokkerStringHandler handler = this.stringRegister.get(rasterStringSettings);
+		if (handler != null) {
+			this.stringRegister.print();
+		}
+		Debug.checkTrue(handler == null);
 
 		final ID fontID = rasterStringSettings.fontID;
 // RedTTFFontInfo font = this.fontRegister.get(fontID);
@@ -48,15 +57,16 @@ public class RedFokkerFonts implements FokkerFontsComponent {
 		}
 		final FokkerFont font = asset_handler.asset();
 
-		string = font.produceString(rasterStringSettings);
+		final FokkerString rasterString = font.produceString(rasterStringSettings);
 
-		final FokkerStringHandler handler = this.stringRegister.register(rasterStringSettings, string, consumer);
+		handler = this.stringRegister.register(rasterStringSettings, rasterString, consumer);
 
 		return handler;
 	}
 
 	@Override
 	public void disposeString (final FokkerStringHandler string, final AssetsConsumer consumer) {
+		this.stringRegister.unRegister(string, consumer);
 	}
 
 }

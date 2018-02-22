@@ -24,7 +24,11 @@ public class RedString implements Drawable, VisibleComponent {
 
 	private FokkerStringHandler string;
 
+	private final RedComponentsFactory master;
+
 	public RedString (final TextBarSpecs text_specs, final RedComponentsFactory master) {
+
+		this.master = master;
 
 		this.text = text_specs.text;
 
@@ -37,7 +41,7 @@ public class RedString implements Drawable, VisibleComponent {
 		this.rasterStringSettings.borderColor = text_specs.borderColor;
 		this.rasterStringSettings.string = this.text.getString();
 
-		this.string = FokkerFonts.spawnString(this.rasterStringSettings);
+		this.string = FokkerFonts.spawnString(this.rasterStringSettings, master);
 
 		//
 
@@ -116,9 +120,9 @@ public class RedString implements Drawable, VisibleComponent {
 		Debug.checkNull("text", text);
 		this.text = text;
 
-		FokkerFonts.disposeString(this.string);
+		FokkerFonts.disposeString(this.string, this.master);
 		this.rasterStringSettings.string = this.text.getString();
-		this.string = FokkerFonts.spawnString(this.rasterStringSettings);
+		this.string = FokkerFonts.spawnString(this.rasterStringSettings, this.master);
 	}
 
 	public void switchLocale (final String locale_name) {

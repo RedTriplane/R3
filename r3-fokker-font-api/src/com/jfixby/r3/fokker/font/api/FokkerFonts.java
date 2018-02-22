@@ -1,6 +1,7 @@
 
 package com.jfixby.r3.fokker.font.api;
 
+import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.scarabei.api.ComponentInstaller;
 import com.jfixby.scarabei.api.font.RasterStringSettings;
 
@@ -20,8 +21,9 @@ public class FokkerFonts {
 		return componentInstaller.getComponent();
 	}
 
-	public static final FokkerStringHandler spawnString (final RasterStringSettings rasterStringSettings) {
-		return componentInstaller.getComponent().spawnString(rasterStringSettings);
+	public static final FokkerStringHandler spawnString (final RasterStringSettings rasterStringSettings,
+		final AssetsConsumer consumer) {
+		return componentInstaller.getComponent().spawnString(rasterStringSettings, consumer);
 
 	}
 
@@ -29,8 +31,8 @@ public class FokkerFonts {
 		return componentInstaller.invokeComponent().newStringSpec();
 	}
 
-	public static void disposeString (final FokkerStringHandler string) {
-		componentInstaller.invokeComponent().disposeString(string);
+	public static void disposeString (final FokkerStringHandler string, final AssetsConsumer consumer) {
+		componentInstaller.invokeComponent().disposeString(string, consumer);
 	}
 
 }
