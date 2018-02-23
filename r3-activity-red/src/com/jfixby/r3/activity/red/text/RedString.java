@@ -14,6 +14,7 @@ import com.jfixby.r3.fokker.font.api.FokkerStringHandler;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.font.RasterStringSettings;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
+import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.strings.Text;
 
 public class RedString implements Drawable, VisibleComponent {
@@ -42,10 +43,10 @@ public class RedString implements Drawable, VisibleComponent {
 		this.rasterStringSettings.string = this.text.getString();
 
 		this.string = FokkerFonts.spawnString(this.rasterStringSettings, master);
-
+		final Rectangle shape = this.string.shape();
 		//
 
-		this.debug_rectangle = (RedRectangleComponent)master.getGeometryDepartment().newRectangle();
+		this.debug_rectangle = (RedRectangleComponent)master.getGeometryDepartment().newRectangle(shape);
 		// debug_rectangle.setDebugRenderFlag(true);
 		this.debug_rectangle.setBorderColor(this.debug_rectangle.getDebugColor());
 		// this.setDebugRenderFlag(!true);
@@ -102,7 +103,7 @@ public class RedString implements Drawable, VisibleComponent {
 		}
 	}
 
-	boolean debug = false;
+	boolean debug = true;
 
 	private boolean getDebugRenderFlag () {
 		return this.debug;

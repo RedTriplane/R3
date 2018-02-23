@@ -77,6 +77,8 @@ public class RedCamera implements CanvasCamera, CameraProjection, Projection {
 		this.debug_component.setBorderColor(Colors.YELLOW());
 // this.setDebugFlag(true);
 		this.debug_component.setDebugRenderFlag(true);
+
+// this.setRotation(-Angles.g30().getMagnitude());
 	}
 
 	final ScreenDimentionsHolder holder = new ScreenDimentionsHolder();

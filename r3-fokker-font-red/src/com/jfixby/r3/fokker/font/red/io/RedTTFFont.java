@@ -5,6 +5,8 @@ import com.jfixby.r3.fokker.font.api.FokkerFont;
 import com.jfixby.r3.fokker.font.red.RedFokkerString;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.AssetsGroup;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.Set;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 import com.jfixby.scarabei.api.font.RasterStringSettings;
@@ -20,11 +22,12 @@ public class RedTTFFont implements Asset, FokkerFont {
 		return "TTFFontInfo[" + this.asset_id + "] " + this.gdx_font_file + "";
 	}
 
+	final Set<RedFokkerString> children = Collections.newSet();
+
 	@Override
 	public RedFokkerString produceString (final RasterStringSettings rasterStringSettings) {
-
 		final RedFokkerString str = new RedFokkerString(this, rasterStringSettings);
-
+		this.children.add(str);
 		return str;
 	}
 

@@ -2,6 +2,7 @@
 package com.jfixby.r3.fokker.font.red;
 
 import com.jfixby.r3.engine.api.render.SpritesRenderer;
+import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.log.L;
 
 public class VerticesCache {
@@ -13,7 +14,7 @@ public class VerticesCache {
 		this.sprites = new int[n];
 	}
 
-	public void updateRegion (final int region, final float[] spriteVertices) {
+	public void updateRegion (final int region, final float[] spriteVertices, final Rectangle shape) {
 		if (this.spriteVertices[region] == null || this.spriteVertices[region].length < spriteVertices.length) {
 			this.spriteVertices[region] = new float[spriteVertices.length * 2];
 			this.sprites[region] = spriteVertices.length / SpritesRenderer.SPRITE_SIZE;

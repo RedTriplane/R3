@@ -3,6 +3,7 @@ package com.jfixby.r3.fokker.font.api;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
+import com.jfixby.scarabei.api.geometry.Rectangle;
 
 public interface FokkerString {
 
@@ -14,6 +15,8 @@ public interface FokkerString {
 
 	int getNumberOfSprites (int region);
 
-	void prepare ();
+	void dispose ();
+
+	Rectangle shape ();
 
 }

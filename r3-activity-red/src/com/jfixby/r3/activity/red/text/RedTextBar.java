@@ -2,6 +2,7 @@
 package com.jfixby.r3.activity.red.text;
 
 import com.jfixby.r3.activity.api.LayerBasedComponent;
+import com.jfixby.r3.activity.api.geometry.RectangleComponent;
 import com.jfixby.r3.activity.api.layer.Layer;
 import com.jfixby.r3.activity.api.txt.TextBar;
 import com.jfixby.r3.activity.api.txt.TextBarSpecs;
@@ -12,6 +13,7 @@ import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Rectangle;
+import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.math.Angle;
 import com.jfixby.scarabei.api.strings.Text;
 
@@ -23,6 +25,7 @@ public class RedTextBar implements TextBar, LayerBasedComponent {
 	private final Rectangle shape;
 
 	final RedString string;
+	private final RectangleComponent debugRectangle;
 
 	public RedTextBar (final TextBarSpecs text_specs, final RedComponentsFactory componentsFactory) {
 		this.name = text_specs.name;
@@ -33,8 +36,18 @@ public class RedTextBar implements TextBar, LayerBasedComponent {
 
 		this.shape = Geometry.newRectangle(10, 10);
 
+		this.shape.setPosition(50, 100);
+
+		this.debugRectangle = componentsFactory.getGeometryDepartment().newRectangle(this.shape);
+
+		final Projection projection = Geometry.getProjectionFactory()//
+			.newOffsetAndRotate(this.shape);
+
+		this.root.setProjection(projection);
+
 		this.root.attachComponent(this.string);
 
+		this.root.attachComponent(this.debugRectangle);
 	}
 
 	@Override

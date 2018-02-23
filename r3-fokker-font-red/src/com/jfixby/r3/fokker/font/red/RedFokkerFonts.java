@@ -66,7 +66,8 @@ public class RedFokkerFonts implements FokkerFontsComponent {
 
 	@Override
 	public void disposeString (final FokkerStringHandler string, final AssetsConsumer consumer) {
-		this.stringRegister.unRegister(string, consumer);
+		final RedFokkerStringHandler handler = this.stringRegister.unRegister(string, consumer);
+		handler.string.dispose();
 	}
 
 }

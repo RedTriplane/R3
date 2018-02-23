@@ -1,15 +1,16 @@
+
 package com.jfixby.r3.activity.api.geometry;
 
 import com.jfixby.scarabei.api.geometry.Rectangle;
 
 public interface GeometryComponentsFactory {
 
-	RectangleComponent newRectangle();
+	RectangleComponent newRectangle ();
 
-	EllipseComponent newEllipse();
+	EllipseComponent newEllipse ();
 
-	RectangleComponent newRectangle(Rectangle shape);
+	RectangleComponent newRectangle (Rectangle shape);
 
-	PolyComponent newPoly();
+	PolyComponent newPoly ();
 
 }

@@ -31,7 +31,7 @@ public class FokkerStringRegister {
 		return this.settingsToHandler.get(rasterStringSettings);
 	}
 
-	public void unRegister (final FokkerStringHandler string, final AssetsConsumer consumer) {
+	public RedFokkerStringHandler unRegister (final FokkerStringHandler string, final AssetsConsumer consumer) {
 
 		final RasterStringSettings settings = this.handlerToSettings.remove(string);
 		Debug.checkNull(settings);
@@ -41,6 +41,7 @@ public class FokkerStringRegister {
 		Debug.checkTrue(handler.consumer == consumer);
 		Debug.checkTrue(handler == string);
 
+		return handler;
 	}
 
 	public void print () {
