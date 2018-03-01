@@ -16,19 +16,19 @@ public class LayerElement implements java.io.Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = 4233761597492511259L;
-	public boolean is_raster = false;
-	public boolean is_sublayer = false;
-	public boolean is_animation = false;
-	public boolean is_hidden = false;
-	public boolean is_child_scene = false;
-	public boolean is_9_patch = false;
-	public boolean is_user_input = false;
-	public boolean is_text = false;
-	public boolean is_shader = false;
-	public boolean is_parallax = false;
-	public boolean is_material_design = false;
+	public Boolean is_raster = null;
+	public Boolean is_sublayer = null;
+	public Boolean is_animation = null;
+	public Boolean is_hidden = null;
+	public Boolean is_child_scene = null;
+	public Boolean is_9_patch = null;
+	public Boolean is_user_input = null;
+	public Boolean is_text = null;
+	public Boolean is_shader = null;
+	public Boolean is_parallax = null;
+	public Boolean is_material_design = null;
 
-	public boolean debug_mode = false;
+	public Boolean debug_mode = null;
 
 	public String name;
 	public String raster_id;
@@ -38,20 +38,20 @@ public class LayerElement implements java.io.Serializable {
 	public String shader_id;
 	public RASTER_BLEND_MODE blend_mode = null;
 
-	public double opacity = 1;
-	public double position_x;
-	public double position_y;
+	public Double opacity = 1d;
+	public Double position_x;
+	public Double position_y;
 
-	public double offset_x;
-	public double offset_y;
+	public Double offset_x;
+	public Double offset_y;
 
-	public double origin_relative_x;
-	public double origin_relative_y;
+	public Double origin_relative_x;
+	public Double origin_relative_y;
 
-	public double rotation;
+	public Double rotation;
 
-	public double width;
-	public double height;
+	public Double width;
+	public Double height;
 
 	public LayerChildren children = new LayerChildren();
 	public AnimationSettings animation_settings = null;

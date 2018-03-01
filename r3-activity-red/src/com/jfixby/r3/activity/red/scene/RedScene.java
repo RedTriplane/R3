@@ -140,14 +140,14 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 		settings.push(element.name);
 		Component component = null;
 		final RedScene currentScene = settings.currentScene;
-		if (element.is_sublayer) {
+		if (element.is_sublayer == Boolean.TRUE) {
 			final Layer new_layer = components_factory.newLayer();
 			component = new_layer;
 			new_layer.setName(element.name);
 
 			currentScene.layers_list.add(new_layer);
 			currentScene.restoreSubLayer(new_layer, element, settings);
-		} else if (element.is_raster) {
+		} else if (element.is_raster == Boolean.TRUE) {
 			final ID asset_id = Names.newID(element.raster_id);
 			final Raster raster = components_factory.getRasterDepartment().newRaster(asset_id);
 			component = raster;
@@ -170,7 +170,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 			currentScene.rasters.add(raster);
 			currentScene.canvas_components.add(raster);
 
-		} else if (element.is_animation) {
+		} else if (element.is_animation == Boolean.TRUE) {
 
 			final ID animation_id = Names.newID(element.animation_id);
 
@@ -181,21 +181,21 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			currentScene.animations.add(animation);
 
-		} else if (element.is_child_scene) {
+		} else if (element.is_child_scene == Boolean.TRUE) {
 
 			final RedScene scene = restoreChildScene(element, components_factory, settings);
 			currentScene.child_scenes.add(scene);
 // this.canvas_components.add(scene);
 			component = scene;
 
-		} else if (element.is_user_input) {
+		} else if (element.is_user_input == Boolean.TRUE) {
 
 			final Component scene = currentScene.restoreUserInput(element, components_factory, currentScene.canvas_components,
 				settings);
 
 			component = scene;
 
-		} else if (element.is_text) {
+		} else if (element.is_text == Boolean.TRUE) {
 
 			final TextBar text = currentScene.restoreText(element, components_factory, settings);
 			currentScene.text_fields.add(text);
@@ -203,7 +203,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			component = text;
 
-		} else if (element.is_parallax) {
+		} else if (element.is_parallax == Boolean.TRUE) {
 
 			final Parallax parallax = currentScene.restoreParallax(element, components_factory, settings);
 
@@ -211,7 +211,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			component = parallax;
 
-		} else if (element.is_9_patch) {
+		} else if (element.is_9_patch == Boolean.TRUE) {
 
 			final NinePatch ninpatch = currentScene.restoreNinePatch(element, components_factory, settings);
 
@@ -219,7 +219,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			component = ninpatch;
 
-		} else if (element.is_shader) {
+		} else if (element.is_shader == Boolean.TRUE) {
 
 // final ShaderComponent shader = currentScene.restoreShader(element, components_factory, settings);
 // currentScene.shaders.add(shader);
@@ -854,13 +854,13 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 		this.root = components_factory.newLayer();
 		final LayerElement frame_element = this.original_structure.root();
-		if (frame_element.is_animation) {
+		if (frame_element.is_animation == Boolean.TRUE) {
 			Err.reportError("Broken structure: root.is_animation == true");
 		}
-		if (frame_element.is_raster) {
+		if (frame_element.is_raster == Boolean.TRUE) {
 			Err.reportError("Broken structure: root.is_raster == true");
 		}
-		if (frame_element.is_user_input) {
+		if (frame_element.is_user_input == Boolean.TRUE) {
 			Err.reportError("Broken structure: root.is_user_input == true");
 		}
 
