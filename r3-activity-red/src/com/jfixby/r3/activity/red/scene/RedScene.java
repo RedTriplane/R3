@@ -2,6 +2,7 @@
 package com.jfixby.r3.activity.red.scene;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.LayerBasedComponent;
@@ -32,6 +33,12 @@ import com.jfixby.r3.activity.api.layer.Component;
 import com.jfixby.r3.activity.api.layer.Layer;
 import com.jfixby.r3.activity.api.layer.VisibleComponent;
 import com.jfixby.r3.activity.api.locale.LocalizedComponent;
+import com.jfixby.r3.activity.api.mtdesign.ButtonList;
+import com.jfixby.r3.activity.api.mtdesign.ButtonListSpecs;
+import com.jfixby.r3.activity.api.mtdesign.Drawer;
+import com.jfixby.r3.activity.api.mtdesign.DrawerSection;
+import com.jfixby.r3.activity.api.mtdesign.DrawerSpecs;
+import com.jfixby.r3.activity.api.mtdesign.MaterialDesignDepartment;
 import com.jfixby.r3.activity.api.parallax.Parallax;
 import com.jfixby.r3.activity.api.parallax.ParallaxElementSpecs;
 import com.jfixby.r3.activity.api.parallax.ParallaxFactory;
@@ -51,6 +58,8 @@ import com.jfixby.r3.io.scene2d.Anchor;
 import com.jfixby.r3.io.scene2d.CameraSettings;
 import com.jfixby.r3.io.scene2d.CameraSettings.MODE;
 import com.jfixby.r3.io.scene2d.LayerElement;
+import com.jfixby.r3.io.scene2d.ListItem;
+import com.jfixby.r3.io.scene2d.MaterialDesingSection;
 import com.jfixby.r3.io.scene2d.ParallaxSettings;
 import com.jfixby.r3.io.scene2d.RASTER_BLEND_MODE;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
@@ -80,6 +89,7 @@ import com.jfixby.scarabei.api.names.Names;
 import com.jfixby.scarabei.api.strings.Text;
 import com.jfixby.scarabei.api.strings.TextSpawner;
 import com.jfixby.scarabei.api.sys.Sys;
+import com.jfixby.scarabei.api.util.Utils;
 
 public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
@@ -140,14 +150,14 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 		settings.push(element.name);
 		Component component = null;
 		final RedScene currentScene = settings.currentScene;
-		if (element.is_sublayer == true) {
+		if (Utils.equalObjects(element.is_sublayer, Boolean.TRUE)) {
 			final Layer new_layer = components_factory.newLayer();
 			component = new_layer;
 			new_layer.setName(element.name);
 
 			currentScene.layers_list.add(new_layer);
 			currentScene.restoreSubLayer(new_layer, element, settings);
-		} else if (element.is_raster == true) {
+		} else if (Utils.equalObjects(element.is_raster, Boolean.TRUE)) {
 			final ID asset_id = Names.newID(element.raster_id);
 			final Raster raster = components_factory.getRasterDepartment().newRaster(asset_id);
 			component = raster;
@@ -158,19 +168,21 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 // raster.setDebugColor(Colors.newRandomColor(0));
 			raster.setWidth(element.width);
 			raster.setHeight(element.height);
-			raster.setOriginRelative(element.origin_relative_x, element.origin_relative_y);
+			raster.setOriginRelative(toDouble(element.origin_relative_x), toDouble(element.origin_relative_y));
 			raster.setPosition(element.position_x, element.position_y);
 			raster.setBlendMode(blend(element.blend_mode));
-			raster.setDebugRenderFlag(element.debug_mode);
+			raster.setDebugRenderFlag(Utils.equalObjects(element.debug_mode, Boolean.TRUE));
 			raster.setDebugRenderFlag(!true || settings.debug_raster);
 
 			// raster.setRotation(element.rotation - Angles.g30().toRadians());
-			raster.setRotation(element.rotation);
+			raster.setRotation(toDouble(element.rotation));
 			// raster.setSize(100, 100);
 			currentScene.rasters.add(raster);
 			currentScene.canvas_components.add(raster);
 
-		} else if (element.is_animation == true) {
+		} else if (Utils.equalObjects(element.is_animation, Boolean.TRUE)
+
+		) {
 
 			final ID animation_id = Names.newID(element.animation_id);
 
@@ -181,21 +193,33 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			currentScene.animations.add(animation);
 
-		} else if (element.is_child_scene == true) {
+		} else if (
+
+		Utils.equalObjects(element.is_child_scene, Boolean.TRUE)
+
+		) {
 
 			final RedScene scene = restoreChildScene(element, components_factory, settings);
 			currentScene.child_scenes.add(scene);
 // this.canvas_components.add(scene);
 			component = scene;
 
-		} else if (element.is_user_input == true) {
+		} else if (
+
+		Utils.equalObjects(element.is_user_input, Boolean.TRUE)
+
+		) {
 
 			final Component scene = currentScene.restoreUserInput(element, components_factory, currentScene.canvas_components,
 				settings);
 
 			component = scene;
 
-		} else if (element.is_text == true) {
+		} else if (
+
+		Utils.equalObjects(element.is_text, Boolean.TRUE)
+
+		) {
 
 			final TextBar text = currentScene.restoreText(element, components_factory, settings);
 			currentScene.text_fields.add(text);
@@ -203,7 +227,11 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			component = text;
 
-		} else if (element.is_parallax == true) {
+		} else if (
+
+		Utils.equalObjects(element.is_parallax, Boolean.TRUE)
+
+		) {
 
 			final Parallax parallax = currentScene.restoreParallax(element, components_factory, settings);
 
@@ -211,7 +239,11 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			component = parallax;
 
-		} else if (element.is_9_patch == true) {
+		} else if (
+
+		Utils.equalObjects(element.is_9_patch, Boolean.TRUE)
+
+		) {
 
 			final NinePatch ninpatch = currentScene.restoreNinePatch(element, components_factory, settings);
 
@@ -219,7 +251,23 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 			component = ninpatch;
 
-		} else if (element.is_shader == true) {
+		} else if (
+
+		Utils.equalObjects(element.is_material_design, Boolean.TRUE)
+
+		) {
+
+			final Component component0 = currentScene.restoreMaterialDesign(element, components_factory, settings);
+
+// currentScene.ninepatches.add(ninpatch);
+
+			component = component0;
+
+		} else if (
+
+		Utils.equalObjects(element.is_shader, Boolean.TRUE)
+
+		) {
 
 // final ShaderComponent shader = currentScene.restoreShader(element, components_factory, settings);
 // currentScene.shaders.add(shader);
@@ -230,11 +278,20 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 			Err.reportError("Element's type: " + Json.serializeToString(element) + " is not supported yet");
 		}
 		// layer.attachComponent(component);
+		if (component == null) {
+			L.d("settings.stack", "[" + settings.structure.getAssetID() + "] @ " + Utils.newRelativePath(settings.stack));
+// Err.reportError("Components is null " + Json.serializeToString(element) + " is not supported yet");
+
+		}
 
 		Debug.checkNull("component", component);
 		if (component instanceof VisibleComponent) {
 			final VisibleComponent vc = (VisibleComponent)component;
-			if (element.is_hidden) {
+			if (
+
+			Utils.equalObjects(element.is_hidden, Boolean.TRUE)
+
+			) {
 				vc.hide();
 			} else {
 				vc.show();
@@ -251,6 +308,103 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 	// return restoreSequenceAnimation(element, components_factory,
 	// canvas_components);
 	// }
+
+	private static Double toDouble (final Double x) {
+		if (x == null) {
+			return 0d;
+		}
+		return x;
+	}
+
+	private Component restoreMaterialDesign (final LayerElement element, final ComponentsFactory components_factory,
+		final Settings settings) {
+
+		if (element.material_design_settings.is_drawer) {
+			return this.restoreDrawer(element, components_factory, settings);
+		}
+
+		if (element.material_design_settings.is_buttons_list) {
+			return this.restoreButtonsList(element, components_factory, settings);
+		}
+
+// return null;
+
+		Err.reportError("no result");
+		return null;
+	}
+
+	private Component restoreButtonsList (final LayerElement element, final ComponentsFactory components_factory,
+		final Settings settings) {
+
+		final MaterialDesignDepartment mdd = components_factory.getMaterialDesignDepartment();
+
+		final ButtonListSpecs mtds = mdd.newButtonListSpecs();
+		{
+			final ListItem listItem = element.material_design_settings.list_item;
+			mtds.list_item_raster = restore(components_factory, listItem.raster, settings);
+			mtds.list_item_area = restore(components_factory, listItem.area, settings);
+
+		}
+		{
+			final ListItem newListItem = element.material_design_settings.new_list_item;
+
+			mtds.new_item_raster = restore(components_factory, newListItem.raster, settings);
+			mtds.new_item_area = restore(components_factory, newListItem.area, settings);
+
+		}
+
+		final ButtonList list = mdd.newButtonList(mtds);
+
+		return list;
+
+	}
+
+	private Component restoreDrawer (final LayerElement element, final ComponentsFactory components_factory,
+		final Settings settings) {
+
+		final MaterialDesignDepartment mdd = components_factory.getMaterialDesignDepartment();
+
+		final DrawerSpecs mtds = mdd.newDrawerSpecs();
+		{
+			mtds.top_bar_height = element.material_design_settings.top_bar.height;
+			final Raster raster = restore(components_factory, element.material_design_settings.top_bar.background, settings);
+			mtds.top_bar_background = raster;
+		}
+
+		{
+			final Raster raster = restore(components_factory, element.material_design_settings.top_bar.left_icon.background,
+				settings);
+			mtds.left_icon = raster;
+		}
+
+		{
+			final Raster raster = restore(components_factory, element.material_design_settings.background, settings);
+			mtds.drawer_background = raster;
+		}
+		{
+			final ID string_namespace = Names.newID(element.material_design_settings.strings.namespace);
+		}
+		{
+			final ArrayList<MaterialDesingSection> sections = element.material_design_settings.sections;
+
+			for (int i = 0; i < sections.size(); i++) {
+				final MaterialDesingSection section = sections.get(i);
+
+				final RedScene scene = restore(components_factory, section.layer, settings);
+
+				final DrawerSection sec = mtds.newSection();
+				sec.layer = scene.getRoot();
+
+				mtds.sections.add(sec);
+
+			}
+		}
+
+		final Drawer drawer = mdd.newDrawer(mtds);
+
+		return drawer;
+
+	}
 
 	private NinePatch restoreNinePatch (final LayerElement element, final ComponentsFactory components_factory,
 		final Settings settings) {
@@ -437,6 +591,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 		}
 		final SceneStructureAsset structure = (SceneStructureAsset)reg.asset();
 		final Settings settings = parentSettings.copy(structure, scene);
+		settings.stack.clear();
 
 		settings.scene_name = structure_id + "";
 		L.d("deploying", structure_id);
@@ -737,7 +892,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 	private void restoreSubLayer (final Layer layer, final LayerElement celement, final Settings settings) {
 		final ComponentsFactory components_factory = layer.getComponentsFactory();
 
-		if (celement.offset_x != 0 || celement.offset_y != 0) {
+		if (Utils.equalObjects(celement.offset_x, 0d) || Utils.equalObjects(celement.offset_y, 0d)) {
 			final OffsetProjection projection = Geometry.getProjectionFactory().newOffset(celement.offset_x, celement.offset_y);
 			layer.setProjection(projection);
 		}
@@ -854,13 +1009,13 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 
 		this.root = components_factory.newLayer();
 		final LayerElement frame_element = this.original_structure.root();
-		if (frame_element.is_animation =!!!= true) {
+		if (Utils.equalObjects(frame_element.is_animation, Boolean.TRUE)) {
 			Err.reportError("Broken structure: root.is_animation == true");
 		}
-		if (frame_element.is_raster == true) {
+		if (Utils.equalObjects(frame_element.is_raster, Boolean.TRUE)) {
 			Err.reportError("Broken structure: root.is_raster == true");
 		}
-		if (frame_element.is_user_input == true) {
+		if (Utils.equalObjects(frame_element.is_user_input, Boolean.TRUE)) {
 			Err.reportError("Broken structure: root.is_user_input == true");
 		}
 
@@ -887,6 +1042,8 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 		for (int i = 0; i < root_element.children.size(); i++) {
 			final SceneStructureAsset structure = settings.getStructure();
 			final LayerElement child = root_element.children.elementAt(i, structure.structure());
+
+// final wrong structure
 			final Component vc = restore(components_factory, child, settings);
 			root.attachComponent(vc);
 		}

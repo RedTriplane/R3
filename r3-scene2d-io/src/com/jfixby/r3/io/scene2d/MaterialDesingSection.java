@@ -5,10 +5,7 @@ import java.io.Serializable;
 
 public class MaterialDesingSection implements Serializable {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = -6435777769408719507L;
-	public String layer_id;
+	public LayerElement layer;
 
 }
