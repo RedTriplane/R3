@@ -1,7 +1,6 @@
 
 package com.jfixby.r3.activity.red.input;
 
-import com.jfixby.r3.activity.api.input.ButtonSpecs;
 import com.jfixby.r3.activity.api.input.CustomInputSpecs;
 import com.jfixby.r3.activity.api.input.TouchAreaSpecs;
 import com.jfixby.r3.activity.api.layer.VisibleComponent;
@@ -10,7 +9,9 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 
-public class InputSpecs implements ButtonSpecs, CustomInputSpecs {
+public class InputSpecs implements
+// ButtonSpecs,
+	CustomInputSpecs {
 
 	final List<TouchAreaSpecs> touch_areas = Collections.newList();
 	private String button_name;
@@ -36,25 +37,25 @@ public class InputSpecs implements ButtonSpecs, CustomInputSpecs {
 		this.button_name = button_name;
 	}
 
-	@Override
-	public void setOnPressedRaster (final VisibleComponent raster) {
-		this.pressedRaster = raster;
-	}
-
-	@Override
-	public void setOnReleasedRaster (final VisibleComponent raster) {
-		this.releasedRaster = raster;
-	}
-
-	@Override
-	public VisibleComponent getOnPressedRaster () {
-		return this.pressedRaster;
-	}
-
-	@Override
-	public VisibleComponent getOnReleasedRaster () {
-		return this.releasedRaster;
-	}
+// @Override
+// public void setOnPressedRaster (final VisibleComponent raster) {
+// this.pressedRaster = raster;
+// }
+//
+// @Override
+// public void setOnReleasedRaster (final VisibleComponent raster) {
+// this.releasedRaster = raster;
+// }
+//
+// @Override
+// public VisibleComponent getOnPressedRaster () {
+// return this.pressedRaster;
+// }
+//
+// @Override
+// public VisibleComponent getOnReleasedRaster () {
+// return this.releasedRaster;
+// }
 
 	@Override
 	public String getName () {

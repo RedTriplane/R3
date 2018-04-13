@@ -1,12 +1,12 @@
 
 package com.jfixby.r3.activity.red.mdesign;
 
-import com.jfixby.r3.activity.api.mtdesign.ButtonList;
-import com.jfixby.r3.activity.api.mtdesign.ButtonListSpecs;
-import com.jfixby.r3.activity.api.mtdesign.Drawer;
-import com.jfixby.r3.activity.api.mtdesign.DrawerSpecs;
-import com.jfixby.r3.activity.api.mtdesign.MaterialDesignDepartment;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
+import com.jfixby.r3.material.api.ButtonList;
+import com.jfixby.r3.material.api.ButtonListSpecs;
+import com.jfixby.r3.material.api.Drawer;
+import com.jfixby.r3.material.api.DrawerSpecs;
+import com.jfixby.r3.material.api.MaterialDesignDepartment;
 
 public class RedMaterialDesignDepartment implements MaterialDesignDepartment {
 
@@ -28,12 +28,12 @@ public class RedMaterialDesignDepartment implements MaterialDesignDepartment {
 
 	@Override
 	public Drawer newDrawer (final DrawerSpecs mtds) {
-		return new RedDrawer(this.master);
+		return new RedDrawer(this.master, mtds);
 	}
 
 	@Override
 	public ButtonList newButtonList (final ButtonListSpecs mtds) {
-		return new RedButtonList(this.master);
+		return new RedButtonList(this.master, mtds);
 	}
 
 }

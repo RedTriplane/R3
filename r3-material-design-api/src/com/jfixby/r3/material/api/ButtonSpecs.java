@@ -1,6 +1,7 @@
 
-package com.jfixby.r3.activity.api.input;
+package com.jfixby.r3.material.api;
 
+import com.jfixby.r3.activity.api.input.InputSpecs;
 import com.jfixby.r3.activity.api.layer.VisibleComponent;
 
 public interface ButtonSpecs extends InputSpecs {

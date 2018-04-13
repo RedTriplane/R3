@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.activity.api.mtdesign;
+package com.jfixby.r3.material.api;
 
 import com.jfixby.r3.activity.api.layer.Layer;
 

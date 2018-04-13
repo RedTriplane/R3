@@ -3,16 +3,18 @@ package com.jfixby.r3.activity.red.mdesign;
 
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.layer.Layer;
-import com.jfixby.r3.activity.api.mtdesign.ButtonList;
+import com.jfixby.r3.activity.api.layer.VisibleComponent;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.layers.RedLayer;
+import com.jfixby.r3.material.api.ButtonList;
+import com.jfixby.r3.material.api.ButtonListSpecs;
 
-public class RedButtonList implements ButtonList, LayerBasedComponent {
+public class RedButtonList implements ButtonList, VisibleComponent, LayerBasedComponent {
 
 	private final RedComponentsFactory master;
 	private final RedLayer root;
 
-	public RedButtonList (final RedComponentsFactory master) {
+	public RedButtonList (final RedComponentsFactory master, final ButtonListSpecs mtds) {
 		this.master = master;
 		this.root = master.newLayer();
 

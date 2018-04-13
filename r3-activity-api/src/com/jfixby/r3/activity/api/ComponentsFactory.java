@@ -6,7 +6,6 @@ import com.jfixby.r3.activity.api.camera.CameraFactory;
 import com.jfixby.r3.activity.api.geometry.GeometryComponentsFactory;
 import com.jfixby.r3.activity.api.input.UserInputFactory;
 import com.jfixby.r3.activity.api.layer.Layer;
-import com.jfixby.r3.activity.api.mtdesign.MaterialDesignDepartment;
 import com.jfixby.r3.activity.api.parallax.ParallaxFactory;
 import com.jfixby.r3.activity.api.raster.RasterComponentsFactory;
 import com.jfixby.r3.activity.api.scene.SceneFactory;
@@ -36,7 +35,5 @@ public interface ComponentsFactory {
 	SceneFactory getSceneDepartment ();
 
 	UIFactory getUIDepartment ();
-
-	MaterialDesignDepartment getMaterialDesignDepartment ();
 
 }

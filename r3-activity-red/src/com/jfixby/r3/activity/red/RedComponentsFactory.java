@@ -7,7 +7,6 @@ import com.jfixby.r3.activity.api.animation.AnimationFactory;
 import com.jfixby.r3.activity.api.camera.CameraFactory;
 import com.jfixby.r3.activity.api.geometry.GeometryComponentsFactory;
 import com.jfixby.r3.activity.api.input.UserInputFactory;
-import com.jfixby.r3.activity.api.mtdesign.MaterialDesignDepartment;
 import com.jfixby.r3.activity.api.parallax.ParallaxFactory;
 import com.jfixby.r3.activity.api.scene.SceneFactory;
 import com.jfixby.r3.activity.api.shader.ShaderFactory;
@@ -20,6 +19,7 @@ import com.jfixby.r3.activity.red.scene.RedSceneFactory;
 import com.jfixby.r3.activity.red.shader.RedShadersFactory;
 import com.jfixby.r3.activity.red.text.RedTextFacory;
 import com.jfixby.r3.activity.red.ui.RedUIFactory;
+import com.jfixby.r3.material.api.MaterialDesignDepartment;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 
 public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {

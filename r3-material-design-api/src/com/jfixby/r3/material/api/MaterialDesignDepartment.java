@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.activity.api.mtdesign;
+package com.jfixby.r3.material.api;
 
 public interface MaterialDesignDepartment {
 
@@ -10,5 +10,9 @@ public interface MaterialDesignDepartment {
 	Drawer newDrawer (DrawerSpecs mtds);
 
 	ButtonList newButtonList (ButtonListSpecs mtds);
+
+	ButtonSpecs newButtonSpecs ();
+
+	Button newButton (ButtonSpecs button_specs);
 
 }

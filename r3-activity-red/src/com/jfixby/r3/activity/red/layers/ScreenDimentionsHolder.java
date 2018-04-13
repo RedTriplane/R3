@@ -32,4 +32,11 @@ public class ScreenDimentionsHolder implements ScreenDimentions {
 	private int screenWidth;
 
 	private int screenHeight;
+
+	@Override
+	public String toString () {
+		return "ScreenDimentions[widthToHeightRatio=" + this.widthToHeightRatio + ", screenWidth=" + this.screenWidth
+			+ ", screenHeight=" + this.screenHeight + "]";
+	}
+
 }
