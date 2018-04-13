@@ -1,6 +1,5 @@
-
 package com.jfixby.r3.material.api;
 
-public class DrawerSection {
+public interface WidgetHolder {
 
 }

@@ -3,14 +3,14 @@ package com.jfixby.r3.material.api;
 
 import java.util.ArrayList;
 
-import com.jfixby.r3.activity.api.raster.Raster;
+import com.jfixby.scarabei.api.names.ID;
 
 public class DrawerSpecs {
 
 	public int top_bar_height;
-	public Raster top_bar_background;
-	public Raster left_icon;
-	public Raster drawer_background;
+	public ID top_bar_background;
+	public ID left_icon;
+	public ID drawer_background;
 
 	public final ArrayList<DrawerSection> sections = new ArrayList();
 

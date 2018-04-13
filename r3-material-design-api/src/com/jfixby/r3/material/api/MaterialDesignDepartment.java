@@ -15,4 +15,14 @@ public interface MaterialDesignDepartment {
 
 	Button newButton (ButtonSpecs button_specs);
 
+// @Override
+// public ButtonSpecs newButtonSpecs () {
+// return new InputSpecs();
+// }
+//
+// @Override
+// public Button newButton (final ButtonSpecs button_specs) {
+// return new RedButton(button_specs, this.master);
+// }
+
 }

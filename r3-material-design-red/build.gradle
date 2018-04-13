@@ -1,0 +1,7 @@
+dependencies {
+      compile project(":r3-material-design-api")
+}
+ 
+sourceCompatibility = 1.7
+ 
+ 

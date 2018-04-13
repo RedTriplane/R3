@@ -7,11 +7,8 @@ import com.jfixby.r3.activity.api.input.TouchArea;
 import com.jfixby.r3.activity.api.input.TouchAreaSpecs;
 import com.jfixby.r3.activity.api.input.UserInputFactory;
 import com.jfixby.r3.activity.red.input.InputSpecs;
-import com.jfixby.r3.activity.red.input.RedButton;
 import com.jfixby.r3.activity.red.input.RedTouchArea;
 import com.jfixby.r3.activity.red.input.RedTouchAreaSpecs;
-import com.jfixby.r3.material.api.Button;
-import com.jfixby.r3.material.api.ButtonSpecs;
 
 public class RedUserInputFactory implements UserInputFactory {
 
@@ -19,16 +16,6 @@ public class RedUserInputFactory implements UserInputFactory {
 
 	public RedUserInputFactory (final RedComponentsFactory redComponentsFactory) {
 		this.master = redComponentsFactory;
-	}
-
-	@Override
-	public ButtonSpecs newButtonSpecs () {
-		return new InputSpecs();
-	}
-
-	@Override
-	public Button newButton (final ButtonSpecs button_specs) {
-		return new RedButton(button_specs, this.master);
 	}
 
 	@Override

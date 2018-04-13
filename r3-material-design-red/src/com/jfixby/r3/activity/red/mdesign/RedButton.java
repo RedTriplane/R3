@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.activity.red.input;
+package com.jfixby.r3.activity.red.mdesign;
 
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.input.TouchArea;

@@ -1,6 +1,6 @@
 
 package com.jfixby.r3.material.api;
 
-public interface Drawer extends MaterialDesignComponent {
+public interface Drawer extends Widget {
 
 }
