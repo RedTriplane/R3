@@ -12,7 +12,7 @@ import com.jfixby.r3.scene2d.api.Scene2DComponent;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 
-public class RedSceneFactory implements Scene2DComponent {
+public class RedScene2D implements Scene2DComponent {
 
 	@Override
 	public Layer newScene (final ComponentsFactory components_factory, final Scene2DSpawningConfig config) {
