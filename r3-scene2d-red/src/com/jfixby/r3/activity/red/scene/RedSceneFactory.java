@@ -1,11 +1,12 @@
 
 package com.jfixby.r3.activity.red.scene;
 
+import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.scene.Scene2DComponent;
-import com.jfixby.r3.activity.api.scene.Scene2DSpawningConfig;
 import com.jfixby.r3.activity.api.scene.SceneFactory;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
+import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
 import com.jfixby.r3.rana.api.manager.AssetsManager;
 import com.jfixby.scarabei.api.debug.Debug;
@@ -25,11 +26,10 @@ public class RedSceneFactory implements SceneFactory {
 	}
 
 	@Override
-	public Scene2DComponent newScene (final Scene2DSpawningConfig config) {
-		Debug.checkNull("config", config);
-		Debug.checkNull("components_factory", this.components_factory);
+	public Scene2DComponent newScene (final ComponentsFactory components_factory, final Scene2DSpawningConfig config) {
+		Debug.checkNull("components_factory", components_factory);
 // final ID asset_id = config.getStructureID();
-		Debug.checkNull("components_factory", this.components_factory);
+		Debug.checkNull("components_factory", components_factory);
 		Debug.checkNull("structureID", config.structureID);
 // final PackageReaderListener listener = config.getPackageListener();
 		try {
@@ -39,7 +39,7 @@ public class RedSceneFactory implements SceneFactory {
 			Err.reportError(e);
 		}
 
-		final AssetHandler handler = LoadedAssets.obtainAsset(config.structureID, this.components_factory);
+		final AssetHandler handler = LoadedAssets.obtainAsset(config.structureID, (AssetsConsumer)components_factory);
 		if (handler == null) {
 			LoadedAssets.printAllLoadedAssets();
 			Err.reportError("Asset not found: <" + config.structureID + ">");

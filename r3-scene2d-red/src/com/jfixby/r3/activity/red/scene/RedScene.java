@@ -35,7 +35,7 @@ import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.sys.Sys;
 import com.jfixby.scarabei.api.util.Utils;
 
-public class RedScene implements Scene2DComponent, LayerBasedComponent {
+public class RedScene implements LayerBasedComponent {
 
 	private static final String PREFIX = "                    ";
 	Layer root;
@@ -43,7 +43,7 @@ public class RedScene implements Scene2DComponent, LayerBasedComponent {
 	final List<CanvasComponent> canvas_components = Collections.newList();
 	final List<Animation> animations = Collections.newList();
 	final List<Raster> rasters = Collections.newList();
-	final List<Scene2DComponent> child_scenes = Collections.newList();
+	final List<RedScene> child_scenes = Collections.newList();
 	final List<TextBar> text_fields = Collections.newList();
 
 // private final List<ShaderComponent> shaders = Collections.newList();

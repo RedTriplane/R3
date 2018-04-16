@@ -8,7 +8,6 @@ import com.jfixby.r3.activity.api.input.UserInputFactory;
 import com.jfixby.r3.activity.api.layer.Layer;
 import com.jfixby.r3.activity.api.parallax.ParallaxFactory;
 import com.jfixby.r3.activity.api.raster.RasterComponentsFactory;
-import com.jfixby.r3.activity.api.scene.SceneFactory;
 import com.jfixby.r3.activity.api.shader.ShaderFactory;
 import com.jfixby.r3.activity.api.txt.TextFactory;
 
@@ -31,8 +30,6 @@ public interface ComponentsFactory {
 	ShaderFactory getShadersDepartment ();
 
 	ParallaxFactory getParallaxDepartment ();
-
-	SceneFactory getSceneDepartment ();
 
 	UIFactory getUIDepartment ();
 
