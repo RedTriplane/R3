@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.material.api;
+package com.jfixby.r3.material.api.btn;
 
 import com.jfixby.scarabei.api.names.ID;
 

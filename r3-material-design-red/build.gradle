@@ -1,6 +1,8 @@
 dependencies {
-      compile project(":r3-material-design-api")
-}
+         compile project(":r3-material-design-api")
+         compile project(":r3-scene2d-api")
+         compile project(":r3-scene2d-io")
+      }
  
 sourceCompatibility = 1.7
  

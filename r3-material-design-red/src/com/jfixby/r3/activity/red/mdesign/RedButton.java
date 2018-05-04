@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.scene2d.red.mt;
+package com.jfixby.r3.activity.red.mdesign;
 
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.input.TouchArea;
@@ -12,8 +12,8 @@ import com.jfixby.r3.activity.red.ContainerOwner;
 import com.jfixby.r3.activity.red.OnMouseInputEventListenerContainer;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.layers.RedLayer;
-import com.jfixby.r3.material.api.Button;
-import com.jfixby.r3.material.api.ButtonSpecs;
+import com.jfixby.r3.material.api.btn.Button;
+import com.jfixby.r3.material.api.btn.ButtonSpecs;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;

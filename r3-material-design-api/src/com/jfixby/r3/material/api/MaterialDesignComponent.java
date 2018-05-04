@@ -1,7 +1,13 @@
 
 package com.jfixby.r3.material.api;
 
-public interface MaterialDesignDepartment {
+import com.jfixby.r3.material.api.btn.Button;
+import com.jfixby.r3.material.api.btn.ButtonList;
+import com.jfixby.r3.material.api.btn.ButtonListSpecs;
+import com.jfixby.r3.material.api.btn.ButtonSpecs;
+import com.jfixby.r3.material.api.btn.Drawer;
+
+public interface MaterialDesignComponent {
 
 	DrawerSpecs newDrawerSpecs ();
 

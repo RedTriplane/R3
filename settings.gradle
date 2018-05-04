@@ -10,6 +10,8 @@ include 'r3-scene2d-api'
 include 'r3-scene2d-red'
 include 'r3-scene2d-io'
 
+include 'r3-widget-io'
+
 include 'r3-material-design-api'
 include 'r3-material-design-red'
 

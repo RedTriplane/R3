@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.material.api;
+package com.jfixby.r3.material.api.btn;
 
 public interface ButtonSpecs {
 

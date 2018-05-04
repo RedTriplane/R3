@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.scene2d.red.mt;
+package com.jfixby.r3.activity.red.mdesign;
 
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.camera.ScreenDimentions;
@@ -8,17 +8,15 @@ import com.jfixby.r3.activity.api.layer.VisibleComponent;
 import com.jfixby.r3.activity.api.raster.Raster;
 import com.jfixby.r3.activity.api.user.MouseInputEventListener;
 import com.jfixby.r3.activity.api.user.ScreenChangeListener;
-import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.layers.RedLayer;
-import com.jfixby.r3.material.api.Button;
-import com.jfixby.r3.material.api.ButtonSpecs;
-import com.jfixby.r3.material.api.Drawer;
 import com.jfixby.r3.material.api.DrawerSpecs;
+import com.jfixby.r3.material.api.btn.Button;
+import com.jfixby.r3.material.api.btn.ButtonSpecs;
+import com.jfixby.r3.material.api.btn.Drawer;
 import com.jfixby.scarabei.api.log.L;
 
 public class RedDrawer implements Drawer, VisibleComponent, LayerBasedComponent {
 
-	private final RedComponentsFactory master;
 	private final RedLayer root;
 	private final Raster drawer_background;
 	private final Raster left_icon;
@@ -43,8 +41,7 @@ public class RedDrawer implements Drawer, VisibleComponent, LayerBasedComponent 
 		this.drawer_background.setHeight(this.top_bar_height);
 	}
 
-	public RedDrawer (final RedComponentsFactory master, final DrawerSpecs mtds) {
-		this.master = master;
+	public RedDrawer (final DrawerSpecs mtds) {
 		this.root = master.newLayer();
 
 		this.root.attachComponent(this.listener);

@@ -39,6 +39,7 @@ import com.jfixby.r3.activity.api.txt.TextBarSpecs;
 import com.jfixby.r3.activity.api.txt.TextFactory;
 import com.jfixby.r3.activity.api.ui.ninepatch.NinePatch;
 import com.jfixby.r3.activity.api.ui.ninepatch.NinePatchSettings;
+import com.jfixby.r3.material.api.MaterialDesign;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
@@ -47,10 +48,10 @@ import com.jfixby.r3.scene2d.io.Action;
 import com.jfixby.r3.scene2d.io.ActionsGroup;
 import com.jfixby.r3.scene2d.io.Anchor;
 import com.jfixby.r3.scene2d.io.CameraSettings;
+import com.jfixby.r3.scene2d.io.CameraSettings.MODE;
 import com.jfixby.r3.scene2d.io.LayerElement;
 import com.jfixby.r3.scene2d.io.ParallaxSettings;
 import com.jfixby.r3.scene2d.io.RASTER_BLEND_MODE;
-import com.jfixby.r3.scene2d.io.CameraSettings.MODE;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.color.Color;
@@ -71,7 +72,6 @@ import com.jfixby.scarabei.api.strings.TextSpawner;
 import com.jfixby.scarabei.api.util.Utils;
 
 public class RedSceneConstructor {
-	private final RedMaterialDesignConstructor materealDesignConstructor = new RedMaterialDesignConstructor(this);
 
 	<T extends Component> T restore (final ComponentsFactory components_factory, final LayerElement element,
 		final Settings settings) {
@@ -184,7 +184,7 @@ public class RedSceneConstructor {
 
 		) {
 
-			final Component component0 = this.materealDesignConstructor.restoreMaterialDesign(element, components_factory, settings);
+			final Component component0 = MaterialDesign.restoreMaterialDesign(element, components_factory, settings);
 
 // currentScene.ninepatches.add(ninpatch);
 

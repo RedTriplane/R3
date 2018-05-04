@@ -1,21 +1,18 @@
 
-package com.jfixby.r3.scene2d.red.mt;
+package com.jfixby.r3.activity.red.mdesign;
 
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.layer.Layer;
 import com.jfixby.r3.activity.api.layer.VisibleComponent;
-import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.layers.RedLayer;
-import com.jfixby.r3.material.api.ButtonList;
-import com.jfixby.r3.material.api.ButtonListSpecs;
+import com.jfixby.r3.material.api.btn.ButtonList;
+import com.jfixby.r3.material.api.btn.ButtonListSpecs;
 
 public class RedButtonList implements ButtonList, VisibleComponent, LayerBasedComponent {
 
-	private final RedComponentsFactory master;
 	private final RedLayer root;
 
-	public RedButtonList (final RedComponentsFactory master, final ButtonListSpecs mtds) {
-		this.master = master;
+	public RedButtonList (final ButtonListSpecs mtds) {
 		this.root = master.newLayer();
 
 	}
