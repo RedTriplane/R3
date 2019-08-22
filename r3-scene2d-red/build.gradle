@@ -4,10 +4,6 @@
       
       compile project(":r3-scene2d-api")
       compile project(":r3-scene2d-io")
-  
-      
-      
-      compile project(":r3-material-design-api")
       
       compile project(":r3-rana-api")
  
