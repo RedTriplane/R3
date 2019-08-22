@@ -12,14 +12,8 @@ include 'r3-scene2d-io'
 
 include 'r3-widget-io'
 
-include 'r3-material-design-api'
-include 'r3-material-design-red'
-
 include 'r3-text-io'
 include 'r3-text-red'
-
-
-
 
 include 'r3-activity-api'
 include 'r3-activity-red'
