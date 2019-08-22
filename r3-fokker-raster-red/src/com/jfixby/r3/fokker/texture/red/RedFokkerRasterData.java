@@ -38,7 +38,7 @@ public class RedFokkerRasterData implements FokkerTexture, Asset, RasterData {
 
 	@Override
 	public String toString () {
-		return "RedFokkerRasterData[" + this.master + "]";
+		return "RedFokkerRasterData[" + this.master.toString() + "]";
 	}
 
 }

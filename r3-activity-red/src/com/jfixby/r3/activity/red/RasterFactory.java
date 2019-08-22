@@ -9,7 +9,7 @@ import com.jfixby.r3.activity.api.raster.RasterPool;
 import com.jfixby.r3.activity.red.raster.RedTile;
 import com.jfixby.r3.activity.red.raster.RedTilesComposition;
 import com.jfixby.r3.activity.red.raster.TileSet;
-import com.jfixby.r3.engine.api.render.R3_SYSTEM_PARAMS;
+import com.jfixby.r3.engine.api.render.R3_RENDER_PARAMS;
 import com.jfixby.r3.engine.api.render.RasterData;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
@@ -30,9 +30,9 @@ public class RasterFactory implements RasterComponentsFactory {
 
 	@Override
 	public Raster newRaster (final ID newAssetID) {
-		final boolean allowMissingAsset = SystemSettings.getFlag(R3_SYSTEM_PARAMS.AllowMissingRaster);
-		final String missingAssetString = SystemSettings.getStringParameter(R3_SYSTEM_PARAMS.RASTER_IS_MISING, "");
-		final boolean reportFail = SystemSettings.getFlag(R3_SYSTEM_PARAMS.PrintLogMessageOnMissingSprite);
+		final boolean allowMissingAsset = SystemSettings.getFlag(R3_RENDER_PARAMS.AllowMissingRaster);
+		final String missingAssetString = SystemSettings.getStringParameter(R3_RENDER_PARAMS.RASTER_IS_MISING, "");
+		final boolean reportFail = SystemSettings.getFlag(R3_RENDER_PARAMS.PrintLogMessageOnMissingSprite);
 
 		AssetHandler asset_handler = LoadedAssets.obtainAsset(newAssetID, this.master);
 		if (asset_handler == null) {
