@@ -7,7 +7,7 @@ import com.jfixby.r3.rana.api.pkg.AssetsTankSpecs;
 import com.jfixby.r3.rana.api.pkg.PackagePackingArgs;
 import com.jfixby.r3.rana.api.pkg.PackageSearchParameters;
 import com.jfixby.r3.rana.api.pkg.PackageSearchResult;
-import com.jfixby.r3.rana.api.pkg.PackagesTank;
+import com.jfixby.r3.rana.api.pkg.AssetsTank;
 import com.jfixby.r3.rana.api.pkg.PackerSpecs;
 import com.jfixby.r3.rana.api.pkg.io.BankIndex;
 import com.jfixby.r3.rana.api.pkg.io.PackageDescriptor;
@@ -19,7 +19,7 @@ import com.jfixby.scarabei.api.file.FilesList;
 import com.jfixby.scarabei.api.json.Json;
 import com.jfixby.scarabei.api.log.L;
 
-public class RedResource implements PackagesTank {
+public class RedResource implements AssetsTank {
 
 	private final File bank_folder;
 

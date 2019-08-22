@@ -26,7 +26,6 @@ public class LayerElement implements java.io.Serializable {
 	public Boolean is_text = null;
 	public Boolean is_shader = null;
 	public Boolean is_parallax = null;
-	public Boolean is_material_design = null;
 
 	public Boolean debug_mode = null;
 

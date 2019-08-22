@@ -46,7 +46,7 @@ public interface PackagesManagerComponent {
 
 	AssetsTankSpecs newResourceSpecs ();
 
-	PackagesTank newResource (AssetsTankSpecs specs) throws IOException;
+	AssetsTank newAssetsTank (AssetsTankSpecs specs) throws IOException;
 
 // void updateAll (ResourceRebuildIndexListener listener);
 
@@ -59,5 +59,9 @@ public interface PackagesManagerComponent {
 	PackageSearchResult findPackages (PackageSearchParameters search_params);
 
 	void printAllPackages ();
+
+	BankDeploymentSpecs newBankDeploymentSpecs ();
+
+	FileSystemBankSettings deployBank (BankDeploymentSpecs bankDepSpecs) throws IOException;
 
 }

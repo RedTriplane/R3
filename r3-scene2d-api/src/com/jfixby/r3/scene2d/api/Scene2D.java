@@ -2,7 +2,6 @@
 package com.jfixby.r3.scene2d.api;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
-import com.jfixby.r3.activity.api.layer.Layer;
 import com.jfixby.scarabei.api.ComponentInstaller;
 
 public class Scene2D {
@@ -32,7 +31,7 @@ public class Scene2D {
 		return componentInstaller.getComponent();
 	}
 
-	public static Layer newScene (final ComponentsFactory components_factory, final Scene2DSpawningConfig config) {
+	public static Scene newScene (final ComponentsFactory components_factory, final Scene2DSpawningConfig config) {
 		return invoke().newScene(components_factory, config);
 	}
 

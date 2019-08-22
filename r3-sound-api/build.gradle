@@ -1,0 +1,8 @@
+ dependencies {
+      //compile "com.github.Scarabei.Scarabei:scarabei-api:$scarabeiVersion"
+ 
+ }
+ 
+  sourceCompatibility = 1.7
+ 
+ 

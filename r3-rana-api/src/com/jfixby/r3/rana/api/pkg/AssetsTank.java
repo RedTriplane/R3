@@ -3,7 +3,7 @@ package com.jfixby.r3.rana.api.pkg;
 
 import java.io.IOException;
 
-public interface PackagesTank {
+public interface AssetsTank {
 
 	PackageSearchResult findPackages (PackageSearchParameters search_params);
 

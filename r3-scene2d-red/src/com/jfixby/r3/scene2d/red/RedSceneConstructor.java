@@ -39,7 +39,6 @@ import com.jfixby.r3.activity.api.txt.TextBarSpecs;
 import com.jfixby.r3.activity.api.txt.TextFactory;
 import com.jfixby.r3.activity.api.ui.ninepatch.NinePatch;
 import com.jfixby.r3.activity.api.ui.ninepatch.NinePatchSettings;
-import com.jfixby.r3.material.api.MaterialDesign;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
@@ -130,7 +129,7 @@ public class RedSceneConstructor {
 			final RedScene scene = this.restoreChildScene(element, components_factory, settings);
 			currentScene.child_scenes.add(scene);
 // this.canvas_components.add(scene);
-			component = scene;
+			component = scene.getRoot();
 
 		} else if (
 
@@ -177,18 +176,6 @@ public class RedSceneConstructor {
 			currentScene.ninepatches.add(ninpatch);
 
 			component = ninpatch;
-
-		} else if (
-
-		Utils.equalObjects(element.is_material_design, Boolean.TRUE)
-
-		) {
-
-			final Component component0 = MaterialDesign.restoreMaterialDesign(element, components_factory, settings);
-
-// currentScene.ninepatches.add(ninpatch);
-
-			component = component0;
 
 		} else if (
 

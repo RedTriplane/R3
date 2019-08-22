@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.jfixby.r3.rana.api.pkg.PackageSearchParameters;
 import com.jfixby.r3.rana.api.pkg.PackageSearchResult;
 import com.jfixby.r3.rana.api.pkg.PackagesBank;
-import com.jfixby.r3.rana.api.pkg.PackagesTank;
+import com.jfixby.r3.rana.api.pkg.AssetsTank;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.debug.Debug;
@@ -16,7 +16,7 @@ import com.jfixby.scarabei.api.names.ID;
 
 public class RedBank implements PackagesBank {
 
-	private final Map<String, PackagesTank> resources = Collections.newMap();
+	private final Map<String, AssetsTank> resources = Collections.newMap();
 	private final ID bankName;
 
 	@Override
@@ -28,7 +28,7 @@ public class RedBank implements PackagesBank {
 		this.bankName = bank_name;
 	}
 
-	public void addResource (final PackagesTank resource_to_install) {
+	public void addResource (final AssetsTank resource_to_install) {
 		Debug.checkNull("resource_to_install", resource_to_install);
 		final String name = resource_to_install.getShortName();
 		if (this.resources.containsKey(name)) {
@@ -38,7 +38,7 @@ public class RedBank implements PackagesBank {
 	}
 
 	@Override
-	public PackagesTank getTank (final String string) {
+	public AssetsTank getTank (final String string) {
 		return this.resources.get(string);
 	}
 
@@ -50,7 +50,7 @@ public class RedBank implements PackagesBank {
 	@Override
 	public void printAllIndexes () {
 		for (int i = 0; i < this.resources.size(); i++) {
-			final PackagesTank resouce = this.resources.getValueAt(i);
+			final AssetsTank resouce = this.resources.getValueAt(i);
 			L.d("index of ", resouce);
 			resouce.printIndex();
 		}
@@ -58,7 +58,7 @@ public class RedBank implements PackagesBank {
 
 	public void rebuildIndex () throws IOException {
 		for (int i = 0; i < this.resources.size(); i++) {
-			final PackagesTank resouce = this.resources.getValueAt(i);
+			final AssetsTank resouce = this.resources.getValueAt(i);
 // L.d("index of ", resouce);
 			resouce.rebuildIndex();
 		}
@@ -69,7 +69,7 @@ public class RedBank implements PackagesBank {
 		final RedPackageSearchResult result = new RedPackageSearchResult(search_params);
 		Debug.checkNull("search_params", search_params);
 		for (int i = 0; i < this.resources.size(); i++) {
-			final PackagesTank resource = this.resources.getValueAt(i);
+			final AssetsTank resource = this.resources.getValueAt(i);
 			final PackageSearchResult result_i = resource.findPackages(search_params);
 			result.add(result_i);
 		}

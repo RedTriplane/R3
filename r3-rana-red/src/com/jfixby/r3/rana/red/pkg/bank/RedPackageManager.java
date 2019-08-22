@@ -3,7 +3,9 @@ package com.jfixby.r3.rana.red.pkg.bank;
 
 import java.io.IOException;
 
+import com.jfixby.r3.rana.api.pkg.AssetsTank;
 import com.jfixby.r3.rana.api.pkg.AssetsTankSpecs;
+import com.jfixby.r3.rana.api.pkg.BankDeploymentSpecs;
 import com.jfixby.r3.rana.api.pkg.FileSystemBankSettings;
 import com.jfixby.r3.rana.api.pkg.PackageSearchParameters;
 import com.jfixby.r3.rana.api.pkg.PackageSearchResult;
@@ -11,8 +13,8 @@ import com.jfixby.r3.rana.api.pkg.PackagesBank;
 import com.jfixby.r3.rana.api.pkg.PackagesManager;
 import com.jfixby.r3.rana.api.pkg.PackagesManagerComponent;
 import com.jfixby.r3.rana.api.pkg.PackagesManagerConfig;
-import com.jfixby.r3.rana.api.pkg.PackagesTank;
 import com.jfixby.r3.rana.api.pkg.RemoteBankSettings;
+import com.jfixby.r3.rana.api.pkg.TankDeploymentSpecs;
 import com.jfixby.r3.rana.api.pkg.io.BankHeaderInfo;
 import com.jfixby.r3.rana.api.pkg.io.cfg.HttpAssetsFolder;
 import com.jfixby.r3.rana.api.pkg.io.cfg.LocalAssetsFolder;
@@ -228,7 +230,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 // }
 
 	@Override
-	public PackagesTank newResource (final AssetsTankSpecs resSpec) throws IOException {
+	public AssetsTank newAssetsTank (final AssetsTankSpecs resSpec) throws IOException {
 		return new RedResource(resSpec);
 	}
 
@@ -355,7 +357,7 @@ public class RedPackageManager implements PackagesManagerComponent {
 			final String tankName = tank.getName();
 			resSpec.setName(bankSettings.name + "/" + tankName);
 			resSpec.setShortName(tankName);
-			final PackagesTank resource = RedPackageManager.this.newResource(resSpec);
+			final AssetsTank resource = RedPackageManager.this.newAssetsTank(resSpec);
 			bank.addResource(resource);
 		}
 
@@ -471,6 +473,46 @@ public class RedPackageManager implements PackagesManagerComponent {
 			results.add(bank);
 		}
 		return results;
+	}
+
+	@Override
+	public BankDeploymentSpecs newBankDeploymentSpecs () {
+		return new BankDeploymentSpecs();
+	}
+
+	@Override
+	public FileSystemBankSettings deployBank (final BankDeploymentSpecs bankDepSpecs) throws IOException {
+
+		final String bankname = bankDepSpecs.bankName;
+		Debug.checkEmpty("bankName", bankname);
+		Debug.checkNull("bankName", bankname);
+
+		final File bankingFolder = bankDepSpecs.bankParentFolder;
+		bankingFolder.makeFolder();
+		Debug.checkNull("bankParentFolder", bankingFolder);
+
+		final File localBankFolder = bankingFolder.child(bankname);
+		localBankFolder.makeFolder();
+
+		final File bankHeaderFile = localBankFolder.child(BankHeaderInfo.FILE_NAME);
+		L.d("writing", bankHeaderFile);
+
+		final BankHeaderInfo bankHeader = new BankHeaderInfo();
+		bankHeader.bank_name = bankname;
+
+		bankHeaderFile.writeString(Json.serializeToString(bankHeader).toString());
+
+		for (final TankDeploymentSpecs tank : bankDepSpecs.tanks) {
+			final String tankName = tank.tankName;
+			Debug.checkEmpty("tankName", tankName);
+			Debug.checkNull("tankName", tankName);
+			final File tankFoler = localBankFolder.child(tankName);
+			tankFoler.makeFolder();
+		}
+
+		final FileSystemBankSettings bank = this.findBank(localBankFolder);
+
+		return bank;
 	}
 
 }

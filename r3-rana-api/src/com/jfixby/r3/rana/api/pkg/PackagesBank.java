@@ -13,6 +13,6 @@ public interface PackagesBank {
 
 // Promise<Void> rebuildIndex () throws IOException;
 
-	PackagesTank getTank (String tankName);
+	AssetsTank getTank (String tankName);
 
 }

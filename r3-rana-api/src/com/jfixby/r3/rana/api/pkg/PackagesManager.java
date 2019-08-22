@@ -60,12 +60,12 @@ public class PackagesManager {
 // invoke().printInstalledPackageReaders();
 // }
 
-	public static AssetsTankSpecs newResourceSpecs () {
+	public static AssetsTankSpecs newAssetsTankSpecs () {
 		return invoke().newResourceSpecs();
 	}
 
-	public static PackagesTank newResource (final AssetsTankSpecs specs) throws IOException {
-		return invoke().newResource(specs);
+	public static AssetsTank newAssetsTank (final AssetsTankSpecs specs) throws IOException {
+		return invoke().newAssetsTank(specs);
 	}
 
 // public static Resource getResource (final String name) {
@@ -98,6 +98,14 @@ public class PackagesManager {
 
 	public static Collection<FileSystemBankSettings> findBanks (final File assets_folder) throws IOException {
 		return invoke().findBanks(assets_folder);
+	}
+
+	public static BankDeploymentSpecs newBankDeploymentSpecs () {
+		return invoke().newBankDeploymentSpecs();
+	}
+
+	public static FileSystemBankSettings deployBank (final BankDeploymentSpecs bankDepSpecs) throws IOException {
+		return invoke().deployBank(bankDepSpecs);
 	}
 
 }

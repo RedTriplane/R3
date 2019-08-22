@@ -2,7 +2,6 @@
 package com.jfixby.r3.scene2d.red;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
-import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.animation.Animation;
 import com.jfixby.r3.activity.api.camera.CanvasCamera;
 import com.jfixby.r3.activity.api.input.InputComponent;
@@ -16,6 +15,7 @@ import com.jfixby.r3.activity.api.txt.TextBar;
 import com.jfixby.r3.activity.api.txt.TextBarSpecs;
 import com.jfixby.r3.activity.api.txt.TextFactory;
 import com.jfixby.r3.activity.api.ui.ninepatch.NinePatch;
+import com.jfixby.r3.scene2d.api.Scene;
 import com.jfixby.r3.scene2d.io.CameraSettings;
 import com.jfixby.r3.scene2d.io.LayerElement;
 import com.jfixby.scarabei.api.collections.Collection;
@@ -34,7 +34,7 @@ import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.sys.Sys;
 import com.jfixby.scarabei.api.util.Utils;
 
-public class RedScene implements LayerBasedComponent {
+public class RedScene implements Scene {
 
 	private static final String PREFIX = "                    ";
 	Layer root;
@@ -275,6 +275,7 @@ public class RedScene implements LayerBasedComponent {
 		return this.parallaxes;
 	}
 
+	@Override
 	public void startAllAnimations () {
 		for (final Animation animation : this.animations) {
 			animation.startAnimation();

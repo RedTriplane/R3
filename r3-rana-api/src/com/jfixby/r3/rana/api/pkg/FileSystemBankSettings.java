@@ -11,4 +11,10 @@ public class FileSystemBankSettings {
 	public File cacheFolder;
 	public final Set<String> tanks = Collections.newSet();
 
+	@Override
+	public String toString () {
+		return "FileSystemBankSettings [name=" + this.name + ", bankFolder=" + this.bankFolder + ", cacheFolder=" + this.cacheFolder
+			+ ", tanks=" + this.tanks + "]";
+	}
+
 }
