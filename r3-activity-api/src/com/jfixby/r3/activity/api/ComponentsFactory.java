@@ -2,6 +2,7 @@
 package com.jfixby.r3.activity.api;
 
 import com.jfixby.r3.activity.api.animation.AnimationFactory;
+import com.jfixby.r3.activity.api.audio.SoundFactory;
 import com.jfixby.r3.activity.api.camera.CameraFactory;
 import com.jfixby.r3.activity.api.geometry.GeometryComponentsFactory;
 import com.jfixby.r3.activity.api.input.UserInputFactory;
@@ -32,5 +33,7 @@ public interface ComponentsFactory {
 	ParallaxFactory getParallaxDepartment ();
 
 	UIFactory getUIDepartment ();
+
+	SoundFactory getSoundFactory ();
 
 }

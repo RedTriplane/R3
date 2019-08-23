@@ -1,4 +1,4 @@
-package com.jfixby.r3.fokker.sound.red;
+package com.jfixby.r3.fokker.sound.red.samples;
 
 import com.jfixby.r3.rana.api.AssetsGroup;
 

@@ -3,11 +3,11 @@ package com.jfixby.r3.rana.red.pkg.bank;
 
 import java.io.IOException;
 
+import com.jfixby.r3.rana.api.pkg.AssetsTank;
 import com.jfixby.r3.rana.api.pkg.AssetsTankSpecs;
 import com.jfixby.r3.rana.api.pkg.PackagePackingArgs;
 import com.jfixby.r3.rana.api.pkg.PackageSearchParameters;
 import com.jfixby.r3.rana.api.pkg.PackageSearchResult;
-import com.jfixby.r3.rana.api.pkg.AssetsTank;
 import com.jfixby.r3.rana.api.pkg.PackerSpecs;
 import com.jfixby.r3.rana.api.pkg.io.BankIndex;
 import com.jfixby.r3.rana.api.pkg.io.PackageDescriptor;
@@ -174,9 +174,11 @@ public class RedResource implements AssetsTank {
 				final String json = json_file.readToString();
 
 				final PackageDescriptor descriptor = Json.deserializeFromString(PackageDescriptor.class, json);
+
 				if (descriptor.version == null) {
 					return;
 				}
+// L.d("index", descriptor);
 				this.index(descriptor, package_folder);
 				return;
 			} catch (final IOException e2) {

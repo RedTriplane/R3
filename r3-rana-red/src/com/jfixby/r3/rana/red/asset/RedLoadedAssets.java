@@ -94,7 +94,7 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 		final RedAssetHandler asset = this.assets.get(asset_id);
 		if (asset == null) {
 			// assets.print("available assets");
-			L.e("Asset not found <" + asset_id + "> (https://github.com/JFixby/RedTriplane/issues/7)");
+			L.e("Asset not found <" + asset_id + "> (https://github.com/RedTriplane/RedTriplane/issues/7)");
 			return null;
 		} else {
 			final AssetUser user = new AssetUser(consumer);

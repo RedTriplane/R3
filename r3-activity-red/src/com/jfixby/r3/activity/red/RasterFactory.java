@@ -38,14 +38,14 @@ public class RasterFactory implements RasterComponentsFactory {
 		if (asset_handler == null) {
 			if (!allowMissingAsset) {
 				PackagesManager.printAllIndexes();
-				Err.reportError("Asset<" + newAssetID + "> not found.");
+				Err.reportError("Asset<" + newAssetID + "> is not loaded.");
 				return null;
 			}
 
 			final ID missingAsset = Names.newID(missingAssetString);
 			asset_handler = LoadedAssets.obtainAsset(missingAsset, this.master);
 			if (asset_handler == null) {
-				Err.reportError("Asset not loaded: " + missingAsset);
+				Err.reportError("Asset is not loaded: " + missingAsset);
 				return null;
 			}
 
@@ -68,7 +68,7 @@ public class RasterFactory implements RasterComponentsFactory {
 			return compos;
 		}
 
-		Err.reportError("Unknown asset type: " + asset);
+		Err.reportError("Unsupported raster asset type: " + asset);
 		return null;
 
 	}

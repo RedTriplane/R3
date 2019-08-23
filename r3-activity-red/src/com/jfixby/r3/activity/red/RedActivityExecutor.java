@@ -7,6 +7,7 @@ import com.jfixby.r3.engine.api.RedTriplane;
 import com.jfixby.r3.engine.api.exe.EngineExecutor;
 import com.jfixby.r3.engine.api.exe.EngineState;
 import com.jfixby.r3.engine.api.render.RenderMachine;
+import com.jfixby.r3.engine.api.sound.SoundMachine;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.log.L;
@@ -61,6 +62,7 @@ public class RedActivityExecutor implements EngineExecutor {
 
 		this.units_manager = new ActivityManager();
 		RenderMachine.deploy();
+		SoundMachine.deploy();
 		final ID starter = RedTriplane.getGameStarter();
 		if (starter == null) {
 			Err.reportError("RedTriplane.GameStarter is not set");
@@ -79,6 +81,8 @@ public class RedActivityExecutor implements EngineExecutor {
 		if (this.units_manager.isIdle()) {
 			return;
 		}
+		RenderMachine.destroy();
+		SoundMachine.destroy();
 	}
 
 	@Override

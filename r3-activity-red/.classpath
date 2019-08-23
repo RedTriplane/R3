@@ -11,5 +11,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-scene2d-io"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-texture-slicer-io"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-fokker-font-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/r3-sound-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

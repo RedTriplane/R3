@@ -49,8 +49,12 @@ public class ToGdxFileAdaptor extends FileHandle {
 
 	@Override
 	public String extension () {
-		this.err("extension");
-		return super.extension();
+		final String name = this.fixby_file.getName();
+		final int dotIndex = name.lastIndexOf('.');
+		if (dotIndex == -1) {
+			return "";
+		}
+		return name.substring(dotIndex + 1);
 	}
 
 	@Override

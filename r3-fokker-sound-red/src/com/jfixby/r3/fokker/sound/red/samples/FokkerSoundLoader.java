@@ -1,9 +1,9 @@
 
-package com.jfixby.r3.fokker.sound.red;
+package com.jfixby.r3.fokker.sound.red.samples;
 
 import java.io.IOException;
 
-import com.jfixby.r3.fokker.sound.api.FokkerAudioPackageReader;
+import com.jfixby.r3.fokker.sound.api.samples.FokkerAudioSamplesPackageReader;
 import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.format.PackageFormat;
 import com.jfixby.r3.rana.api.loader.PackageLoader;
@@ -13,18 +13,14 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 
-public class FokkerSoundLoader implements PackageLoader, FokkerAudioPackageReader {
-	public static final PackageFormat MP3 = new PackageFormat(PackageFormats.MP3);
-	public static final PackageFormat WAV = new PackageFormat(PackageFormats.WAV);
-	public static final PackageFormat OGG = new PackageFormat(PackageFormats.OGG);
+public class FokkerSoundLoader implements PackageLoader, FokkerAudioSamplesPackageReader {
+	public static final PackageFormat R3_AUDIO_PACKAGE = new PackageFormat(PackageFormats.R3_AUDIO_PACKAGE);
 
 	final List<PackageFormat> acceptablePackageFormats = Collections.newList();
-	private final RedFokkerSounds registry;
+	private final RedFokkerAudioSamples registry;
 
-	FokkerSoundLoader (final RedFokkerSounds registry) {
-		this.acceptablePackageFormats.add(MP3);
-		this.acceptablePackageFormats.add(WAV);
-		this.acceptablePackageFormats.add(OGG);
+	FokkerSoundLoader (final RedFokkerAudioSamples registry) {
+		this.acceptablePackageFormats.add(R3_AUDIO_PACKAGE);
 		this.registry = registry;
 	}
 

@@ -125,4 +125,8 @@ public class RenderMachine {
 		invoke().deploy();
 	}
 
+	public static void destroy () {
+		invoke().destroy();
+	}
+
 }

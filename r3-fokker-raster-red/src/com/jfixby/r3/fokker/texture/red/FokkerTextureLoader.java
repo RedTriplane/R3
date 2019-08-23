@@ -32,11 +32,9 @@ public final class FokkerTextureLoader implements FokkerTexturePackageReader, Pa
 
 	@Override
 	public AssetsContainer doReadPackage (final PackageReaderInput input) throws IOException {
-
 		final RedFokkerRasterDataGroup group = new RedFokkerRasterDataGroup();
 		group.read(input, FokkerTextureLoader.this, FokkerTextureLoader.this.registry);
 		return input.assetsContainer;
-
 	}
 
 	@Override

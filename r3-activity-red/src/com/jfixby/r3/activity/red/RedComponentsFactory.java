@@ -4,6 +4,7 @@ package com.jfixby.r3.activity.red;
 import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.UIFactory;
 import com.jfixby.r3.activity.api.animation.AnimationFactory;
+import com.jfixby.r3.activity.api.audio.SoundFactory;
 import com.jfixby.r3.activity.api.camera.CameraFactory;
 import com.jfixby.r3.activity.api.geometry.GeometryComponentsFactory;
 import com.jfixby.r3.activity.api.input.UserInputFactory;
@@ -14,6 +15,7 @@ import com.jfixby.r3.activity.red.cam.RedCameraFactory;
 import com.jfixby.r3.activity.red.layers.RedLayer;
 import com.jfixby.r3.activity.red.parallax.RedParallaxFactory;
 import com.jfixby.r3.activity.red.shader.RedShadersFactory;
+import com.jfixby.r3.activity.red.sound.RedSoundFactory;
 import com.jfixby.r3.activity.red.text.RedTextFacory;
 import com.jfixby.r3.activity.red.ui.RedUIFactory;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
@@ -27,6 +29,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 	// RedPizzaFactory pizza_factory;
 	RedTextFacory text_factory;
 	RedParallaxFactory parallax_factory;
+	RedSoundFactory red_sound_factory;
 
 	RedShadersFactory shaders_factory;
 	private final RedActivityManager master;
@@ -50,7 +53,7 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 		this.parallax_factory = new RedParallaxFactory(this);
 // this.scene_factory = new RedSceneFactory(this);
 		this.ui_factory = new RedUIFactory(this);
-		// this.pizza_factory = new RedPizzaFactory(this);
+		this.red_sound_factory = new RedSoundFactory(this);
 
 	}
 
@@ -107,6 +110,11 @@ public class RedComponentsFactory implements ComponentsFactory, AssetsConsumer {
 	@Override
 	public UIFactory getUIDepartment () {
 		return this.ui_factory;
+	}
+
+	@Override
+	public SoundFactory getSoundFactory () {
+		return this.red_sound_factory;
 	}
 
 }

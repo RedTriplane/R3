@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker.sound.red;
+package com.jfixby.r3.fokker.sound.red.samples;
 
 import java.io.IOException;
 
@@ -23,9 +23,9 @@ import com.jfixby.scarabei.api.names.Names;
 public class RedFokkerAudioSamplesGroup implements AssetsGroup {
 
 	private File package_root_file;
-	private List<RedFokkerAudioData> list = null;
+	private List<RedFokkerAudioSample> list = null;
 
-	public void read (final PackageReaderInput input, final FokkerSoundLoader fokkerSoundLoader, final RedFokkerSounds registry)
+	public void read (final PackageReaderInput input, final FokkerSoundLoader fokkerSoundLoader, final RedFokkerAudioSamples registry)
 		throws IOException {
 
 		this.package_root_file = input.packageRootFile;
@@ -50,7 +50,7 @@ public class RedFokkerAudioSamplesGroup implements AssetsGroup {
 		this.readGdxSound(registry, input);
 	}
 
-	private void readGdxSound (final RedFokkerSounds registry, final PackageReaderInput input) throws IOException {
+	private void readGdxSound (final RedFokkerAudioSamples registry, final PackageReaderInput input) throws IOException {
 		final File package_root_file = input.packageRootFile;
 		// final PackageHandler handler = input.getPackageHandler();
 		final Collection<ID> assets = input.packageInfo.packedAssets;
@@ -67,7 +67,7 @@ public class RedFokkerAudioSamplesGroup implements AssetsGroup {
 			final ToGdxFileAdaptor gdx_file = new ToGdxFileAdaptor(file);
 
 			final com.badlogic.gdx.audio.Sound gdxSound = Gdx.audio.newSound(gdx_file);
-			final RedFokkerAudioData data = new RedFokkerAudioData(asset_id, gdxSound, this);
+			final RedFokkerAudioSample data = new RedFokkerAudioSample(asset_id, gdxSound, this);
 			container.addAsset(asset_id, data);
 			registry.register(asset_id, data);
 			this.list.add(data);
@@ -77,8 +77,8 @@ public class RedFokkerAudioSamplesGroup implements AssetsGroup {
 
 	@Override
 	public void dispose () {
-		for (final RedFokkerAudioData e : this.list) {
-			e.gdxSound().dispose();
+		for (final RedFokkerAudioSample e : this.list) {
+			e.getGdxSound().dispose();
 		}
 		this.list = null;
 	}

@@ -49,8 +49,11 @@ public class RedTile extends RedRectangularComponent implements Raster, Drawable
 	@Override
 	public Raster copy () {
 		final Raster copy = this.getComponentsFactory().getRasterDepartment().newRaster(this.getAssetID());
+
+		// copy settings...
 		copy.setupShape(this.shape());
 		copy.setOpacity(this.getOpacity());
+
 		return copy;
 	}
 

@@ -30,6 +30,7 @@ import com.jfixby.scarabei.api.geometry.CanvasPosition;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.geometry.projections.Projection;
+import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.names.ID;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
@@ -317,6 +318,11 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	@Override
 	public DefaultShaders DefaultShaders () {
 		return this.defaultShaders;
+	}
+
+	@Override
+	public void destroy () {
+		L.e("Destroy", this);
 	}
 
 }

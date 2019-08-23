@@ -68,9 +68,11 @@ public interface RenderMachineComponent {
 
 	public DefaultShaders DefaultShaders ();
 
+	void drawString (final RasterStringSettings stringSpec, final CanvasPosition position);
+
 	void deploy ();
 
-	void drawString (final RasterStringSettings stringSpec, final CanvasPosition position);
+	void destroy ();
 
 	// void setShader(final FokkerShader shader_handler);
 

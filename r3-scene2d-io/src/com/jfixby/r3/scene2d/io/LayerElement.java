@@ -24,6 +24,7 @@ public class LayerElement implements java.io.Serializable {
 	public Boolean is_9_patch = null;
 	public Boolean is_user_input = null;
 	public Boolean is_text = null;
+	public Boolean is_sound = null;
 	public Boolean is_shader = null;
 	public Boolean is_parallax = null;
 
@@ -32,6 +33,7 @@ public class LayerElement implements java.io.Serializable {
 	public String name;
 	public String raster_id;
 	public String animation_id;
+	public String audio_sample_id;
 	public String event_id;
 	public String textbar_id;
 	public String shader_id;
@@ -62,6 +64,6 @@ public class LayerElement implements java.io.Serializable {
 	public ProgressSettings progress_settings = null;
 	public ParallaxSettings parallax_settings = null;
 	public NinePatchSettings nine_patch_settings = null;
-	public MaterialDesignSettings material_design_settings = null;
+	public SoundSettings sound_settings = null;
 
 }

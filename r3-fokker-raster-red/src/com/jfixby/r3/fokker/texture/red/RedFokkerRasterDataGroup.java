@@ -85,10 +85,6 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 
 	}
 
-// private PackageReaderInput getPackageInput () {
-// return this.input;
-// }
-
 	public void readAtlas (final RedFokkerTextures registry, final PackageReaderInput input) {
 		final File package_root_file = input.packageRootFile;
 // final PackageHandler handler = input.getPackageHandler();

@@ -14,6 +14,9 @@ import com.jfixby.r3.activity.api.animation.LayersAnimationSpecs;
 import com.jfixby.r3.activity.api.animation.PositionAnchor;
 import com.jfixby.r3.activity.api.animation.PositionsSequence;
 import com.jfixby.r3.activity.api.animation.PositionsSequenceSpecs;
+import com.jfixby.r3.activity.api.audio.SoundEvent;
+import com.jfixby.r3.activity.api.audio.SoundEventSpecs;
+import com.jfixby.r3.activity.api.audio.SoundFactory;
 import com.jfixby.r3.activity.api.camera.CameraFactory;
 import com.jfixby.r3.activity.api.camera.CanvasCamera;
 import com.jfixby.r3.activity.api.camera.CanvasCameraSpecs;
@@ -143,6 +146,18 @@ public class RedSceneConstructor {
 
 		} else if (
 
+		Utils.equalObjects(element.is_sound, Boolean.TRUE)
+
+		) {
+
+			final SoundEvent audio = this.restoreSound(element, components_factory, settings);
+			currentScene.sounds.add(audio);
+// currentScene.localized_components.add(audio);
+
+			component = audio;
+
+		} else if (
+
 		Utils.equalObjects(element.is_text, Boolean.TRUE)
 
 		) {
@@ -189,7 +204,8 @@ public class RedSceneConstructor {
 			Err.throwNotImplementedYet();
 
 		} else {
-			Err.reportError("Element's type: " + Json.serializeToString(element) + " is not supported yet");
+			L.e(Json.serializeToString(element));
+			Err.reportError("Not supported yet");
 		}
 		// layer.attachComponent(component);
 		if (component == null) {
@@ -545,6 +561,23 @@ public class RedSceneConstructor {
 		text_bar.setPosition(canvas_x, canvas_y);
 		text_bar.setName(element.name);
 		return text_bar;
+	}
+
+	SoundEvent restoreSound (final LayerElement element, final ComponentsFactory components_factory, final Settings settings) {
+		Debug.checkNull("element.sound_settings", element.sound_settings);
+
+		final SoundFactory sound_factory = components_factory.getSoundFactory();
+
+		final SoundEventSpecs specs = new SoundEventSpecs();
+		specs.audio_sample_id = Names.newID(element.audio_sample_id);
+		specs.is_looped = element.sound_settings.is_looped;
+		specs.autostart = element.sound_settings.autostart;
+
+		final SoundEvent event = sound_factory.newSoundEvent(specs);
+
+		event.setPosition(0, 0);
+		event.setName(element.name);
+		return event;
 	}
 
 	LayersAnimation restoreSimpleAnimation (final LayerElement element, final ComponentsFactory components_factory,

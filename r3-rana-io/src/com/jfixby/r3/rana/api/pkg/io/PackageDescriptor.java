@@ -16,6 +16,11 @@ public class PackageDescriptor implements Serializable {
 		super();
 	}
 
+	@Override
+	public String toString () {
+		return "PackageDescriptor [format=" + this.format + ", packed_assets=" + this.packed_assets + "]";
+	}
+
 	public static final String PACKAGE_DESCRIPTOR_FILE_NAME = "package.descriptor";
 	public static final String PACKAGE_CONTENT_FOLDER = "content";
 
@@ -23,8 +28,8 @@ public class PackageDescriptor implements Serializable {
 	public String version;
 	public String timestamp;
 	public String root_file_name;
-	public ArrayList<String> packed_assets = new ArrayList<String>();
-	public ArrayList<String> package_dependencies = new ArrayList<String>();
+	public ArrayList<String> packed_assets = new ArrayList<>();
+	public ArrayList<String> package_dependencies = new ArrayList<>();
 	public LinkedHashMap<String, String> package_parameters = null;
 
 	public long timestamp () {

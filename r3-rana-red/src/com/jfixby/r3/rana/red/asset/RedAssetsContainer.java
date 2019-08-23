@@ -46,4 +46,9 @@ public class RedAssetsContainer implements SealedAssetsContainer, AssetsContaine
 		return this;
 	}
 
+	@Override
+	public String toString () {
+		return this.assets.toString();
+	}
+
 }
