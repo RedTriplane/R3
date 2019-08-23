@@ -29,7 +29,8 @@ public class RedActivityManager implements ActivityManager {
 	private final RedLayerWindowViewportProcessor viewport_processor;
 	private final RedLayerTaskManager task_manager;;
 	private final RedActivityTools unit_tools;
-	private final RedLayerRenderer renderer;;
+	private final RedLayerGraphicsRenderer graphics_renderer;
+	private final RedLayerAudioRenderer audio_renderer;
 	private final RedLayer user_root_layer;
 	// private RedActivityClock unit_clock = new RedActivityClock("ActivityTime");
 	// private RedActivityClock render_clock = new RedActivityClock("RenderTime");
@@ -57,7 +58,8 @@ public class RedActivityManager implements ActivityManager {
 		this.root_layer.attachComponent(this.user_root_layer);
 		this.viewport_processor = new RedLayerWindowViewportProcessor(this.root_layer);
 		this.task_manager = new RedLayerTaskManager(this.root_layer);
-		this.renderer = new RedLayerRenderer(this.root_layer);
+		this.graphics_renderer = new RedLayerGraphicsRenderer(this.root_layer);
+		this.audio_renderer = new RedLayerAudioRenderer(this.root_layer);
 		this.unit_tools = new RedActivityTools();
 
 	}
@@ -72,8 +74,12 @@ public class RedActivityManager implements ActivityManager {
 		return this.components_factory;
 	}
 
-	private void render () {
-		this.renderer.renderAll();
+	private void renderGraphics () {
+		this.graphics_renderer.renderAll();
+	}
+
+	private void renderAudio () {
+		this.audio_renderer.renderAll();
 	}
 
 	private void process_tasks () {
@@ -97,8 +103,12 @@ public class RedActivityManager implements ActivityManager {
 		this.input_processor.markAllAllKeysReleased();
 	}
 
-	public void render (final EngineState engine_state) {
-		this.render();
+	public void renderGraphics (final EngineState engine_state) {
+		this.renderGraphics();
+	}
+
+	public void renderAudio (final EngineState engine_state) {
+		this.renderAudio();
 	}
 
 	public void update (final EngineState engine_state) {

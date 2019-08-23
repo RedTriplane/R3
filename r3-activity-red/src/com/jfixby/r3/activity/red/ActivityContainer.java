@@ -64,7 +64,8 @@ public class ActivityContainer {
 		if (!Screen.isInValidState()) {
 			return;
 		}
-		this.unit_executor.render(engine_state);
+		this.unit_executor.renderAudio(engine_state);
+		this.unit_executor.renderGraphics(engine_state);
 	}
 
 	public String getActivityDebugName () {

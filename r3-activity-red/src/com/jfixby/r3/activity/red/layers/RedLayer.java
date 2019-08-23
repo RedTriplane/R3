@@ -168,6 +168,10 @@ public class RedLayer implements Layer, RootLayer {
 		return this.layer_children.listRenderableComponents();
 	}
 
+	final public FastList<Object> listVocalizableComponents () {
+		return this.layer_children.listVocalizableComponents();
+	}
+
 	@Override
 	public void setName (final String name) {
 		this.name = name;

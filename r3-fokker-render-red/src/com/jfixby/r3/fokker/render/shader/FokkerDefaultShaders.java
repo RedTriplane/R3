@@ -23,7 +23,7 @@ public class FokkerDefaultShaders implements DefaultShaders, AssetsConsumer {
 
 	@Override
 	public Shader TEST () {
-		TEST = resolve(TEST, this.fokkerRenderMachine.DefaultAssets().SHADER_TEST, this);
+		TEST = resolve(TEST, this.fokkerRenderMachine.DefaultGraphicsAssets().SHADER_TEST, this);
 		return TEST;
 	}
 
@@ -31,7 +31,7 @@ public class FokkerDefaultShaders implements DefaultShaders, AssetsConsumer {
 
 	@Override
 	public Shader NORMAL () {
-		NORMAL = resolve(NORMAL, this.fokkerRenderMachine.DefaultAssets().SHADER_NORMAL, this);
+		NORMAL = resolve(NORMAL, this.fokkerRenderMachine.DefaultGraphicsAssets().SHADER_NORMAL, this);
 		return NORMAL;
 	}
 
@@ -39,7 +39,7 @@ public class FokkerDefaultShaders implements DefaultShaders, AssetsConsumer {
 
 	@Override
 	public Shader MULTIPLY () {
-		MULTIPLY = resolve(MULTIPLY, this.fokkerRenderMachine.DefaultAssets().SHADER_MULTIPLY, this);
+		MULTIPLY = resolve(MULTIPLY, this.fokkerRenderMachine.DefaultGraphicsAssets().SHADER_MULTIPLY, this);
 		return MULTIPLY;
 	}
 
@@ -47,7 +47,7 @@ public class FokkerDefaultShaders implements DefaultShaders, AssetsConsumer {
 
 	@Override
 	public Shader GRAYSCALE () {
-		GRAYSCALE = resolve(GRAYSCALE, this.fokkerRenderMachine.DefaultAssets().SHADER_GRAYSCALE, this);
+		GRAYSCALE = resolve(GRAYSCALE, this.fokkerRenderMachine.DefaultGraphicsAssets().SHADER_GRAYSCALE, this);
 		return GRAYSCALE;
 	}
 
@@ -68,7 +68,7 @@ public class FokkerDefaultShaders implements DefaultShaders, AssetsConsumer {
 	static Shader GDX_DEFAULT = null;
 
 	public Shader GDX_DEFAULT () {
-		GDX_DEFAULT = resolve(GDX_DEFAULT, this.fokkerRenderMachine.DefaultAssets().SHADER_GDX_DEFAULT, this);
+		GDX_DEFAULT = resolve(GDX_DEFAULT, this.fokkerRenderMachine.DefaultGraphicsAssets().SHADER_GDX_DEFAULT, this);
 		return GDX_DEFAULT;
 	}
 

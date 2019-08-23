@@ -14,16 +14,18 @@ public class FokkerShapesRenderer extends Renderer {
 	private EllipseRenderer ellipseRenderer;
 	private CustomRenderer customRenderer;
 
-	public void init (FokkerRenderMachine fokkerRenderMachine) {
+	@Override
+	public void init (final FokkerRenderMachine fokkerRenderMachine) {
 		super.init(fokkerRenderMachine);
 
-		lineRenderer = new LineRenderer(this);
-		triangleRenderer = new TriangleRenderer(this);
-		ellipseRenderer = new EllipseRenderer(this);
-		customRenderer = new CustomRenderer(this);
+		this.lineRenderer = new LineRenderer(this);
+		this.triangleRenderer = new TriangleRenderer(this);
+		this.ellipseRenderer = new EllipseRenderer(this);
+		this.customRenderer = new CustomRenderer(this);
 		GdxRender.activateShapesRenderer();
 	}
 
+	@Override
 	public void doClose () {
 		GdxRender.closeShapesRenderer();
 
@@ -33,25 +35,19 @@ public class FokkerShapesRenderer extends Renderer {
 		GdxRender.setShapeRendererProjectionMatrix(combined);
 	}
 
-	public void drawLine (Color color, ReadOnlyFloat2 a, ReadOnlyFloat2 b) {
+	public void drawLine (final Color color, final ReadOnlyFloat2 a, final ReadOnlyFloat2 b) {
 		this.lineRenderer.drawLine(color, a, b);
 	}
 
-	public void drawTriangle (Color color, ReadOnlyFloat2 a, ReadOnlyFloat2 b, ReadOnlyFloat2 c) {
+	public void drawTriangle (final Color color, final ReadOnlyFloat2 a, final ReadOnlyFloat2 b, final ReadOnlyFloat2 c) {
 		this.triangleRenderer.drawTriangle(color, a, b, c);
 	}
 
-	// public void drawEllipse(Color color, double positionX, double positionY,
-	// double width, double height, double rotation, boolean filled) {
-	// this.ellipseRenderer.drawEllipse(color, positionX, positionY, width,
-	// height, rotation, filled);
-	// }
-
-	void setColor (Color color) {
-		R = color.red();
-		G = color.green();
-		B = color.blue();
-		A = color.alpha();
+	void setColor (final Color color) {
+		this.R = color.red();
+		this.G = color.green();
+		this.B = color.blue();
+		this.A = color.alpha();
 	}
 
 	private float A;
@@ -60,22 +56,16 @@ public class FokkerShapesRenderer extends Renderer {
 	private float R;
 
 	public void setGdxColor () {
-		GdxRender.setShapeRendererColor(R, G, B, A);
+		GdxRender.setShapeRendererColor(this.R, this.G, this.B, this.A);
 
 	}
-
-	// public void drawDisk(Color color, double positionX, double positionY,
-	// double radius) {
-	// ellipseRenderer.drawEllipse(color, positionX, positionY, radius * 2,
-	// radius * 2, 0, true);
-	// }
 
 	@Override
 	public void doOpen () {
 		GdxRender.openShapesRenderer(this.getGdxCamera().combined);
 	}
 
-	public void drawCircle (Color color, double center_x, double center_y, double radius) {
+	public void drawCircle (final Color color, final double center_x, final double center_y, final double radius) {
 		this.ellipseRenderer.drawCircle(color, center_x, center_y, radius);
 	}
 
@@ -87,8 +77,4 @@ public class FokkerShapesRenderer extends Renderer {
 	public void onFrameEnd () {
 	}
 
-	// public void drawFokkerRenderable(FokkerShapesRenderable self_renderable)
-	// {
-	// customRenderer.draw(self_renderable);
-	// }
 }

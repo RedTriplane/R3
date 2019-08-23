@@ -70,8 +70,8 @@ public class RedRectangleComponent implements RectangleComponent, VisibleCompone
 
 	@Override
 	public void doDraw () {
-		RenderMachine.beginDrawComponent(this);
-		RenderMachine.beginShapesMode();
+		RenderMachine.component().beginDrawComponent(this);
+		RenderMachine.component().beginShapesMode();
 		// RenderMachine.setOffset(this.offset);
 
 		final Rectangle shape = this.shape();
@@ -84,23 +84,23 @@ public class RedRectangleComponent implements RectangleComponent, VisibleCompone
 		this.color.setValue(this.getFillColor());
 		this.color.setAlpha(this.getOpacity() * this.color.alpha());
 
-		RenderMachine.drawTriangle(this.color, a, b, c);
-		RenderMachine.drawTriangle(this.color, c, d, a);
+		RenderMachine.component().drawTriangle(this.color, a, b, c);
+		RenderMachine.component().drawTriangle(this.color, c, d, a);
 
 		this.color.setValue(this.getBorderColor());
 		this.color.setAlpha(this.getOpacity() * this.color.alpha());
 
-		RenderMachine.drawLine(this.color, a, b);
-		RenderMachine.drawLine(this.color, c, b);
-		RenderMachine.drawLine(this.color, c, d);
-		RenderMachine.drawLine(this.color, a, d);
+		RenderMachine.component().drawLine(this.color, a, b);
+		RenderMachine.component().drawLine(this.color, c, b);
+		RenderMachine.component().drawLine(this.color, c, d);
+		RenderMachine.component().drawLine(this.color, a, d);
 
 		if (this.getDebugRenderFlag()) {
 			this.debug_render();
 		}
 
-		RenderMachine.endShapesMode();
-		RenderMachine.endDrawComponent(this);
+		RenderMachine.component().endShapesMode();
+		RenderMachine.component().endDrawComponent(this);
 	}
 
 	Float2 tmpA = Geometry.newFloat2();
@@ -122,14 +122,14 @@ public class RedRectangleComponent implements RectangleComponent, VisibleCompone
 			this.tmpA.addX(+delta);
 			this.tmpB.setXY(shape.getPositionX(), shape.getPositionY());
 			this.tmpB.addX(-delta);
-			RenderMachine.drawLine(color, this.tmpB, this.tmpA);
+			RenderMachine.component().drawLine(color, this.tmpB, this.tmpA);
 		}
 		{
 			this.tmpA.setXY(shape.getPositionX(), shape.getPositionY());
 			this.tmpA.addY(+delta);
 			this.tmpB.setXY(shape.getPositionX(), shape.getPositionY());
 			this.tmpB.addY(-delta);
-			RenderMachine.drawLine(color, this.tmpB, this.tmpA);
+			RenderMachine.component().drawLine(color, this.tmpB, this.tmpA);
 
 		}
 

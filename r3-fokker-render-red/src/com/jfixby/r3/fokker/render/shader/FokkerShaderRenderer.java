@@ -22,7 +22,7 @@ public class FokkerShaderRenderer {
 		// shape.setPosition(Double.NEGATIVE_INFINITY,
 		// Double.POSITIVE_INFINITY);
 
-		this.fake_asset = RenderMachine.DefaultAssets().RASTER_IS_MISING();
+		this.fake_asset = RenderMachine.DefaultGraphicsAssets().RASTER_IS_MISING();
 	}
 
 	public void open (final ID fokkerShader, final ShaderSettings params) {

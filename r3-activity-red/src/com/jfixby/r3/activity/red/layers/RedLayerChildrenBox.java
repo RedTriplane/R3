@@ -11,6 +11,7 @@ import com.jfixby.r3.activity.api.user.KeyboardInputEventListener;
 import com.jfixby.r3.activity.api.user.MouseInputEventListener;
 import com.jfixby.r3.activity.api.user.ScreenChangeListener;
 import com.jfixby.r3.engine.api.render.Drawable;
+import com.jfixby.r3.engine.api.sound.Vocalizable;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.CollectionScanner;
 import com.jfixby.scarabei.api.collections.Collections;
@@ -28,6 +29,7 @@ public class RedLayerChildrenBox {
 	final private FastList<Layer> child_layers = new FastList<>();
 	final private FastList<VisibleComponent> visible_components = new FastList<>();
 	final private FastList<Object> renderable = new FastList<>();;
+	final private FastList<Object> vocalizable = new FastList<>();;
 	final private Map<Object, ScreenDimentionsUpdate> viewport_listeners = Collections.newMap();
 
 	public void detatchComponents (final Collection<? extends Component> attachments) {
@@ -36,6 +38,7 @@ public class RedLayerChildrenBox {
 		this.mouse_listeners.removeAll(attachments);
 		this.update_listeners.removeAll(attachments);
 		this.renderable.removeAll(attachments);
+		this.vocalizable.removeAll(attachments);
 		this.raster.removeAll(attachments);
 		this.viewport_listeners.removeAll(attachments);
 		this.child_layers.removeAll(attachments);
@@ -56,6 +59,7 @@ public class RedLayerChildrenBox {
 		this.mouse_listeners.clear();
 		this.update_listeners.clear();
 		this.renderable.clear();
+		this.vocalizable.clear();
 		this.raster.clear();
 		this.viewport_listeners.clear();
 		this.child_layers.clear();
@@ -75,6 +79,7 @@ public class RedLayerChildrenBox {
 		this.mouse_listeners.remove(attachment);
 		this.update_listeners.remove(attachment);
 		this.renderable.remove(attachment);
+		this.vocalizable.remove(attachment);
 		this.raster.remove(attachment);
 		this.child_layers.remove(attachment);
 		this.visible_components.remove(attachment);
@@ -98,6 +103,7 @@ public class RedLayerChildrenBox {
 			this.mouse_listeners.add(root);
 			this.update_listeners.add(root);
 			this.renderable.add(root);
+			this.vocalizable.add(root);
 
 			this.child_layers.add(root);
 			this.visible_components.add(root);
@@ -109,6 +115,7 @@ public class RedLayerChildrenBox {
 			this.mouse_listeners.add(attachment);
 			this.update_listeners.add(attachment);
 			this.renderable.add(attachment);
+			this.vocalizable.add(attachment);
 			this.child_layers.add((RedLayer)attachment);
 			this.visible_components.add((RedLayer)attachment);
 			final RedLayer layer = (RedLayer)attachment;
@@ -139,6 +146,10 @@ public class RedLayerChildrenBox {
 
 		if (attachment instanceof Drawable) {
 			this.renderable.add(attachment);
+		}
+
+		if (attachment instanceof Vocalizable) {
+			this.vocalizable.add(attachment);
 		}
 
 		if (attachment instanceof Raster) {
@@ -183,6 +194,10 @@ public class RedLayerChildrenBox {
 
 	public final FastList<Object> listRenderableComponents () {
 		return this.renderable;
+	}
+
+	public FastList<Object> listVocalizableComponents () {
+		return this.vocalizable;
 	}
 
 	final public FastList<Component> listAll () {

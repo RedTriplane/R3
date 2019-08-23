@@ -64,13 +64,13 @@ public class RedTile extends RedRectangularComponent implements Raster, Drawable
 
 	@Override
 	public void doDraw () {
-		RenderMachine.beginDrawComponent(this);
-		RenderMachine.beginRasterMode(this.TOtxtmODE(this.mode), this.opacity);
+		RenderMachine.component().beginDrawComponent(this);
+		RenderMachine.component().beginRasterMode(this.TOtxtmODE(this.mode), this.opacity);
 
-		RenderMachine.drawRaster(this.asset_id, this.shape());
+		RenderMachine.component().drawRaster(this.asset_id, this.shape());
 
-		RenderMachine.endRasterMode(this.TOtxtmODE(this.mode));
-		RenderMachine.endDrawComponent(this);
+		RenderMachine.component().endRasterMode(this.TOtxtmODE(this.mode));
+		RenderMachine.component().endDrawComponent(this);
 		if (this.getDebugRenderFlag()) {
 			this.debug_rectangle.doDraw();
 		}

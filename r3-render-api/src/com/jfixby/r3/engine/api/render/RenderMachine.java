@@ -2,13 +2,6 @@
 package com.jfixby.r3.engine.api.render;
 
 import com.jfixby.scarabei.api.ComponentInstaller;
-import com.jfixby.scarabei.api.color.Color;
-import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
-import com.jfixby.scarabei.api.font.RasterStringSettings;
-import com.jfixby.scarabei.api.geometry.CanvasPosition;
-import com.jfixby.scarabei.api.geometry.Rectangle;
-import com.jfixby.scarabei.api.geometry.projections.Projection;
-import com.jfixby.scarabei.api.names.ID;
 
 public class RenderMachine {
 
@@ -20,105 +13,20 @@ public class RenderMachine {
 		componentInstaller.installComponent(component_to_install);
 	}
 
-	public static final RenderMachineComponent invoke () {
-		return componentInstaller.invokeComponent();
-	}
-
 	public static final RenderMachineComponent component () {
 		return componentInstaller.getComponent();
 	}
 
-// public static void init () {
-// invoke().init();
-// }
-// -------------------------------------
-
-	public static void beginFrame () {
-		invoke().beginFrame();
+	public static final RenderMachineComponent invoke () {
+		return componentInstaller.invokeComponent();
 	}
 
-	public static void clearScreen () {
-		invoke().clearScreen();
-	}
-
-	public static void setCameraProjection (final Projection projection) {
-		invoke().setCameraProjection(projection);
-	}
-
-	public static void beginRasterMode (final TEXTURE_BLEND_MODE blend_mode, final double opacity) {
-		invoke().beginRasterMode(blend_mode, opacity);
-	}
-
-	public static void endRasterMode (final TEXTURE_BLEND_MODE blend_mode) {
-		invoke().endRasterMode(blend_mode);
-	}
-
-	public static void beginDrawComponent (final Drawable fokkerDrawable) {
-		invoke().beginDrawComponent(fokkerDrawable);
-	}
-
-	public static void beginShapesMode () {
-		invoke().beginShapesMode();
-	}
-
-	public static void endShapesMode () {
-		invoke().endShapesMode();
-	}
-
-	public static void endDrawComponent (final Drawable fokkerDrawable) {
-		invoke().endDrawComponent(fokkerDrawable);
-	}
-
-	public static void drawAperture (final double ax, final double ay, final double bx, final double by, final ID spriteAssetID) {
-		invoke().drawAperture(ax, ay, bx, by, spriteAssetID);
-	}
-
-	public static void endFrame () {
-		invoke().endFrame();
-	}
-
-	public static void drawLine (final Color color, final ReadOnlyFloat2 a, final ReadOnlyFloat2 b) {
-		invoke().drawLine(color, a, b);
-	}
-
-	public static void drawTriangle (final Color color, final ReadOnlyFloat2 a, final ReadOnlyFloat2 b, final ReadOnlyFloat2 c) {
-		invoke().drawTriangle(color, a, b, c);
-	}
-
-	// public static void setShader(final FokkerShader shader_handler) {
-	// invoke().setShader(shader_handler);
-	// }
-
-	public static void drawRaster (final ID spriteAssetID, final Rectangle shape) {
-		invoke().drawRaster(spriteAssetID, shape);
-	}
-
-	public static void drawString (final RasterStringSettings stringSpec, final CanvasPosition position) {
-		invoke().drawString(stringSpec, position);
-	}
-
-	public static void drawCircle (final Color color, final double center_x, final double center_y, final double radius) {
-		invoke().drawCircle(color, center_x, center_y, radius);
-	}
-
-	public static void beginShaderMode (final ID fokkerShader, final ShaderSettings params) {
-		invoke().beginShaderMode(fokkerShader, params);
-	}
-
-	public static void endShaderMode (final ID fokkerShader) {
-		invoke().endShaderMode(fokkerShader);
-	}
-
-	public static void applyShader () {
-		invoke().applyShader();
-	}
-
-	public static DefaultAssets DefaultAssets () {
-		return invoke().DefaultAssets();
+	public static DefaultGraphicsAssets DefaultGraphicsAssets () {
+		return component().DefaultGraphicsAssets();
 	}
 
 	public static ScreenShot makeScreenShot (final int areaWidth, final int areaHeight, final int areaX, final int areaY) {
-		return invoke().makeScreenShot(areaWidth, areaHeight, areaX, areaY);
+		return component().makeScreenShot(areaWidth, areaHeight, areaX, areaY);
 	}
 
 	public static void deploy () {

@@ -55,7 +55,7 @@ public class RedShadow implements Shadow, LayerBasedComponent, CanvasCameraManag
 		// camera.setApertureOpacity(ABSOLUTE_CLEAR);
 		this.root.setCamera(this.camera);
 
-		this.shadow_sprite = components_factory.getRasterDepartment().newRaster(RenderMachine.DefaultAssets().BLACK());
+		this.shadow_sprite = components_factory.getRasterDepartment().newRaster(RenderMachine.DefaultGraphicsAssets().BLACK());
 		this.shadow_sprite.setOpacity(1f);
 		this.root.attachComponent(this.shadow_sprite);
 

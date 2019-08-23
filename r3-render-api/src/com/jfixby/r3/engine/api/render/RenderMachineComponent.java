@@ -62,7 +62,7 @@ public interface RenderMachineComponent {
 
 	void setProjection (Projection projection);
 
-	DefaultAssets DefaultAssets ();
+	DefaultGraphicsAssets DefaultGraphicsAssets ();
 
 	ScreenShot makeScreenShot (int areaWidth, int areaHeight, int areaX, int areaY);
 

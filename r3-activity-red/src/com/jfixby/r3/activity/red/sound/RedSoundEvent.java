@@ -6,11 +6,13 @@ import com.jfixby.r3.activity.api.audio.SoundEvent;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.RedRectangularComponent;
 import com.jfixby.r3.engine.api.sound.AudioSample;
+import com.jfixby.r3.engine.api.sound.SoundMachine;
+import com.jfixby.r3.engine.api.sound.Vocalizable;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.names.ID;
 
-public class RedSoundEvent extends RedRectangularComponent implements SoundEvent {
+public class RedSoundEvent extends RedRectangularComponent implements SoundEvent, Vocalizable {
 
 	@Override
 	public ComponentsFactory getComponentsFactory () {
@@ -54,6 +56,16 @@ public class RedSoundEvent extends RedRectangularComponent implements SoundEvent
 	@Override
 	public void setSize (final Rectangle rectangle) {
 		this.setSize(rectangle.getWidth(), rectangle.getHeight());
+	}
+
+	@Override
+	public boolean isMute () {
+		return !this.isVisible();
+	}
+
+	@Override
+	public void doVocalize () {
+		SoundMachine.component().VocalizeEvent(this.asset_id);
 	}
 
 }

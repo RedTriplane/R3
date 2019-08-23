@@ -38,7 +38,7 @@ public class RedTilesComposition extends RedRectangularComponent implements Tile
 	private final Color tile_grid_color;
 	private final RedComponentsFactory master;
 
-	private final ArrayList<RedTileInfo> tiles = new ArrayList<RedTileInfo>();
+	private final ArrayList<RedTileInfo> tiles = new ArrayList<>();
 
 	private final RedRectangleComponent debug_rectangle;
 	private RedRectangleComponent tile_shape_rectangle;
@@ -122,7 +122,7 @@ public class RedTilesComposition extends RedRectangularComponent implements Tile
 		RenderMachine.component().endRasterMode(BlendModeCasting.toRenderMachineBlendMode(this.mode));
 
 		if (this.getDebugRenderFlag()) {
-			RenderMachine.beginShapesMode();
+			RenderMachine.component().beginShapesMode();
 			for (final RedTileInfo tile : this.tiles) {
 				final Raster child = tile.raster;
 				final ID child_asset_id = child.getAssetID();
@@ -140,9 +140,9 @@ public class RedTilesComposition extends RedRectangularComponent implements Tile
 				// RenderMachine.drawRaster(child_asset_id, tmpA, tmpB, tmpC,
 				// tmpD, child.getOpacity() * opacity);
 				RenderMachine.component().drawLine(this.tile_grid_color, this.tmpA, this.tmpB);
-				RenderMachine.drawLine(this.tile_grid_color, this.tmpC, this.tmpB);
-				RenderMachine.drawLine(this.tile_grid_color, this.tmpC, this.tmpD);
-				RenderMachine.drawLine(this.tile_grid_color, this.tmpA, this.tmpD);
+				RenderMachine.component().drawLine(this.tile_grid_color, this.tmpC, this.tmpB);
+				RenderMachine.component().drawLine(this.tile_grid_color, this.tmpC, this.tmpD);
+				RenderMachine.component().drawLine(this.tile_grid_color, this.tmpA, this.tmpD);
 
 			}
 			RenderMachine.component().endShapesMode();

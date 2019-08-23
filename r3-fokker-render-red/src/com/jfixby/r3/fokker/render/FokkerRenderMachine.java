@@ -36,7 +36,7 @@ import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class FokkerRenderMachine implements RenderMachineComponent {
 
-	private static StateSwitcher<RENDER_MACHINE_STATE> render_state;
+	private static StateSwitcher<GRAPHICS_RENDER_MACHINE_STATE> render_state;
 	//
 
 	public FokkerRenderMachine () {
@@ -56,20 +56,16 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	public Projection camera_projection;
 	public Projection layer_projection;
 	private RedFokkerRasterManager raster_manager;
-	// public final CurrentFokkerShader current_shader = new
-	// CurrentFokkerShader();
 
 	private Drawable currentComponent;
 
-	private final FokkerDefaultAssets defaultAssets = new FokkerDefaultAssets();
+	private final FokkerDefaultGraphicsAssets defaultAssets = new FokkerDefaultGraphicsAssets();
 
 	private final FokkerDefaultShaders defaultShaders = new FokkerDefaultShaders(this);
 
 	@Override
 	final public void deploy () {
-		render_state = Debug.newStateSwitcher(RENDER_MACHINE_STATE.NEW);
-
-		// L.d("init()", render_state);
+		render_state = Debug.newStateSwitcher(GRAPHICS_RENDER_MACHINE_STATE.NEW);
 		render_state.setDebugName("render_state");
 		render_state.setDebugFlag(!true);
 
@@ -79,12 +75,6 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 		this.raster_manager = new RedFokkerRasterManager(this);
 
-		// L.d("init()", raster_manager);
-		// background_color = Colors.BLACK().customize().setBlue(0.4f);
-
-		// background_color = Colors.BLACK().customize();
-		// offset = Geometry.newPoint();
-
 		this.primary_buffer.init();
 		this.shapes_renderer.init(this);
 		this.raster_renderer.init(this, this.primary_buffer);
@@ -92,12 +82,12 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 		// shader_renderer.init(this);
 
-		expectState(RENDER_MACHINE_STATE.NEW);
-		switchState(RENDER_MACHINE_STATE.READY);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.NEW);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.READY);
 		initClearScreenColor();
 
 		try {
-			AssetsManager.autoResolveAssets(this.DefaultAssets().list());
+			AssetsManager.autoResolveAssets(this.DefaultGraphicsAssets().list());
 		} catch (final IOException e) {
 			e.printStackTrace();
 			Err.reportError(e);
@@ -109,32 +99,26 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	@Override
 	final public void beginFrame () {
-		// L.d();
-		expectState(RENDER_MACHINE_STATE.READY);
-		switchState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.READY);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 
 		this.primary_buffer.beginFrame();
 		this.shapes_renderer.beginFrame();
 		this.raster_renderer.beginFrame();
-
-		// this.shader_renderer.beginFrame();
-
-		// L.d("begin()", render_state);
 	}
 
 	@Override
 	final public void setCameraProjection (final Projection camera) {
-		expectState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 		this.camera_projection = camera;
 		if (this.camera_projection == null) {
 			this.camera_projection = Geometry.getProjectionFactory().IDENTITY();
 		}
-		// L.d("setProjection()", render_state);
 	}
 
 	@Override
 	final public void setProjection (final Projection projection) {
-		expectState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 		this.layer_projection = projection;
 		if (this.layer_projection == null) {
 			this.layer_projection = Geometry.getProjectionFactory().IDENTITY();
@@ -144,36 +128,31 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	@Override
 	final public void beginDrawComponent (final Drawable fokkerDrawable) {
-		expectState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 		this.currentComponent = fokkerDrawable;
 	}
 
 	@Override
 	final public void endDrawComponent (final Drawable fokkerDrawable) {
-		expectState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 		// L.d("endDrawComponent()", render_state);
 		this.currentComponent = null;
 	}
 
 	@Override
 	final public void endFrame () {
-		expectState(RENDER_MACHINE_STATE.FRAME);
-		switchState(RENDER_MACHINE_STATE.READY);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.READY);
 
-		// offset.setXY();
 		this.shapes_renderer.endFrame();
 		this.raster_renderer.endFrame();
 		this.primary_buffer.endFrame();
 		Debug.component().checkTrue(this.layer_projection == Geometry.getProjectionFactory().IDENTITY());
-// Debug.component().checkTrue(this.camera_projection == IDENTITY_PROJECTION);
-
-		// this.shader_renderer.endFrame();
-		// L.d("end()", render_state);
 	}
 
 	@Override
 	final public void clearScreen () {
-		expectState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 
 		GdxRender.clearScreen(CLEAR_SCREEN_COLOR);
 	}
@@ -194,31 +173,31 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	@Override
 	final public void drawLine (final Color color, final ReadOnlyFloat2 a, final ReadOnlyFloat2 b) {
-		expectState(RENDER_MACHINE_STATE.SHAPES);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.SHAPES);
 		this.shapes_renderer.drawLine(color, a, b);
 		// L.d("drawLine()", render_state);
 	}
 
 	@Override
 	final public void drawTriangle (final Color color, final ReadOnlyFloat2 a, final ReadOnlyFloat2 b, final ReadOnlyFloat2 c) {
-		expectState(RENDER_MACHINE_STATE.SHAPES);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.SHAPES);
 		this.shapes_renderer.drawTriangle(color, a, b, c);
 		// L.d("drawTriangle()", render_state);
 	}
 
-	static final private RENDER_MACHINE_STATE switchState (final RENDER_MACHINE_STATE next_state) {
+	static final private GRAPHICS_RENDER_MACHINE_STATE switchState (final GRAPHICS_RENDER_MACHINE_STATE next_state) {
 		render_state.switchState(next_state);
 		return next_state;
 	}
 
-	static final private void expectState (final RENDER_MACHINE_STATE expected) {
+	static final private void expectState (final GRAPHICS_RENDER_MACHINE_STATE expected) {
 		render_state.expectState(expected);
 
 	}
 
 	@Override
 	final public void drawRaster (final ID spriteAssetID, final Rectangle shape) {
-		expectState(RENDER_MACHINE_STATE.RASTER);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.RASTER);
 
 		this.raster_renderer.drawSprite(spriteAssetID, shape);
 		// L.d("drawRaster()", render_state);
@@ -230,15 +209,15 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	@Override
 	final public void endShapesMode () {
-		expectState(RENDER_MACHINE_STATE.SHAPES);
-		switchState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.SHAPES);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 		this.shapes_renderer.close();
 	}
 
 	@Override
 	final public void beginShapesMode () {
-		expectState(RENDER_MACHINE_STATE.FRAME);
-		switchState(RENDER_MACHINE_STATE.SHAPES);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.SHAPES);
 		this.shapes_renderer.open();
 // throw new Error("disable shapes! " + this.currentComponent);
 	}
@@ -246,8 +225,8 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	@Override
 	final public void beginRasterMode (final TEXTURE_BLEND_MODE blend_mode, final double opacity) {
 		Debug.component().checkNull("blend_mode", blend_mode);
-		expectState(RENDER_MACHINE_STATE.FRAME);
-		switchState(RENDER_MACHINE_STATE.RASTER);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.RASTER);
 		this.raster_renderer.open(blend_mode, opacity, null, null);
 		// this.frame_buffer.updateMode(blend_mode);
 	}
@@ -255,28 +234,28 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	@Override
 	final public void endRasterMode (final TEXTURE_BLEND_MODE blend_mode) {
 		Debug.component().checkNull("blend_mode", blend_mode);
-		expectState(RENDER_MACHINE_STATE.RASTER);
-		switchState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.RASTER);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 		this.raster_renderer.close(blend_mode, null);
 
 	}
 
 	@Override
 	final public void drawAperture (final double ax, final double ay, final double bx, final double by, final ID spriteAssetID) {
-		expectState(RENDER_MACHINE_STATE.RASTER);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.RASTER);
 
 		this.raster_renderer.drawAperture(spriteAssetID, ax, ay, bx, by);
 	}
 
 	@Override
 	final public void drawCircle (final Color color, final double center_x, final double center_y, final double radius) {
-		expectState(RENDER_MACHINE_STATE.SHAPES);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.SHAPES);
 		this.shapes_renderer.drawCircle(color, center_x, center_y, radius);
 	}
 
 	@Override
 	final public void drawString (final RasterStringSettings specs, final CanvasPosition position) {
-		expectState(RENDER_MACHINE_STATE.RASTER);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.RASTER);
 
 		this.raster_renderer.drawString(specs, position);
 
@@ -285,28 +264,28 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	@Override
 	public void beginShaderMode (final ID fokkerShader, final ShaderSettings params) {
 		Debug.component().checkNull("fokkerShader", fokkerShader);
-		expectState(RENDER_MACHINE_STATE.FRAME);
-		switchState(RENDER_MACHINE_STATE.SHADER);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.SHADER);
 		this.shader_renderer.open(fokkerShader, params);
 
 	}
 
 	@Override
 	public void endShaderMode (final ID fokkerShader) {
-		expectState(RENDER_MACHINE_STATE.SHADER);
-		switchState(RENDER_MACHINE_STATE.FRAME);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.SHADER);
+		switchState(GRAPHICS_RENDER_MACHINE_STATE.FRAME);
 		this.shader_renderer.close(fokkerShader);
 	}
 
 	@Override
 	public void applyShader () {
-		expectState(RENDER_MACHINE_STATE.SHADER);
+		expectState(GRAPHICS_RENDER_MACHINE_STATE.SHADER);
 		// switchState(RENDER_MACHINE_STATE.FRAME);
 		this.shader_renderer.applyShader();
 	}
 
 	@Override
-	public FokkerDefaultAssets DefaultAssets () {
+	public FokkerDefaultGraphicsAssets DefaultGraphicsAssets () {
 		return this.defaultAssets;
 	}
 

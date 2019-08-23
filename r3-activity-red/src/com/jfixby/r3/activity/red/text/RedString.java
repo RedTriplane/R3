@@ -87,17 +87,17 @@ public class RedString implements Drawable, VisibleComponent {
 			return;
 		}
 
-		RenderMachine.beginDrawComponent(this);
-		RenderMachine.beginRasterMode(this.TOtxtmODE(this.mode), this.opacity);
+		RenderMachine.component().beginDrawComponent(this);
+		RenderMachine.component().beginRasterMode(this.TOtxtmODE(this.mode), this.opacity);
 		final CanvasPosition position = this.debug_rectangle.getPosition();
 
 // position.setX(100);
 // position.setY(50);
 
-		RenderMachine.drawString(this.rasterStringSettings, position);
+		RenderMachine.component().drawString(this.rasterStringSettings, position);
 
-		RenderMachine.endRasterMode(this.TOtxtmODE(this.mode));
-		RenderMachine.endDrawComponent(this);
+		RenderMachine.component().endRasterMode(this.TOtxtmODE(this.mode));
+		RenderMachine.component().endDrawComponent(this);
 		if (this.getDebugRenderFlag()) {
 			this.debug_rectangle.doDraw();
 		}

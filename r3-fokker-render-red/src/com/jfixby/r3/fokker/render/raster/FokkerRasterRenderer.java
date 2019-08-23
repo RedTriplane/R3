@@ -4,7 +4,7 @@ package com.jfixby.r3.fokker.render.raster;
 import com.badlogic.gdx.graphics.Texture;
 import com.jfixby.r3.engine.api.render.ShaderSettings;
 import com.jfixby.r3.engine.api.render.TEXTURE_BLEND_MODE;
-import com.jfixby.r3.fokker.render.FokkerDefaultAssets;
+import com.jfixby.r3.fokker.render.FokkerDefaultGraphicsAssets;
 import com.jfixby.r3.fokker.render.FokkerRenderMachine;
 import com.jfixby.r3.fokker.render.GdxRender;
 import com.jfixby.r3.fokker.render.RenderBuffer;
@@ -105,12 +105,6 @@ public class FokkerRasterRenderer extends Renderer {
 		this.blend_state.switchState(TEXTURE_BLEND_MODE.Normal);
 	}
 
-	// @Override
-	// final public void setGdxProjectionMatrix(final Matrix4 combined) {
-	// GdxRender.setRasterRendererProjectionMatrix(combined);
-	// this.combined = combined;
-	// }
-
 	public final void drawSprite (final ID spriteAssetID, final Rectangle shape) {
 		final Texture blend_texture = this.current_shader.getBlendTexture();
 		this.sprites_renderer.drawSprite(spriteAssetID, shape, this.current_opacity, blend_texture);
@@ -178,23 +172,23 @@ public class FokkerRasterRenderer extends Renderer {
 			Err.reportError("Wrong TEXTURE_BLEND_MODE = " + blend_mode);
 		}
 		if (blend_mode == TEXTURE_BLEND_MODE.TEST) {
-			return FokkerShaders.obtain(this.machine.DefaultAssets().SHADER_TEST);
+			return FokkerShaders.obtain(this.machine.DefaultGraphicsAssets().SHADER_TEST);
 		}
 		if (blend_mode == TEXTURE_BLEND_MODE.Normal) {
-			return FokkerShaders.obtain(this.machine.DefaultAssets().SHADER_NORMAL);
+			return FokkerShaders.obtain(this.machine.DefaultGraphicsAssets().SHADER_NORMAL);
 		}
 		if (blend_mode == TEXTURE_BLEND_MODE.Multiply) {
-			return FokkerShaders.obtain(this.machine.DefaultAssets().SHADER_MULTIPLY);
+			return FokkerShaders.obtain(this.machine.DefaultGraphicsAssets().SHADER_MULTIPLY);
 		}
 		if (blend_mode == TEXTURE_BLEND_MODE.Grayscale) {
-			return FokkerShaders.obtain(this.machine.DefaultAssets().SHADER_GRAYSCALE);
+			return FokkerShaders.obtain(this.machine.DefaultGraphicsAssets().SHADER_GRAYSCALE);
 		}
 		Err.reportError("Unknown TEXTURE_BLEND_MODE=" + blend_mode);
 		return null;
 	}
 
-	public FokkerDefaultAssets DefaultAssets () {
-		return this.machine.DefaultAssets();
+	public FokkerDefaultGraphicsAssets DefaultAssets () {
+		return this.machine.DefaultGraphicsAssets();
 	}
 
 }

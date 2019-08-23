@@ -285,7 +285,7 @@ public class RedCamera implements CanvasCamera, CameraProjection, Projection {
 		}
 	}
 
-	final ID asset_id = RenderMachine.DefaultAssets().BLACK();
+	final ID asset_id = RenderMachine.DefaultGraphicsAssets().BLACK();
 	private String camera_name;
 
 	public void renderAperture () {
@@ -293,16 +293,16 @@ public class RedCamera implements CanvasCamera, CameraProjection, Projection {
 
 		// RenderMachine.beginShapesMode(RENDER_MODE.RASTER);
 		if (this.debug_mode) {
-			RenderMachine.beginRasterMode(TEXTURE_BLEND_MODE.Normal, this.aperture_opacity * 0.3);
+			RenderMachine.component().beginRasterMode(TEXTURE_BLEND_MODE.Normal, this.aperture_opacity * 0.3);
 		} else {
-			RenderMachine.beginRasterMode(TEXTURE_BLEND_MODE.Normal, this.aperture_opacity);
+			RenderMachine.component().beginRasterMode(TEXTURE_BLEND_MODE.Normal, this.aperture_opacity);
 		}
-		RenderMachine.drawAperture(this.scren_apertured.getTopLeftCorner().transformed().getX(),
+		RenderMachine.component().drawAperture(this.scren_apertured.getTopLeftCorner().transformed().getX(),
 			this.scren_apertured.getTopLeftCorner().transformed().getY(),
 			this.scren_apertured.getBottomRightCorner().transformed().getX(),
 			this.scren_apertured.getBottomRightCorner().transformed().getY(), this.asset_id);
 		//
-		RenderMachine.endRasterMode(TEXTURE_BLEND_MODE.Normal);
+		RenderMachine.component().endRasterMode(TEXTURE_BLEND_MODE.Normal);
 		// RenderMachine.endShapesMode(RENDER_MODE.RASTER);
 		if (this.debug_mode) {
 			this.debug_component.doDraw();

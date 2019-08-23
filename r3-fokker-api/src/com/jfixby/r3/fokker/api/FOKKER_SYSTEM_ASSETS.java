@@ -22,8 +22,8 @@ public class FOKKER_SYSTEM_ASSETS {
 	public static final ID SHADER_GRAYSCALE = SHADERS.child("grayscale");
 	public static final ID SHADER_GDX_DEFAULT = Names.newID("com.badlogic.gdx.graphics.g2d.SpriteBatch.DefaultShader");
 
-	public static final ID SOUND_TEST_MP3 = Names.newID("com.jfixby.fokker.assets.sound.test.mp3");
-	public static final ID SOUND_TEST_OGG = Names.newID("com.jfixby.fokker.assets.sound.test.ogg");
-	public static final ID SOUND_TEST_WAV = Names.newID("com.jfixby.fokker.assets.sound.test.wav");
+	public static final ID TEST_SOUND_MP3 = Names.newID("com.jfixby.fokker.assets.sound.test.mp3");
+	public static final ID TEST_SOUND_OGG = Names.newID("com.jfixby.fokker.assets.sound.test.ogg");
+	public static final ID TEST_SOUND_WAV = Names.newID("com.jfixby.fokker.assets.sound.test.wav");
 
 }
