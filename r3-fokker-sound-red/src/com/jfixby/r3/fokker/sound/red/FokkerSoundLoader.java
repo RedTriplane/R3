@@ -4,11 +4,11 @@ package com.jfixby.r3.fokker.sound.red;
 import java.io.IOException;
 
 import com.jfixby.r3.fokker.sound.api.FokkerAudioPackageReader;
-import com.jfixby.r3.fokker.sound.io.PackageFormats;
 import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.format.PackageFormat;
 import com.jfixby.r3.rana.api.loader.PackageLoader;
 import com.jfixby.r3.rana.api.loader.PackageReaderInput;
+import com.jfixby.r3.sound.red.io.PackageFormats;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;

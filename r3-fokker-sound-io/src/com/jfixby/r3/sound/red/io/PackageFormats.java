@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker.sound.io;
+package com.jfixby.r3.sound.red.io;
 
 public class PackageFormats {
 	public static final String WAV = ("audio.wav");

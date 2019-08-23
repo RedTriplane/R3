@@ -5,12 +5,12 @@ import java.io.IOException;
 
 import com.badlogic.gdx.Gdx;
 import com.jfixby.r3.fokker.io.ToGdxFileAdaptor;
-import com.jfixby.r3.fokker.sound.io.AudioPackageData;
-import com.jfixby.r3.fokker.sound.io.AudioSample;
 import com.jfixby.r3.rana.api.AssetsContainer;
 import com.jfixby.r3.rana.api.AssetsGroup;
 import com.jfixby.r3.rana.api.format.PackageFormat;
 import com.jfixby.r3.rana.api.loader.PackageReaderInput;
+import com.jfixby.r3.sound.red.io.AudioPackageData;
+import com.jfixby.r3.sound.red.io.AudioSample;
 import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
