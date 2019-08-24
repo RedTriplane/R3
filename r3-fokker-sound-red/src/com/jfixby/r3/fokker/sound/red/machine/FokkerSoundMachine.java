@@ -4,6 +4,7 @@ package com.jfixby.r3.fokker.sound.red.machine;
 import java.io.IOException;
 
 import com.jfixby.r3.engine.api.sound.SoundMachineComponent;
+import com.jfixby.r3.engine.api.sound.VocalEventState;
 import com.jfixby.r3.engine.api.sound.Vocalizable;
 import com.jfixby.r3.fokker.sound.api.samples.FokkerAudioSamples;
 import com.jfixby.r3.rana.api.asset.AssetsConsumer;
@@ -70,13 +71,6 @@ public class FokkerSoundMachine implements SoundMachineComponent, AssetsConsumer
 	}
 
 	@Override
-	public void beginFrame () {
-		expectState(AUDIO_RENDER_MACHINE_STATE.READY);
-		switchState(AUDIO_RENDER_MACHINE_STATE.FRAME);
-		this.audioSamplesRenderer.beginFrame();
-	}
-
-	@Override
 	public void setProjection (final ProjectionsStack projection) {
 		expectState(AUDIO_RENDER_MACHINE_STATE.FRAME);
 		this.layer_projection = projection;
@@ -108,6 +102,13 @@ public class FokkerSoundMachine implements SoundMachineComponent, AssetsConsumer
 	}
 
 	@Override
+	public void beginFrame () {
+		expectState(AUDIO_RENDER_MACHINE_STATE.READY);
+		switchState(AUDIO_RENDER_MACHINE_STATE.FRAME);
+		this.audioSamplesRenderer.beginFrame();
+	}
+
+	@Override
 	final public void endFrame () {
 		expectState(AUDIO_RENDER_MACHINE_STATE.FRAME);
 		switchState(AUDIO_RENDER_MACHINE_STATE.READY);
@@ -116,8 +117,8 @@ public class FokkerSoundMachine implements SoundMachineComponent, AssetsConsumer
 	}
 
 	@Override
-	public void VocalizeEvent (final ID asset_id) {
-		Err.throwNotImplementedYet();
+	public void VocalizeEvent (final ID asset_id, final Vocalizable event, final VocalEventState state, final boolean isMuted) {
+		this.audioSamplesRenderer.vocalizeEvent(asset_id, event, state, isMuted);
 	}
 
 }

@@ -137,13 +137,18 @@ public class RedLayerAudioRenderer {
 
 	final static private void renderComponent (final Vocalizable e, final DebugTimer timer, final ExecutionMode execMode,
 		final RedLayer parent) {
-		if (e.isMute()) {
-			return;
-		}
 		try {
-			e.doVocalize();
+			e.doVocalize(e.isMute());
 		} catch (final Throwable xe) {
 			throw new FailedToRenderComponentException(xe, parent);
 		}
+	}
+
+	public void pauseAll () {
+		SoundMachine.component().beginFrame();
+		SoundMachine.component().endFrame();
+	}
+
+	public void resumeAll () {
 	}
 }

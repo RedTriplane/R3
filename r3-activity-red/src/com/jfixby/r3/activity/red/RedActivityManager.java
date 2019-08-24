@@ -97,10 +97,12 @@ public class RedActivityManager implements ActivityManager {
 
 	public void suspend () {
 		this.input_processor.markAllAllKeysReleased();
+		this.audio_renderer.pauseAll();
 	}
 
 	public void resume () {
 		this.input_processor.markAllAllKeysReleased();
+		this.audio_renderer.resumeAll();
 	}
 
 	public void renderGraphics (final EngineState engine_state) {

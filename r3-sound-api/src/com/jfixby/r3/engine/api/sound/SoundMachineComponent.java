@@ -25,6 +25,6 @@ public interface SoundMachineComponent {
 
 	void endDrawComponent (Vocalizable fokkerDrawable);
 
-	public void VocalizeEvent (ID asset_id);
+	public void VocalizeEvent (ID asset_id, Vocalizable event, VocalEventState state, boolean isMuted);
 
 }

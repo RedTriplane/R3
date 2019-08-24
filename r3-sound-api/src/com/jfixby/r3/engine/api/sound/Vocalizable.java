@@ -5,6 +5,6 @@ public interface Vocalizable {
 
 	boolean isMute ();
 
-	void doVocalize ();
+	void doVocalize (boolean isMuted);
 
 }

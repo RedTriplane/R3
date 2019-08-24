@@ -7,6 +7,7 @@ import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.activity.red.RedRectangularComponent;
 import com.jfixby.r3.engine.api.sound.AudioSample;
 import com.jfixby.r3.engine.api.sound.SoundMachine;
+import com.jfixby.r3.engine.api.sound.VocalEventState;
 import com.jfixby.r3.engine.api.sound.Vocalizable;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Rectangle;
@@ -21,11 +22,37 @@ public class RedSoundEvent extends RedRectangularComponent implements SoundEvent
 
 	private final ID asset_id;
 	private final RedComponentsFactory master;
+	private final int hashid;
+	static int idspawner = 0;
+
+	@Override
+	public int hashCode () {
+		return this.hashid;
+	}
+
+	@Override
+	public boolean equals (final Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+		final RedSoundEvent other = (RedSoundEvent)obj;
+		if (this.hashid != other.hashid) {
+			return false;
+		}
+		return true;
+	}
 
 	public RedSoundEvent (final RedComponentsFactory master, final AudioSample data) {
 		super(master);
 		this.master = master;
 		this.asset_id = data.getAssetID();
+		this.hashid = idspawner++;
 	}
 
 	@Override
@@ -63,9 +90,11 @@ public class RedSoundEvent extends RedRectangularComponent implements SoundEvent
 		return !this.isVisible();
 	}
 
+	VocalEventState state = new VocalEventState();
+
 	@Override
-	public void doVocalize () {
-		SoundMachine.component().VocalizeEvent(this.asset_id);
+	public void doVocalize (final boolean isMuted) {
+		SoundMachine.component().VocalizeEvent(this.asset_id, this, this.state, isMuted);
 	}
 
 }
