@@ -14,6 +14,9 @@ import com.jfixby.r3.activity.api.animation.LayersAnimationSpecs;
 import com.jfixby.r3.activity.api.animation.PositionAnchor;
 import com.jfixby.r3.activity.api.animation.PositionsSequence;
 import com.jfixby.r3.activity.api.animation.PositionsSequenceSpecs;
+import com.jfixby.r3.activity.api.audio.Music;
+import com.jfixby.r3.activity.api.audio.MusicSpecs;
+import com.jfixby.r3.activity.api.audio.SoundComponent;
 import com.jfixby.r3.activity.api.audio.SoundEvent;
 import com.jfixby.r3.activity.api.audio.SoundEventSpecs;
 import com.jfixby.r3.activity.api.audio.SoundFactory;
@@ -150,7 +153,7 @@ public class RedSceneConstructor {
 
 		) {
 
-			final SoundEvent audio = this.restoreSound(element, components_factory, settings);
+			final SoundComponent audio = this.restoreSound(element, components_factory, settings);
 			currentScene.sounds.add(audio);
 // currentScene.localized_components.add(audio);
 
@@ -563,21 +566,37 @@ public class RedSceneConstructor {
 		return text_bar;
 	}
 
-	SoundEvent restoreSound (final LayerElement element, final ComponentsFactory components_factory, final Settings settings) {
+	SoundComponent restoreSound (final LayerElement element, final ComponentsFactory components_factory, final Settings settings) {
 		Debug.checkNull("element.sound_settings", element.sound_settings);
 
 		final SoundFactory sound_factory = components_factory.getSoundFactory();
 
-		final SoundEventSpecs specs = new SoundEventSpecs();
-		specs.audio_sample_id = Names.newID(element.audio_sample_id);
-		specs.is_looped = element.sound_settings.is_looped;
-		specs.autostart = element.sound_settings.autostart;
+		if (element.sound_settings.is_audio_event) {
 
-		final SoundEvent event = sound_factory.newSoundEvent(specs);
+			final SoundEventSpecs specs = new SoundEventSpecs();
+			specs.audio_sample_id = Names.newID(element.audio_sample_id);
+			specs.is_looped = element.sound_settings.is_looped;
+			specs.autostart = element.sound_settings.autostart;
 
-		event.setPosition(0, 0);
-		event.setName(element.name);
-		return event;
+			final SoundEvent event = sound_factory.newSoundEvent(specs);
+
+			event.setPosition(0, 0);
+			event.setName(element.name);
+			return event;
+		}
+
+		if (element.sound_settings.is_music) {
+			final MusicSpecs specs = new MusicSpecs();
+			specs.audio_sample_id = Names.newID(element.audio_sample_id);
+			specs.is_looped = element.sound_settings.is_looped;
+			specs.autostart = element.sound_settings.autostart;
+			final Music event = sound_factory.newMusic(specs);
+			event.setName(element.name);
+			return event;
+		}
+
+		Err.reportError("Unsupported tag");
+		return null;
 	}
 
 	LayersAnimation restoreSimpleAnimation (final LayerElement element, final ComponentsFactory components_factory,

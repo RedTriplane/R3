@@ -27,4 +27,6 @@ public interface SoundMachineComponent {
 
 	public void VocalizeEvent (ID asset_id, Vocalizable event, VocalEventState state, boolean isMuted);
 
+	public void VocalizeMusic (ID asset_id, Vocalizable music, VocalEventState state, boolean isMuted);
+
 }

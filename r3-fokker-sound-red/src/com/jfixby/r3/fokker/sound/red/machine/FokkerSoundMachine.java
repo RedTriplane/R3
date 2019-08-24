@@ -26,6 +26,7 @@ public class FokkerSoundMachine implements SoundMachineComponent, AssetsConsumer
 	public Projection layer_projection;
 
 	final FokkerAudioSamplesRenderer audioSamplesRenderer = new FokkerAudioSamplesRenderer();
+	final FokkerMusicRenderer musicRenderer = new FokkerMusicRenderer();
 
 	@Override
 	public void deploy () {
@@ -36,6 +37,7 @@ public class FokkerSoundMachine implements SoundMachineComponent, AssetsConsumer
 		PackagesLoader.registerPackageReader(FokkerAudioSamples.invoke().packageReader().reader());
 
 		this.audioSamplesRenderer.init();
+		this.musicRenderer.init();
 
 		expectState(AUDIO_RENDER_MACHINE_STATE.NEW);
 		switchState(AUDIO_RENDER_MACHINE_STATE.READY);
@@ -106,6 +108,7 @@ public class FokkerSoundMachine implements SoundMachineComponent, AssetsConsumer
 		expectState(AUDIO_RENDER_MACHINE_STATE.READY);
 		switchState(AUDIO_RENDER_MACHINE_STATE.FRAME);
 		this.audioSamplesRenderer.beginFrame();
+		this.musicRenderer.beginFrame();
 	}
 
 	@Override
@@ -113,12 +116,19 @@ public class FokkerSoundMachine implements SoundMachineComponent, AssetsConsumer
 		expectState(AUDIO_RENDER_MACHINE_STATE.FRAME);
 		switchState(AUDIO_RENDER_MACHINE_STATE.READY);
 		this.audioSamplesRenderer.endFrame();
+		this.musicRenderer.endFrame();
 		Debug.component().checkTrue(this.layer_projection == Geometry.getProjectionFactory().IDENTITY());
 	}
 
 	@Override
 	public void VocalizeEvent (final ID asset_id, final Vocalizable event, final VocalEventState state, final boolean isMuted) {
 		this.audioSamplesRenderer.vocalizeEvent(asset_id, event, state, isMuted);
+	}
+
+	@Override
+	public void VocalizeMusic (final ID asset_id, final Vocalizable music, final VocalEventState state, final boolean isMuted) {
+		this.musicRenderer.vocalizeMusic(asset_id, music, state, isMuted);
+
 	}
 
 }

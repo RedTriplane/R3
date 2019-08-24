@@ -25,8 +25,8 @@ public class RedFokkerAudioSamplesGroup implements AssetsGroup {
 	private File package_root_file;
 	private List<RedFokkerAudioSample> list = null;
 
-	public void read (final PackageReaderInput input, final FokkerSoundLoader fokkerSoundLoader, final RedFokkerAudioSamples registry)
-		throws IOException {
+	public void read (final PackageReaderInput input, final FokkerSoundLoader fokkerSoundLoader,
+		final RedFokkerAudioSamples registry) throws IOException {
 
 		this.package_root_file = input.packageRootFile;
 		// final PackageReaderListener reader_listener = input.getPackageReaderListener();
@@ -57,7 +57,7 @@ public class RedFokkerAudioSamplesGroup implements AssetsGroup {
 		final AssetsContainer container = input.assetsContainer;
 
 		final AudioPackageData packageData = package_root_file.readJson(AudioPackageData.class);
-
+// Err.reportError("" + package_root_file.toString());
 		for (final AudioSample sample : packageData.samples) {
 			final String asset_id_string = sample.id;
 			final ID asset_id = Names.newID(asset_id_string);
@@ -67,7 +67,8 @@ public class RedFokkerAudioSamplesGroup implements AssetsGroup {
 			final ToGdxFileAdaptor gdx_file = new ToGdxFileAdaptor(file);
 
 			final com.badlogic.gdx.audio.Sound gdxSound = Gdx.audio.newSound(gdx_file);
-			final RedFokkerAudioSample data = new RedFokkerAudioSample(asset_id, gdxSound, this);
+			final com.badlogic.gdx.audio.Music gdxMusic = Gdx.audio.newMusic(gdx_file);
+			final RedFokkerAudioSample data = new RedFokkerAudioSample(asset_id, gdxSound, gdxMusic, this);
 			container.addAsset(asset_id, data);
 			registry.register(asset_id, data);
 			this.list.add(data);
@@ -79,6 +80,7 @@ public class RedFokkerAudioSamplesGroup implements AssetsGroup {
 	public void dispose () {
 		for (final RedFokkerAudioSample e : this.list) {
 			e.getGdxSound().dispose();
+			e.getGdxMusic().dispose();
 		}
 		this.list = null;
 	}

@@ -1,6 +1,8 @@
 
 package com.jfixby.r3.activity.red.sound;
 
+import com.jfixby.r3.activity.api.audio.Music;
+import com.jfixby.r3.activity.api.audio.MusicSpecs;
 import com.jfixby.r3.activity.api.audio.SoundEvent;
 import com.jfixby.r3.activity.api.audio.SoundEventSpecs;
 import com.jfixby.r3.activity.api.audio.SoundFactory;
@@ -34,6 +36,11 @@ public class RedSoundFactory implements SoundFactory {
 	@Override
 	public SoundEvent newSoundEvent (final SoundEventSpecs specs) {
 		final ID newAssetID = specs.audio_sample_id;
+		final AudioSample sample = this.obtainAudioSample(newAssetID);
+		return new RedSoundEvent(this.master, sample);
+	}
+
+	private AudioSample obtainAudioSample (final ID newAssetID) {
 
 		final boolean allowMissingAsset = SystemSettings.getFlag(R3_SOUND_PARAMS.AllowMissingSound);
 		final String missingAssetString = SystemSettings.getStringParameter(R3_SOUND_PARAMS.SOUND_IS_MISING, "");
@@ -59,11 +66,25 @@ public class RedSoundFactory implements SoundFactory {
 		final Asset asset = asset_handler.asset();
 
 		if (asset instanceof AudioSample) {
-			return new RedSoundEvent(this.master, (AudioSample)asset);
+			return (AudioSample)asset;
 		}
 
 		Err.reportError("Unsupported audio asset type: " + asset);
 		return null;
+	}
+
+	@Override
+	public Music newMusic (final MusicSpecs specs) {
+		final ID newAssetID = specs.audio_sample_id;
+		final AudioSample sample = this.obtainAudioSample(newAssetID);
+		return new RedMusic(this.master, sample);
+	}
+
+	@Override
+	public Music newMusic (final ID newAssetID) {
+		final MusicSpecs s = new MusicSpecs();
+		s.audio_sample_id = newAssetID;
+		return this.newMusic(s);
 	}
 
 }

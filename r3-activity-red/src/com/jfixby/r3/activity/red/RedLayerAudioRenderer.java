@@ -145,8 +145,8 @@ public class RedLayerAudioRenderer {
 	}
 
 	public void pauseAll () {
-		SoundMachine.component().beginFrame();
-		SoundMachine.component().endFrame();
+// SoundMachine.component().beginFrame();
+// SoundMachine.component().endFrame();
 	}
 
 	public void resumeAll () {

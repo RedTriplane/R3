@@ -3,7 +3,7 @@ package com.jfixby.r3.scene2d.red;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.animation.Animation;
-import com.jfixby.r3.activity.api.audio.SoundEvent;
+import com.jfixby.r3.activity.api.audio.SoundComponent;
 import com.jfixby.r3.activity.api.camera.CanvasCamera;
 import com.jfixby.r3.activity.api.input.InputComponent;
 import com.jfixby.r3.activity.api.layer.Component;
@@ -45,7 +45,7 @@ public class RedScene implements Scene {
 	final List<Raster> rasters = Collections.newList();
 	final List<RedScene> child_scenes = Collections.newList();
 	final List<TextBar> text_fields = Collections.newList();
-	final List<SoundEvent> sounds = Collections.newList();
+	final List<SoundComponent> sounds = Collections.newList();
 
 // private final List<ShaderComponent> shaders = Collections.newList();
 	final List<LocalizedComponent> localized_components = Collections.newList();

@@ -7,4 +7,8 @@ public interface SoundFactory {
 	public SoundEvent newSoundEvent (ID soundid);
 
 	public SoundEvent newSoundEvent (SoundEventSpecs specs);
+
+	public Music newMusic (MusicSpecs specs);
+
+	public Music newMusic (ID soundid);
 }
