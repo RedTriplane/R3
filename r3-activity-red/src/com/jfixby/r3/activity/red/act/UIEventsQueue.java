@@ -54,7 +54,7 @@ public class UIEventsQueue {
 	}
 
 	public void startProcessing () {
-		this.queue_execution_task = TaskManager.newTask("TintoUIEventsQueue", this.check_and_execute_queue_job);
+		this.queue_execution_task = TaskManager.newTask("check_and_execute_queue_job", this.check_and_execute_queue_job);
 	}
 
 }

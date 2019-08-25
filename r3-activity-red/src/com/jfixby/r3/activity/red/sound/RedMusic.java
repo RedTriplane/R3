@@ -52,6 +52,11 @@ public class RedMusic implements Music, Vocalizable {
 	}
 
 	@Override
+	public String toString () {
+		return "Music[" + this.name + "] <" + this.asset_id + ">";
+	}
+
+	@Override
 	public ID getAssetID () {
 		return this.asset_id;
 	}
