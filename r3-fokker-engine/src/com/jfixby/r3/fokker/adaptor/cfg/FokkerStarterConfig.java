@@ -11,6 +11,7 @@ public class FokkerStarterConfig {
 	public static final String useGL30 = "useGL30";
 	public static final String width = "width";
 	public static final String height = "height";
+	public static final String fullscreen = "fullscreen";
 
 	public static final String PACKAGE_FORMAT = "RedTriplane.Fokker.StarterConfig";
 	public static final String FILE_NAME = "r3-fokker-starter-config.json";

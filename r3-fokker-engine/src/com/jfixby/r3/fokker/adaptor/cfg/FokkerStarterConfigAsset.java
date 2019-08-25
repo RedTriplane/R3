@@ -46,6 +46,10 @@ public class FokkerStarterConfigAsset implements Asset, AssetsGroup {
 		return this.configData.getValue(FokkerStarterConfig.TITLE);
 	}
 
+	public boolean getFullscreenFlag () {
+		return Boolean.parseBoolean(this.configData.getValue(FokkerStarterConfig.fullscreen));
+	}
+
 	public boolean getUseLG30Flag () {
 		return Boolean.parseBoolean(this.configData.getValue(FokkerStarterConfig.useGL30));
 	}
