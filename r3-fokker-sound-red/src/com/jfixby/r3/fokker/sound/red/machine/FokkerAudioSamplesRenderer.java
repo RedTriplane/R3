@@ -41,16 +41,19 @@ public class FokkerAudioSamplesRenderer {
 	}
 
 	public void vocalizeEvent (final ID asset_id, final Vocalizable event, final VocalEventState state, final boolean isMuted) {
-		Long instance_id = this.previously_playing.remove(event);
-		if (instance_id != null) {
-			this.currently_playing.put(event, instance_id);
-			return;
-		}
-
 		this.sound = FokkerAudioSamples.obtain(asset_id);
 		this.gdx_sound = this.sound.getGdxSound();
 
+		Long instance_id = this.previously_playing.remove(event);
+		if (instance_id != null) {
+			this.currently_playing.put(event, instance_id);
+			this.gdx_sound.setVolume(instance_id, state.volume);
+			return;
+		}
+
 		instance_id = this.gdx_sound.play();
+		this.gdx_sound.setVolume(instance_id, state.volume);
+
 		this.currently_playing.put(event, instance_id);
 		this.assets.put(event, asset_id);
 

@@ -9,5 +9,6 @@ public class SoundSettings implements java.io.Serializable {
 	public Boolean autostart;
 	public Boolean is_audio_event;
 	public Boolean is_music;
+	public Float volume;
 
 }

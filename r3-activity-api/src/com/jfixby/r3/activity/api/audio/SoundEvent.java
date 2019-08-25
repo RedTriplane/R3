@@ -10,4 +10,8 @@ public interface SoundEvent extends SoundComponent, CanvasPositionable {
 
 	SoundEvent copy ();
 
+	public void play ();
+
+	public void mute ();
+
 }

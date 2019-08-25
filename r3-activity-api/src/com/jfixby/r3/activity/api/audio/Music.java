@@ -7,4 +7,5 @@ public interface Music extends SoundComponent {
 	public ComponentsFactory getComponentsFactory ();
 
 	Music copy ();
+
 }

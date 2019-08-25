@@ -39,16 +39,19 @@ public class FokkerMusicRenderer {
 	}
 
 	public void vocalizeMusic (final ID asset_id, final Vocalizable music, final VocalEventState state, final boolean isMuted) {
-		ID instance_id = this.previously_playing.remove(music);
-		if (instance_id != null) {
-			this.currently_playing.put(music, instance_id);
-			return;
-		}
 
 		this.sound = FokkerAudioSamples.obtain(asset_id);
 		this.gdx_music = this.sound.getGdxMusic();
 
+		ID instance_id = this.previously_playing.remove(music);
+		if (instance_id != null) {
+			this.gdx_music.setVolume(state.volume);
+			this.currently_playing.put(music, instance_id);
+			return;
+		}
+
 		this.gdx_music.play();
+		this.gdx_music.setVolume(state.volume);
 		instance_id = asset_id;
 		this.currently_playing.put(music, instance_id);
 

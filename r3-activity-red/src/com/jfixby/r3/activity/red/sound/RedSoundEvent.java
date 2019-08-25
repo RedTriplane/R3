@@ -97,4 +97,24 @@ public class RedSoundEvent extends RedRectangularComponent implements SoundEvent
 		SoundMachine.component().VocalizeEvent(this.asset_id, this, this.state, isMuted);
 	}
 
+	@Override
+	public void play () {
+		this.show();
+	}
+
+	@Override
+	public void mute () {
+		this.hide();
+	}
+
+	@Override
+	public void setVolume (final float volume) {
+		this.state.volume = volume;
+	}
+
+	@Override
+	public float getVolume () {
+		return this.state.volume;
+	}
+
 }

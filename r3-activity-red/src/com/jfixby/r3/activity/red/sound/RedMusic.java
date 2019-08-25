@@ -93,4 +93,14 @@ public class RedMusic implements Music, Vocalizable {
 		return false;
 	}
 
+	@Override
+	public void setVolume (final float volume) {
+		this.state.volume = volume;
+	}
+
+	@Override
+	public float getVolume () {
+		return this.state.volume;
+	}
+
 }
