@@ -43,6 +43,11 @@ public class RedShadow implements Shadow, LayerBasedComponent, CanvasCameraManag
 		this.root.closeInputValve();
 	}
 
+	@Override
+	public String toString () {
+		return "Shadow(" + this.getValue() + ")";
+	}
+
 	public void setup (final ComponentsFactory components_factory) {
 		this.root = components_factory.newLayer();
 		this.root.setName("ShadowLayer");
