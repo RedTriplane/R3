@@ -4,6 +4,7 @@ package com.jfixby.r3.activity.red;
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.input.Button;
 import com.jfixby.r3.activity.api.input.ButtonSpecs;
+import com.jfixby.r3.activity.api.input.MouseAwayEvent;
 import com.jfixby.r3.activity.api.input.MouseExitEvent;
 import com.jfixby.r3.activity.api.input.MouseMovedEvent;
 import com.jfixby.r3.activity.api.input.MouseScrolledEvent;
@@ -56,6 +57,12 @@ public class RedButton implements Button, LayerBasedComponent {
 		}
 
 		@Override
+		public boolean onMouseAway (final MouseAwayEvent event) {
+			RedButton.this.onReleased();
+			return true;
+		}
+
+		@Override
 		public boolean onMouseScrolled (final MouseScrolledEvent event) {
 // L.d("" + this, event);
 			return true;
@@ -75,7 +82,7 @@ public class RedButton implements Button, LayerBasedComponent {
 			final TouchArea ta = master.getUserInputDepartment().newTouchArea(ts);
 			this.root.attachComponent(ta);
 
-// ta.setInputListener(this.listener);
+			ta.setInputListener(this.listener);
 
 		}
 

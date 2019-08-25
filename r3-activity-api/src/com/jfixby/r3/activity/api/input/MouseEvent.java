@@ -7,6 +7,8 @@ public interface MouseEvent {
 
 	ReadOnlyFloat2 getCanvasPosition ();
 
+	ReadOnlyFloat2 getLayerPosition ();
+
 	int getPointerNumber ();
 
 }

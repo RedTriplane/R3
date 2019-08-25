@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.jfixby.r3.activity.api.input.CharTypedEvent;
 import com.jfixby.r3.activity.api.input.KeyDownEvent;
 import com.jfixby.r3.activity.api.input.KeyUpEvent;
+import com.jfixby.r3.activity.api.input.MouseAwayEvent;
 import com.jfixby.r3.activity.api.input.MouseExitEvent;
 import com.jfixby.r3.activity.api.input.MouseMovedEvent;
 import com.jfixby.r3.activity.api.input.MouseScrolledEvent;
@@ -27,8 +28,8 @@ import com.jfixby.scarabei.api.input.Key;
 import com.jfixby.scarabei.api.input.MouseButton;
 import com.jfixby.scarabei.api.log.L;
 
-public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDraggedEvent, TouchUpEvent, TouchDownEvent,
-	MouseScrolledEvent, MouseExitEvent, CharTypedEvent, KeyUpEvent, KeyDownEvent {
+public class ActivityInputEventsDeliveryBox implements MouseAwayEvent, MouseMovedEvent, TouchDraggedEvent, TouchUpEvent,
+	TouchDownEvent, MouseScrolledEvent, MouseExitEvent, CharTypedEvent, KeyUpEvent, KeyDownEvent {
 
 	final PressedKeys pressed = new PressedKeys();
 
@@ -98,6 +99,7 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 	private double screen_y;
 
 	final Float2 canvas_point = Geometry.newFloat2();
+	final Float2 layer_point = Geometry.newFloat2();
 
 	boolean is_within_aperture = false;
 
@@ -191,7 +193,7 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 			if (this.cameras_stack.get(this.cameras_stack.size() - 1) == camera) {
 				this.cameras_stack.remove(this.cameras_stack.size() - 1);
 				camera.removeStack();
-				this.updateCanvasPosition(camera);
+				this.updatePointersPosition(camera);
 			} else {
 // Collections.newList(this.cameras_stack).print("cameras stack");
 				L.d("cameras stack", this.cameras_stack);
@@ -200,13 +202,14 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 		}
 	}
 
-	private void updateCanvasPosition (final RedCamera camera) {
+	private void updatePointersPosition (final RedCamera camera) {
 		this.canvas_point.setXY(this.screen_x, this.screen_y);
+		this.layer_point.setXY(this.screen_x, this.screen_y);
 		this.is_within_aperture = camera.isWithinAperture(this.canvas_point);
-		{
-			camera.unProject(this.canvas_point);
-			this.projectction_stack.unProject(this.canvas_point);
-		}
+		camera.unProject(this.canvas_point);
+
+		camera.unProject(this.layer_point);
+		this.projectction_stack.unProject(this.layer_point);
 	}
 
 	public void stackInCamera (final RedCamera camera) {
@@ -214,7 +217,7 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 			// L.d("stackInCamera", camera);
 			this.cameras_stack.add(camera);
 			camera.setStack(this.cameras_stack);
-			this.updateCanvasPosition(camera);
+			this.updatePointersPosition(camera);
 		}
 
 	}
@@ -223,7 +226,7 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 		if (projection != null) {
 			this.projectction_stack.push(projection);
 			final RedCamera camera = this.cameras_stack.get(this.cameras_stack.size() - 1);
-			this.updateCanvasPosition(camera);
+			this.updatePointersPosition(camera);
 		}
 	}
 
@@ -232,7 +235,7 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 			final Projection top_projection = this.projectction_stack.pop();
 			Debug.checkTrue(top_projection == projection);
 			final RedCamera camera = this.cameras_stack.get(this.cameras_stack.size() - 1);
-			this.updateCanvasPosition(camera);
+			this.updatePointersPosition(camera);
 		}
 	}
 
@@ -242,11 +245,6 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 			L.d("cameras stack", this.cameras_stack);
 			Err.reportError("Cameras stack is corrupted.");
 		}
-	}
-
-	@Override
-	public ReadOnlyFloat2 getCanvasPosition () {
-		return this.canvas_point;
 	}
 
 	public String toStringOriginal () {
@@ -292,6 +290,16 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 	@Override
 	public boolean is (final Key other) {
 		return this.getKey() == other;
+	}
+
+	@Override
+	public ReadOnlyFloat2 getLayerPosition () {
+		return this.layer_point;
+	}
+
+	@Override
+	public ReadOnlyFloat2 getCanvasPosition () {
+		return this.canvas_point;
 	}
 
 }

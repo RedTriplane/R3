@@ -3,6 +3,7 @@ package com.jfixby.r3.activity.red.input;
 
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.geometry.RectangleComponent;
+import com.jfixby.r3.activity.api.input.MouseAwayEvent;
 import com.jfixby.r3.activity.api.input.MouseExitEvent;
 import com.jfixby.r3.activity.api.input.MouseMovedEvent;
 import com.jfixby.r3.activity.api.input.TouchArea;
@@ -26,7 +27,8 @@ public class RedTouchArea implements TouchArea, LayerBasedComponent {
 		@Override
 		public boolean onMouseMoved (final MouseMovedEvent event) {
 
-			if (!RedTouchArea.this.shape.containsPoint(event.getCanvasPosition())) {
+			if (!RedTouchArea.this.shape.containsPoint(event.getLayerPosition())) {
+				RedTouchArea.this.me.onMouseAway((MouseAwayEvent)event);
 				return false;
 			}
 			return RedTouchArea.this.me.onMouseMoved(event);
@@ -34,9 +36,10 @@ public class RedTouchArea implements TouchArea, LayerBasedComponent {
 
 		@Override
 		public boolean onTouchDown (final TouchDownEvent event) {
-			final ReadOnlyFloat2 point = event.getCanvasPosition();
+			final ReadOnlyFloat2 point = event.getLayerPosition();
 // L.d(point, RedTouchArea.this.shape.containsPoint(point) + " " + RedTouchArea.this.shape);
 			if (!RedTouchArea.this.shape.containsPoint(point)) {
+				RedTouchArea.this.me.onMouseAway((MouseAwayEvent)event);
 				return false;
 			}
 			return RedTouchArea.this.me.onTouchDown(event);
@@ -44,7 +47,8 @@ public class RedTouchArea implements TouchArea, LayerBasedComponent {
 
 		@Override
 		public boolean onTouchUp (final TouchUpEvent event) {
-			if (!RedTouchArea.this.shape.containsPoint(event.getCanvasPosition())) {
+			if (!RedTouchArea.this.shape.containsPoint(event.getLayerPosition())) {
+				RedTouchArea.this.me.onMouseAway((MouseAwayEvent)event);
 				return false;
 			}
 			return RedTouchArea.this.me.onTouchUp(event);
@@ -52,7 +56,8 @@ public class RedTouchArea implements TouchArea, LayerBasedComponent {
 
 		@Override
 		public boolean onTouchDragged (final TouchDraggedEvent event) {
-			if (!RedTouchArea.this.shape.containsPoint(event.getCanvasPosition())) {
+			if (!RedTouchArea.this.shape.containsPoint(event.getLayerPosition())) {
+				RedTouchArea.this.me.onMouseAway((MouseAwayEvent)event);
 				return false;
 			}
 			return RedTouchArea.this.me.onTouchDragged(event);
@@ -60,6 +65,7 @@ public class RedTouchArea implements TouchArea, LayerBasedComponent {
 
 		@Override
 		public boolean onMouseExit (final MouseExitEvent event) {
+			RedTouchArea.this.me.onMouseAway((MouseAwayEvent)event);
 			return RedTouchArea.this.me.onMouseExit(event);
 		}
 
@@ -114,6 +120,10 @@ public class RedTouchArea implements TouchArea, LayerBasedComponent {
 	protected boolean onMouseMoved (final MouseMovedEvent event) {
 		// L.d(this.getID().toString(), event);
 		return this.listener.onMouseMoved(event);
+	}
+
+	protected boolean onMouseAway (final MouseAwayEvent event) {
+		return this.listener.onMouseAway(event);
 	}
 
 	protected boolean onMouseExit (final MouseExitEvent event) {
