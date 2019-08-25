@@ -308,7 +308,7 @@ public class RedSceneConstructor {
 		// Layer child_scene = components_factory.newLayer();
 
 		final Float2 position = Geometry.newFloat2(element.position_x, element.position_y);
-		final boolean debug_mode = element.debug_mode || false;
+		final boolean debug_mode = element.debug_mode;
 		if (element.input_settings.is_button) {
 			final ButtonSpecs button_specs = input_factory.newButtonSpecs();
 
@@ -344,7 +344,7 @@ public class RedSceneConstructor {
 			}
 
 			final Button button = input_factory.newButton(button_specs);
-			button.setDebugRenderFlag(debug_mode || true);
+			button.setDebugRenderFlag(debug_mode);
 			button.setName(element.name);
 			button.setPositionX(element.position_x);
 			button.setPositionY(element.position_y);
@@ -467,7 +467,7 @@ public class RedSceneConstructor {
 
 		scene.deployScene(components_factory, structure, settings);
 
-		scene.setName(structure_id.toString());
+		scene.setName(element.name);
 
 		return scene;
 	}
