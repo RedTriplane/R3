@@ -14,12 +14,15 @@ import com.jfixby.r3.activity.api.input.TouchDraggedEvent;
 import com.jfixby.r3.activity.api.input.TouchUpEvent;
 import com.jfixby.r3.activity.api.user.KeyboardInputEventListener;
 import com.jfixby.r3.activity.api.user.MouseInputEventListener;
+import com.jfixby.r3.activity.red.RedProjectionsStack;
 import com.jfixby.r3.activity.red.cam.RedCamera;
 import com.jfixby.r3.engine.api.exe.InputEvent;
+import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.floatn.Float2;
 import com.jfixby.scarabei.api.floatn.ReadOnlyFloat2;
 import com.jfixby.scarabei.api.geometry.Geometry;
+import com.jfixby.scarabei.api.geometry.projections.Projection;
 import com.jfixby.scarabei.api.input.Key;
 import com.jfixby.scarabei.api.input.MouseButton;
 import com.jfixby.scarabei.api.log.L;
@@ -73,6 +76,7 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 	}
 
 	final ArrayList<RedCamera> cameras_stack = new ArrayList<>();
+	final RedProjectionsStack projectction_stack = new RedProjectionsStack();
 
 	private InputEvent current_input_event;
 	boolean keyboard_event = false;
@@ -182,36 +186,53 @@ public class ActivityInputEventsDeliveryBox implements MouseMovedEvent, TouchDra
 
 	}
 
-	public void stackInCamera (final RedCamera camera) {
-		if (camera != null) {
-			// L.d("stackInCamera", camera);
-
-			this.cameras_stack.add(camera);
-			camera.setStack(this.cameras_stack);
-			this.canvas_point.setXY(this.screen_x, this.screen_y);
-			this.is_within_aperture = camera.isWithinAperture(this.canvas_point);
-			{
-				camera.unProject(this.canvas_point);
-			}
-		}
-
-	}
-
 	public void stackOutCamera (final RedCamera camera) {
 		if (camera != null) {
 			if (this.cameras_stack.get(this.cameras_stack.size() - 1) == camera) {
 				this.cameras_stack.remove(this.cameras_stack.size() - 1);
 				camera.removeStack();
-				this.canvas_point.setXY(this.screen_x, this.screen_y);
-				this.is_within_aperture = camera.isWithinAperture(this.canvas_point);
-				{
-					camera.unProject(this.canvas_point);
-				}
+				this.updateCanvasPosition(camera);
 			} else {
 // Collections.newList(this.cameras_stack).print("cameras stack");
 				L.d("cameras stack", this.cameras_stack);
 				Err.reportError("Cameras stack is corrupted.");
 			}
+		}
+	}
+
+	private void updateCanvasPosition (final RedCamera camera) {
+		this.canvas_point.setXY(this.screen_x, this.screen_y);
+		this.is_within_aperture = camera.isWithinAperture(this.canvas_point);
+		{
+			camera.unProject(this.canvas_point);
+			this.projectction_stack.unProject(this.canvas_point);
+		}
+	}
+
+	public void stackInCamera (final RedCamera camera) {
+		if (camera != null) {
+			// L.d("stackInCamera", camera);
+			this.cameras_stack.add(camera);
+			camera.setStack(this.cameras_stack);
+			this.updateCanvasPosition(camera);
+		}
+
+	}
+
+	public void stackInProjection (final Projection projection) {
+		if (projection != null) {
+			this.projectction_stack.push(projection);
+			final RedCamera camera = this.cameras_stack.get(this.cameras_stack.size() - 1);
+			this.updateCanvasPosition(camera);
+		}
+	}
+
+	public void stackOutProjection (final Projection projection) {
+		if (projection != null) {
+			final Projection top_projection = this.projectction_stack.pop();
+			Debug.checkTrue(top_projection == projection);
+			final RedCamera camera = this.cameras_stack.get(this.cameras_stack.size() - 1);
+			this.updateCanvasPosition(camera);
 		}
 	}
 

@@ -9,9 +9,7 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 
-public class InputSpecs implements
-// ButtonSpecs,
-	CustomInputSpecs {
+public class InputSpecs implements CustomInputSpecs {
 
 	final List<TouchAreaSpecs> touch_areas = Collections.newList();
 	private String button_name;

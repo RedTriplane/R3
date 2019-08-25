@@ -11,6 +11,7 @@ import com.jfixby.r3.activity.red.layers.RedLayer;
 import com.jfixby.r3.engine.api.exe.InputEvent;
 import com.jfixby.r3.engine.api.exe.InputQueue;
 import com.jfixby.scarabei.api.err.Err;
+import com.jfixby.scarabei.api.geometry.projections.Projection;
 
 public class RedLayerInputProcessor {
 
@@ -66,17 +67,21 @@ public class RedLayerInputProcessor {
 		}
 		final RedCamera camera = layer.getCamera();
 		this.box.stackInCamera(camera);
+		final Projection projection = layer.getProjection();
+		this.box.stackInProjection(projection);
 		final FastList<Object> unit_input_listeners = layer.listActivityMouseListeners();
 		for (int i = 0; i < unit_input_listeners.size(); i++) {
 			final int k = unit_input_listeners.size() - 1 - i;
 			final Object listener = unit_input_listeners.getElementAt(k);
 			final boolean success = this.try_to_deliver_mouse_event(listener);
 			if (success) {
+				this.box.stackOutProjection(projection);
 				this.box.stackOutCamera(camera);
 				// L.d("mouse out", layer);
 				return true;
 			}
 		}
+		this.box.stackOutProjection(projection);
 		this.box.stackOutCamera(camera);
 		// L.d("mouse out", layer);
 		return false;
