@@ -11,11 +11,9 @@ public interface UIEventsManagerComponent {
 
 	void allowUserInput ();
 
-	void switchToUI (ID ui_unit_id);
+	void loadUnit (ID ui_unit_id);
 
 	void showLoadingScreen (ID loader_unit_id, boolean fadedOut);
-
-	AnimationsMachine newAnimationsMachine ();
 
 	public <T> void pushAction (final UIAction<T> action);
 

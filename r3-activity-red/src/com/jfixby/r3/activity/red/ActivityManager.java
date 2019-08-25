@@ -55,4 +55,8 @@ public class ActivityManager {
 		this.current_unit_container.doRender(engine_state);
 	}
 
+	public Activity getActivity () {
+		return this.current_unit_container.getActivity();
+	}
+
 }

@@ -11,7 +11,6 @@ public class SwitchUserInputEvent extends UIEvent {
 	public static final String DISABLE = "DISABLE";
 
 	private final RedUIManager tintoUIManager;
-	private ActivityManager current_unit;
 	private InputManager input_manager;
 	private final String action;
 
@@ -30,8 +29,10 @@ public class SwitchUserInputEvent extends UIEvent {
 
 	@Override
 	public void go () {
-		this.current_unit = this.tintoUIManager.getCurrent();
-		final Activity unit = this.current_unit.getActivity();
+		final Activity unit = this.tintoUIManager.getActivity();
+		if (unit == null) {
+			Err.reportError("Current unit is null. Task failed " + this);
+		}
 		if (unit instanceof InputManager) {
 			this.input_manager = (InputManager)unit;
 		} else {

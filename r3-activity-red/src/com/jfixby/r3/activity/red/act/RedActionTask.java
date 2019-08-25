@@ -11,7 +11,6 @@ public class RedActionTask<T> extends UIEvent {
 	private final UIAction<T> action;
 	private boolean called = false;
 	private final RedUIManager redUIManager;
-	private ActivityManager current_unit_man;
 	private T ui;
 
 	public RedActionTask (final RedUIManager redUIManager, final UIAction<T> action) {
@@ -26,8 +25,10 @@ public class RedActionTask<T> extends UIEvent {
 
 	@Override
 	public void go () {
-		this.current_unit_man = this.redUIManager.getCurrent();
-		final Activity unit = this.current_unit_man.getActivity();
+		final Activity unit = this.redUIManager.getActivity();
+		if (unit == null) {
+			Err.reportError("Current unit is null. Task failed " + this);
+		}
 		if (unit instanceof Activity) {
 			try {
 				this.ui = (T)unit;

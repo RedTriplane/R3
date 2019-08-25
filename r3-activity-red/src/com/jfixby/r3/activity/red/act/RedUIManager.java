@@ -1,28 +1,24 @@
 
 package com.jfixby.r3.activity.red.act;
 
-import com.jfixby.r3.activity.api.act.AnimationsMachine;
+import com.jfixby.r3.activity.api.Activity;
 import com.jfixby.r3.activity.api.act.UIAction;
 import com.jfixby.r3.activity.api.act.UIEventsManagerComponent;
+import com.jfixby.r3.activity.api.spawn.ActivitySpawningException;
+import com.jfixby.r3.activity.red.ActivityManager;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.names.ID;
 
 public class RedUIManager implements UIEventsManagerComponent {
 
-	public RedUIManager () {
+	private final ActivityManager units_manager;
+
+	public RedUIManager (final ActivityManager units_manager) {
 		super();
-	}
-
-	final LoaderManager loder_unit_manager = new LoaderManager();
-
-	public LoaderManager getLoader () {
-		return this.loder_unit_manager;
+		this.units_manager = units_manager;
 	}
 
 	final UIEventsQueue events_queue = new UIEventsQueue();
-
-	final GameActivityManager game_unit_manager = new GameActivityManager();
-	ActivityManager current = null;
 
 	@Override
 	public void startEventsMachine () {
@@ -43,10 +39,10 @@ public class RedUIManager implements UIEventsManagerComponent {
 	}
 
 	@Override
-	public void switchToUI (final ID game_ui_unit_id) {
-// final ShowGameUIScreenEvent event = new ShowGameUIScreenEvent(this, game_ui_unit_id);
-// this.events_queue.put(event);
-		Err.throwNotImplementedYet();
+	public void loadUnit (final ID unit_id) {
+		final LoadUnitEvent event = new LoadUnitEvent(this, unit_id);
+		this.events_queue.put(event);
+// Err.throwNotImplementedYet();
 	}
 
 	@Override
@@ -73,28 +69,19 @@ public class RedUIManager implements UIEventsManagerComponent {
 		this.events_queue.put(event);
 	}
 
-	public ActivityManager getCurrent () {
-		return (this.current);
-	}
-
-	public void setCurrent (final ActivityManager next) {
-		this.current = next;
-	}
-
-	public GameActivityManager getGameActivityContainer () {
-		return this.game_unit_manager;
-	}
-
-	@Override
-	public AnimationsMachine newAnimationsMachine () {
-		return new RedAnimationsMachine();
-	}
-
 	@Override
 	public <T> void pushAction (final UIAction<T> action) {
 		final RedActionTask<T> event = new RedActionTask<>(this, action);
 		this.events_queue.put(event);
 // return event.getStatus();
+	}
+
+	public Activity getActivity () {
+		return this.units_manager.getActivity();
+	}
+
+	public void loadNextActivity (final ID unit_id) throws ActivitySpawningException {
+		this.units_manager.pushNextActivity(unit_id);
 	}
 
 }

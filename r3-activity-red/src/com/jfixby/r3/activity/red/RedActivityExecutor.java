@@ -1,7 +1,9 @@
 
 package com.jfixby.r3.activity.red;
 
+import com.jfixby.r3.activity.api.act.UIEventsManager;
 import com.jfixby.r3.activity.api.spawn.ActivitySpawningException;
+import com.jfixby.r3.activity.red.act.RedUIManager;
 import com.jfixby.r3.engine.api.EngineAssembler;
 import com.jfixby.r3.engine.api.RedTriplane;
 import com.jfixby.r3.engine.api.exe.EngineExecutor;
@@ -61,6 +63,8 @@ public class RedActivityExecutor implements EngineExecutor {
 		// Sys.exit();
 
 		this.units_manager = new ActivityManager();
+		UIEventsManager.installComponent(new RedUIManager(this.units_manager));
+
 		RenderMachine.deploy();
 		SoundMachine.deploy();
 		final ID starter = RedTriplane.getGameStarter();
@@ -73,7 +77,7 @@ public class RedActivityExecutor implements EngineExecutor {
 			e.printStackTrace();
 			Err.reportError(e);
 		}
-
+		UIEventsManager.startEventsMachine();
 	}
 
 	@Override

@@ -1,14 +1,12 @@
 
 package com.jfixby.r3.activity.red.act;
 
-import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.sys.Sys;
 
 public class WaitEvent extends UIEvent {
 
 	private final long period;
 	private final RedUIManager tintoUIManager;
-	private ActivityManager current_unit;
 
 	float value_begin;
 	float value_end;
@@ -31,10 +29,6 @@ public class WaitEvent extends UIEvent {
 
 	@Override
 	public void go () {
-		this.current_unit = this.tintoUIManager.getCurrent();
-		if (this.current_unit == null) {
-			Err.reportError("Current unit is null. Task failed " + this);
-		}
 		this.value_current = this.value_begin;
 		this.timestamp_begin = Sys.SystemTime().currentTimeMillis();
 		this.timestamp_end = this.timestamp_begin + this.period;

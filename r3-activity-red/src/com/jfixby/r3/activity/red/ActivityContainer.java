@@ -72,4 +72,8 @@ public class ActivityContainer {
 		return this.unit.toString();
 	}
 
+	public Activity getActivity () {
+		return this.unit;
+	}
+
 }

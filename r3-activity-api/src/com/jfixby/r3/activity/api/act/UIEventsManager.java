@@ -30,7 +30,7 @@ public class UIEventsManager {
 	}
 
 	public static void loadUnit (final ID ui_unit_id) {
-		invoke().switchToUI(ui_unit_id);
+		invoke().loadUnit(ui_unit_id);
 	}
 
 	public static void pushFadeIn (final long period) {
@@ -39,10 +39,6 @@ public class UIEventsManager {
 
 	public static void allowUserInput () {
 		invoke().allowUserInput();
-	}
-
-	public static AnimationsMachine newAnimationsMachine () {
-		return invoke().newAnimationsMachine();
 	}
 
 	public static <T> void pushAction (final UIAction<T> action) {

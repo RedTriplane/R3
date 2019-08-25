@@ -17,7 +17,6 @@ public class FadeEvent extends UIEvent {
 	private final FADE_MODE fadeInOrOut;
 	private final long period;
 	private final RedUIManager tintoUIManager;
-	private ActivityManager current_unit;
 
 	float value_begin;
 	float value_end;
@@ -42,11 +41,10 @@ public class FadeEvent extends UIEvent {
 
 	@Override
 	public void go () {
-		this.current_unit = this.tintoUIManager.getCurrent();
-		if (this.current_unit == null) {
+		final Activity unit = this.tintoUIManager.getActivity();
+		if (unit == null) {
 			Err.reportError("Current unit is null. Task failed " + this);
 		}
-		final Activity unit = this.current_unit.getActivity();
 		if (unit instanceof ShadowStateListener) {
 			this.shadow_state_listener = (ShadowStateListener)unit;
 		} else {
