@@ -8,6 +8,7 @@ import com.jfixby.r3.activity.api.input.MouseAwayEvent;
 import com.jfixby.r3.activity.api.input.MouseExitEvent;
 import com.jfixby.r3.activity.api.input.MouseMovedEvent;
 import com.jfixby.r3.activity.api.input.MouseScrolledEvent;
+import com.jfixby.r3.activity.api.input.OnClickListener;
 import com.jfixby.r3.activity.api.input.TouchArea;
 import com.jfixby.r3.activity.api.input.TouchAreaSpecs;
 import com.jfixby.r3.activity.api.input.TouchDownEvent;
@@ -16,6 +17,8 @@ import com.jfixby.r3.activity.api.input.TouchUpEvent;
 import com.jfixby.r3.activity.api.layer.Layer;
 import com.jfixby.r3.activity.api.layer.VisibleComponent;
 import com.jfixby.r3.activity.api.user.MouseInputEventListener;
+import com.jfixby.scarabei.api.collections.Collections;
+import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.projections.OffsetProjection;
@@ -33,13 +36,14 @@ public class RedButton implements Button, LayerBasedComponent {
 
 		@Override
 		public boolean onTouchDown (final TouchDownEvent event) {
+			RedButton.this.clickListener.onClick();
 			RedButton.this.onPress();
 			return true;
 		}
 
 		@Override
 		public boolean onTouchUp (final TouchUpEvent event) {
-			RedButton.this.onPressed();
+			RedButton.this.onReleased();
 			return true;
 		}
 
@@ -71,6 +75,15 @@ public class RedButton implements Button, LayerBasedComponent {
 	private final VisibleComponent onPressed;
 	private final VisibleComponent onHover;
 	private final VisibleComponent onPress;
+	private OnClickListener clickListener;
+
+	@Override
+	public String toString () {
+		return "Button<" + this.getName() + ">";
+	}
+
+	final List<TouchArea> touchAreas = Collections.newList();
+	private boolean debugRenderFlag;
 
 	public RedButton (final RedComponentsFactory master, final ButtonSpecs specs) {
 		this.root = master.newLayer();
@@ -80,7 +93,7 @@ public class RedButton implements Button, LayerBasedComponent {
 		for (final TouchAreaSpecs ts : specs.touchAreas) {
 			final TouchArea ta = master.getUserInputDepartment().newTouchArea(ts);
 			this.root.attachComponent(ta);
-
+			this.touchAreas.add(ta);
 			ta.setInputListener(this.listener);
 
 		}
@@ -91,7 +104,11 @@ public class RedButton implements Button, LayerBasedComponent {
 		this.onHover = this.addIfNotNull(this.root, specs.onHover, this.onReleased);
 		this.onPress = this.addIfNotNull(this.root, specs.onPress, this.onPressed);
 
+		this.setOnClickListener(null);
+
 		this.onReleased();
+
+		this.setDebugRenderFlag(false);
 
 	}
 
@@ -172,11 +189,15 @@ public class RedButton implements Button, LayerBasedComponent {
 
 	@Override
 	public void setDebugRenderFlag (final boolean b) {
+		this.debugRenderFlag = b;
+		for (final TouchArea ta : this.touchAreas) {
+			ta.setDebugRenderFlag(b);
+		}
 	}
 
 	@Override
 	public boolean getDebugRenderFlag () {
-		return false;
+		return this.debugRenderFlag;
 	}
 
 	@Override
@@ -187,6 +208,19 @@ public class RedButton implements Button, LayerBasedComponent {
 	@Override
 	public void setPositionY (final double y) {
 		this.parallaxPosition.setOffsetY(y);
+	}
+
+	@Override
+	public void setOnClickListener (final OnClickListener listener) {
+		this.clickListener = listener;
+		if (this.clickListener == null) {
+			this.clickListener = OnClickListener.DEFAULT;
+		}
+	}
+
+	@Override
+	public OnClickListener getOnClickListener () {
+		return this.clickListener;
 	}
 
 }
