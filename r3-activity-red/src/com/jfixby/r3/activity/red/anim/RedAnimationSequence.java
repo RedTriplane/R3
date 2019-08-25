@@ -354,9 +354,11 @@ public class RedAnimationSequence implements PositionsSequence, LayerBasedCompon
 	}
 
 	@Override
-	public boolean isAnimationDone () {
-		return this.state.currentState() == ANIMATION_STATE.DONE;
-
+	public float loopsComplete () {
+		if (this.state.currentState() == ANIMATION_STATE.DONE) {
+			return 1;
+		}
+		return this.current_time * 1f / this.current_period;
 	}
 
 	@Override

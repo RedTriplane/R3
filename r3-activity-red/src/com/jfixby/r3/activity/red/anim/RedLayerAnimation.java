@@ -14,7 +14,6 @@ import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.debug.Debug;
-import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.time.TimeStream;
 
 public class RedLayerAnimation implements LayersAnimation, LayerBasedComponent {
@@ -28,11 +27,8 @@ public class RedLayerAnimation implements LayersAnimation, LayerBasedComponent {
 
 	@Override
 	public void stopAnimation () {
-		Err.throwNotImplementedYet();
+		this.animation.start();
 	}
-
-	// private boolean isSimple;
-	// private boolean isPositionModifyer;
 
 	public RedLayerAnimation (final LayersAnimationSpecs specs, final RedComponentsFactory components_factory) {
 		this.components_factory = components_factory;
@@ -125,7 +121,7 @@ public class RedLayerAnimation implements LayersAnimation, LayerBasedComponent {
 	}
 
 	@Override
-	public boolean isAnimationDone () {
+	public float loopsComplete () {
 		return this.animation.isDone();
 	}
 

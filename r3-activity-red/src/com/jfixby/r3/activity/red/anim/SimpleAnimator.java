@@ -53,6 +53,9 @@ public class SimpleAnimator implements OnUpdateListener {
 
 	}
 
+	public void stop () {
+	}
+
 	private long long_start_time;
 
 	private long previous_system_time;
@@ -105,8 +108,9 @@ public class SimpleAnimator implements OnUpdateListener {
 		this.state.switchState(ANIMATION_STATE.PLAYING);
 	}
 
-	public boolean isDone () {
-		return this.state.currentState() == ANIMATION_STATE.DONE;
+	public float isDone () {
+// return this.state.currentState() == ANIMATION_STATE.DONE;
+		return this.current_time * 1f / this.loop_time;
 	}
 
 }

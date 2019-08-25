@@ -1,3 +1,4 @@
+
 package com.jfixby.r3.activity.api.animation;
 
 import com.jfixby.r3.activity.api.layer.VisibleComponent;
@@ -5,20 +6,20 @@ import com.jfixby.scarabei.api.color.Color;
 
 public interface Animation extends VisibleComponent {
 
-	void startAnimation();
+	void startAnimation ();
 
-	void stopAnimation();
+	void stopAnimation ();
 
-	boolean isAnimationDone();
+	float loopsComplete ();
 
-	public boolean isLooped();
+	public boolean isLooped ();
 
-	void setDebugRenderFlag(boolean b);
+	void setDebugRenderFlag (boolean b);
 
-	boolean getDebugRenderFlag();
+	boolean getDebugRenderFlag ();
 
-	public void setDebugColor(Color debug_render_color);
+	public void setDebugColor (Color debug_render_color);
 
-	public Color getDebugColor();
+	public Color getDebugColor ();
 
 }

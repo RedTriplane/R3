@@ -103,7 +103,7 @@ public class RedSimplePostitionModifyer implements SimplePostitionModifyer, Laye
 			this.startAnimation();
 		}
 
-		if (this.isAnimationDone()) {
+		if (this.loopsComplete() >= 1f) {
 			this.component.setPosition(this.end_anchor.position());
 			return;
 		}
@@ -170,12 +170,8 @@ public class RedSimplePostitionModifyer implements SimplePostitionModifyer, Laye
 	}
 
 	@Override
-	public boolean isAnimationDone () {
-		if (this.is_looped) {
-			return false;
-		}
-		this.current_time = this.clock.currentTimeMillis() - this.start_time;
-		return this.current_time > this.end_anchor.getTime();
+	public float loopsComplete () {
+		return (float)(this.current_time * 1d / this.loop_time);
 	}
 
 	@Override
