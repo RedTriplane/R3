@@ -8,7 +8,6 @@ import com.jfixby.r3.activity.api.input.CustomInputSpecs;
 import com.jfixby.r3.activity.api.input.TouchArea;
 import com.jfixby.r3.activity.api.input.TouchAreaSpecs;
 import com.jfixby.r3.activity.api.input.UserInputFactory;
-import com.jfixby.r3.activity.red.input.InputSpecs;
 import com.jfixby.r3.activity.red.input.RedTouchArea;
 import com.jfixby.r3.activity.red.input.RedTouchAreaSpecs;
 
@@ -32,7 +31,7 @@ public class RedUserInputFactory implements UserInputFactory {
 
 	@Override
 	public CustomInputSpecs newCustomInputSpecs () {
-		return new InputSpecs();
+		return new CustomInputSpecs();
 	}
 
 	@Override

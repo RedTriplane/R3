@@ -17,6 +17,8 @@ import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.floatn.Float2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
+import com.jfixby.scarabei.api.geometry.Geometry;
+import com.jfixby.scarabei.api.geometry.projections.OffsetProjection;
 
 public class RedCustomInput implements CustomInput, LayerBasedComponent {
 
@@ -31,6 +33,10 @@ public class RedCustomInput implements CustomInput, LayerBasedComponent {
 	final List<Raster> graphics = Collections.newList();
 
 	private MouseInputEventListener listener;
+
+	private final OffsetProjection offset;
+
+	private final CanvasPosition tmp;
 
 	public RedCustomInput (final CustomInputSpecs button_specs, final RedComponentsFactory master) {
 		this.root = master.newLayer();
@@ -56,6 +62,10 @@ public class RedCustomInput implements CustomInput, LayerBasedComponent {
 		}
 		this.root.attachComponents(this.touch_areas);
 		this.setInputListener(this.listener);
+
+		this.offset = Geometry.getProjectionFactory().newOffset();
+		this.tmp = Geometry.newCanvasPosition();
+		this.root.setProjection(this.offset);
 	}
 
 	@Override
@@ -126,41 +136,35 @@ public class RedCustomInput implements CustomInput, LayerBasedComponent {
 
 	@Override
 	public void setPosition (final Float2 position) {
-		this.position.set(position);
+		this.offset.setOffsetX(position.getX());
+		this.offset.setOffsetY(position.getY());
 	}
 
 	@Override
 	public CanvasPosition getPosition () {
-		return this.position;
-	}
-
-	public void updateChildrenPositionRespectively () {
-		for (int i = 0; i < this.touch_areas.size(); i++) {
-			this.touch_areas.getElementAt(i).shape().setPosition(this.position);
-		}
-		for (int i = 0; i < this.graphics.size(); i++) {
-			this.graphics.getElementAt(i).setPosition(this.position);
-		}
+		this.tmp.setX(this.offset.getOffsetX());
+		this.tmp.setY(this.offset.getOffsetY());
+		return this.tmp;
 	}
 
 	@Override
 	public void setPositionX (final double x) {
-		this.position.setX(x);
+		this.offset.setOffsetX(x);
 	}
 
 	@Override
 	public void setPositionY (final double y) {
-		this.position.setY(y);
+		this.offset.setOffsetY(y);
 	}
 
 	@Override
 	public double getPositionX () {
-		return this.position.getX();
+		return this.offset.getOffsetX();
 	}
 
 	@Override
 	public double getPositionY () {
-		return this.position.getY();
+		return this.offset.getOffsetY();
 	}
 
 }

@@ -19,7 +19,6 @@ import com.jfixby.r3.activity.api.user.MouseInputEventListener;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.geometry.Geometry;
 import com.jfixby.scarabei.api.geometry.projections.OffsetProjection;
-import com.jfixby.scarabei.api.log.L;
 
 public class RedButton implements Button, LayerBasedComponent {
 
@@ -101,7 +100,7 @@ public class RedButton implements Button, LayerBasedComponent {
 		this.onPressed.setVisible(false);
 		this.onReleased.setVisible(false);
 		this.onHover.setVisible(true);
-		L.d("onHover");
+// L.d("onHover");
 	}
 
 	private void onPress () {
@@ -109,7 +108,7 @@ public class RedButton implements Button, LayerBasedComponent {
 		this.onPressed.setVisible(false);
 		this.onReleased.setVisible(false);
 		this.onPress.setVisible(true);
-		L.d("onPress");
+// L.d("onPress");
 	}
 
 	private void onPressed () {
@@ -117,7 +116,7 @@ public class RedButton implements Button, LayerBasedComponent {
 		this.onPress.setVisible(false);
 		this.onReleased.setVisible(false);
 		this.onPressed.setVisible(true);
-		L.d("onPressed");
+// L.d("onPressed");
 	}
 
 	private void onReleased () {
@@ -125,7 +124,7 @@ public class RedButton implements Button, LayerBasedComponent {
 		this.onPress.setVisible(false);
 		this.onPressed.setVisible(false);
 		this.onReleased.setVisible(true);
-		L.d("onReleased");
+// L.d("onReleased");
 	}
 
 	private VisibleComponent addIfNotNull (final Layer root, final VisibleComponent raster, final VisibleComponent defaultValue) {
