@@ -166,7 +166,7 @@ public class RedTouchArea implements TouchArea, LayerBasedComponent {
 	}
 
 	@Override
-	public boolean gerDebugRenderFlag () {
+	public boolean getDebugRenderFlag () {
 		return this.debug_rectangle.isVisible();
 	}
 

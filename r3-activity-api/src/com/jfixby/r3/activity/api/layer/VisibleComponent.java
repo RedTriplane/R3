@@ -1,15 +1,14 @@
+
 package com.jfixby.r3.activity.api.layer;
 
-public interface VisibleComponent extends NamedComponent  {
+public interface VisibleComponent extends NamedComponent {
 	// DrawableComponent + Layers
-	public void hide();
+	public void hide ();
 
-	public void show();
+	public void show ();
 
-	public boolean isVisible();
+	public boolean isVisible ();
 
-	
-
-	void setVisible(boolean b);
+	void setVisible (boolean b);
 
 }

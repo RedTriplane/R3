@@ -9,7 +9,7 @@ import com.jfixby.r3.activity.api.raster.RasterPool;
 import com.jfixby.r3.activity.red.raster.RedTile;
 import com.jfixby.r3.activity.red.raster.RedTilesComposition;
 import com.jfixby.r3.activity.red.raster.TileSet;
-import com.jfixby.r3.engine.api.render.R3_RENDER_PARAMS;
+import com.jfixby.r3.engine.api.render.R3_GRAPHICS_RENDER_PARAMS;
 import com.jfixby.r3.engine.api.render.RasterData;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
@@ -17,7 +17,6 @@ import com.jfixby.r3.rana.api.asset.LoadedAssets;
 import com.jfixby.r3.rana.api.pkg.PackagesManager;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.names.ID;
-import com.jfixby.scarabei.api.names.Names;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class RasterFactory implements RasterComponentsFactory {
@@ -30,9 +29,9 @@ public class RasterFactory implements RasterComponentsFactory {
 
 	@Override
 	public Raster newRaster (final ID newAssetID) {
-		final boolean allowMissingAsset = SystemSettings.getFlag(R3_RENDER_PARAMS.AllowMissingRaster);
-		final String missingAssetString = SystemSettings.getStringParameter(R3_RENDER_PARAMS.RASTER_IS_MISING, "");
-		final boolean reportFail = SystemSettings.getFlag(R3_RENDER_PARAMS.PrintLogMessageOnMissingSprite);
+		final boolean allowMissingAsset = SystemSettings.getFlag(R3_GRAPHICS_RENDER_PARAMS.AllowMissingRaster);
+		final ID missingAsset = SystemSettings.getSystemAssetID(R3_GRAPHICS_RENDER_PARAMS.RASTER_IS_MISING);
+		final boolean reportFail = SystemSettings.getFlag(R3_GRAPHICS_RENDER_PARAMS.PrintLogMessageOnMissingSprite);
 
 		AssetHandler asset_handler = LoadedAssets.obtainAsset(newAssetID, this.master);
 		if (asset_handler == null) {
@@ -42,7 +41,6 @@ public class RasterFactory implements RasterComponentsFactory {
 				return null;
 			}
 
-			final ID missingAsset = Names.newID(missingAssetString);
 			asset_handler = LoadedAssets.obtainAsset(missingAsset, this.master);
 			if (asset_handler == null) {
 				Err.reportError("Asset is not loaded: " + missingAsset);
