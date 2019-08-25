@@ -8,7 +8,7 @@ import com.jfixby.r3.activity.api.audio.SoundEventSpecs;
 import com.jfixby.r3.activity.api.audio.SoundFactory;
 import com.jfixby.r3.activity.red.RedComponentsFactory;
 import com.jfixby.r3.engine.api.sound.AudioSample;
-import com.jfixby.r3.engine.api.sound.R3_SOUND_PARAMS;
+import com.jfixby.r3.engine.api.sound.R3_SOUND_RENDER_PARAMS;
 import com.jfixby.r3.rana.api.Asset;
 import com.jfixby.r3.rana.api.asset.AssetHandler;
 import com.jfixby.r3.rana.api.asset.LoadedAssets;
@@ -42,9 +42,9 @@ public class RedSoundFactory implements SoundFactory {
 
 	private AudioSample obtainAudioSample (final ID newAssetID) {
 
-		final boolean allowMissingAsset = SystemSettings.getFlag(R3_SOUND_PARAMS.AllowMissingSound);
-		final String missingAssetString = SystemSettings.getStringParameter(R3_SOUND_PARAMS.SOUND_IS_MISING, "");
-		final boolean reportFail = SystemSettings.getFlag(R3_SOUND_PARAMS.PrintLogMessageOnMissingSound);
+		final boolean allowMissingAsset = SystemSettings.getFlag(R3_SOUND_RENDER_PARAMS.AllowMissingSound);
+		final String missingAssetString = SystemSettings.getStringParameter(R3_SOUND_RENDER_PARAMS.SOUND_IS_MISING, "");
+		final boolean reportFail = SystemSettings.getFlag(R3_SOUND_RENDER_PARAMS.PrintLogMessageOnMissingSound);
 
 		AssetHandler asset_handler = LoadedAssets.obtainAsset(newAssetID, this.master);
 		if (asset_handler == null) {
