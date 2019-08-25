@@ -4,7 +4,6 @@ package com.jfixby.r3.activity.red.act;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Queue;
 import com.jfixby.scarabei.api.debug.Debug;
-import com.jfixby.scarabei.api.log.L;
 import com.jfixby.scarabei.api.taskman.Job;
 import com.jfixby.scarabei.api.taskman.Task;
 import com.jfixby.scarabei.api.taskman.TaskManager;
@@ -31,9 +30,9 @@ public class UIEventsQueue {
 
 			if (UIEventsQueue.this.current_event == null) {
 				if (UIEventsQueue.this.queue.hasMore()) {
-					L.d("queue", UIEventsQueue.this.queue);
+// L.d("queue", UIEventsQueue.this.queue);
 					UIEventsQueue.this.current_event = UIEventsQueue.this.queue.dequeue();
-					L.d("current_event", UIEventsQueue.this.current_event);
+// L.d("current_event", UIEventsQueue.this.current_event);
 					UIEventsQueue.this.current_event.go();
 				}
 			}
