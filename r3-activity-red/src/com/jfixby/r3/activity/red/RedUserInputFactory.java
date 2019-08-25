@@ -1,6 +1,8 @@
 
 package com.jfixby.r3.activity.red;
 
+import com.jfixby.r3.activity.api.input.Button;
+import com.jfixby.r3.activity.api.input.ButtonSpecs;
 import com.jfixby.r3.activity.api.input.CustomInput;
 import com.jfixby.r3.activity.api.input.CustomInputSpecs;
 import com.jfixby.r3.activity.api.input.TouchArea;
@@ -36,5 +38,15 @@ public class RedUserInputFactory implements UserInputFactory {
 	@Override
 	public CustomInput newCustomInput (final CustomInputSpecs specs) {
 		return new RedCustomInput(specs, this.master);
+	}
+
+	@Override
+	public ButtonSpecs newButtonSpecs () {
+		return new ButtonSpecs();
+	}
+
+	@Override
+	public Button newButton (final ButtonSpecs specs) {
+		return new RedButton(this.master, specs);
 	}
 }

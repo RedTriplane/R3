@@ -11,4 +11,8 @@ public interface UserInputFactory {
 
 	CustomInput newCustomInput (CustomInputSpecs button_specs);
 
+	ButtonSpecs newButtonSpecs ();
+
+	Button newButton (ButtonSpecs specs);
+
 }

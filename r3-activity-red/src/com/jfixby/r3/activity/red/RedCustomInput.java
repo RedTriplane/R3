@@ -1,6 +1,8 @@
 
 package com.jfixby.r3.activity.red;
 
+import java.util.ArrayList;
+
 import com.jfixby.r3.activity.api.LayerBasedComponent;
 import com.jfixby.r3.activity.api.input.CustomInput;
 import com.jfixby.r3.activity.api.input.CustomInputSpecs;
@@ -15,7 +17,6 @@ import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 import com.jfixby.scarabei.api.floatn.Float2;
 import com.jfixby.scarabei.api.geometry.CanvasPosition;
-import com.jfixby.scarabei.api.geometry.Geometry;
 
 public class RedCustomInput implements CustomInput, LayerBasedComponent {
 
@@ -33,19 +34,19 @@ public class RedCustomInput implements CustomInput, LayerBasedComponent {
 
 	public RedCustomInput (final CustomInputSpecs button_specs, final RedComponentsFactory master) {
 		this.root = master.newLayer();
-		this.setName(button_specs.getName());
-		final Collection<TouchAreaSpecs> areas = button_specs.listTouchAreas();
+		this.setName(button_specs.name);
+		final ArrayList<TouchAreaSpecs> areas = button_specs.touchAreas;
 		{
-			final Collection<Raster> options = button_specs.listOptions();
+			final ArrayList<Raster> options = button_specs.options;
 			for (int i = 0; i < options.size(); i++) {
-				final Raster option_i = options.getElementAt(i);
+				final Raster option_i = options.get(i);
 				this.root.attachComponent(option_i);
 				this.graphics.add(option_i);
 				option_i.setOriginAbsolute(0, 0);
 			}
 		}
 		for (int i = 0; i < areas.size(); i++) {
-			final TouchAreaSpecs area_specs = areas.getElementAt(i);
+			final TouchAreaSpecs area_specs = areas.get(i);
 			// area_specs.setID(id);
 
 			final TouchArea area = master.getUserInputDepartment().newTouchArea(area_specs);
@@ -123,8 +124,6 @@ public class RedCustomInput implements CustomInput, LayerBasedComponent {
 		return this.touch_areas;
 	}
 
-	final CanvasPosition position = Geometry.newCanvasPosition();
-
 	@Override
 	public void setPosition (final Float2 position) {
 		this.position.set(position);
@@ -135,7 +134,6 @@ public class RedCustomInput implements CustomInput, LayerBasedComponent {
 		return this.position;
 	}
 
-	@Override
 	public void updateChildrenPositionRespectively () {
 		for (int i = 0; i < this.touch_areas.size(); i++) {
 			this.touch_areas.getElementAt(i).shape().setPosition(this.position);

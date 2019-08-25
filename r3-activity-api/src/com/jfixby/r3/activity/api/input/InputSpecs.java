@@ -1,20 +1,14 @@
 
 package com.jfixby.r3.activity.api.input;
 
+import java.util.ArrayList;
+
 import com.jfixby.r3.activity.api.raster.Raster;
-import com.jfixby.scarabei.api.collections.Collection;
 
-public interface InputSpecs {
-	String getName ();
+public class InputSpecs {
+	public String name;
 
-	void setName (String button_name);
-
-	void addTouchArea (TouchAreaSpecs touch_area);
-
-	public Collection<TouchAreaSpecs> listTouchAreas ();
-
-	void addOption (Raster raster);
-
-	Collection<Raster> listOptions ();
+	public final ArrayList<TouchAreaSpecs> touchAreas = new ArrayList<>();
+	public final ArrayList<Raster> options = new ArrayList<>();
 
 }

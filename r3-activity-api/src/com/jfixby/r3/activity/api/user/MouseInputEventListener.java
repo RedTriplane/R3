@@ -44,4 +44,9 @@ public abstract class MouseInputEventListener implements Component {
 		return true;
 	}
 
+	@Override
+	public String toString () {
+		return "MouseEvent";
+	}
+
 }
