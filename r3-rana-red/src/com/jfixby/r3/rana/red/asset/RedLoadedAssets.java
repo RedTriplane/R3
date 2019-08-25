@@ -90,6 +90,7 @@ public class RedLoadedAssets implements LoadedAssetsComponent {
 	@Override
 	public AssetHandler obtainAsset (final ID asset_id, final AssetsConsumer consumer) {
 		Debug.checkNull("asset_id", asset_id);
+		Debug.checkEmpty("asset_id", asset_id.toString());
 		Debug.checkNull("consumer", consumer);
 		final RedAssetHandler asset = this.assets.get(asset_id);
 		if (asset == null) {

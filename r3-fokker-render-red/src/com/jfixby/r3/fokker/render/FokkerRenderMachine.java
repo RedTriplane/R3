@@ -122,7 +122,6 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 		this.layer_projection = projection;
 		if (this.layer_projection == null) {
 			this.layer_projection = Geometry.getProjectionFactory().IDENTITY();
-
 		}
 	}
 
