@@ -13,4 +13,8 @@ public interface Button extends VisibleComponent, InputComponent, NamedComponent
 
 	void setPositionY (double y);
 
+	public void setOnClickListener (OnClickListener listener);
+
+	public OnClickListener getOnClickListener ();
+
 }
