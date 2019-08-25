@@ -2,6 +2,7 @@
 package com.jfixby.r3.scene2d.red;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.jfixby.r3.activity.api.ComponentsFactory;
 import com.jfixby.r3.activity.api.UIFactory;
@@ -24,9 +25,10 @@ import com.jfixby.r3.activity.api.camera.CameraFactory;
 import com.jfixby.r3.activity.api.camera.CanvasCamera;
 import com.jfixby.r3.activity.api.camera.CanvasCameraSpecs;
 import com.jfixby.r3.activity.api.camera.SIMPLE_CAMERA_POLICY;
+import com.jfixby.r3.activity.api.input.Button;
+import com.jfixby.r3.activity.api.input.ButtonSpecs;
 import com.jfixby.r3.activity.api.input.CustomInput;
 import com.jfixby.r3.activity.api.input.CustomInputSpecs;
-import com.jfixby.r3.activity.api.input.InputSpecs;
 import com.jfixby.r3.activity.api.input.TouchArea;
 import com.jfixby.r3.activity.api.input.TouchAreaSpecs;
 import com.jfixby.r3.activity.api.input.UserInputFactory;
@@ -308,31 +310,46 @@ public class RedSceneConstructor {
 		final Float2 position = Geometry.newFloat2(element.position_x, element.position_y);
 		final boolean debug_mode = element.debug_mode || false;
 		if (element.input_settings.is_button) {
-			Err.throwNotImplementedYet();
-// final ButtonSpecs button_specs = input_factory.newButtonSpecs();
-//
-// button_specs.setName(element.name);
-//
-// this.restoreTouchAreas(element.input_settings.touch_area, button_specs, components_factory, settings);
-// {
-// final LayerElement child_element = element.input_settings.on_pressed;
-// if (child_element != null) {
-// final VisibleComponent raster = this.restore(components_factory, child_element, settings);
-// button_specs.setOnPressedRaster(raster);
-// }
-// }
-// {
-// final LayerElement child_element = element.input_settings.on_released;
-// if (child_element != null) {
-// final VisibleComponent raster = this.restore(components_factory, child_element, settings);
-// button_specs.setOnReleasedRaster(raster);
-// }
-// }
-//
-// final Button button = input_factory.newButton(button_specs);
-// button.setDebugRenderFlag(debug_mode);
-//
-// component = button;
+			final ButtonSpecs button_specs = input_factory.newButtonSpecs();
+
+			this.restoreTouchAreas(element.input_settings.touch_area, button_specs.touchAreas, components_factory, settings);
+
+			{
+				final LayerElement child_element = element.input_settings.on_pressed;
+				if (child_element != null) {
+					final VisibleComponent raster = this.restore(components_factory, child_element, settings);
+					button_specs.onPressed = (raster);
+				}
+			}
+			{
+				final LayerElement child_element = element.input_settings.on_press;
+				if (child_element != null) {
+					final VisibleComponent raster = this.restore(components_factory, child_element, settings);
+					button_specs.onPress = (raster);
+				}
+			}
+			{
+				final LayerElement child_element = element.input_settings.on_released;
+				if (child_element != null) {
+					final VisibleComponent raster = this.restore(components_factory, child_element, settings);
+					button_specs.onReleased = (raster);
+				}
+			}
+			{
+				final LayerElement child_element = element.input_settings.on_hover;
+				if (child_element != null) {
+					final VisibleComponent raster = this.restore(components_factory, child_element, settings);
+					button_specs.onHover = (raster);
+				}
+			}
+
+			final Button button = input_factory.newButton(button_specs);
+			button.setDebugRenderFlag(debug_mode || true);
+			button.setName(element.name);
+			button.setPositionX(element.position_x);
+			button.setPositionY(element.position_y);
+
+			return button;
 // this.inputs_components.put((element.name), button);
 		} else if (element.input_settings.is_switch) {
 			Err.throwNotImplementedYet();
@@ -362,22 +379,25 @@ public class RedSceneConstructor {
 		} else if (element.input_settings.is_custom) {
 			final CustomInputSpecs button_specs = input_factory.newCustomInputSpecs();
 
-			button_specs.setName(element.name);
+			button_specs.name = (element.name);
 
-			this.restoreTouchAreas(element.input_settings.touch_area, button_specs, components_factory, settings);
+			this.restoreTouchAreas(element.input_settings.touch_area, button_specs.touchAreas, components_factory, settings);
 
 			for (int i = 0; i < element.children.size(); i++) {
 				final SceneStructureAsset structure = settings.getStructure();
 				final LayerElement child_element = element.children.elementAt(i, structure.structure());
 				final Raster raster = (Raster)this.restore(components_factory, child_element, settings);
-				button_specs.addOption(raster);
+				button_specs.options.add(raster);
 
 			}
 
 			final CustomInput button = input_factory.newCustomInput(button_specs);
 			button.setDebugRenderFlag(debug_mode);
 			button.setPosition(position);
-			button.updateChildrenPositionRespectively();
+			{
+// button.updateChildrenPositionRespectively();
+				Err.throwNotImplementedYet();
+			}
 			component = button;
 			currentScene.inputs_components.put((element.name), button);
 		} else if (element.input_settings.is_touch_area) {
@@ -403,7 +423,7 @@ public class RedSceneConstructor {
 		return component;
 	}
 
-	void restoreTouchAreas (final LayerElement touch_area, final InputSpecs button_specs,
+	void restoreTouchAreas (final LayerElement touch_area, final ArrayList<TouchAreaSpecs> touch,
 		final ComponentsFactory components_factory, final Settings settings) {
 		for (int i = 0; i < touch_area.children.size(); i++) {
 			final SceneStructureAsset structure = settings.getStructure();
@@ -416,7 +436,7 @@ public class RedSceneConstructor {
 			// AssetID button_id = button_specs.getID();
 			// touch_area_spec.setID(button_id.child(touch_area_spec.getName()));
 
-			button_specs.addTouchArea(touch_area_spec);
+			touch.add(touch_area_spec);
 
 		}
 
