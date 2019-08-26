@@ -51,7 +51,6 @@ include "r3-fokker-raster-red"
 
 include "r3-sound-api"
 include "r3-sound-io"
-include "r3-sound-red"
 
 include "r3-fokker-sound-api"
 include "r3-fokker-sound-red"
