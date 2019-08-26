@@ -1,7 +1,11 @@
 dependencies{
   
   compile "com.github.Scarabei.Scarabei:scarabei-api:$scarabeiVersion"
+  
+  compile "com.github.Scarabei.Scarabei:scarabei-red:$scarabeiVersion"
+  
   compile "com.github.Scarabei.Scarabei:scarabei-api-android:$scarabeiVersion"
+  
   compile "com.github.Scarabei.Scarabei:scarabei-red-android:$scarabeiVersion"
   
   compile "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
