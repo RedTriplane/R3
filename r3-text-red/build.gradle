@@ -3,5 +3,7 @@
 
 dependencies{
         compile project(":r3-text-io")
+        
+        compile project(":r3-rana-api")
   
 }
