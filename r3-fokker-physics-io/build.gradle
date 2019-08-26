@@ -1,9 +1,4 @@
+dependencies {
+}
 
  sourceCompatibility = 1.7
-
-dependencies{
-  //compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-  //compile "com.github.libgdx.libgdx:gdx:$gdxJitPackVersion"
-  //compile "com.github.Scarabei.Scarabei:scarabei-red:$scarabeiVersion"
-  
-}
