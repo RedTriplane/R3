@@ -2,18 +2,15 @@
  sourceCompatibility = 1.7
 
 dependencies{
+      compile "com.github.Scarabei.Scarabei:scarabei-api:$scarabeiVersion"
+      compile "com.github.Scarabei.Scarabei:scarabei-red:$scarabeiVersion"
+      
+      compile project(":r3-engine-api")
 
-
-  compile project(":r3-fokker-raster-api")
-  compile project(":r3-fokker-shader-api")
-  compile project(":r3-fokker-font-api")
+      compile project(":r3-fokker-api")
+      compile project(":r3-fokker-raster-api")
+      compile project(":r3-fokker-shader-api")
+      compile project(":r3-fokker-font-api")
+      
     
-  //compile project(":r3-engine-api")
-  //compile project(":r3-render-api") 
-  //compile project(":r3-rana-api")  
-  
-
-  //compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-  //compile "com.github.libgdx.libgdx:gdx:$gdxJitPackVersion"
-  
 }

@@ -1,9 +1,13 @@
  dependencies {
+      compile "com.github.Scarabei.Scarabei:scarabei-api:$scarabeiVersion"
+ 
       compile project(":r3-activity-api")
       compile project(":r3-render-api")
       compile project(":r3-engine-api")
       compile project(":r3-rana-api")
+      compile project(":r3-sound-api")
       compile project(":r3-texture-slicer-io")
+      compile project(":r3-fokker-font-api")
  }
  
   sourceCompatibility = 1.7

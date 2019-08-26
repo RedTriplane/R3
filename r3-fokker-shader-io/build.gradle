@@ -1,6 +1,4 @@
+dependencies {
+}
 
  sourceCompatibility = 1.7
-
-dependencies{
-  
-}

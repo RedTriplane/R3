@@ -1,13 +1,13 @@
 dependencies{
-   compile project(":r3-fokker-raster-api")
-   compile project(":r3-fokker-raster-io")
    
    compile project(":r3-fokker-io")
+
+   compile project(":r3-sound-api")
+   
+   compile project(":r3-sound-io")           
+   
    compile project(":r3-fokker-api")
-   
-   compile project(":r3-sound-api")        
-   
-   
+   compile project(":r3-fokker-sound-api")
 }
 
  
