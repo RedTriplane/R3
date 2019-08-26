@@ -612,6 +612,7 @@ public class RedSceneConstructor {
 			specs.autostart = element.sound_settings.autostart;
 			final Music event = sound_factory.newMusic(specs);
 			event.setVolume(element.sound_settings.volume);
+			event.setLooping(element.sound_settings.is_looped);
 			event.setName(element.name);
 			return event;
 		}

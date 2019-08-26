@@ -85,26 +85,21 @@ public class RedSoundEvent extends RedRectangularComponent implements SoundEvent
 		this.setSize(rectangle.getWidth(), rectangle.getHeight());
 	}
 
-	@Override
-	public boolean isMute () {
-		return !this.isVisible();
-	}
-
 	VocalEventState state = new VocalEventState();
 
 	@Override
-	public void doVocalize (final boolean isMuted) {
-		SoundMachine.component().VocalizeEvent(this.asset_id, this, this.state, isMuted);
+	public void doVocalize () {
+		SoundMachine.component().VocalizeEvent(this.asset_id, this, this.state);
 	}
 
 	@Override
 	public void play () {
-		this.show();
+		this.state.isMuted = false;
 	}
 
 	@Override
 	public void mute () {
-		this.hide();
+		this.state.isMuted = true;
 	}
 
 	@Override

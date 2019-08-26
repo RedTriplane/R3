@@ -121,13 +121,13 @@ public class FokkerSoundMachine implements SoundMachineComponent, AssetsConsumer
 	}
 
 	@Override
-	public void VocalizeEvent (final ID asset_id, final Vocalizable event, final VocalEventState state, final boolean isMuted) {
-		this.audioSamplesRenderer.vocalizeEvent(asset_id, event, state, isMuted);
+	public void VocalizeEvent (final ID asset_id, final Vocalizable event, final VocalEventState state) {
+		this.audioSamplesRenderer.vocalizeEvent(asset_id, event, state);
 	}
 
 	@Override
-	public void VocalizeMusic (final ID asset_id, final Vocalizable music, final VocalEventState state, final boolean isMuted) {
-		this.musicRenderer.vocalizeMusic(asset_id, music, state, isMuted);
+	public void VocalizeMusic (final ID asset_id, final Vocalizable music, final VocalEventState state) {
+		this.musicRenderer.vocalizeMusic(asset_id, music, state);
 
 	}
 

@@ -138,7 +138,7 @@ public class RedLayerAudioRenderer {
 	final static private void renderComponent (final Vocalizable e, final DebugTimer timer, final ExecutionMode execMode,
 		final RedLayer parent) {
 		try {
-			e.doVocalize(e.isMute());
+			e.doVocalize();
 		} catch (final Throwable xe) {
 			throw new FailedToRenderComponentException(xe, parent);
 		}

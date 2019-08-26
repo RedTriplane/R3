@@ -8,4 +8,8 @@ public interface Music extends SoundComponent {
 
 	Music copy ();
 
+	public void setLooping (Boolean is_looped);
+
+	public float loopsComplete ();
+
 }

@@ -14,8 +14,8 @@ public class FokkerMusicRenderer {
 	private FokkerAudioSample sound;
 	private Music gdx_music;
 
-	final HashMap<Vocalizable, ID> currently_playing = new HashMap<>(64);
-	final HashMap<Vocalizable, ID> previously_playing = new HashMap<>(64);
+	final HashMap<Vocalizable, MusicHandler> currently_playing = new HashMap<>(64);
+	final HashMap<Vocalizable, MusicHandler> previously_playing = new HashMap<>(64);
 
 	public void init () {
 	}
@@ -25,7 +25,8 @@ public class FokkerMusicRenderer {
 
 	public void endFrame () {
 		for (final Vocalizable k : this.previously_playing.keySet()) {
-			final ID asset_id = this.previously_playing.get(k);
+			final MusicHandler h = this.previously_playing.get(k);
+			final ID asset_id = h.assetID;
 			this.sound = FokkerAudioSamples.obtain(asset_id);
 			this.gdx_music = this.sound.getGdxMusic();
 			this.gdx_music.stop();
@@ -38,22 +39,32 @@ public class FokkerMusicRenderer {
 		this.currently_playing.clear();
 	}
 
-	public void vocalizeMusic (final ID asset_id, final Vocalizable music, final VocalEventState state, final boolean isMuted) {
-
+	public void vocalizeMusic (final ID asset_id, final Vocalizable music, final VocalEventState state) {
 		this.sound = FokkerAudioSamples.obtain(asset_id);
 		this.gdx_music = this.sound.getGdxMusic();
 
-		ID instance_id = this.previously_playing.remove(music);
-		if (instance_id != null) {
+		MusicHandler h = this.previously_playing.remove(music);
+		if (h != null) {
+			state.loopsComplete = h.loopsComplete + this.gdx_music.getPosition();
 			this.gdx_music.setVolume(state.volume);
-			this.currently_playing.put(music, instance_id);
+			this.currently_playing.put(music, h);
 			return;
 		}
 
-		this.gdx_music.play();
+		if (state.isMuted) {
+			return;
+		}
+
+		h = new MusicHandler();
+		this.gdx_music.setPosition(state.position);
 		this.gdx_music.setVolume(state.volume);
-		instance_id = asset_id;
-		this.currently_playing.put(music, instance_id);
+		this.gdx_music.setLooping(state.isLooping);
+		this.gdx_music.setOnCompletionListener(h);
+		state.loopsComplete = h.loopsComplete + this.gdx_music.getPosition();
+		this.gdx_music.play();
+
+		h.assetID = asset_id;
+		this.currently_playing.put(music, h);
 
 		this.sound = null;
 		this.gdx_music = null;

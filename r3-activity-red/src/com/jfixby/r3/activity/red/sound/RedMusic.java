@@ -74,8 +74,8 @@ public class RedMusic implements Music, Vocalizable {
 	private String name;
 
 	@Override
-	public void doVocalize (final boolean isMuted) {
-		SoundMachine.component().VocalizeMusic(this.asset_id, this, this.state, isMuted);
+	public void doVocalize () {
+		SoundMachine.component().VocalizeMusic(this.asset_id, this, this.state);
 	}
 
 	@Override
@@ -89,11 +89,6 @@ public class RedMusic implements Music, Vocalizable {
 	}
 
 	@Override
-	public boolean isMute () {
-		return false;
-	}
-
-	@Override
 	public void setVolume (final float volume) {
 		this.state.volume = volume;
 	}
@@ -101,6 +96,16 @@ public class RedMusic implements Music, Vocalizable {
 	@Override
 	public float getVolume () {
 		return this.state.volume;
+	}
+
+	@Override
+	public float loopsComplete () {
+		return this.state.loopsComplete;
+	}
+
+	@Override
+	public void setLooping (final Boolean is_looped) {
+		this.state.isLooping = is_looped;
 	}
 
 }

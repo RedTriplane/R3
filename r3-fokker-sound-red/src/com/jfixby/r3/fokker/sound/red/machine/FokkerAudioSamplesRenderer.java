@@ -11,9 +11,8 @@ import com.jfixby.r3.fokker.sound.api.samples.FokkerAudioSamples;
 import com.jfixby.scarabei.api.names.ID;
 
 public class FokkerAudioSamplesRenderer {
-	final HashMap<Vocalizable, Long> currently_playing = new HashMap<>(64);
-	final HashMap<Vocalizable, ID> assets = new HashMap<>(64);
-	final HashMap<Vocalizable, Long> previously_playing = new HashMap<>(64);
+	final HashMap<Vocalizable, MusicHandler> currently_playing = new HashMap<>(64);
+	final HashMap<Vocalizable, MusicHandler> previously_playing = new HashMap<>(64);
 
 	private FokkerAudioSample sound;
 	private Sound gdx_sound;
@@ -23,8 +22,9 @@ public class FokkerAudioSamplesRenderer {
 
 	public void endFrame () {
 		for (final Vocalizable k : this.previously_playing.keySet()) {
-			final Long instance_id = this.previously_playing.get(k);
-			final ID asset_id = this.assets.remove(k);
+			final MusicHandler h = this.previously_playing.get(k);
+			final Long instance_id = h.instance_id;
+			final ID asset_id = h.assetID;
 			this.sound = FokkerAudioSamples.obtain(asset_id);
 			this.gdx_sound = this.sound.getGdxSound();
 			this.gdx_sound.stop(instance_id);
@@ -40,22 +40,28 @@ public class FokkerAudioSamplesRenderer {
 	public void beginFrame () {
 	}
 
-	public void vocalizeEvent (final ID asset_id, final Vocalizable event, final VocalEventState state, final boolean isMuted) {
+	public void vocalizeEvent (final ID asset_id, final Vocalizable event, final VocalEventState state) {
 		this.sound = FokkerAudioSamples.obtain(asset_id);
 		this.gdx_sound = this.sound.getGdxSound();
+		MusicHandler h = this.previously_playing.remove(event);
 
-		Long instance_id = this.previously_playing.remove(event);
-		if (instance_id != null) {
-			this.currently_playing.put(event, instance_id);
-			this.gdx_sound.setVolume(instance_id, state.volume);
+		if (h != null) {
+			this.currently_playing.put(event, h);
+			this.gdx_sound.setVolume(h.instance_id, state.volume);
 			return;
 		}
 
-		instance_id = this.gdx_sound.play();
-		this.gdx_sound.setVolume(instance_id, state.volume);
+		if (state.isMuted) {
+			return;
+		}
 
-		this.currently_playing.put(event, instance_id);
-		this.assets.put(event, asset_id);
+		h = new MusicHandler();
+		h.instance_id = this.gdx_sound.play();
+		this.gdx_sound.setVolume(h.instance_id, state.volume);
+		state.loopsComplete = 0;
+
+		this.currently_playing.put(event, h);
+		h.assetID = asset_id;
 
 		this.sound = null;
 		this.gdx_sound = null;
