@@ -46,6 +46,7 @@ import com.badlogic.gdx.graphics.glutils.GLVersion;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.SnapshotArray;
+import com.jfixby.scarabei.api.err.Err;
 
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.EGLConfigChooser;
@@ -765,5 +766,15 @@ public class RedAndroidGraphics implements Graphics, Renderer {
 		public AndroidMonitor (final int virtualX, final int virtualY, final String name) {
 			super(virtualX, virtualY, name);
 		}
+	}
+
+	@Override
+	public void setGL20 (final GL20 gl20) {
+		Err.throwNotImplementedYet();
+	}
+
+	@Override
+	public void setGL30 (final GL30 gl30) {
+		Err.throwNotImplementedYet();
 	}
 }
